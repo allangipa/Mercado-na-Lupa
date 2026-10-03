@@ -1,72 +1,1962 @@
 {
+ "A1MD34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRA1MDBDR002",
+  "nome_pregao": "ADVANCED MIC"
+ },
+ "A1MT34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRA1MTBDR008",
+  "nome_pregao": "APPLIED MATE"
+ },
+ "AAPL34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRAAPLBDR004",
+  "nome_pregao": "APPLE"
+ },
  "ABEV3": {
+  "bdi": "02",
   "data": "2026-10-02",
   "especificacao": "ON",
   "fii": false,
   "isin": "BRABEVACNOR1",
   "nome_pregao": "AMBEV S/A"
  },
+ "AFHI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRAFHICTF005",
+  "nome_pregao": "FII AFHI CRI"
+ },
+ "ALOS3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  ED  NM",
+  "fii": false,
+  "isin": "BRALOSACNOR5",
+  "nome_pregao": "ALLOS"
+ },
+ "ALUP11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N2",
+  "fii": false,
+  "isin": "BRALUPCDAM15",
+  "nome_pregao": "ALUPAR"
+ },
+ "ALZR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRALZRCTF006",
+  "nome_pregao": "FII ALIANZA"
+ },
+ "AMZO34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRAMZOBDR002",
+  "nome_pregao": "AMAZON"
+ },
+ "ASAI3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRASAIACNOR0",
+  "nome_pregao": "ASSAI"
+ },
+ "ASML34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRASMLBDR003",
+  "nome_pregao": "ASML HOLD"
+ },
+ "AURA33": {
+  "bdi": "35",
+  "data": "2026-10-02",
+  "especificacao": "DR3",
+  "fii": false,
+  "isin": "BRAURABDR001",
+  "nome_pregao": "AURA 360"
+ },
+ "AURE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRAUREACNOR9",
+  "nome_pregao": "AUREN"
+ },
+ "AVGO34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRAVGOBDR003",
+  "nome_pregao": "BROADCOM INC"
+ },
+ "AXIA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRAXIAACNOR0",
+  "nome_pregao": "AXIA ENERGIA"
+ },
+ "AXIA7": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PNC ATZ NM",
+  "fii": false,
+  "isin": "BRAXIAACNPC9",
+  "nome_pregao": "AXIA ENERGIA"
+ },
+ "AZZA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRAZZAACNOR9",
+  "nome_pregao": "AZZAS 2154"
+ },
+ "B3SA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRB3SAACNOR6",
+  "nome_pregao": "B3"
+ },
+ "BABA34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRBABABDR005",
+  "nome_pregao": "ALIBABAGR"
+ },
  "BBAS3": {
+  "bdi": "02",
   "data": "2026-10-02",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRBBASACNOR3",
   "nome_pregao": "BRASIL"
  },
+ "BBDC3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  N1",
+  "fii": false,
+  "isin": "BRBBDCACNOR1",
+  "nome_pregao": "BRADESCO"
+ },
+ "BBDC4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN  EJ  N1",
+  "fii": false,
+  "isin": "BRBBDCACNPR8",
+  "nome_pregao": "BRADESCO"
+ },
+ "BBIG11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRBBIGCTF004",
+  "nome_pregao": "FII BBIG"
+ },
+ "BBSE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRBBSEACNOR5",
+  "nome_pregao": "BBSEGURIDADE"
+ },
+ "BCRI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRBCRICTF009",
+  "nome_pregao": "FII BEES CRI"
+ },
+ "BEEF3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRBEEFACNOR6",
+  "nome_pregao": "MINERVA"
+ },
+ "BERK34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRBERKBDR002",
+  "nome_pregao": "BERKSHIRE"
+ },
+ "BOAC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRBOACBDR004",
+  "nome_pregao": "BANK AMERICA"
+ },
+ "BPAC11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N2",
+  "fii": false,
+  "isin": "BRBPACUNT006",
+  "nome_pregao": "BTGP BANCO"
+ },
+ "BPML11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRBPMLCTF006",
+  "nome_pregao": "FII BTG SHOP"
+ },
+ "BRAP4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN      N1",
+  "fii": false,
+  "isin": "BRBRAPACNPR2",
+  "nome_pregao": "BRADESPAR"
+ },
+ "BRAV3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRBRAVACNOR3",
+  "nome_pregao": "BRAVA"
+ },
+ "BRCO11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRBRCOCTF007",
+  "nome_pregao": "FII BRESCO"
+ },
+ "BRCR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRBRCRCTF000",
+  "nome_pregao": "FII BC FUND"
+ },
+ "BRSR6": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PNB     N1",
+  "fii": false,
+  "isin": "BRBRSRACNPB4",
+  "nome_pregao": "BANRISUL"
+ },
+ "BTCI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRBTCICTF005",
+  "nome_pregao": "FII BTG CRI"
+ },
+ "BTHF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRBTHFCTF000",
+  "nome_pregao": "FII BTHF"
+ },
+ "BTLG11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRBTLGCTF000",
+  "nome_pregao": "FII BTLG"
+ },
+ "C2OI34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRC2OIBDR003",
+  "nome_pregao": "COINBASEGLOB"
+ },
+ "C2RW34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRC2RWBDR007",
+  "nome_pregao": "CROWDSTRIKE"
+ },
+ "CACR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRCACRCTF004",
+  "nome_pregao": "CARTESIA FII"
+ },
+ "CBAV3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCBAVACNOR5",
+  "nome_pregao": "CBA"
+ },
+ "CEAB3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCEABACNOR1",
+  "nome_pregao": "CEA MODAS"
+ },
+ "CHVX34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRCHVXBDR008",
+  "nome_pregao": "CHEVRON"
+ },
+ "CLIN11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRCLINCTF007",
+  "nome_pregao": "FII CLAVE IN"
+ },
+ "CMIG4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN  EJ  N1",
+  "fii": false,
+  "isin": "BRCMIGACNPR3",
+  "nome_pregao": "CEMIG"
+ },
+ "CMIN3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      N2",
+  "fii": false,
+  "isin": "BRCMINACNOR2",
+  "nome_pregao": "CSNMINERACAO"
+ },
+ "COCA34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRCOCABDR002",
+  "nome_pregao": "COCA COLA"
+ },
+ "COGN3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCOGNACNOR2",
+  "nome_pregao": "COGNA ON"
+ },
+ "CPFE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCPFEACNOR0",
+  "nome_pregao": "CPFL ENERGIA"
+ },
+ "CPLE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCPLEACNOR8",
+  "nome_pregao": "COPEL"
+ },
+ "CPSH11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRCPSHCTF017",
+  "nome_pregao": "FII CPSH"
+ },
+ "CPTS11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRCPTSCTF004",
+  "nome_pregao": "FII CAPI SEC"
+ },
+ "CSAN3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCSANACNOR6",
+  "nome_pregao": "COSAN"
+ },
+ "CSMG3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCSMGACNOR5",
+  "nome_pregao": "COPASA"
+ },
+ "CSNA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON",
+  "fii": false,
+  "isin": "BRCSNAACNOR6",
+  "nome_pregao": "SID NACIONAL"
+ },
+ "CURY3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCURYACNOR3",
+  "nome_pregao": "CURY S/A"
+ },
+ "CVCB3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCVCBACNOR1",
+  "nome_pregao": "CVC BRASIL"
+ },
+ "CXSE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCXSEACNOR7",
+  "nome_pregao": "CAIXA SEGURI"
+ },
+ "CYCR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRCYCRCTF004",
+  "nome_pregao": "FII CYRELA"
+ },
+ "CYRE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRCYREACNOR7",
+  "nome_pregao": "CYRELA REALT"
+ },
+ "D1DG34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRD1DGBDR001",
+  "nome_pregao": "DATADOG INC"
+ },
+ "D1EL34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRD1ELBDR009",
+  "nome_pregao": "DELL TECHNOL"
+ },
+ "DEVA11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRDEVACTF000",
+  "nome_pregao": "FII DEVANT"
+ },
+ "DIRR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRDIRRACNOR0",
+  "nome_pregao": "DIRECIONAL"
+ },
+ "DISB34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRDISBBDR006",
+  "nome_pregao": "WALT DISNEY"
+ },
+ "ECOR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRECORACNOR8",
+  "nome_pregao": "ECORODOVIAS"
+ },
+ "EGIE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BREGIEACNOR9",
+  "nome_pregao": "ENGIE BRASIL"
+ },
+ "EMBJ3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BREMBJACNOR1",
+  "nome_pregao": "EMBRAER"
+ },
+ "ENEV3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRENEVACNOR8",
+  "nome_pregao": "ENEVA"
+ },
+ "ENGI11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N2",
+  "fii": false,
+  "isin": "BRENGICDAM16",
+  "nome_pregao": "ENERGISA"
+ },
+ "EQTL3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BREQTLACNOR0",
+  "nome_pregao": "EQUATORIAL"
+ },
+ "EXXO34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BREXXOBDR006",
+  "nome_pregao": "EXXON MOBIL"
+ },
+ "FATN11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRFATNCTF000",
+  "nome_pregao": "FII ATHENA I"
+ },
+ "FCXO34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRFCXOBDR007",
+  "nome_pregao": "FREEPORT"
+ },
+ "FLRY3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRFLRYACNOR5",
+  "nome_pregao": "FLEURY"
+ },
+ "GARE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRGARECTF001",
+  "nome_pregao": "FII GUARDIAN"
+ },
+ "GGBR4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN      N1",
+  "fii": false,
+  "isin": "BRGGBRACNPR8",
+  "nome_pregao": "GERDAU"
+ },
+ "GGPS3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRGGPSACNOR9",
+  "nome_pregao": "GPS"
+ },
+ "GGRC11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRGGRCCTF002",
+  "nome_pregao": "FII GGR ZAG"
+ },
+ "GMAT3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRGMATACNOR7",
+  "nome_pregao": "GRUPO MATEUS"
+ },
+ "GOAU4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN      N1",
+  "fii": false,
+  "isin": "BRGOAUACNPR8",
+  "nome_pregao": "GERDAU MET"
+ },
+ "GOGL34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRGOGLBDR001",
+  "nome_pregao": "ALPHABET"
+ },
+ "GSGI34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRGSGIBDR008",
+  "nome_pregao": "GOLDMANSACHS"
+ },
+ "GTWR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRGTWRCTF003",
+  "nome_pregao": "FII G TOWERS"
+ },
+ "GZIT11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRGZITCTF005",
+  "nome_pregao": "FII GAZIT"
+ },
+ "HABT11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHABTCTF001",
+  "nome_pregao": "FII HABIT II"
+ },
+ "HAPV3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRHAPVACNOR4",
+  "nome_pregao": "HAPVIDA"
+ },
+ "HCTR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRHCTRCTF003",
+  "nome_pregao": "FII HECTARE"
+ },
+ "HFOF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHFOFCTF002",
+  "nome_pregao": "FII HTOPFOF3"
+ },
+ "HGBS11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHGBSCTF000",
+  "nome_pregao": "FII HEDGEBS"
+ },
+ "HGCR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHGCRCTF000",
+  "nome_pregao": "FII HGCR PAX"
+ },
  "HGLG11": {
+  "bdi": "12",
   "data": "2026-10-02",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHGLGCTF004",
   "nome_pregao": "FII HGLG PAX"
  },
+ "HGRE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHGRECTF006",
+  "nome_pregao": "FII HGRE PAX"
+ },
+ "HGRU11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHGRUCTF002",
+  "nome_pregao": "FII HGRU PAX"
+ },
+ "HSAF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHSAFCTF004",
+  "nome_pregao": "FII HSI CRI"
+ },
+ "HSLG11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHSLGCTF009",
+  "nome_pregao": "FII HSI LOG"
+ },
+ "HSML11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHSMLCTF007",
+  "nome_pregao": "FII HSI MALL"
+ },
+ "HTMX11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHTMXCTF000",
+  "nome_pregao": "FII HOTEL MX"
+ },
+ "HYPE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRHYPEACNOR0",
+  "nome_pregao": "HYPERA"
+ },
+ "ICRI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRICRICTF004",
+  "nome_pregao": "FII CI IPCA"
+ },
+ "IGTI11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N1",
+  "fii": false,
+  "isin": "BRIGTICDAM16",
+  "nome_pregao": "IGUATEMI S.A"
+ },
+ "INBR32": {
+  "bdi": "35",
+  "data": "2026-10-02",
+  "especificacao": "DR2",
+  "fii": false,
+  "isin": "BRINBRBDR007",
+  "nome_pregao": "INTER CO"
+ },
+ "IRBR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRIRBRACNOR4",
+  "nome_pregao": "IRBBRASIL RE"
+ },
+ "IRIM11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRIRIMCTF003",
+  "nome_pregao": "FII IRIM"
+ },
+ "ISAE4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN      N1",
+  "fii": false,
+  "isin": "BRISAEACNPR9",
+  "nome_pregao": "ISA ENERGIA"
+ },
+ "ITLC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRITLCBDR005",
+  "nome_pregao": "INTEL"
+ },
+ "ITRI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRITRICTF008",
+  "nome_pregao": "FII ITRI"
+ },
+ "ITSA4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN      N1",
+  "fii": false,
+  "isin": "BRITSAACNPR7",
+  "nome_pregao": "ITAUSA"
+ },
+ "ITUB3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  N1",
+  "fii": false,
+  "isin": "BRITUBACNOR4",
+  "nome_pregao": "ITAUUNIBANCO"
+ },
  "ITUB4": {
+  "bdi": "02",
   "data": "2026-10-02",
   "especificacao": "PN  EJ  N1",
   "fii": false,
   "isin": "BRITUBACNPR1",
   "nome_pregao": "ITAUUNIBANCO"
  },
+ "JBSS32": {
+  "bdi": "35",
+  "data": "2026-10-02",
+  "especificacao": "DR2",
+  "fii": false,
+  "isin": "BRJBSSBDR002",
+  "nome_pregao": "JBS N.V."
+ },
+ "JHSF3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  ED  NM",
+  "fii": false,
+  "isin": "BRJHSFACNOR2",
+  "nome_pregao": "JHSF PART"
+ },
+ "JPMC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRJPMCBDR009",
+  "nome_pregao": "JPMORGAN"
+ },
+ "JSAF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRJSAFCTF000",
+  "nome_pregao": "FII JS A FIN"
+ },
+ "JSRE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRJSRECTF007",
+  "nome_pregao": "FII JS REAL"
+ },
+ "KCRE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKCRECTF009",
+  "nome_pregao": "FII KINEA CR"
+ },
+ "KFOF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKFOFCTF006",
+  "nome_pregao": "FII KINEAFOF"
+ },
+ "KISU11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRKISUCTF000",
+  "nome_pregao": "FII KILIMA"
+ },
+ "KLBN11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N2",
+  "fii": false,
+  "isin": "BRKLBNCDAM18",
+  "nome_pregao": "KLABIN S/A"
+ },
+ "KNCR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ERS",
+  "fii": true,
+  "isin": "BRKNCRCTF000",
+  "nome_pregao": "FII KINEA RI"
+ },
+ "KNHF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKNHFCTF004",
+  "nome_pregao": "FII KINEA HF"
+ },
+ "KNHY11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKNHYCTF005",
+  "nome_pregao": "FII KINEA HY"
+ },
+ "KNIP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKNIPCTF001",
+  "nome_pregao": "FII KINEA IP"
+ },
  "KNRI11": {
+  "bdi": "12",
   "data": "2026-10-02",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNRICTF007",
   "nome_pregao": "FII KINEA"
  },
+ "KNSC11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKNSCCTF008",
+  "nome_pregao": "FII KINEA SC"
+ },
+ "KNUQ11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKNUQCTF004",
+  "nome_pregao": "FII KINEA UN"
+ },
+ "KORE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKORECTF012",
+  "nome_pregao": "FII KORE"
+ },
+ "LIFE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRLIFECTF017",
+  "nome_pregao": "FII LIFE"
+ },
+ "LILY34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRLILYBDR006",
+  "nome_pregao": "LILLY"
+ },
+ "LREN3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRLRENACNOR1",
+  "nome_pregao": "LOJAS RENNER"
+ },
+ "LVBI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRLVBICTF002",
+  "nome_pregao": "FII LVBI VBI"
+ },
+ "M1RN34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRM1RNBDR006",
+  "nome_pregao": "MODERNA INC"
+ },
+ "M1TA34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRM1TABDR009",
+  "nome_pregao": "META PLAT"
+ },
+ "M2RV34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRM2RVBDR007",
+  "nome_pregao": "MARVELL TEC"
+ },
+ "M2ST34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRM2STBDR009",
+  "nome_pregao": "STRATEGY INC"
+ },
+ "MANA11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRMANACTF006",
+  "nome_pregao": "FII MANATI"
+ },
+ "MBRF3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRMBRFACNOR1",
+  "nome_pregao": "MARFRIG"
+ },
+ "MCCI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRMCCICTF008",
+  "nome_pregao": "FII MAUA"
+ },
+ "MCRE11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRMCRECTF013",
+  "nome_pregao": "FII MAUA RE"
+ },
+ "MDNE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRMDNEACNOR9",
+  "nome_pregao": "MOURA DUBEUX"
+ },
+ "MELI34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRMELIBDR006",
+  "nome_pregao": "MERCADOLIBRE"
+ },
+ "MFII11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRMFIICTF008",
+  "nome_pregao": "FII MERITO I"
+ },
+ "MGLU3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRMGLUACNOR2",
+  "nome_pregao": "MAGAZ LUIZA"
+ },
+ "MOTV3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRMOTVACNOR7",
+  "nome_pregao": "MOTIVA SA"
+ },
+ "MOVI3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRMOVIACNOR0",
+  "nome_pregao": "MOVIDA"
+ },
+ "MRVE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRMRVEACNOR2",
+  "nome_pregao": "MRV"
+ },
+ "MSCD34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRMSCDBDR006",
+  "nome_pregao": "MASTERCARD"
+ },
+ "MSFT34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRMSFTBDR005",
+  "nome_pregao": "MICROSOFT"
+ },
+ "MULT3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  N2",
+  "fii": false,
+  "isin": "BRMULTACNOR5",
+  "nome_pregao": "MULTIPLAN"
+ },
+ "MUTC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRMUTCBDR008",
+  "nome_pregao": "MICRON TECHN"
+ },
  "MXRF11": {
+  "bdi": "12",
   "data": "2026-10-02",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRMXRFCTF008",
   "nome_pregao": "FII MAXI REN"
  },
+ "NATU3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRNATUACNOR6",
+  "nome_pregao": "NATURA"
+ },
+ "NFLX34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRNFLXBDR000",
+  "nome_pregao": "NETFLIX"
+ },
+ "NVDC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRNVDCBDR008",
+  "nome_pregao": "NVIDIA CORP"
+ },
+ "ORCL34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRORCLBDR007",
+  "nome_pregao": "ORACLE"
+ },
+ "ORVR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRORVRACNOR0",
+  "nome_pregao": "ORIZON"
+ },
+ "OUJP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BROUJPCTF006",
+  "nome_pregao": "FII OURI JPP"
+ },
+ "P2LT34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRP2LTBDR001",
+  "nome_pregao": "PALANTIRTECH"
+ },
+ "PAGS34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRPAGSBDR006",
+  "nome_pregao": "PAGSEGURO"
+ },
+ "PCIP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRPCIPCTF003",
+  "nome_pregao": "FII PCIP PAX"
+ },
+ "PETR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      N2",
+  "fii": false,
+  "isin": "BRPETRACNOR9",
+  "nome_pregao": "PETROBRAS"
+ },
  "PETR4": {
+  "bdi": "02",
   "data": "2026-10-02",
   "especificacao": "PN      N2",
   "fii": false,
   "isin": "BRPETRACNPR6",
   "nome_pregao": "PETROBRAS"
  },
+ "PLPL3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRPLPLACNOR5",
+  "nome_pregao": "PLANOEPLANO"
+ },
+ "PMLL11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRPMLLCTF005",
+  "nome_pregao": "FII PMLL PAX"
+ },
+ "POMO4": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PN      N2",
+  "fii": false,
+  "isin": "BRPOMOACNPR7",
+  "nome_pregao": "MARCOPOLO"
+ },
+ "PORD11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRPORDCTF005",
+  "nome_pregao": "FII POLO CRI"
+ },
+ "PRIO3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRPRIOACNOR1",
+  "nome_pregao": "PRIO"
+ },
+ "PSEC11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRPSECCTF006",
+  "nome_pregao": "FII PSEC PAX"
+ },
+ "PSSA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRPSSAACNOR7",
+  "nome_pregao": "PORTO SEGURO"
+ },
+ "PVBI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRPVBICTF003",
+  "nome_pregao": "FII PVBI VBI"
+ },
+ "QCOM34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRQCOMBDR007",
+  "nome_pregao": "QUALCOMM"
+ },
+ "RADL3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRRADLACNOR0",
+  "nome_pregao": "RAIADROGASIL"
+ },
+ "RAIL3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRRAILACNOR9",
+  "nome_pregao": "RUMO S.A."
+ },
+ "RBRL11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRRBRLCTF001",
+  "nome_pregao": "FII RBRL PAX"
+ },
+ "RBRP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRBRPCTF002",
+  "nome_pregao": "FII RBRP PAX"
+ },
+ "RBRR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRBRRCTF008",
+  "nome_pregao": "FII RBRR PAX"
+ },
+ "RBRX11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRBRXCTF006",
+  "nome_pregao": "FII RBRX PAX"
+ },
+ "RBRY11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRBRYCTF004",
+  "nome_pregao": "FII RBRY PAX"
+ },
+ "RBVA11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRRBVACTF006",
+  "nome_pregao": "FII RIOB VA"
+ },
+ "RCRB11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRRCRBCTF000",
+  "nome_pregao": "FII RIOB RC"
+ },
+ "RDOR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRRDORACNOR8",
+  "nome_pregao": "REDE D OR"
+ },
+ "RECR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRECRCTF004",
+  "nome_pregao": "FII REC RECE"
+ },
+ "RECV3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRRECVACNOR3",
+  "nome_pregao": "PETRORECSA"
+ },
+ "RENT3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRRENTACNOR4",
+  "nome_pregao": "LOCALIZA"
+ },
+ "ROXO34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRROXOBDR007",
+  "nome_pregao": "NU HOLDINGS"
+ },
+ "RPRI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRRPRICTF007",
+  "nome_pregao": "FII RBR PR"
+ },
+ "RZAK11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRZAKCTF008",
+  "nome_pregao": "FII RIZA AKN"
+ },
+ "RZAT11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRRZATCTF009",
+  "nome_pregao": "FII ARCTIUM"
+ },
+ "RZTR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRRZTRCTF003",
+  "nome_pregao": "FII RIZA TX"
+ },
+ "S1TX34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN ED",
+  "fii": false,
+  "isin": "BRS1TXBDR005",
+  "nome_pregao": "SEAGATE HOLD"
+ },
+ "S2GM34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRS2GMBDR003",
+  "nome_pregao": "SIGMA LITHM"
+ },
+ "SANB11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT",
+  "fii": false,
+  "isin": "BRSANBCDAM13",
+  "nome_pregao": "SANTANDER BR"
+ },
+ "SAPR11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N2",
+  "fii": false,
+  "isin": "BRSAPRCDAM13",
+  "nome_pregao": "SANEPAR"
+ },
+ "SBSP3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRSBSPACNOR5",
+  "nome_pregao": "SABESP"
+ },
+ "SIMH3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRSIMHACNOR0",
+  "nome_pregao": "SIMPAR"
+ },
+ "SLCE3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRSLCEACNOR2",
+  "nome_pregao": "SLC AGRICOLA"
+ },
+ "SMFT3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRSMFTACNOR1",
+  "nome_pregao": "SMART FIT"
+ },
+ "SMTO3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRSMTOACNOR3",
+  "nome_pregao": "SAO MARTINHO"
+ },
+ "SNCI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRSNCICTF002",
+  "nome_pregao": "FII SUNO CRI"
+ },
+ "SNEL11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRSNELCTF010",
+  "nome_pregao": "FII SUNO EL"
+ },
+ "SNFF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRSNFFCTF001",
+  "nome_pregao": "FII SUNOFOFI"
+ },
+ "SPCX34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRSPCXBDR007",
+  "nome_pregao": "SPACE X"
+ },
+ "SPXS11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRSPXSCTF002",
+  "nome_pregao": "FII SPX SYN"
+ },
+ "STOC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRSTOCBDR024",
+  "nome_pregao": "STONE CO"
+ },
+ "SUZB3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRSUZBACNOR0",
+  "nome_pregao": "SUZANO S.A."
+ },
+ "TAEE11": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "UNT     N2",
+  "fii": false,
+  "isin": "BRTAEECDAM10",
+  "nome_pregao": "TAESA"
+ },
+ "TEND3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRTENDACNOR4",
+  "nome_pregao": "TENDA"
+ },
+ "TEPP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRTEPPCTF006",
+  "nome_pregao": "FII TEL PROP"
+ },
+ "TGAR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRTGARCTF009",
+  "nome_pregao": "FII TG ATIVO"
+ },
+ "TIMS3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRTIMSACNOR5",
+  "nome_pregao": "TIM"
+ },
+ "TOPP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRTOPPCTF013",
+  "nome_pregao": "FII TOPP PAX"
+ },
+ "TOTS3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ  NM",
+  "fii": false,
+  "isin": "BRTOTSACNOR8",
+  "nome_pregao": "TOTVS"
+ },
+ "TRBL11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRTRBLCTF007",
+  "nome_pregao": "FII SDI LOG"
+ },
+ "TRXF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRTRXFCTF003",
+  "nome_pregao": "FII TRX REAL"
+ },
+ "TSLA34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRTSLABDR008",
+  "nome_pregao": "TESLA INC"
+ },
+ "TSMC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRTSMCBDR002",
+  "nome_pregao": "TAIWANSMFAC"
+ },
+ "TVRI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRTVRICTF001",
+  "nome_pregao": "FII TIVIO RI"
+ },
+ "UGPA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRUGPAACNOR8",
+  "nome_pregao": "ULTRAPAR"
+ },
+ "URPR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRURPRCTF002",
+  "nome_pregao": "FII URCA REN"
+ },
+ "USIM5": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "PNA     N1",
+  "fii": false,
+  "isin": "BRUSIMACNPA6",
+  "nome_pregao": "USIMINAS"
+ },
  "VALE3": {
+  "bdi": "02",
   "data": "2026-10-02",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRVALEACNOR0",
   "nome_pregao": "VALE"
  },
+ "VAMO3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRVAMOACNOR7",
+  "nome_pregao": "VAMOS"
+ },
+ "VBBR3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRVBBRACNOR1",
+  "nome_pregao": "VIBRA"
+ },
+ "VCJR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVCJRCTF005",
+  "nome_pregao": "FII VECTIS"
+ },
+ "VGHF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVGHFCTF005",
+  "nome_pregao": "FII VALOR HE"
+ },
+ "VGIP11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRVGIPCTF002",
+  "nome_pregao": "FII VALORAIP"
+ },
+ "VGIR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRVGIRCTF008",
+  "nome_pregao": "FII VALREIII"
+ },
+ "VGRI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVGRICTF008",
+  "nome_pregao": "FII VGRI"
+ },
+ "VILG11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVILGCTF001",
+  "nome_pregao": "FII VINCI LG"
+ },
+ "VINO11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVINOCTF001",
+  "nome_pregao": "FII VINCI OF"
+ },
+ "VISA34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRVISABDR000",
+  "nome_pregao": "VISA INC"
+ },
+ "VISC11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVISCCTF005",
+  "nome_pregao": "FII VINCI SC"
+ },
+ "VIVA3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRVIVAACNOR0",
+  "nome_pregao": "VIVARA S.A."
+ },
+ "VIVT3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON  EJ",
+  "fii": false,
+  "isin": "BRVIVTACNOR0",
+  "nome_pregao": "TELEF BRASIL"
+ },
+ "VRTA11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRVRTACTF008",
+  "nome_pregao": "FII FATOR VE"
+ },
+ "W1DC34": {
+  "bdi": "34",
+  "data": "2026-10-02",
+  "especificacao": "DRN",
+  "fii": false,
+  "isin": "BRW1DCBDR007",
+  "nome_pregao": "WESTERN DIG"
+ },
  "WEGE3": {
+  "bdi": "02",
   "data": "2026-10-02",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRWEGEACNOR0",
   "nome_pregao": "WEG"
  },
+ "WHGR11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRWHGRCTF008",
+  "nome_pregao": "FII WHG REAL"
+ },
+ "XPBR31": {
+  "bdi": "35",
+  "data": "2026-10-02",
+  "especificacao": "DR1",
+  "fii": false,
+  "isin": "BRXPBRBDR001",
+  "nome_pregao": "XP INC"
+ },
+ "XPCI11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRXPCICTF007",
+  "nome_pregao": "FII XP CRED"
+ },
+ "XPLG11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRXPLGCTF002",
+  "nome_pregao": "FII XP LOG"
+ },
  "XPML11": {
+  "bdi": "12",
   "data": "2026-10-02",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRXPMLCTF000",
   "nome_pregao": "FII XP MALLS"
+ },
+ "XPSF11": {
+  "bdi": "12",
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRXPSFCTF009",
+  "nome_pregao": "FII XP SELEC"
+ },
+ "YDUQ3": {
+  "bdi": "02",
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRYDUQACNOR3",
+  "nome_pregao": "YDUQS PART"
  }
 }

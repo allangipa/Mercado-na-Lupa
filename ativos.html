@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ações e fundos imobiliários acompanhados · Mercado na Lupa</title>
-<meta name="description" content="Lista das ações e dos fundos imobiliários acompanhados pelo site, com o fechamento e a variação do último pregão da B3 e o histórico de cada um.">
+<title>Ativos acompanhados: ações, FIIs e BDRs · Mercado na Lupa</title>
+<meta name="description" content="As ações do Ibovespa, os fundos imobiliários do IFIX e os BDRs mais negociados na B3, com fechamento, variação e histórico de cada um. Critérios públicos.">
 <link rel="canonical" href="https://mercadonalupa.com.br/ativos.html">
 <meta name="robots" content="max-image-preview:large">
 <meta name="theme-color" content="#0F1B2D">
@@ -357,18 +357,44 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 .lista-prox li.devido{color:var(--baixa);font-weight:600}
 .selo-actions{display:inline-block;line-height:0}
 .selo-actions img{height:20px;width:auto}
+.selo-bdr{border-radius:.35em;background:linear-gradient(150deg,#6B5BD6 0%,#4F3FB8 50%,#352A86 100%)}
+.grafico .sem-js{color:var(--suave);font-size:.92rem;margin:.6rem 0}
+.grafico.pronto .sem-js{display:none}
+.filtro{margin:0 0 .8rem}
+.filtro label{display:block;font-size:.88rem;color:var(--suave);margin-bottom:.3rem}
+.filtro input{width:100%;max-width:26rem;font:500 1rem "IBM Plex Mono",monospace;padding:.55rem .75rem;border:1px solid var(--linha);border-radius:var(--raio-s);background:var(--papel);color:var(--tinta)}
+.filtro-conta{font-size:.85rem;color:var(--suave);margin:.35rem 0 0}
+table.lista-ativos th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:.25em}
+table.lista-ativos th[aria-sort] button{color:var(--tinta)}
+table.lista-ativos th[aria-sort=ascending] button::after{content:" ▲"}
+table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
+.comunicados{list-style:none;padding:0;margin:0 0 1rem}
+.comunicados li{padding:.7rem 0;border-bottom:1px solid var(--linha);margin:0}
+.comunicados li:last-child{border-bottom:0}
+.comunicados .com-meta{display:block;font-size:.82rem;color:var(--suave);margin-bottom:.15rem}
+.comunicados .com-meta time{font-family:"IBM Plex Mono",monospace}
+.comunicados .com-ativo a{font:600 .82rem "IBM Plex Mono",monospace;text-decoration:none;margin-right:.3rem}
+.comunicados li>a{overflow-wrap:anywhere}
+.tabelas-home td,.tabelas-home th{padding:.55rem .6rem}
+.bloco-tipo h2{margin-top:.2rem;display:flex;align-items:baseline;gap:.5rem}
+.bloco-tipo h2 small{font-size:.9rem;color:var(--suave)}
+.bloco-tipo .botao{margin-top:.2rem}
+@media (max-width:480px){
+  table.lista-ativos th,table.lista-ativos td,.tabelas-home th,.tabelas-home td{padding:.5rem .45rem}
+  table.lista-ativos th:nth-child(4),table.lista-ativos td:nth-child(4),.tabelas-home th:nth-child(4),.tabelas-home td:nth-child(4){display:none}
+}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/fundo/bovespa-arcos-640.webp 640w, assets/img/fundo/bovespa-arcos-1280.webp 1280w, assets/img/fundo/bovespa-arcos-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Ações e fundos imobiliários acompanhados · Mercado na Lupa">
-<meta property="og:description" content="Lista das ações e dos fundos imobiliários acompanhados pelo site, com o fechamento e a variação do último pregão da B3 e o histórico de cada um.">
+<meta property="og:title" content="Ativos acompanhados: ações, FIIs e BDRs · Mercado na Lupa">
+<meta property="og:description" content="As ações do Ibovespa, os fundos imobiliários do IFIX e os BDRs mais negociados na B3, com fechamento, variação e histórico de cada um. Critérios públicos.">
 <meta property="og:url" content="https://mercadonalupa.com.br/ativos.html">
 <meta property="og:image" content="https://mercadonalupa.com.br/assets/img/og-home.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Ações e fundos imobiliários acompanhados · Mercado na Lupa", "description": "Lista das ações e dos fundos imobiliários acompanhados pelo site, com o fechamento e a variação do último pregão da B3 e o histórico de cada um.", "url": "https://mercadonalupa.com.br/ativos.html", "inLanguage": "pt-BR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Ativos acompanhados: ações, FIIs e BDRs · Mercado na Lupa", "description": "As ações do Ibovespa, os fundos imobiliários do IFIX e os BDRs mais negociados na B3, com fechamento, variação e histórico de cada um. Critérios públicos.", "url": "https://mercadonalupa.com.br/ativos.html", "inLanguage": "pt-BR"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mercado na Lupa", "item": "https://mercadonalupa.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Ativos", "item": "https://mercadonalupa.com.br/ativos.html"}]}</script>
 </head>
 <body>
@@ -378,6 +404,8 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
     <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
     <nav class="nav" aria-label="Principal">
       <a href="ativos.html" aria-current="page">Ativos</a>
+      <a href="comunicados.html">Comunicados</a>
+      <a href="noticias.html">Notícias</a>
       <a href="guias.html">Guias</a>
       <a href="calculadoras.html">Calculadoras</a>
       <a href="sobre.html">Sobre</a>
@@ -387,11 +415,19 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 <main id="conteudo" class="com-faixa">
 <div class="faixa"><picture class="fundo"><source type="image/webp" srcset="assets/img/fundo/bovespa-arcos-640.webp 640w, assets/img/fundo/bovespa-arcos-1280.webp 1280w, assets/img/fundo/bovespa-arcos-1920.webp 1920w" sizes="(max-width: 700px) 200vw, 100vw"><img src="assets/img/fundo/bovespa-arcos-1280.jpg" srcset="assets/img/fundo/bovespa-arcos-640.jpg 640w, assets/img/fundo/bovespa-arcos-1280.jpg 1280w, assets/img/fundo/bovespa-arcos-1920.jpg 1920w" sizes="(max-width: 700px) 200vw, 100vw" width="1280" height="374" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg><div class="casca faixa-conteudo"><nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a> › <span aria-current="page">Ativos</span></nav>
 <h1>Ativos acompanhados</h1>
-<p class="lead">Nesta primeira versão, o site acompanha 6 ações e 4 fundos imobiliários entre os mais conhecidos da B3. A lista não é seleção nem recomendação: é o ponto de partida, e vai crescer.</p>
+<p class="lead">245 papéis negociados na B3, escolhidos por critério público e mecânico — carteira dos índices da própria B3 e volume negociado —, nunca por juízo sobre eles. A lista não é seleção nem recomendação.</p>
 <p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
 <div class="casca">
-<h2>Ações</h2><div class="rolagem"><table><caption>Fechamento em 02/10/2026</caption><thead><tr><th>Ativo</th><th class="n">Fechamento (R$)</th><th class="n">Variação</th><th class="n">Volume</th></tr></thead><tbody><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>PETR</b><i>4</i></span><div><a href="ativos/petr4.html">PETR4</a><br><span class="nome">Petrobras PN</span></div></div></td><td class="n">51,17</td><td class="n"><span class="var alta">▲ +2,81%</span></td><td class="n">R$ 2,89 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>VALE</b><i>3</i></span><div><a href="ativos/vale3.html">VALE3</a><br><span class="nome">Vale ON</span></div></div></td><td class="n">72,10</td><td class="n"><span class="var alta">▲ +2,56%</span></td><td class="n">R$ 2,31 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>ITUB</b><i>4</i></span><div><a href="ativos/itub4.html">ITUB4</a><br><span class="nome">Itaú Unibanco PN</span></div></div></td><td class="n">44,83</td><td class="n"><span class="var alta">▲ +1,54%</span></td><td class="n">R$ 1,98 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BBAS</b><i>3</i></span><div><a href="ativos/bbas3.html">BBAS3</a><br><span class="nome">Banco do Brasil ON</span></div></div></td><td class="n">23,72</td><td class="n"><span class="var alta">▲ +3,04%</span></td><td class="n">R$ 1,21 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>WEGE</b><i>3</i></span><div><a href="ativos/wege3.html">WEGE3</a><br><span class="nome">WEG ON</span></div></div></td><td class="n">51,45</td><td class="n"><span class="var alta">▲ +3,81%</span></td><td class="n">R$ 596,69 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>ABEV</b><i>3</i></span><div><a href="ativos/abev3.html">ABEV3</a><br><span class="nome">Ambev ON</span></div></div></td><td class="n">15,84</td><td class="n"><span class="var alta">▲ +2,72%</span></td><td class="n">R$ 577,13 mi</td></tr></tbody></table></div>
-<h2>Fundos imobiliários</h2><div class="rolagem"><table><caption>Fechamento em 02/10/2026</caption><thead><tr><th>Ativo</th><th class="n">Fechamento (R$)</th><th class="n">Variação</th><th class="n">Volume</th></tr></thead><tbody><tr><td><div class="ativo-cel"><span class="selo selo-fii selo-p" aria-hidden="true"><b>MXRF</b><i>11</i></span><div><a href="ativos/mxrf11.html">MXRF11</a><br><span class="nome">FII Maxi Renda</span></div></div></td><td class="n">9,09</td><td class="n"><span class="var zero">0,00%</span></td><td class="n">R$ 18,30 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-fii selo-p" aria-hidden="true"><b>HGLG</b><i>11</i></span><div><a href="ativos/hglg11.html">HGLG11</a><br><span class="nome">Pátria Log FII</span></div></div></td><td class="n">147,90</td><td class="n"><span class="var alta">▲ +0,62%</span></td><td class="n">R$ 16,31 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-fii selo-p" aria-hidden="true"><b>KNRI</b><i>11</i></span><div><a href="ativos/knri11.html">KNRI11</a><br><span class="nome">Kinea Renda Imobiliária FII</span></div></div></td><td class="n">157,91</td><td class="n"><span class="var alta">▲ +1,74%</span></td><td class="n">R$ 6,94 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-fii selo-p" aria-hidden="true"><b>XPML</b><i>11</i></span><div><a href="ativos/xpml11.html">XPML11</a><br><span class="nome">XP Malls FII</span></div></div></td><td class="n">101,90</td><td class="n"><span class="var alta">▲ +0,54%</span></td><td class="n">R$ 12,00 mi</td></tr></tbody></table></div>
+<div class="grade grade-3"><section class="cartao bloco-tipo"><h2>Ações <small class="num">96</small></h2>
+<p>Todas as 76 ações da <a href="https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-amplos/indice-ibovespa-ibovespa-composicao-da-carteira.htm" rel="noopener">carteira do Ibovespa</a> vigente em 05/10/2026, segundo a B3, mais 20 ações e units fora do índice: ações e units fora do Ibovespa entre as 100 de maior volume financeiro em 2026 (COTAHIST, lote padrão, até 2026-10-02), especificação ON/PN/UNT, com negócio em todos os pregões do ano.</p>
+<p><a class="botao" href="acoes.html">Ver ações</a></p></section><section class="cartao bloco-tipo"><h2>Fundos imobiliários <small class="num">99</small></h2>
+<p>Os 99 fundos da <a href="https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/indice-de-fundos-de-investimentos-imobiliarios-ifix-composicao-da-carteira.htm" rel="noopener">carteira do IFIX</a> vigente em 05/10/2026, segundo a B3.</p>
+<p><a class="botao" href="fundos-imobiliarios.html">Ver fundos imobiliários</a></p></section><section class="cartao bloco-tipo"><h2>BDRs <small class="num">50</small></h2>
+<p>Os 50 BDRs (BDI 34 não patrocinado e 35 patrocinado) de maior volume financeiro em 2026 no COTAHIST, até 2026-10-02; BDR de ETF (BDI 36) fora.</p>
+<p><a class="botao" href="bdrs.html">Ver BDRs</a></p></section></div>
+<h2>Mais negociados no último pregão</h2>
+<div class="rolagem"><table><caption>Os 15 de maior volume em 02/10/2026, entre todos os tipos</caption><thead><tr><th>Ativo</th><th class="n">Fechamento (R$)</th><th class="n">Variação</th><th class="n">Volume</th></tr></thead><tbody><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>PETR</b><i>4</i></span><div><a href="ativos/petr4.html">PETR4</a><br><span class="nome">Petrobras PN</span></div></div></td><td class="n">51,17</td><td class="n"><span class="var alta">▲ +2,81%</span></td><td class="n">R$ 2,89 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>VALE</b><i>3</i></span><div><a href="ativos/vale3.html">VALE3</a><br><span class="nome">Vale ON</span></div></div></td><td class="n">72,10</td><td class="n"><span class="var alta">▲ +2,56%</span></td><td class="n">R$ 2,31 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BBDC</b><i>4</i></span><div><a href="ativos/bbdc4.html">BBDC4</a><br><span class="nome">Bradesco PN</span></div></div></td><td class="n">19,23</td><td class="n"><span class="var alta">▲ +3,55%</span></td><td class="n">R$ 2,04 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>ITUB</b><i>4</i></span><div><a href="ativos/itub4.html">ITUB4</a><br><span class="nome">Itaú Unibanco PN</span></div></div></td><td class="n">44,83</td><td class="n"><span class="var alta">▲ +1,54%</span></td><td class="n">R$ 1,98 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>AXIA</b><i>3</i></span><div><a href="ativos/axia3.html">AXIA3</a><br><span class="nome">Axia Energia ON</span></div></div></td><td class="n">56,90</td><td class="n"><span class="var alta">▲ +2,82%</span></td><td class="n">R$ 1,61 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BBAS</b><i>3</i></span><div><a href="ativos/bbas3.html">BBAS3</a><br><span class="nome">Banco do Brasil ON</span></div></div></td><td class="n">23,72</td><td class="n"><span class="var alta">▲ +3,04%</span></td><td class="n">R$ 1,21 bi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BPAC</b><i>11</i></span><div><a href="ativos/bpac11.html">BPAC11</a><br><span class="nome">BTG Pactual UNT</span></div></div></td><td class="n">66,02</td><td class="n"><span class="var alta">▲ +3,64%</span></td><td class="n">R$ 941,41 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>EMBJ</b><i>3</i></span><div><a href="ativos/embj3.html">EMBJ3</a><br><span class="nome">Embraer ON</span></div></div></td><td class="n">98,25</td><td class="n"><span class="var alta">▲ +1,26%</span></td><td class="n">R$ 861,82 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>B3SA</b><i>3</i></span><div><a href="ativos/b3sa3.html">B3SA3</a><br><span class="nome">B3 ON</span></div></div></td><td class="n">19,00</td><td class="n"><span class="var alta">▲ +2,65%</span></td><td class="n">R$ 752,51 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>VBBR</b><i>3</i></span><div><a href="ativos/vbbr3.html">VBBR3</a><br><span class="nome">Vibra Energia ON</span></div></div></td><td class="n">38,15</td><td class="n"><span class="var alta">▲ +0,50%</span></td><td class="n">R$ 689,58 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>RENT</b><i>3</i></span><div><a href="ativos/rent3.html">RENT3</a><br><span class="nome">Localiza ON</span></div></div></td><td class="n">41,48</td><td class="n"><span class="var alta">▲ +3,62%</span></td><td class="n">R$ 672,42 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>UGPA</b><i>3</i></span><div><a href="ativos/ugpa3.html">UGPA3</a><br><span class="nome">Ultrapar ON</span></div></div></td><td class="n">38,61</td><td class="n"><span class="var alta">▲ +1,37%</span></td><td class="n">R$ 599,99 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>WEGE</b><i>3</i></span><div><a href="ativos/wege3.html">WEGE3</a><br><span class="nome">WEG ON</span></div></div></td><td class="n">51,45</td><td class="n"><span class="var alta">▲ +3,81%</span></td><td class="n">R$ 596,69 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>ABEV</b><i>3</i></span><div><a href="ativos/abev3.html">ABEV3</a><br><span class="nome">Ambev ON</span></div></div></td><td class="n">15,84</td><td class="n"><span class="var alta">▲ +2,72%</span></td><td class="n">R$ 577,13 mi</td></tr><tr><td><div class="ativo-cel"><span class="selo selo-acao selo-p" aria-hidden="true"><b>PETR</b><i>3</i></span><div><a href="ativos/petr3.html">PETR3</a><br><span class="nome">Petrobras ON</span></div></div></td><td class="n">56,62</td><td class="n"><span class="var alta">▲ +3,25%</span></td><td class="n">R$ 567,94 mi</td></tr></tbody></table></div>
+<p class="data-regra">A carteira dos índices muda a cada quatro meses (janeiro, maio e setembro), e a lista do site é revista quando isso acontece.</p>
 <div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong></div>
 </div></main>
 <p class="pregao casca">Cotações de fechamento do pregão de 02/10/2026. Fonte: B3. Dados com atraso, apenas informativos.</p><footer class="rodape">
@@ -399,7 +435,7 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
   <div class="casca">
     <div class="rodape-marca">
       <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
-      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
       <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
     </div>
     <div>
@@ -413,7 +449,8 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
     <div>
       <h2>Navegue</h2>
       <ul>
-        <li><a href="ativos.html">Ativos acompanhados</a></li>
+        <li><a href="acoes.html">Ações</a> · <a href="fundos-imobiliarios.html">Fundos imobiliários</a> · <a href="bdrs.html">BDRs</a></li>
+        <li><a href="comunicados.html">Comunicados</a> · <a href="noticias.html">Notícias</a></li>
         <li><a href="guias.html">Guias</a> · <a href="calculadoras.html">Calculadoras</a></li>
         <li><a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a></li>
       </ul>
@@ -480,5 +517,27 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
   }
 })();
 </script>
+<script>(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
+function iso(d){return d.toISOString().slice(0,10)}
+function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
+function util(d){var w=d.getUTCDay();return w>0&&w<6&&!F[iso(d)]}
+function agora(){var t=Date.now()-3*36e5;
+ if(TESTE){var m=/[?&]hoje=(\d{4}-\d{2}-\d{2})(?:T(\d{1,2}))?/.exec(location.search);
+  if(m){var b=Date.parse(m[1]+'T00:00:00Z');if(!isNaN(b))t=b+(m[2]?+m[2]:12)*36e5}}
+ return new Date(t)}
+function esperado(n){var d=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()));
+ if(!(util(d)&&n.getUTCHours()>=H)){do{d=new Date(+d-D)}while(!util(d))}return d}
+function faltam(p,e){var d=new Date(Date.parse(p+'T00:00:00Z')),c=0;
+ while(c<99){d=new Date(+d+D);if(d>e)break;if(util(d))c++}return c}
+var n=agora(),e=esperado(n),EST=[['ok','✓','Atualizado'],['aviso','!','Pode estar desatualizado'],['atraso','×','Desatualizado']];
+function estado(p){var f=faltam(p,e);return {f:f,s:EST[f>=2?2:f]}}
+window.MLselo={agora:n,esperado:iso(e),estado:estado};
+document.querySelectorAll('.selo-dados[data-pregao]').forEach(function(el){
+ var p=el.getAttribute('data-pregao'),r=estado(p);el.setAttribute('data-estado',r.s[0]);
+ el.querySelector('.selo-ponto').textContent=r.s[1];
+ el.querySelector('.selo-txt').textContent=el.classList.contains('selo-mini')?r.s[2]:r.s[2]+' · pregão de '+br(p);
+ if(r.f>=1)el.title=(r.f===1?'Falta 1 pregão':'Faltam '+r.f+' pregões')+' desde '+br(p)+' (último esperado: '+br(iso(e))+')';
+});
+})();</script>
 </body>
 </html>

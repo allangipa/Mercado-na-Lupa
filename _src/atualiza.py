@@ -119,7 +119,7 @@ def importar(caminhos):
                 if c not in papeis or papeis[c]["data"] < u["data"].isoformat():
                     papeis[c] = {"data": u["data"].isoformat(), "nome_pregao": u["nomres"],
                                  "especificacao": u["especi"], "isin": u["codisi"],
-                                 "fii": u["codbdi"] == "12"}
+                                 "fii": u["codbdi"] == "12", "bdi": u["codbdi"]}
         print(f"  lido {Path(cam).name}: {sum(contagem.values())} linhas, {len(contagem)} pregão(ões)")
 
     # conferência contra o que já está gravado

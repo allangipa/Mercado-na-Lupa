@@ -1,0 +1,33 @@
+{
+ "_leia": "Linhas do COTAHIST em que o preço médio (PREMED) da própria B3 sai da faixa mínima–máxima do dia. Conferidas uma a uma em 03/10/2026: abertura e fechamento dentro da faixa, volume = quantidade × preço médio. Só a regra do preço médio é dispensada nestes dias. Fonte: o próprio arquivo COTAHIST anual da B3 (https://bvmf.bmfbovespa.com.br/InstDados/SerHist/).",
+ "VAMO3": {
+  "2025-01-17": "preço médio 4,90 fora da faixa 4,58–4,75 no COTAHIST_A2025",
+  "2025-05-16": "preço médio 4,58 fora da faixa 4,22–4,54 no COTAHIST_A2025"
+ },
+ "S1TX34": {
+  "2025-04-04": "preço médio 390,32 fora da faixa 389,50–389,50 no COTAHIST_A2025",
+  "2025-07-09": "preço médio 788,82 fora da faixa 786,84–786,84 no COTAHIST_A2025"
+ },
+ "KCRE11": {
+  "2025-09-30": "preço médio 8,64 fora da faixa 8,60–8,63 no COTAHIST_A2025",
+  "2026-09-30": "preço médio 8,49 fora da faixa 8,51–8,56 no COTAHIST_A2026"
+ },
+ "MFII11": {
+  "2025-10-09": "preço médio 76,25 fora da faixa 76,31–76,99 no COTAHIST_A2025"
+ },
+ "CYRE3": {
+  "2026-01-16": "preço médio 24,92 fora da faixa 23,84–24,70 no COTAHIST_A2026"
+ },
+ "RENT3": {
+  "2026-01-16": "preço médio 40,06 fora da faixa 40,11–42,11 no COTAHIST_A2026"
+ },
+ "D1EL34": {
+  "2026-03-11": "preço médio 759,80 fora da faixa 759,81–762,90 no COTAHIST_A2026"
+ },
+ "C2RW34": {
+  "2026-03-23": "preço médio 97,87 fora da faixa 97,89–99,00 no COTAHIST_A2026"
+ },
+ "URPR11": {
+  "2026-09-30": "preço médio 19,79 fora da faixa 19,80–19,99 no COTAHIST_A2026"
+ }
+}

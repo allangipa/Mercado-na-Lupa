@@ -405,3 +405,31 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 .lista-prox li.devido{color:var(--baixa);font-weight:600}
 .selo-actions{display:inline-block;line-height:0}
 .selo-actions img{height:20px;width:auto}
+
+/* ---------- etapa 2: BDRs, listas com filtro, comunicados, notícias ---------- */
+.selo-bdr{border-radius:.35em;background:linear-gradient(150deg,#6B5BD6 0%,#4F3FB8 50%,#352A86 100%)}
+.grafico .sem-js{color:var(--suave);font-size:.92rem;margin:.6rem 0}
+.grafico.pronto .sem-js{display:none}
+.filtro{margin:0 0 .8rem}
+.filtro label{display:block;font-size:.88rem;color:var(--suave);margin-bottom:.3rem}
+.filtro input{width:100%;max-width:26rem;font:500 1rem "IBM Plex Mono",monospace;padding:.55rem .75rem;border:1px solid var(--linha);border-radius:var(--raio-s);background:var(--papel);color:var(--tinta)}
+.filtro-conta{font-size:.85rem;color:var(--suave);margin:.35rem 0 0}
+table.lista-ativos th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:.25em}
+table.lista-ativos th[aria-sort] button{color:var(--tinta)}
+table.lista-ativos th[aria-sort=ascending] button::after{content:" ▲"}
+table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
+.comunicados{list-style:none;padding:0;margin:0 0 1rem}
+.comunicados li{padding:.7rem 0;border-bottom:1px solid var(--linha);margin:0}
+.comunicados li:last-child{border-bottom:0}
+.comunicados .com-meta{display:block;font-size:.82rem;color:var(--suave);margin-bottom:.15rem}
+.comunicados .com-meta time{font-family:"IBM Plex Mono",monospace}
+.comunicados .com-ativo a{font:600 .82rem "IBM Plex Mono",monospace;text-decoration:none;margin-right:.3rem}
+.comunicados li>a{overflow-wrap:anywhere}
+.tabelas-home td,.tabelas-home th{padding:.55rem .6rem}
+.bloco-tipo h2{margin-top:.2rem;display:flex;align-items:baseline;gap:.5rem}
+.bloco-tipo h2 small{font-size:.9rem;color:var(--suave)}
+.bloco-tipo .botao{margin-top:.2rem}
+@media (max-width:480px){
+  table.lista-ativos th,table.lista-ativos td,.tabelas-home th,.tabelas-home td{padding:.5rem .45rem}
+  table.lista-ativos th:nth-child(4),table.lista-ativos td:nth-child(4),.tabelas-home th:nth-child(4),.tabelas-home td:nth-child(4){display:none}
+}

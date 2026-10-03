@@ -8,9 +8,13 @@ Companhias: cadastro de companhias abertas
 Fundos imobiliários: informe mensal estruturado (geral e complemento)
     https://dados.cvm.gov.br/dados/FII/DOC/INF_MENSAL/DADOS/inf_mensal_fii_AAAA.zip
 
-Grava dados/cadastro.json. Casa pelo CNPJ de _src/ativos.json e PARA se
-algum CNPJ não for achado, ou se o ISIN informado à CVM (fundos) não bater
-com o ISIN que a B3 traz para o código. O informe mensal muda uma vez por
+Grava dados/cadastro.json. Casa pelo CNPJ de _src/ativos.json. PARA se o
+ISIN informado à CVM (fundos) não bater com o ISIN que a B3 traz para o código,
+ou se um ativo que tinha cadastro deixar de ter. Ativo sem cadastro achado (CNPJ
+ausente da lista, companhia que não está ATIVA, fundo sem informe no ano) fica
+em "sem_cadastro" e a página dele sai com o texto mínimo, sem inventar nada.
+BDRs não têm cadastro na CVM aqui: o nome da empresa e o tipo do programa vêm
+da B3 e estão em _src/ativos.json (ver _src/carteiras.py). O informe mensal muda uma vez por
 mês: o workflow roda com --se-velho, que só baixa de novo a partir do dia 16
 (prazo de entrega do informe) e uma vez por mês.
 """
@@ -71,7 +75,10 @@ def main():
                 return
     ativos = json.loads((RAIZ / "_src" / "ativos.json").read_text(encoding="utf-8"))
     papeis = json.loads((RAIZ / "dados" / "papeis.json").read_text(encoding="utf-8"))
-    saida = {"gerado_em": dt.date.today().isoformat(), "ativos": {}}
+    saida = {"gerado_em": dt.date.today().isoformat(), "ativos": {}, "sem_cadastro": {}}
+    anterior = {}
+    if (RAIZ / "dados" / "cadastro.json").exists():
+        anterior = json.loads((RAIZ / "dados" / "cadastro.json").read_text(encoding="utf-8")).get("ativos", {})
 
     cias = {l["CNPJ_CIA"]: l for l in linhas_csv(baixar(CAD, "cad_cia_aberta.csv").decode("latin-1"))}
     ano = dt.date.today().year
@@ -89,14 +96,25 @@ def main():
             return None
         return max(ls, key=lambda l: (l["Data_Referencia"], int(l["Versao"])))
 
+    def sem(c, motivo):
+        saida["sem_cadastro"][c] = motivo
+        print(f"  {c}: SEM CADASTRO — {motivo}")
+
     for a in ativos:
-        c, cnpj = a["codigo"], a["cnpj"]
+        c, cnpj = a["codigo"], a.get("cnpj")
+        if a["tipo"] == "bdr":
+            continue
+        if not cnpj:
+            sem(c, "CNPJ não identificado em fonte oficial (ver _src/carteiras.json)")
+            continue
         if a["tipo"] == "acao":
             l = cias.get(cnpj)
             if not l:
-                falha(f"{c}: CNPJ {cnpj} não está no cadastro de companhias abertas da CVM")
+                sem(c, f"CNPJ {cnpj} não está no cadastro de companhias abertas da CVM")
+                continue
             if not l["SIT"].startswith("ATIVO"):
-                falha(f"{c}: situação na CVM é {l['SIT']!r}")
+                sem(c, f"situação no cadastro da CVM é {l['SIT'].strip()!r}")
+                continue
             saida["ativos"][c] = {
                 "fonte": "CVM, cadastro de companhias abertas", "fonte_url": CAD,
                 "razao_social": l["DENOM_SOCIAL"].strip(), "nome_comercial": l["DENOM_COMERC"].strip(),
@@ -107,7 +125,8 @@ def main():
         else:
             g, k = ultimo(geral, cnpj), ultimo(compl, cnpj)
             if not g or not k:
-                falha(f"{c}: CNPJ {cnpj} sem informe mensal de {ano} na CVM")
+                sem(c, f"CNPJ {cnpj} sem informe mensal de {ano} na CVM")
+                continue
             if g["Codigo_ISIN"].strip() != papeis[c]["isin"]:
                 falha(f"{c}: ISIN na CVM {g['Codigo_ISIN']!r} difere do ISIN na B3 {papeis[c]['isin']!r}")
             saida["ativos"][c] = {
@@ -121,6 +140,10 @@ def main():
                 "vp_cota": num(k["Valor_Patrimonial_Cotas"]), "dy_mes": num(k["Percentual_Dividend_Yield_Mes"]),
             }
         print(f"  {c}: {saida['ativos'][c]['razao_social']}")
+    perdidos = [c for c in anterior if c in saida["sem_cadastro"]]
+    if perdidos:
+        falha(f"ativos que tinham cadastro e perderam: {perdidos} — confira antes de publicar")
+    print(f"  {len(saida['ativos'])} com cadastro, {len(saida['sem_cadastro'])} sem")
     (RAIZ / "dados" / "cadastro.json").write_text(json.dumps(saida, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print("ok: dados/cadastro.json")
 

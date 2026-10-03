@@ -1,1 +1,226 @@
-{}
+{
+ "ALZR11": {
+  "2025-05-06": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 29/04/2025; último dia com direito em 05/05/2025. O fechamento passou de R$ 99,58 para R$ 9,92, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkFMWlIiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "C2RW34": {
+  "2026-07-02": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 01/07/2026; último dia com direito em 01/07/2026. O fechamento passou de R$ 181,26 para R$ 45,42, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkMyUlciLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "CACR11": {
+  "2026-05-04": {
+   "evento": "queda de 42,2% no primeiro pregão depois do aviso ao mercado do fundo entregue à CVM em 30/04/2026. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 41,60, R$ 37,85, R$ 34,27).",
+   "fonte": "https://fnet.bmfbovespa.com.br/fnet/publico/downloadDocumento?id=1178319",
+   "fonte_nome": "Fundos.NET (B3/CVM), aviso ao mercado do CACR11",
+   "tipo": "mercado"
+  }
+ },
+ "D1DG34": {
+  "2026-05-07": {
+   "evento": "alta de 31,7% entre 06/05/2026 e 07/05/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 97,03, R$ 100,00, R$ 96,80).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkQxREciLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  }
+ },
+ "D1EL34": {
+  "2026-05-29": {
+   "evento": "alta de 31,1% entre 28/05/2026 e 29/05/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 2351,00, R$ 2165,00, R$ 2128,14).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkQxRUwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  },
+  "2026-08-24": {
+   "evento": "Desdobramento de 1 para 25, aprovado em 21/08/2026; último dia com direito em 21/08/2026. O fechamento passou de R$ 2274,87 para R$ 88,50, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkQxRUwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "DIRR3": {
+  "2025-08-11": {
+   "evento": "Desdobramento de 1 para 3, aprovado em 08/08/2025; último dia com direito em 08/08/2025. O fechamento passou de R$ 40,99 para R$ 13,63, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkRJUlIiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "EGIE3": {
+  "2025-11-27": {
+   "evento": "Bonificação de 40% em novos papéis, aprovada em 05/11/2025; último dia com direito em 26/11/2025. O fechamento passou de R$ 44,37 para R$ 31,72, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkVHSUUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "GOAU4": {
+  "2025-12-19": {
+   "evento": "Bonificação de 33,33% em novos papéis, aprovada em 15/12/2025; último dia com direito em 18/12/2025. O fechamento passou de R$ 11,99 para R$ 8,96, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkdPQVUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "HAPV3": {
+  "2025-06-06": {
+   "evento": "Grupamento de 15 para 1, aprovado em 30/04/2025; último dia com direito em 05/06/2025. O fechamento passou de R$ 2,70 para R$ 39,91, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkhBUFYiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2025-11-13": {
+   "evento": "queda de 42,2% no pregão seguinte à entrega do resultado do 3º trimestre de 2025 à CVM (12/11/2025). Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 17,79, R$ 18,00, R$ 17,00).",
+   "fonte": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444336&numSequencia=969048&numVersao=1",
+   "fonte_nome": "CVM, release de resultados 3T25 da Hapvida",
+   "tipo": "mercado"
+  },
+  "2026-08-13": {
+   "evento": "queda de 33,1% no pregão seguinte à entrega do resultado do 2º trimestre de 2026 à CVM (12/08/2026). Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 6,73, R$ 6,58, R$ 6,78).",
+   "fonte": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1556691&numSequencia=1081397&numVersao=1",
+   "fonte_nome": "CVM, release de resultados 2T26 da Hapvida",
+   "tipo": "mercado"
+  }
+ },
+ "HFOF11": {
+  "2025-05-12": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 30/04/2025; último dia com direito em 09/05/2025. O fechamento passou de R$ 59,99 para R$ 5,96, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkhGT0YiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "HGBS11": {
+  "2025-05-12": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 30/04/2025; último dia com direito em 09/05/2025. O fechamento passou de R$ 196,29 para R$ 19,55, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkhHQlMiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "M1RN34": {
+  "2026-08-19": {
+   "evento": "alta de 171,1% entre 18/08/2026 e 19/08/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 34,29, R$ 36,50, R$ 36,20).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik0xUk4iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  }
+ },
+ "M2RV34": {
+  "2026-06-02": {
+   "evento": "alta de 30,1% entre 01/06/2026 e 02/06/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 153,21, R$ 142,21, R$ 149,99).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik0yUlYiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  }
+ },
+ "MFII11": {
+  "2026-08-03": {
+   "evento": "queda de 41,5% no primeiro pregão depois do aviso ao mercado do fundo entregue à CVM em 31/07/2026. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 30,66, R$ 29,30, R$ 28,80).",
+   "fonte": "https://fnet.bmfbovespa.com.br/fnet/publico/downloadDocumento?id=1272052",
+   "fonte_nome": "Fundos.NET (B3/CVM), aviso ao mercado do MFII11",
+   "tipo": "mercado"
+  }
+ },
+ "NFLX34": {
+  "2025-11-17": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 04/11/2025; último dia com direito em 14/11/2025. O fechamento passou de R$ 117,00 para R$ 11,69, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik5GTFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "ORVR3": {
+  "2026-08-11": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 10/08/2026; último dia com direito em 10/08/2026. O fechamento passou de R$ 67,60 para R$ 16,40, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik9SVlIiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "P2LT34": {
+  "2026-08-04": {
+   "evento": "alta de 29,6% entre 03/08/2026 e 04/08/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 271,09, R$ 264,48, R$ 290,00).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlAyTFQiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  }
+ },
+ "RBVA11": {
+  "2025-05-09": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 29/04/2025; último dia com direito em 08/05/2025. O fechamento passou de R$ 85,93 para R$ 8,68, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlJCVkEiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "S1TX34": {
+  "2025-04-30": {
+   "evento": "alta de 26,2% entre 07/04/2025 e 30/04/2025, pregões consecutivos com negócio no BDR (sem negócio por 23 dias corridos). Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 531,68, R$ 604,75, R$ 614,88).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMxVFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  },
+  "2026-08-24": {
+   "evento": "Desdobramento de 1 para 55, aprovado em 15/07/2026; último dia com direito em 21/08/2026. O fechamento passou de R$ 4533,78 para R$ 75,00, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMxVFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "S2GM34": {
+  "2025-11-17": {
+   "evento": "alta de 31,0% entre 14/11/2025 e 17/11/2025, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 13,79, R$ 18,41, R$ 17,79).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMyR00iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  },
+  "2025-11-19": {
+   "evento": "alta de 33,5% entre 18/11/2025 e 19/11/2025, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 17,79, R$ 17,96, R$ 17,59).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMyR00iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  },
+  "2026-02-25": {
+   "evento": "alta de 28,9% entre 24/02/2026 e 25/02/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 27,61, R$ 25,60, R$ 24,13).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMyR00iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  }
+ },
+ "SBSP3": {
+  "2026-04-29": {
+   "evento": "Desdobramento de 1 para 5, aprovado em 28/04/2026; último dia com direito em 28/04/2026. O fechamento passou de R$ 167,00 para R$ 32,99, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNCU1AiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "SIMH3": {
+  "2026-02-18": {
+   "evento": "Grupamento de 2 para 1, aprovado em 13/02/2026; último dia com direito em 13/02/2026. O fechamento passou de R$ 6,56 para R$ 13,15, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNJTUgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "TEPP11": {
+  "2025-11-28": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 17/11/2025; último dia com direito em 27/11/2025. O fechamento passou de R$ 83,86 para R$ 8,50, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlRFUFAiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "VIVT3": {
+  "2025-04-15": {
+   "evento": "Desdobramento de 1 para 80 e grupamento de 40 para 1 (no conjunto, 1 para 2), aprovados em 13/03/2025; último dia com direito em 14/04/2025. O fechamento passou de R$ 51,00 para R$ 25,46, e a diferença vem do evento, não de oscilação de mercado.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlZJVlQiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "W1DC34": {
+  "2025-02-26": {
+   "evento": "Cisão com redução de capital, aprovada em 06/02/2025; último dia com direito em 20/02/2025. O fechamento passou de R$ 408,27 para R$ 291,68; o preço depois da cisão não é comparável com o de antes.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlcxREMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2025-06-04": {
+   "evento": "alta de 67,7% entre 07/04/2025 e 04/06/2025, pregões consecutivos com negócio no BDR (sem negócio por 58 dias corridos). Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 308,21, R$ 311,89, R$ 339,00).",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlcxREMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
+   "tipo": "mercado"
+  }
+ }
+}

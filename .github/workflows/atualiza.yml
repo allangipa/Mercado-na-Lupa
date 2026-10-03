@@ -9,9 +9,11 @@
 #      arquivo ainda não publicado = pula, sem erro);
 #   2. uma vez por mês (a partir do dia 16, quando os informes mensais dos
 #      fundos do mês anterior já foram entregues), atualiza o cadastro da CVM;
-#   3. roda o build (que PARA se o layout da B3 não bater, se uma variação
+#   3. coleta comunicados (CVM) e notícias (fontes oficiais) — se falharem,
+#      fica a coleta anterior e o erro aparece na status.html;
+#   4. roda o build (que PARA se o layout da B3 não bater, se uma variação
 #      passar de 25% sem evento declarado, ou se SEO/links falharem);
-#   4. faz commit e push — e o push é o que publica na Hostinger.
+#   5. faz commit e push — e o push é o que publica na Hostinger.
 # Se qualquer passo falhar, nada é commitado e o site fica como estava; o
 # GitHub manda e-mail de falha ao dono do repositório.
 name: Atualiza cotações
@@ -56,6 +58,21 @@ jobs:
         env:
           TZ: America/Sao_Paulo
         run: python _src/cvm.py --se-velho
+
+      # Comunicados (CVM) e notícias (fontes oficiais): falha ISOLADA. Os scripts já
+      # guardam a última coleta boa e anotam o erro (a status.html mostra), e saem
+      # com 0; o continue-on-error é a segunda trava: as cotações seguem de qualquer jeito.
+      - name: Comunicados da CVM
+        continue-on-error: true
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/comunicados.py
+
+      - name: Notícias de fontes oficiais
+        continue-on-error: true
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/noticias.py
 
       - name: Build
         env:

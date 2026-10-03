@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BDRs mais negociados na B3: cotações · Mercado na Lupa</title>
+<meta name="description" content="Cotação em reais dos 50 BDRs mais negociados na B3 no ano, com variação, volume, busca e o que é um BDR. O preço é o do BDR, não o da ação lá fora.">
+<link rel="canonical" href="https://mercadonalupa.com.br/bdrs.html">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="assets/marca/lupa.svg" type="image/svg+xml">
+<link rel="icon" href="assets/marca/lupa-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/marca/lupa-180.png">
+<link rel="preload" href="/assets/fontes/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<style>@font-face{font-family:"Archivo";font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fontes/archivo-latin.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/fraunces-latin-600.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fontes/plex-mono-latin-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fontes/plex-mono-latin-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/plex-mono-latin-600.woff2) format("woff2")}
+:root{
+  --fundo:#F4F6F9; --papel:#FFFFFF; --superficie:#EDF1F6; --linha:#D9DFE8;
+  --tinta:#0F1B2D; --suave:#475467; --apagado:#667085;
+  --acao:#1D4ED8; --acao-forte:#1E3A8A; --acao-suave:#E3EAFD;
+  --ouro:#B7791F;
+  --alta:#067647; --alta-suave:#DCFAE6; --baixa:#B42318; --baixa-suave:#FEE4E2;
+  --grafico:#1D4ED8; --grafico-area:rgba(29,78,216,.10);
+  --sombra:0 1px 2px rgba(15,27,45,.05),0 8px 24px -16px rgba(15,27,45,.25);
+  --raio:14px; --raio-s:9px;
+  --sombra-alta:0 2px 4px rgba(15,27,45,.06),0 18px 36px -18px rgba(15,27,45,.35);
+  --textura-traco:rgba(29,78,216,.07);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --fundo:#0B1220; --papel:#111A2B; --superficie:#16223A; --linha:#26344D;
+    --tinta:#E7ECF3; --suave:#A9B4C4; --apagado:#8C98AA;
+    --acao:#8DB2FF; --acao-forte:#B9CEFF; --acao-suave:#1A2C52;
+    --ouro:#E0A84A;
+    --alta:#47CD89; --alta-suave:#0E2E20; --baixa:#FF8A80; --baixa-suave:#3A1714;
+    --grafico:#8DB2FF; --grafico-area:rgba(141,178,255,.13);
+    --sombra:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.8);
+    --sombra-alta:0 2px 4px rgba(0,0,0,.5),0 20px 40px -18px rgba(0,0,0,.95);
+    --textura-traco:rgba(141,178,255,.08);
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fundo);color:var(--tinta);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;height:auto}
+a{color:var(--acao);text-underline-offset:.18em}
+a:hover{color:var(--acao-forte)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--acao);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,1.3rem + 2.6vw,3rem);margin-bottom:.8rem}
+h2{font-size:clamp(1.35rem,1.1rem + 1vw,1.75rem);margin-top:2.4rem;margin-bottom:.8rem;scroll-margin-top:84px}
+h3{font-size:1.15rem;margin-top:1.6rem;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+ul,ol{padding-left:1.25rem;margin:0 0 1rem}
+li{margin-bottom:.35rem}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;background:var(--superficie);padding:.08em .35em;border-radius:5px}
+.num,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.casca{max-width:72rem;margin:0 auto;padding:0 16px}
+@media (min-width:700px){.casca{padding:0 28px}}
+.estreita{max-width:46rem}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:1rem;top:1rem;z-index:60;background:var(--acao);color:#fff;padding:.6rem 1rem;border-radius:8px}
+.rotulo{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.topo{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--papel) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linha)}
+.topo .casca{display:flex;align-items:center;gap:1rem;min-height:62px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--tinta)}
+.marca svg{width:34px;height:34px;flex:none}
+.marca span{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em;white-space:nowrap}
+.marca span i{font-style:normal;color:var(--acao)}
+.nav{display:flex;gap:.2rem;margin-left:auto;flex-wrap:wrap}
+.nav a{color:var(--suave);text-decoration:none;font-size:.95rem;padding:.45rem .65rem;border-radius:8px}
+.nav a:hover,.nav a[aria-current]{color:var(--tinta);background:var(--superficie)}
+@media (max-width:620px){
+  .topo .casca{padding-top:.5rem;padding-bottom:.35rem;gap:.2rem}
+  .nav{margin-left:-.65rem;width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .nav a{font-size:.9rem;padding:.4rem .6rem;white-space:nowrap}
+}
+main{display:block;padding:2rem 0 3.5rem}
+main.com-faixa{padding-top:0}
+.migalhas{font-size:.86rem;color:var(--suave);margin-bottom:1rem}
+.migalhas a{color:var(--suave)}
+.migalhas span[aria-current]{color:var(--tinta)}
+.lead{font-size:1.12rem;color:var(--suave);max-width:44rem}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1.2rem 1.25rem;box-shadow:var(--sombra)}
+a.cartao{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.cartao:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta);border-color:var(--acao)}
+@media (prefers-reduced-motion:reduce){a.cartao,.cartoes .seta{transition:none}a.cartao:hover{transform:none}}
+.grade{display:grid;gap:1rem}
+.grade>*{min-width:0}
+@media (min-width:760px){.grade-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.grade-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:959px){.cartoes.grade-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.aviso{border-left:4px solid var(--ouro);background:var(--papel);padding:.85rem 1rem;border-radius:0 var(--raio-s) var(--raio-s) 0;font-size:.95rem;color:var(--suave);margin:1.5rem 0}
+.aviso strong{color:var(--tinta)}
+.botao{display:inline-flex;align-items:center;gap:.4rem;background:var(--acao);color:#fff;border:0;border-radius:10px;padding:.7rem 1.1rem;font:600 1rem "Archivo",sans-serif;text-decoration:none;cursor:pointer}
+@media (prefers-color-scheme:dark){.botao{color:#0B1220}}
+.botao:hover{background:var(--acao-forte);color:#fff}
+@media (prefers-color-scheme:dark){.botao:hover{color:#0B1220}}
+.botao.claro{background:var(--superficie);color:var(--tinta)}
+.busca{display:flex;gap:.5rem;margin:1.4rem 0 .5rem;max-width:34rem}
+.busca input{flex:1;min-width:0;font:500 1.05rem "IBM Plex Mono",monospace;text-transform:uppercase;padding:.75rem .9rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.busca input::placeholder{text-transform:none;font-family:"Archivo",sans-serif;color:var(--apagado)}
+.busca-msg{font-size:.92rem;color:var(--suave);min-height:1.5em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.chips a{display:inline-block;font:500 .85rem "IBM Plex Mono",monospace;padding:.3rem .55rem;border-radius:7px;background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:var(--tinta)}
+.chips a:hover{border-color:var(--acao)}
+.destaques h3{margin-top:0;font-family:"Archivo",sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.01em}
+.lista-dest{list-style:none;padding:0;margin:0}
+.lista-dest li{display:flex;align-items:baseline;gap:.6rem;padding:.45rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-dest li:first-child{border-top:0}
+.lista-dest a{font:600 .95rem "IBM Plex Mono",monospace;text-decoration:none;min-width:4.6rem}
+.lista-dest .nome{flex:1;color:var(--suave);font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cartoes{list-style:none;padding:0;margin:0}
+.cartoes a{display:block;height:100%;text-decoration:none;color:var(--tinta)}
+.cartoes a:hover{border-color:var(--acao)}
+.cartoes h3{margin:.3rem 0 .4rem;font-size:1.12rem}
+.cartoes p{color:var(--suave);font-size:.95rem;margin:0}
+.var{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.var.alta{color:var(--alta)}.var.baixa{color:var(--baixa)}.var.zero{color:var(--suave)}
+.selo-var{display:inline-block;padding:.12rem .45rem;border-radius:6px;font-size:.92rem}
+.selo-var.alta{background:var(--alta-suave)}.selo-var.baixa{background:var(--baixa-suave)}.selo-var.zero{background:var(--superficie)}
+.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel)}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+caption{text-align:left;padding:.8rem 1rem 0;color:var(--suave);font-size:.88rem;caption-side:top}
+th,td{padding:.6rem .9rem;text-align:left;border-bottom:1px solid var(--linha);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--suave);font-size:.82rem;letter-spacing:.02em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+td a{font-family:"IBM Plex Mono",monospace;font-weight:600;text-decoration:none}
+td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
+.cab-ativo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:1.4rem}
+.cab-ativo .tipo{margin-bottom:.4rem}
+.cab-ativo h1 .cod{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:-.02em}
+.cab-ativo .razao{color:var(--suave);margin:.35rem 0 0}
+.preco{text-align:left}
+.preco .valor{font:600 clamp(2rem,1.5rem + 2.4vw,2.9rem)/1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.preco .valor small{font-size:.45em;color:var(--suave);font-weight:500;margin-right:.25rem;letter-spacing:0}
+.preco .quando{color:var(--suave);font-size:.88rem;margin-top:.45rem}
+.numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:0;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel);overflow:hidden}
+@media (min-width:640px){.numeros{grid-template-columns:repeat(4,1fr)}}
+.numeros div{padding:.8rem 1rem;border-bottom:1px solid var(--linha);border-right:1px solid var(--linha)}
+.numeros dt{font-size:.8rem;color:var(--suave);margin-bottom:.15rem}
+.numeros dd{margin:0;font:500 1.05rem "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.ficha{display:grid;grid-template-columns:minmax(8rem,13rem) 1fr;gap:.1rem 1rem;margin:0;font-size:.95rem}
+.ficha dt{color:var(--suave);padding:.45rem 0;border-top:1px solid var(--linha)}
+.ficha dd{margin:0;padding:.45rem 0;border-top:1px solid var(--linha);overflow-wrap:anywhere}
+@media (max-width:520px){.ficha{grid-template-columns:1fr}.ficha dd{border-top:0;padding-top:0}}
+.grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.periodos{display:flex;gap:.3rem;margin-bottom:.6rem}
+.periodos input{position:absolute;opacity:0;pointer-events:none}
+.periodos label{font:500 .85rem "IBM Plex Mono",monospace;padding:.35rem .7rem;border-radius:8px;border:1px solid var(--linha);cursor:pointer;color:var(--suave)}
+.grafico svg{display:none;width:100%;height:auto}
+#p-12m:checked~.paineis .g-12m,#p-6m:checked~.paineis .g-6m,#p-1m:checked~.paineis .g-1m{display:block}
+.grafico:has(#p-12m:checked) label[for=p-12m],.grafico:has(#p-6m:checked) label[for=p-6m],.grafico:has(#p-1m:checked) label[for=p-1m]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.grafico .linha{fill:none;stroke:var(--grafico);stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.grafico .area{fill:var(--grafico-area)}
+.grafico .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico text{font:500 20px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico text{font-size:15px}}
+.grafico .ponto{fill:var(--papel);stroke:var(--grafico);stroke-width:2;vector-effect:non-scaling-stroke}
+.grafico .legenda{font-size:.84rem;color:var(--suave);margin:.4rem 0 0}
+.texto{max-width:44rem}
+.texto h2{scroll-margin-top:80px}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:1rem;background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--acao);border-radius:0 var(--raio-s) var(--raio-s) 0;padding:.9rem 1rem;margin:1rem 0 1.2rem;overflow-x:auto;white-space:nowrap}
+.exemplo{background:var(--superficie);border-radius:var(--raio-s);padding:1rem 1.1rem;margin:1rem 0 1.4rem}
+.exemplo p:last-child{margin-bottom:0}
+.fontes{font-size:.9rem;color:var(--suave)}
+.fontes li{margin-bottom:.5rem}
+.data-regra{font-size:.9rem;color:var(--suave)}
+.calc{display:grid;gap:1.2rem}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,22rem) 1fr;align-items:start}}
+.campos label{display:block;font-weight:600;font-size:.93rem;margin:0 0 .3rem}
+.campos .dica{display:block;font-weight:400;color:var(--suave);font-size:.84rem}
+.campos .campo{margin-bottom:1rem}
+.entrada{display:flex;align-items:center;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);overflow:hidden}
+.entrada:focus-within{border-color:var(--acao)}
+.entrada span{padding:0 .7rem;color:var(--suave);font:500 .92rem "IBM Plex Mono",monospace;background:var(--superficie);align-self:stretch;display:flex;align-items:center}
+.entrada input{flex:1;min-width:0;border:0;background:transparent;color:var(--tinta);font:500 1.05rem "IBM Plex Mono",monospace;padding:.65rem .75rem;font-variant-numeric:tabular-nums}
+.entrada input:focus{outline:none}
+.resultado .grande{font:600 clamp(1.6rem,1.2rem + 2vw,2.3rem)/1.1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:.2rem 0 .6rem}
+.resultado .linha-res{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px solid var(--linha);font-size:.95rem}
+.resultado .linha-res b{font-family:"IBM Plex Mono",monospace;font-weight:500;font-variant-numeric:tabular-nums}
+.barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--superficie);margin:.6rem 0 .3rem}
+.barra i{display:block;height:100%}
+.barra .b1{background:var(--suave)}.barra .b2{background:var(--acao)}
+.legenda-barra{display:flex;gap:1rem;font-size:.82rem;color:var(--suave);flex-wrap:wrap}
+.legenda-barra i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;margin-right:.3rem;vertical-align:-1px}
+.erro-calc{color:var(--baixa);font-size:.9rem;min-height:1.2em}
+.pregao{font-size:.9rem;color:var(--suave);border-top:1px solid var(--linha);padding:1rem 0;margin-top:2rem}
+.rodape{background:var(--papel);border-top:1px solid var(--linha);padding:2rem 0 1.4rem;font-size:.92rem;color:var(--suave)}
+.rodape .casca{display:grid;gap:1.4rem}
+@media (min-width:760px){.rodape .casca{grid-template-columns:1.3fr 1fr 1fr}}
+.rodape h2{font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;color:var(--tinta);margin:0 0 .5rem}
+.rodape ul{list-style:none;padding:0;margin:0}
+.rodape a{color:var(--suave)}
+.rodape a:hover{color:var(--tinta)}
+.rodape .fixo{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:1rem;font-size:.86rem}
+.rodape .fixo strong{color:var(--tinta)}
+.consentimento{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 10px 40px -10px rgba(0,0,0,.35)}
+.consentimento .casca{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;padding:.9rem 1rem}
+.consentimento p{margin:0;flex:1 1 22rem;font-size:.9rem;color:var(--suave)}
+.consentimento .botoes{display:flex;gap:.5rem}
+.consentimento button{font:600 .9rem "Archivo",sans-serif;padding:.55rem .9rem;border-radius:9px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);cursor:pointer}
+.consentimento button.principal{background:var(--acao);border-color:var(--acao);color:#fff}
+@media (prefers-color-scheme:dark){.consentimento button.principal{color:#0B1220}}
+.heroi,.faixa{position:relative;isolation:isolate;overflow:hidden;background:#0B1424;color:#F4F6F9;border-bottom:3px solid #1D4ED8}
+.fundo,.fundo img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.fundo{z-index:-2}
+.fundo img{object-fit:cover;object-position:center}
+.heroi::before,.faixa::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(8,14,28,.93) 0%,rgba(8,14,28,.86) 48%,rgba(8,14,28,.74) 100%),
+             linear-gradient(0deg,rgba(8,14,28,.55) 0%,rgba(8,14,28,0) 45%)}
+@media (max-width:700px){.heroi::before,.faixa::before{background:linear-gradient(180deg,rgba(8,14,28,.74) 0%,rgba(8,14,28,.8) 60%,rgba(8,14,28,.9) 100%)}}
+.linha-fundo{position:absolute;left:0;right:0;bottom:0;width:100%;height:42%;z-index:-1;pointer-events:none}
+.linha-fundo polyline{fill:none;stroke:rgba(141,178,255,.32);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.heroi a,.faixa a{color:#B9CEFF}
+.heroi a:hover,.faixa a:hover{color:#FFFFFF}
+.heroi .rotulo,.faixa .rotulo{color:#C3CEDD}
+.heroi .lead,.faixa .lead{color:#DCE3EE}
+.heroi a:focus-visible,.faixa a:focus-visible,.heroi input:focus-visible,.heroi button:focus-visible{outline-color:#B9CEFF}
+.credito-foto{font-size:.72rem;line-height:1.45;color:#C3CEDD;margin:1.4rem 0 0;max-width:46rem}
+.credito-foto a{color:#DCE3EE}
+@media (min-width:900px){.credito-foto{margin-left:auto;text-align:right}}
+.heroi .abertura{padding:3rem 16px 1.6rem;min-height:min(78vh,620px);display:flex;flex-direction:column;justify-content:center}
+@media (min-width:700px){.heroi .abertura{padding:4.2rem 28px 1.6rem}}
+.heroi h1{max-width:20ch;margin:.5rem 0 .9rem;color:#FFFFFF;font-size:clamp(2.1rem,1.4rem + 3vw,3.6rem)}
+.heroi .lead{font-size:clamp(1.05rem,1rem + .4vw,1.22rem)}
+.heroi .busca input{background:#FFFFFF;color:#0F1B2D;border-color:transparent;box-shadow:0 6px 24px -10px rgba(0,0,0,.6)}
+.heroi .busca input::placeholder{color:#5B6678}
+.heroi .botao{background:#2F64F0;color:#FFFFFF}
+.heroi .botao:hover{background:#1D4ED8;color:#FFFFFF}
+.heroi .busca-msg{color:#DCE3EE}
+.heroi .chips a{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);color:#F4F6F9}
+.heroi .chips a:hover{background:rgba(255,255,255,.16);border-color:#B9CEFF;color:#FFFFFF}
+.faixa{margin-bottom:2rem}
+.faixa-conteudo{padding-top:1.6rem;padding-bottom:1.1rem;min-height:15rem;display:flex;flex-direction:column;justify-content:flex-end}
+@media (min-width:700px){.faixa-conteudo{padding-top:2.4rem;min-height:17rem}}
+.faixa h1{color:#FFFFFF;margin-bottom:.5rem}
+.faixa .lead{margin-bottom:0}
+.faixa .migalhas,.faixa .migalhas a{color:#C3CEDD}
+.faixa .migalhas span[aria-current]{color:#FFFFFF}
+.faixa.faixa-ativo .cab-ativo{margin-bottom:0}
+.faixa .razao,.faixa .preco .quando,.faixa .preco .valor small{color:#C3CEDD}
+.faixa .preco .valor{color:#FFFFFF}
+.faixa .selo-var.zero{background:rgba(255,255,255,.12);color:#DCE3EE}
+.cab-id{display:flex;align-items:center;gap:1rem}
+.cab-id h1{margin-bottom:0}
+.cab-conteudo{display:flex;align-items:flex-start;gap:1rem}
+.cab-conteudo h1{max-width:28ch}
+.faixa .icone-caixa{background:rgba(255,255,255,.1);color:#B9CEFF;border:1px solid rgba(255,255,255,.2);flex:none;margin-top:.15rem}
+@media (max-width:520px){.cab-conteudo .icone-caixa{display:none}}
+.selo{--t:15px;font-size:var(--t);width:2.9em;height:2.9em;flex:none;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.12em;color:#FFFFFF;border-radius:.62em;line-height:1;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 1px 2px rgba(15,27,45,.18);user-select:none}
+.selo b{font-weight:600;font-size:.74em;letter-spacing:-.02em}
+.selo i{font-style:normal;font-weight:500;font-size:.6em;padding:.12em .42em;border-radius:99px;background:rgba(255,255,255,.2)}
+.selo-acao{background:linear-gradient(150deg,#2F64F0 0%,#1D4ED8 45%,#1E3A8A 100%)}
+.selo-fii{border-radius:50%;background:linear-gradient(150deg,#A06A1A 0%,#8A5A12 50%,#6B4510 100%)}
+.selo-p{--t:12.5px}
+.selo-g{--t:25px}
+@media (max-width:520px){.selo-g{--t:19px}}
+.ativo-cel{display:flex;align-items:center;gap:.65rem}
+@media (max-width:520px){.ativo-cel{gap:.5rem}.ativo-cel .selo{--t:10.5px}}
+.lista-dest li{align-items:center}
+.destaques h3{display:flex;align-items:center;gap:.45rem}
+.destaques h3 .icone{width:1.15rem;height:1.15rem;color:var(--acao)}
+.destaques .cartao{border-top:3px solid var(--acao)}
+.outros-ativos{list-style:none;padding:0;margin:0;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13.5rem),1fr))}
+.outros-ativos li{margin:0}
+.outros-ativos a{display:flex;align-items:center;gap:.7rem;padding:.65rem .8rem;text-decoration:none;color:var(--tinta);height:100%}
+.outros-ativos a>span:not(.selo)>b{display:block;font:600 .98rem "IBM Plex Mono",monospace}
+.outros-ativos a>span:not(.selo)>small{display:block;color:var(--suave);font-size:.84rem;line-height:1.3}
+.cartoes a.cartao{position:relative;display:flex;flex-direction:column;padding-bottom:2.6rem}
+.cartao-topo{display:flex;align-items:center;gap:.7rem;margin-bottom:.2rem}
+.icone-caixa{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:12px;background:var(--acao-suave);color:var(--acao)}
+.icone-caixa .icone{width:1.5rem;height:1.5rem}
+.cartoes .seta{position:absolute;right:1.1rem;bottom:1rem;width:1.2rem;height:1.2rem;color:var(--acao);transition:transform .18s ease}
+.cartoes a.cartao:hover .seta{transform:translateX(3px)}
+.textura{background-color:var(--papel);
+  background-image:linear-gradient(var(--textura-traco) 1px,transparent 1px),linear-gradient(90deg,var(--textura-traco) 1px,transparent 1px);
+  background-size:100% 2.4rem,2.4rem 100%}
+.painel{position:relative;margin-top:2rem;border:1px solid var(--linha);border-radius:calc(var(--raio) + 4px);padding:.4rem 1rem 1.2rem;box-shadow:var(--sombra)}
+@media (min-width:700px){.painel{padding:.6rem 1.5rem 1.6rem}}
+.painel>h2:first-child{margin-top:1rem}
+.painel .cartao{box-shadow:var(--sombra-alta)}
+.divisor{display:flex;align-items:center;gap:.8rem;margin:2.6rem 0 0;color:var(--acao)}
+.divisor::before,.divisor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--linha) 20%,var(--linha) 80%,transparent)}
+.divisor span{display:inline-flex;width:2.6rem;height:1.6rem;align-items:center;justify-content:center;border:1px solid var(--linha);border-radius:99px;background:var(--papel)}
+.divisor svg{width:1.6rem;height:.8rem}
+.divisor polyline{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.divisor+h2{margin-top:1.4rem}
+.rodape{position:relative;overflow:hidden;padding-top:2.6rem}
+.rodape .linha-fundo{top:0;bottom:auto;height:4.5rem;z-index:0}
+.rodape .linha-fundo polyline{stroke:var(--textura-traco);stroke-width:3}
+.rodape .casca{position:relative;z-index:1}
+@media (min-width:760px){.rodape .casca{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.rodape .casca{grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.2fr}}
+.rodape li{margin-bottom:.45rem;line-height:1.4}
+.rodape-marca .marca{margin-bottom:.7rem}
+.rodape-marca p{margin-bottom:.8rem}
+.fontes-selos{display:flex;gap:.4rem;flex-wrap:wrap}
+.fontes-selos span{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.08em;padding:.25rem .55rem;border-radius:6px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta)}
+.rodape .assinatura{grid-column:1/-1;margin:0;font-size:.82rem;color:var(--apagado)}
+.selo-dados{display:inline-flex;align-items:center;gap:.45rem;margin:0;padding:.28rem .7rem .28rem .5rem;border-radius:999px;
+  font:500 .8rem/1.3 "IBM Plex Mono",monospace;letter-spacing:.01em;background:var(--papel);border:1px solid var(--linha);color:var(--tinta);max-width:100%}
+.selo-dados .selo-txt{min-width:0}
+.selo-ponto{display:none;flex:none;width:1.15rem;height:1.15rem;border-radius:50%;font:700 .72rem/1.15rem "Archivo",sans-serif;text-align:center;color:#fff}
+.selo-dados[data-estado] .selo-ponto{display:inline-block}
+.selo-dados[data-estado=ok]{--cor-selo:#067647;--fundo-selo:#DCFAE6}
+.selo-dados[data-estado=aviso]{--cor-selo:#93370D;--fundo-selo:#FEF0C7}
+.selo-dados[data-estado=atraso]{--cor-selo:#B42318;--fundo-selo:#FEE4E2}
+.selo-dados[data-estado]{background:var(--fundo-selo);border-color:color-mix(in srgb,var(--cor-selo) 35%,transparent);color:var(--cor-selo)}
+.selo-dados[data-estado] .selo-ponto{background:var(--cor-selo)}
+.selo-dados[data-estado=ok] .selo-ponto{box-shadow:0 0 0 3px color-mix(in srgb,var(--cor-selo) 22%,transparent)}
+@media (prefers-color-scheme:dark){
+  .selo-dados[data-estado=ok]{--cor-selo:#47CD89;--fundo-selo:#0E2E20}
+  .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;--fundo-selo:#33240A}
+  .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;--fundo-selo:#3A1714}
+  .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+}
+.heroi .selo-dados,.faixa .selo-dados{background:rgba(8,14,28,.55);border-color:rgba(255,255,255,.22);color:#DCE3EE;backdrop-filter:blur(4px)}
+.heroi .selo-dados[data-estado=ok],.faixa .selo-dados[data-estado=ok]{--cor-selo:#47CD89;color:#C9F5DC}
+.heroi .selo-dados[data-estado=aviso],.faixa .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;color:#FCE3B0}
+.heroi .selo-dados[data-estado=atraso],.faixa .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;color:#FFD3CE}
+.heroi .selo-dados[data-estado],.faixa .selo-dados[data-estado]{border-color:color-mix(in srgb,var(--cor-selo) 55%,transparent)}
+.heroi .selo-dados[data-estado] .selo-ponto,.faixa .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+.heroi .selo-dados{align-self:flex-start;margin-bottom:.9rem}
+.preco .selo-dados{margin-top:.7rem}
+.selo-dados.selo-g{font-size:.92rem;padding:.4rem .9rem .4rem .6rem;margin-top:1rem}
+.selo-dados.selo-g .selo-ponto{width:1.35rem;height:1.35rem;line-height:1.35rem;font-size:.82rem}
+.selo-dados.selo-mini{font-size:.74rem;padding:.12rem .55rem .12rem .35rem;gap:.35rem}
+.selo-dados.selo-mini .selo-ponto{width:1rem;height:1rem;line-height:1rem;font-size:.64rem}
+@media (max-width:420px){.selo-dados{font-size:.74rem}}
+.legenda-selo{list-style:none;padding:0}
+.legenda-selo li{margin-bottom:.7rem;line-height:1.5}
+.legenda-selo .selo-dados{margin-right:.35rem;vertical-align:.05em}
+.tabela-status td{vertical-align:middle}
+.tabela-status tr.atrasado td{background:color-mix(in srgb,var(--ouro) 12%,transparent)}
+.tabela-status tr.atrasado td:first-child{box-shadow:inset 4px 0 0 var(--ouro)}
+.marca-atraso{display:block;font-size:.78rem;color:var(--suave);margin-top:.2rem}
+.marca-atraso::before{content:"⚠ ";color:var(--ouro)}
+.lista-prox{list-style:none;padding:0}
+.lista-prox li{padding:.4rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-prox li:first-child{border-top:0}
+.lista-prox li.devido{color:var(--baixa);font-weight:600}
+.selo-actions{display:inline-block;line-height:0}
+.selo-actions img{height:20px;width:auto}
+.selo-bdr{border-radius:.35em;background:linear-gradient(150deg,#6B5BD6 0%,#4F3FB8 50%,#352A86 100%)}
+.grafico .sem-js{color:var(--suave);font-size:.92rem;margin:.6rem 0}
+.grafico.pronto .sem-js{display:none}
+.filtro{margin:0 0 .8rem}
+.filtro label{display:block;font-size:.88rem;color:var(--suave);margin-bottom:.3rem}
+.filtro input{width:100%;max-width:26rem;font:500 1rem "IBM Plex Mono",monospace;padding:.55rem .75rem;border:1px solid var(--linha);border-radius:var(--raio-s);background:var(--papel);color:var(--tinta)}
+.filtro-conta{font-size:.85rem;color:var(--suave);margin:.35rem 0 0}
+table.lista-ativos th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:.25em}
+table.lista-ativos th[aria-sort] button{color:var(--tinta)}
+table.lista-ativos th[aria-sort=ascending] button::after{content:" ▲"}
+table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
+.comunicados{list-style:none;padding:0;margin:0 0 1rem}
+.comunicados li{padding:.7rem 0;border-bottom:1px solid var(--linha);margin:0}
+.comunicados li:last-child{border-bottom:0}
+.comunicados .com-meta{display:block;font-size:.82rem;color:var(--suave);margin-bottom:.15rem}
+.comunicados .com-meta time{font-family:"IBM Plex Mono",monospace}
+.comunicados .com-ativo a{font:600 .82rem "IBM Plex Mono",monospace;text-decoration:none;margin-right:.3rem}
+.comunicados li>a{overflow-wrap:anywhere}
+.tabelas-home td,.tabelas-home th{padding:.55rem .6rem}
+.bloco-tipo h2{margin-top:.2rem;display:flex;align-items:baseline;gap:.5rem}
+.bloco-tipo h2 small{font-size:.9rem;color:var(--suave)}
+.bloco-tipo .botao{margin-top:.2rem}
+@media (max-width:480px){
+  table.lista-ativos th,table.lista-ativos td,.tabelas-home th,.tabelas-home td{padding:.5rem .45rem}
+  table.lista-ativos th:nth-child(4),table.lista-ativos td:nth-child(4),.tabelas-home th:nth-child(4),.tabelas-home td:nth-child(4){display:none}
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/fundo/bovespa-arcos-640.webp 640w, assets/img/fundo/bovespa-arcos-1280.webp 1280w, assets/img/fundo/bovespa-arcos-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
+<meta property="og:site_name" content="Mercado na Lupa">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="BDRs mais negociados na B3: cotações · Mercado na Lupa">
+<meta property="og:description" content="Cotação em reais dos 50 BDRs mais negociados na B3 no ano, com variação, volume, busca e o que é um BDR. O preço é o do BDR, não o da ação lá fora.">
+<meta property="og:url" content="https://mercadonalupa.com.br/bdrs.html">
+<meta property="og:image" content="https://mercadonalupa.com.br/assets/img/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "BDRs mais negociados na B3: cotações · Mercado na Lupa", "description": "Cotação em reais dos 50 BDRs mais negociados na B3 no ano, com variação, volume, busca e o que é um BDR. O preço é o do BDR, não o da ação lá fora.", "url": "https://mercadonalupa.com.br/bdrs.html", "inLanguage": "pt-BR", "numberOfItems": 50}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mercado na Lupa", "item": "https://mercadonalupa.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Ativos", "item": "https://mercadonalupa.com.br/ativos.html"}, {"@type": "ListItem", "position": 3, "name": "BDRs", "item": "https://mercadonalupa.com.br/bdrs.html"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="casca">
+    <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="ativos.html" aria-current="page">Ativos</a>
+      <a href="comunicados.html">Comunicados</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="guias.html">Guias</a>
+      <a href="calculadoras.html">Calculadoras</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="com-faixa">
+<div class="faixa"><picture class="fundo"><source type="image/webp" srcset="assets/img/fundo/bovespa-arcos-640.webp 640w, assets/img/fundo/bovespa-arcos-1280.webp 1280w, assets/img/fundo/bovespa-arcos-1920.webp 1920w" sizes="(max-width: 700px) 200vw, 100vw"><img src="assets/img/fundo/bovespa-arcos-1280.jpg" srcset="assets/img/fundo/bovespa-arcos-640.jpg 640w, assets/img/fundo/bovespa-arcos-1280.jpg 1280w, assets/img/fundo/bovespa-arcos-1920.jpg 1920w" sizes="(max-width: 700px) 200vw, 100vw" width="1280" height="374" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg><div class="casca faixa-conteudo"><nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a> › <a href="ativos.html">Ativos</a> › <span aria-current="page">BDRs</span></nav>
+<h1>BDRs</h1>
+<p class="lead">Certificados negociados na B3, em reais, que representam ações de empresas estrangeiras. O preço é o do BDR aqui, não o da ação na bolsa de origem.</p>
+<p class="selo-dados" data-pregao="2026-10-02"><span class="selo-ponto" aria-hidden="true"></span><span class="selo-txt">Pregão de 02/10/2026</span></p>
+<p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
+<div class="casca">
+<p class="data-regra"><strong>Quais estão aqui:</strong> Os 50 BDRs (BDI 34 não patrocinado e 35 patrocinado) de maior volume financeiro em 2026 no COTAHIST, até 2026-10-02; BDR de ETF (BDI 36) fora.</p>
+<div class="filtro" hidden><label for="filtro">Filtrar por código ou nome</label><input id="filtro" type="search" autocomplete="off" spellcheck="false" placeholder="ex.: A1MD34"><p class="filtro-conta" aria-live="polite"></p></div><div class="rolagem"><table class="lista-ativos"><caption>50 BDRs · fechamento em 02/10/2026</caption><thead><tr><th><button type="button" data-ord="c" aria-label="Ordenar por código">Ativo</button></th><th class="n"><button type="button" data-ord="f">Fechamento (R$)</button></th><th class="n"><button type="button" data-ord="v">Variação</button></th><th class="n"><button type="button" data-ord="vol">Volume</button></th></tr></thead><tbody><tr data-b="a1md34 amd bdr advanced micro devices inc" data-c="A1MD34" data-f="412.4" data-v="2.3325" data-vol="27382651"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>A1MD</b><i>34</i></span><div><a href="ativos/a1md34.html">A1MD34</a><br><span class="nome">AMD BDR</span></div></div></td><td class="n">412,40</td><td class="n"><span class="var alta">▲ +2,33%</span></td><td class="n">R$ 27,38 mi</td></tr><tr data-b="a1mt34 applied materials bdr applied materials inc" data-c="A1MT34" data-f="280.97" data-v="1.5102" data-vol="1785519"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>A1MT</b><i>34</i></span><div><a href="ativos/a1mt34.html">A1MT34</a><br><span class="nome">Applied Materials BDR</span></div></div></td><td class="n">280,97</td><td class="n"><span class="var alta">▲ +1,51%</span></td><td class="n">R$ 1,79 mi</td></tr><tr data-b="aapl34 apple bdr apple inc." data-c="AAPL34" data-f="87.06" data-v="0.9508" data-vol="20677294"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>AAPL</b><i>34</i></span><div><a href="ativos/aapl34.html">AAPL34</a><br><span class="nome">Apple BDR</span></div></div></td><td class="n">87,06</td><td class="n"><span class="var alta">▲ +0,95%</span></td><td class="n">R$ 20,68 mi</td></tr><tr data-b="amzo34 amazon bdr amazon.com. inc" data-c="AMZO34" data-f="65.47" data-v="0.2603" data-vol="42367957"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>AMZO</b><i>34</i></span><div><a href="ativos/amzo34.html">AMZO34</a><br><span class="nome">Amazon BDR</span></div></div></td><td class="n">65,47</td><td class="n"><span class="var alta">▲ +0,26%</span></td><td class="n">R$ 42,37 mi</td></tr><tr data-b="asml34 asml bdr asml holding nv" data-c="ASML34" data-f="176.09" data-v="2.259" data-vol="4419086"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>ASML</b><i>34</i></span><div><a href="ativos/asml34.html">ASML34</a><br><span class="nome">ASML BDR</span></div></div></td><td class="n">176,09</td><td class="n"><span class="var alta">▲ +2,26%</span></td><td class="n">R$ 4,42 mi</td></tr><tr data-b="aura33 aura minerals bdr aura minerals inc." data-c="AURA33" data-f="141.41" data-v="3.1813" data-vol="108681372"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>AURA</b><i>33</i></span><div><a href="ativos/aura33.html">AURA33</a><br><span class="nome">Aura Minerals BDR</span></div></div></td><td class="n">141,41</td><td class="n"><span class="var alta">▲ +3,18%</span></td><td class="n">R$ 108,68 mi</td></tr><tr data-b="avgo34 broadcom bdr broadcom inc" data-c="AVGO34" data-f="26.4" data-v="2.7237" data-vol="5212270"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>AVGO</b><i>34</i></span><div><a href="ativos/avgo34.html">AVGO34</a><br><span class="nome">Broadcom BDR</span></div></div></td><td class="n">26,40</td><td class="n"><span class="var alta">▲ +2,72%</span></td><td class="n">R$ 5,21 mi</td></tr><tr data-b="baba34 alibaba bdr alibaba group holding ltd" data-c="BABA34" data-f="19.89" data-v="-0.3008" data-vol="20316733"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>BABA</b><i>34</i></span><div><a href="ativos/baba34.html">BABA34</a><br><span class="nome">Alibaba BDR</span></div></div></td><td class="n">19,89</td><td class="n"><span class="var baixa">▼ −0,30%</span></td><td class="n">R$ 20,32 mi</td></tr><tr data-b="berk34 berkshire hathaway bdr berkshire hathaway inc." data-c="BERK34" data-f="131.0" data-v="-0.1296" data-vol="12727498"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>BERK</b><i>34</i></span><div><a href="ativos/berk34.html">BERK34</a><br><span class="nome">Berkshire Hathaway BDR</span></div></div></td><td class="n">131,00</td><td class="n"><span class="var baixa">▼ −0,13%</span></td><td class="n">R$ 12,73 mi</td></tr><tr data-b="boac34 bank of america bdr bank of america corporation" data-c="BOAC34" data-f="70.49" data-v="0.2132" data-vol="2228893"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>BOAC</b><i>34</i></span><div><a href="ativos/boac34.html">BOAC34</a><br><span class="nome">Bank of America BDR</span></div></div></td><td class="n">70,49</td><td class="n"><span class="var alta">▲ +0,21%</span></td><td class="n">R$ 2,23 mi</td></tr><tr data-b="c2oi34 coinbase bdr coinbase global inc" data-c="C2OI34" data-f="38.4" data-v="-2.7848" data-vol="4533281"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>C2OI</b><i>34</i></span><div><a href="ativos/c2oi34.html">C2OI34</a><br><span class="nome">Coinbase BDR</span></div></div></td><td class="n">38,40</td><td class="n"><span class="var baixa">▼ −2,78%</span></td><td class="n">R$ 4,53 mi</td></tr><tr data-b="c2rw34 crowdstrike bdr crowdstrike holdings inc" data-c="C2RW34" data-f="63.89" data-v="1.8005" data-vol="9771279"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>C2RW</b><i>34</i></span><div><a href="ativos/c2rw34.html">C2RW34</a><br><span class="nome">CrowdStrike BDR</span></div></div></td><td class="n">63,89</td><td class="n"><span class="var alta">▲ +1,80%</span></td><td class="n">R$ 9,77 mi</td></tr><tr data-b="chvx34 chevron bdr chevron corporation" data-c="CHVX34" data-f="108.01" data-v="-0.3506" data-vol="257368"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>CHVX</b><i>34</i></span><div><a href="ativos/chvx34.html">CHVX34</a><br><span class="nome">Chevron BDR</span></div></div></td><td class="n">108,01</td><td class="n"><span class="var baixa">▼ −0,35%</span></td><td class="n">R$ 257,37 mil</td></tr><tr data-b="coca34 coca-cola bdr the coca-cola company" data-c="COCA34" data-f="74.82" data-v="-0.2134" data-vol="6299487"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>COCA</b><i>34</i></span><div><a href="ativos/coca34.html">COCA34</a><br><span class="nome">Coca-Cola BDR</span></div></div></td><td class="n">74,82</td><td class="n"><span class="var baixa">▼ −0,21%</span></td><td class="n">R$ 6,30 mi</td></tr><tr data-b="d1dg34 datadog bdr datadog inc" data-c="D1DG34" data-f="145.73" data-v="-0.0137" data-vol="12974"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>D1DG</b><i>34</i></span><div><a href="ativos/d1dg34.html">D1DG34</a><br><span class="nome">Datadog BDR</span></div></div></td><td class="n">145,73</td><td class="n"><span class="var baixa">▼ −0,01%</span></td><td class="n">R$ 12,97 mil</td></tr><tr data-b="d1el34 dell technologies bdr dell technologies inc" data-c="D1EL34" data-f="116.76" data-v="3.9715" data-vol="3630088"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>D1EL</b><i>34</i></span><div><a href="ativos/d1el34.html">D1EL34</a><br><span class="nome">Dell Technologies BDR</span></div></div></td><td class="n">116,76</td><td class="n"><span class="var alta">▲ +3,97%</span></td><td class="n">R$ 3,63 mi</td></tr><tr data-b="disb34 disney bdr the walt disney company" data-c="DISB34" data-f="35.76" data-v="1.4756" data-vol="438101"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>DISB</b><i>34</i></span><div><a href="ativos/disb34.html">DISB34</a><br><span class="nome">Disney BDR</span></div></div></td><td class="n">35,76</td><td class="n"><span class="var alta">▲ +1,48%</span></td><td class="n">R$ 438,10 mil</td></tr><tr data-b="exxo34 exxonmobil bdr exxonmobil holdings corporation" data-c="EXXO34" data-f="107.42" data-v="0.1959" data-vol="852863"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>EXXO</b><i>34</i></span><div><a href="ativos/exxo34.html">EXXO34</a><br><span class="nome">ExxonMobil BDR</span></div></div></td><td class="n">107,42</td><td class="n"><span class="var alta">▲ +0,20%</span></td><td class="n">R$ 852,86 mil</td></tr><tr data-b="fcxo34 freeport-mcmoran bdr freeport-mcmoran inc." data-c="FCXO34" data-f="125.49" data-v="3.4287" data-vol="2116209"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>FCXO</b><i>34</i></span><div><a href="ativos/fcxo34.html">FCXO34</a><br><span class="nome">Freeport-McMoRan BDR</span></div></div></td><td class="n">125,49</td><td class="n"><span class="var alta">▲ +3,43%</span></td><td class="n">R$ 2,12 mi</td></tr><tr data-b="gogl34 alphabet bdr alphabet inc." data-c="GOGL34" data-f="149.5" data-v="1.7007" data-vol="32720130"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>GOGL</b><i>34</i></span><div><a href="ativos/gogl34.html">GOGL34</a><br><span class="nome">Alphabet BDR</span></div></div></td><td class="n">149,50</td><td class="n"><span class="var alta">▲ +1,70%</span></td><td class="n">R$ 32,72 mi</td></tr><tr data-b="gsgi34 goldman sachs bdr goldman sachs group inc." data-c="GSGI34" data-f="158.17" data-v="1.2807" data-vol="1620068"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>GSGI</b><i>34</i></span><div><a href="ativos/gsgi34.html">GSGI34</a><br><span class="nome">Goldman Sachs BDR</span></div></div></td><td class="n">158,17</td><td class="n"><span class="var alta">▲ +1,28%</span></td><td class="n">R$ 1,62 mi</td></tr><tr data-b="inbr32 inter&amp;co bdr inter co inc" data-c="INBR32" data-f="28.55" data-v="3.8937" data-vol="103005235"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>INBR</b><i>32</i></span><div><a href="ativos/inbr32.html">INBR32</a><br><span class="nome">Inter&amp;Co BDR</span></div></div></td><td class="n">28,55</td><td class="n"><span class="var alta">▲ +3,89%</span></td><td class="n">R$ 103,01 mi</td></tr><tr data-b="itlc34 intel bdr intel corporation" data-c="ITLC34" data-f="104.0" data-v="-0.9335" data-vol="30943830"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>ITLC</b><i>34</i></span><div><a href="ativos/itlc34.html">ITLC34</a><br><span class="nome">Intel BDR</span></div></div></td><td class="n">104,00</td><td class="n"><span class="var baixa">▼ −0,93%</span></td><td class="n">R$ 30,94 mi</td></tr><tr data-b="jbss32 jbs n.v. bdr jbs n.v." data-c="JBSS32" data-f="60.96" data-v="8.0851" data-vol="216007512"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>JBSS</b><i>32</i></span><div><a href="ativos/jbss32.html">JBSS32</a><br><span class="nome">JBS N.V. BDR</span></div></div></td><td class="n">60,96</td><td class="n"><span class="var alta">▲ +8,09%</span></td><td class="n">R$ 216,01 mi</td></tr><tr data-b="jpmc34 jpmorgan chase bdr jpmorgan chase &amp; co." data-c="JPMC34" data-f="174.8" data-v="0.1375" data-vol="3303076"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>JPMC</b><i>34</i></span><div><a href="ativos/jpmc34.html">JPMC34</a><br><span class="nome">JPMorgan Chase BDR</span></div></div></td><td class="n">174,80</td><td class="n"><span class="var alta">▲ +0,14%</span></td><td class="n">R$ 3,30 mi</td></tr><tr data-b="lily34 eli lilly bdr eli lilly and company" data-c="LILY34" data-f="200.61" data-v="0.1048" data-vol="3335643"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>LILY</b><i>34</i></span><div><a href="ativos/lily34.html">LILY34</a><br><span class="nome">Eli Lilly BDR</span></div></div></td><td class="n">200,61</td><td class="n"><span class="var alta">▲ +0,10%</span></td><td class="n">R$ 3,34 mi</td></tr><tr data-b="m1rn34 moderna bdr moderna inc" data-c="M1RN34" data-f="49.16" data-v="-0.4858" data-vol="4184335"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>M1RN</b><i>34</i></span><div><a href="ativos/m1rn34.html">M1RN34</a><br><span class="nome">Moderna BDR</span></div></div></td><td class="n">49,16</td><td class="n"><span class="var baixa">▼ −0,49%</span></td><td class="n">R$ 4,18 mi</td></tr><tr data-b="m1ta34 meta platforms bdr meta platforms. inc." data-c="M1TA34" data-f="135.85" data-v="-0.2643" data-vol="55915222"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>M1TA</b><i>34</i></span><div><a href="ativos/m1ta34.html">M1TA34</a><br><span class="nome">Meta Platforms BDR</span></div></div></td><td class="n">135,85</td><td class="n"><span class="var baixa">▼ −0,26%</span></td><td class="n">R$ 55,92 mi</td></tr><tr data-b="m2rv34 marvell technology bdr marvell technology inc" data-c="M2RV34" data-f="140.0" data-v="0.0214" data-vol="2458985"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>M2RV</b><i>34</i></span><div><a href="ativos/m2rv34.html">M2RV34</a><br><span class="nome">Marvell Technology BDR</span></div></div></td><td class="n">140,00</td><td class="n"><span class="var alta">▲ +0,02%</span></td><td class="n">R$ 2,46 mi</td></tr><tr data-b="m2st34 strategy bdr strategy inc" data-c="M2ST34" data-f="11.89" data-v="-0.4188" data-vol="31116735"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>M2ST</b><i>34</i></span><div><a href="ativos/m2st34.html">M2ST34</a><br><span class="nome">Strategy BDR</span></div></div></td><td class="n">11,89</td><td class="n"><span class="var baixa">▼ −0,42%</span></td><td class="n">R$ 31,12 mi</td></tr><tr data-b="meli34 mercadolibre bdr mercadolibre inc" data-c="MELI34" data-f="73.3" data-v="-0.0682" data-vol="136495930"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MELI</b><i>34</i></span><div><a href="ativos/meli34.html">MELI34</a><br><span class="nome">MercadoLibre BDR</span></div></div></td><td class="n">73,30</td><td class="n"><span class="var baixa">▼ −0,07%</span></td><td class="n">R$ 136,50 mi</td></tr><tr data-b="mscd34 mastercard bdr mastercard incorporated" data-c="MSCD34" data-f="93.01" data-v="1.0868" data-vol="456694"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MSCD</b><i>34</i></span><div><a href="ativos/mscd34.html">MSCD34</a><br><span class="nome">Mastercard BDR</span></div></div></td><td class="n">93,01</td><td class="n"><span class="var alta">▲ +1,09%</span></td><td class="n">R$ 456,69 mil</td></tr><tr data-b="msft34 microsoft bdr microsoft corporation" data-c="MSFT34" data-f="112.2" data-v="0.3578" data-vol="104741887"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MSFT</b><i>34</i></span><div><a href="ativos/msft34.html">MSFT34</a><br><span class="nome">Microsoft BDR</span></div></div></td><td class="n">112,20</td><td class="n"><span class="var alta">▲ +0,36%</span></td><td class="n">R$ 104,74 mi</td></tr><tr data-b="mutc34 micron technology bdr micron technology inc" data-c="MUTC34" data-f="938.02" data-v="-1.06" data-vol="116929015"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MUTC</b><i>34</i></span><div><a href="ativos/mutc34.html">MUTC34</a><br><span class="nome">Micron Technology BDR</span></div></div></td><td class="n">938,02</td><td class="n"><span class="var baixa">▼ −1,06%</span></td><td class="n">R$ 116,93 mi</td></tr><tr data-b="nflx34 netflix bdr netflix. inc." data-c="NFLX34" data-f="6.99" data-v="-1.9635" data-vol="7250444"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>NFLX</b><i>34</i></span><div><a href="ativos/nflx34.html">NFLX34</a><br><span class="nome">Netflix BDR</span></div></div></td><td class="n">6,99</td><td class="n"><span class="var baixa">▼ −1,96%</span></td><td class="n">R$ 7,25 mi</td></tr><tr data-b="nvdc34 nvidia bdr nvidia corp" data-c="NVDC34" data-f="25.49" data-v="1.0305" data-vol="88063334"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>NVDC</b><i>34</i></span><div><a href="ativos/nvdc34.html">NVDC34</a><br><span class="nome">Nvidia BDR</span></div></div></td><td class="n">25,49</td><td class="n"><span class="var alta">▲ +1,03%</span></td><td class="n">R$ 88,06 mi</td></tr><tr data-b="orcl34 oracle bdr oracle corporation" data-c="ORCL34" data-f="124.94" data-v="4.2035" data-vol="11700736"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>ORCL</b><i>34</i></span><div><a href="ativos/orcl34.html">ORCL34</a><br><span class="nome">Oracle BDR</span></div></div></td><td class="n">124,94</td><td class="n"><span class="var alta">▲ +4,20%</span></td><td class="n">R$ 11,70 mi</td></tr><tr data-b="p2lt34 palantir bdr palantir technologies inc" data-c="P2LT34" data-f="328.0" data-v="-1.4068" data-vol="2367208"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>P2LT</b><i>34</i></span><div><a href="ativos/p2lt34.html">P2LT34</a><br><span class="nome">Palantir BDR</span></div></div></td><td class="n">328,00</td><td class="n"><span class="var baixa">▼ −1,41%</span></td><td class="n">R$ 2,37 mi</td></tr><tr data-b="pags34 pagseguro bdr pagseguro digital ltd" data-c="PAGS34" data-f="9.26" data-v="-0.7503" data-vol="950594"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>PAGS</b><i>34</i></span><div><a href="ativos/pags34.html">PAGS34</a><br><span class="nome">PagSeguro BDR</span></div></div></td><td class="n">9,26</td><td class="n"><span class="var baixa">▼ −0,75%</span></td><td class="n">R$ 950,59 mil</td></tr><tr data-b="qcom34 qualcomm bdr qualcomm inc." data-c="QCOM34" data-f="81.59" data-v="2.2816" data-vol="1910207"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>QCOM</b><i>34</i></span><div><a href="ativos/qcom34.html">QCOM34</a><br><span class="nome">Qualcomm BDR</span></div></div></td><td class="n">81,59</td><td class="n"><span class="var alta">▲ +2,28%</span></td><td class="n">R$ 1,91 mi</td></tr><tr data-b="roxo34 nu holdings bdr nu holdings ltd." data-c="ROXO34" data-f="11.71" data-v="2.0035" data-vol="124363735"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>ROXO</b><i>34</i></span><div><a href="ativos/roxo34.html">ROXO34</a><br><span class="nome">Nu Holdings BDR</span></div></div></td><td class="n">11,71</td><td class="n"><span class="var alta">▲ +2,00%</span></td><td class="n">R$ 124,36 mi</td></tr><tr data-b="s1tx34 seagate bdr seagate technology holdings plc" data-c="S1TX34" data-f="80.9" data-v="-9.6997" data-vol="9907704"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>S1TX</b><i>34</i></span><div><a href="ativos/s1tx34.html">S1TX34</a><br><span class="nome">Seagate BDR</span></div></div></td><td class="n">80,90</td><td class="n"><span class="var baixa">▼ −9,70%</span></td><td class="n">R$ 9,91 mi</td></tr><tr data-b="s2gm34 sigma lithium bdr sigma lithium corp" data-c="S2GM34" data-f="15.72" data-v="7.6712" data-vol="1644598"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>S2GM</b><i>34</i></span><div><a href="ativos/s2gm34.html">S2GM34</a><br><span class="nome">Sigma Lithium BDR</span></div></div></td><td class="n">15,72</td><td class="n"><span class="var alta">▲ +7,67%</span></td><td class="n">R$ 1,64 mi</td></tr><tr data-b="spcx34 spacex bdr space exploration technologies corp" data-c="SPCX34" data-f="55.5" data-v="7.2464" data-vol="84547808"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>SPCX</b><i>34</i></span><div><a href="ativos/spcx34.html">SPCX34</a><br><span class="nome">SpaceX BDR</span></div></div></td><td class="n">55,50</td><td class="n"><span class="var alta">▲ +7,25%</span></td><td class="n">R$ 84,55 mi</td></tr><tr data-b="stoc34 stoneco bdr stoneco ltd." data-c="STOC34" data-f="49.4" data-v="1.2295" data-vol="28923819"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>STOC</b><i>34</i></span><div><a href="ativos/stoc34.html">STOC34</a><br><span class="nome">StoneCo BDR</span></div></div></td><td class="n">49,40</td><td class="n"><span class="var alta">▲ +1,23%</span></td><td class="n">R$ 28,92 mi</td></tr><tr data-b="tsla34 tesla bdr tesla. inc" data-c="TSLA34" data-f="60.71" data-v="4.5642" data-vol="159761475"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>TSLA</b><i>34</i></span><div><a href="ativos/tsla34.html">TSLA34</a><br><span class="nome">Tesla BDR</span></div></div></td><td class="n">60,71</td><td class="n"><span class="var alta">▲ +4,56%</span></td><td class="n">R$ 159,76 mi</td></tr><tr data-b="tsmc34 tsmc bdr taiwan semiconductor manufacturing co ltd" data-c="TSMC34" data-f="308.8" data-v="3.3191" data-vol="29330959"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>TSMC</b><i>34</i></span><div><a href="ativos/tsmc34.html">TSMC34</a><br><span class="nome">TSMC BDR</span></div></div></td><td class="n">308,80</td><td class="n"><span class="var alta">▲ +3,32%</span></td><td class="n">R$ 29,33 mi</td></tr><tr data-b="visa34 visa bdr visa inc." data-c="VISA34" data-f="93.39" data-v="-0.6489" data-vol="831031"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>VISA</b><i>34</i></span><div><a href="ativos/visa34.html">VISA34</a><br><span class="nome">Visa BDR</span></div></div></td><td class="n">93,39</td><td class="n"><span class="var baixa">▼ −0,65%</span></td><td class="n">R$ 831,03 mil</td></tr><tr data-b="w1dc34 western digital bdr western digital corp" data-c="W1DC34" data-f="2178.64" data-v="-9.6735" data-vol="9140430"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>W1DC</b><i>34</i></span><div><a href="ativos/w1dc34.html">W1DC34</a><br><span class="nome">Western Digital BDR</span></div></div></td><td class="n">2.178,64</td><td class="n"><span class="var baixa">▼ −9,67%</span></td><td class="n">R$ 9,14 mi</td></tr><tr data-b="xpbr31 xp inc. bdr xp inc." data-c="XPBR31" data-f="112.2" data-v="1.9537" data-vol="222838504"><td><div class="ativo-cel"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>XPBR</b><i>31</i></span><div><a href="ativos/xpbr31.html">XPBR31</a><br><span class="nome">XP Inc. BDR</span></div></div></td><td class="n">112,20</td><td class="n"><span class="var alta">▲ +1,95%</span></td><td class="n">R$ 222,84 mi</td></tr></tbody></table></div>
+<p class="data-regra">Toque no título de uma coluna para ordenar. Variação sem número (—) é dia de evento como desdobramento ou grupamento, em que a comparação não vale.</p>
+<h2 id='o-que-e-bdr'>O que é um BDR</h2><p>Um <strong>BDR</strong> (Brazilian Depositary Receipt, ou certificado de depósito de valores mobiliários) é um papel negociado na B3, em reais, que representa ações de uma empresa estrangeira guardadas no exterior por uma instituição depositária. Quem compra o BDR não compra a ação diretamente na bolsa de origem: compra o certificado emitido no Brasil, cujo preço acompanha o da ação lá fora, convertido pelo câmbio e pela proporção entre BDR e ação definida no programa.</p><p>Os BDRs desta lista são <strong>não patrocinados</strong> (abertos por uma instituição depositária, sem participação da empresa) ou <strong>patrocinados</strong> (contratados pela própria empresa, que então se registra na CVM). A página de cada um diz qual é o caso, conforme o cadastro da B3. BDRs de ETF ficam fora desta lista.</p>
+<div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Estar nesta lista não é indicação de compra ou venda.</div>
+</div></main>
+<p class="pregao casca">Cotações de fechamento do pregão de 02/10/2026. Fonte: B3. Dados com atraso, apenas informativos.</p><footer class="rodape">
+  <svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg>
+  <div class="casca">
+    <div class="rodape-marca">
+      <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
+    </div>
+    <div>
+      <h2>Guias</h2>
+      <ul><li><a href="guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="guias/o-que-e-p-l.html">O que é P/L, o preço sobre lucro</a></li><li><a href="guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
+    </div>
+    <div>
+      <h2>Calculadoras</h2>
+      <ul><li><a href="calculadoras/juros-compostos.html">Calculadora de juros compostos</a></li><li><a href="calculadoras/primeiro-milhao.html">Quanto tempo até o primeiro milhão</a></li><li><a href="calculadoras/reserva-de-emergencia.html">Calculadora de reserva de emergência</a></li></ul>
+    </div>
+    <div>
+      <h2>Navegue</h2>
+      <ul>
+        <li><a href="acoes.html">Ações</a> · <a href="fundos-imobiliarios.html">Fundos imobiliários</a> · <a href="bdrs.html">BDRs</a></li>
+        <li><a href="comunicados.html">Comunicados</a> · <a href="noticias.html">Notícias</a></li>
+        <li><a href="guias.html">Guias</a> · <a href="calculadoras.html">Calculadoras</a></li>
+        <li><a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Este site</h2>
+      <ul>
+        <li>Exibe anúncios do Google AdSense. <a href="privacidade.html">Política de privacidade</a>. <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>.</li>
+        <li>Da mesma casa: <a href="https://guiaprodutonalupa.com.br" rel="noopener">Guia Produto na Lupa</a> e <a href="https://viagemnalupa.com.br" rel="noopener">Viagem na Lupa</a>.</li>
+      </ul>
+    </div>
+    <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br · <a href="status.html">Status dos dados</a></p>
+  </div>
+</footer>
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="casca">
+    <p>Este site usa cookies do Google AdSense para exibir anúncios e medir audiência. Não pedimos cadastro nem e-mail, e as calculadoras não enviam o que você digita. Detalhes na <a href="privacidade.html">política de privacidade</a>.</p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var CHAVE='ml-consentimento', PUB='pub-4401770243539507', BLOQUEIA=false;
+  function ler(){try{return localStorage.getItem(CHAVE)}catch(e){return null}}
+  function gravar(v){try{localStorage.setItem(CHAVE,v)}catch(e){}}
+  function carrega(){
+    if(!PUB||document.getElementById('ads-google'))return;
+    var s=document.createElement('script');s.id='ads-google';s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-'+PUB;
+    document.head.appendChild(s);
+  }
+  // "Rever escolha de cookies", no rodapé: apaga a escolha salva e recarrega.
+  document.querySelectorAll('[data-rever-cookies]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      try{localStorage.removeItem(CHAVE)}catch(e){}
+      location.reload();
+    });
+  });
+  var escolha=ler();
+  if(escolha==='aceitar'||(escolha===null&&!BLOQUEIA))carrega();
+  var caixa=document.getElementById('consentimento');
+  if(escolha===null&&caixa){
+    caixa.hidden=false;
+    caixa.addEventListener('click',function(ev){
+      var b=ev.target.closest('[data-consent]');if(!b)return;
+      var v=b.dataset.consent;gravar(v);caixa.hidden=true;
+      if(v==='aceitar')carrega();else{var x=document.getElementById('ads-google');if(x)x.remove();}
+    });
+  }
+  // Europa, Reino Unido, Suíça: quem pergunta é a mensagem do Google (CMP
+  // certificada). Se ela diz que o GDPR se aplica, esta faixa sai da frente.
+  if(escolha===null&&caixa){
+    var n=0,t=setInterval(function(){
+      if(typeof window.__tcfapi==='function'){
+        clearInterval(t);
+        window.__tcfapi('addEventListener',2,function(tc,ok){if(ok&&tc&&tc.gdprApplies)caixa.hidden=true;});
+      }else if(++n>40)clearInterval(t);
+    },250);
+  }
+})();
+</script>
+<script>
+(function(){var T=document.querySelector('table.lista-ativos');if(!T)return;var B=T.tBodies[0],rows=[].slice.call(B.rows),
+F=document.querySelector('.filtro'),I=document.getElementById('filtro'),C=F.querySelector('.filtro-conta'),ord={k:null,d:1};
+F.hidden=false;
+function sem(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+rows.forEach(function(r){r._b=sem(r.getAttribute('data-b'))});
+function filtra(){var q=sem(I.value.trim()),n=0;rows.forEach(function(r){var ok=!q||r._b.indexOf(q)>=0;r.hidden=!ok;if(ok)n++});
+ C.textContent=q?(n+' de '+rows.length+' ativos'):(rows.length+' ativos')}
+I.addEventListener('input',filtra);
+var q=new URLSearchParams(location.search).get('q');if(q){I.value=q;}
+T.querySelectorAll('th button').forEach(function(bt){bt.addEventListener('click',function(){var k=bt.getAttribute('data-ord');
+ ord.d=ord.k===k?-ord.d:(k==='c'?1:-1);ord.k=k;
+ rows.sort(function(a,b){var x=a.getAttribute('data-'+k),y=b.getAttribute('data-'+k);
+  if(k==='c')return ord.d*x.localeCompare(y);
+  if(x==='')return 1;if(y==='')return -1;return ord.d*(parseFloat(x)-parseFloat(y))});
+ rows.forEach(function(r){B.appendChild(r)});
+ T.querySelectorAll('th').forEach(function(th){th.removeAttribute('aria-sort')});
+ bt.parentNode.setAttribute('aria-sort',ord.d>0?'ascending':'descending');});});
+filtra();})();(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
+function iso(d){return d.toISOString().slice(0,10)}
+function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
+function util(d){var w=d.getUTCDay();return w>0&&w<6&&!F[iso(d)]}
+function agora(){var t=Date.now()-3*36e5;
+ if(TESTE){var m=/[?&]hoje=(\d{4}-\d{2}-\d{2})(?:T(\d{1,2}))?/.exec(location.search);
+  if(m){var b=Date.parse(m[1]+'T00:00:00Z');if(!isNaN(b))t=b+(m[2]?+m[2]:12)*36e5}}
+ return new Date(t)}
+function esperado(n){var d=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()));
+ if(!(util(d)&&n.getUTCHours()>=H)){do{d=new Date(+d-D)}while(!util(d))}return d}
+function faltam(p,e){var d=new Date(Date.parse(p+'T00:00:00Z')),c=0;
+ while(c<99){d=new Date(+d+D);if(d>e)break;if(util(d))c++}return c}
+var n=agora(),e=esperado(n),EST=[['ok','✓','Atualizado'],['aviso','!','Pode estar desatualizado'],['atraso','×','Desatualizado']];
+function estado(p){var f=faltam(p,e);return {f:f,s:EST[f>=2?2:f]}}
+window.MLselo={agora:n,esperado:iso(e),estado:estado};
+document.querySelectorAll('.selo-dados[data-pregao]').forEach(function(el){
+ var p=el.getAttribute('data-pregao'),r=estado(p);el.setAttribute('data-estado',r.s[0]);
+ el.querySelector('.selo-ponto').textContent=r.s[1];
+ el.querySelector('.selo-txt').textContent=el.classList.contains('selo-mini')?r.s[2]:r.s[2]+' · pregão de '+br(p);
+ if(r.f>=1)el.title=(r.f===1?'Falta 1 pregão':'Faltam '+r.f+' pregões')+' desde '+br(p)+' (último esperado: '+br(iso(e))+')';
+});
+})();</script>
+</body>
+</html>

@@ -357,6 +357,32 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 .lista-prox li.devido{color:var(--baixa);font-weight:600}
 .selo-actions{display:inline-block;line-height:0}
 .selo-actions img{height:20px;width:auto}
+.selo-bdr{border-radius:.35em;background:linear-gradient(150deg,#6B5BD6 0%,#4F3FB8 50%,#352A86 100%)}
+.grafico .sem-js{color:var(--suave);font-size:.92rem;margin:.6rem 0}
+.grafico.pronto .sem-js{display:none}
+.filtro{margin:0 0 .8rem}
+.filtro label{display:block;font-size:.88rem;color:var(--suave);margin-bottom:.3rem}
+.filtro input{width:100%;max-width:26rem;font:500 1rem "IBM Plex Mono",monospace;padding:.55rem .75rem;border:1px solid var(--linha);border-radius:var(--raio-s);background:var(--papel);color:var(--tinta)}
+.filtro-conta{font-size:.85rem;color:var(--suave);margin:.35rem 0 0}
+table.lista-ativos th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:.25em}
+table.lista-ativos th[aria-sort] button{color:var(--tinta)}
+table.lista-ativos th[aria-sort=ascending] button::after{content:" ▲"}
+table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
+.comunicados{list-style:none;padding:0;margin:0 0 1rem}
+.comunicados li{padding:.7rem 0;border-bottom:1px solid var(--linha);margin:0}
+.comunicados li:last-child{border-bottom:0}
+.comunicados .com-meta{display:block;font-size:.82rem;color:var(--suave);margin-bottom:.15rem}
+.comunicados .com-meta time{font-family:"IBM Plex Mono",monospace}
+.comunicados .com-ativo a{font:600 .82rem "IBM Plex Mono",monospace;text-decoration:none;margin-right:.3rem}
+.comunicados li>a{overflow-wrap:anywhere}
+.tabelas-home td,.tabelas-home th{padding:.55rem .6rem}
+.bloco-tipo h2{margin-top:.2rem;display:flex;align-items:baseline;gap:.5rem}
+.bloco-tipo h2 small{font-size:.9rem;color:var(--suave)}
+.bloco-tipo .botao{margin-top:.2rem}
+@media (max-width:480px){
+  table.lista-ativos th,table.lista-ativos td,.tabelas-home th,.tabelas-home td{padding:.5rem .45rem}
+  table.lista-ativos th:nth-child(4),table.lista-ativos td:nth-child(4),.tabelas-home th:nth-child(4),.tabelas-home td:nth-child(4){display:none}
+}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/fundo/viva-voz-640.webp 640w, ../assets/img/fundo/viva-voz-1280.webp 1228w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="article">
 <meta property="og:site_name" content="Mercado na Lupa">
@@ -378,6 +404,8 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
     <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
     <nav class="nav" aria-label="Principal">
       <a href="../ativos.html">Ativos</a>
+      <a href="../comunicados.html">Comunicados</a>
+      <a href="../noticias.html">Notícias</a>
       <a href="../guias.html" aria-current="page">Guias</a>
       <a href="../calculadoras.html">Calculadoras</a>
       <a href="../sobre.html">Sobre</a>
@@ -432,7 +460,7 @@ DY: <span class="num">2,00 ÷ 40,00 × 100 = 5%</span>.</p>
   <div class="casca">
     <div class="rodape-marca">
       <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
-      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
       <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
     </div>
     <div>
@@ -446,7 +474,8 @@ DY: <span class="num">2,00 ÷ 40,00 × 100 = 5%</span>.</p>
     <div>
       <h2>Navegue</h2>
       <ul>
-        <li><a href="../ativos.html">Ativos acompanhados</a></li>
+        <li><a href="../acoes.html">Ações</a> · <a href="../fundos-imobiliarios.html">Fundos imobiliários</a> · <a href="../bdrs.html">BDRs</a></li>
+        <li><a href="../comunicados.html">Comunicados</a> · <a href="../noticias.html">Notícias</a></li>
         <li><a href="../guias.html">Guias</a> · <a href="../calculadoras.html">Calculadoras</a></li>
         <li><a href="../sobre.html">Sobre</a> · <a href="../contato.html">Contato</a></li>
       </ul>

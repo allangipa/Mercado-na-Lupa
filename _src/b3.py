@@ -20,6 +20,7 @@ publicado é pior do que página desatualizada.
 """
 import datetime as dt
 import io
+import json
 import re
 import zipfile
 from pathlib import Path
@@ -42,12 +43,35 @@ PRECOS = ("preabe", "premax", "premin", "premed", "preult")
 
 # Tabela anexa do layout: CODBDI 02 = lote padrão (ações), 12 = fundos
 # imobiliários; TPMERC 010 = mercado à vista.
-BDI_ACEITOS = {"02", "12"}
+#
+# BDRs: o PDF (revisão 02, 2020) NÃO lista os códigos de BDI de BDR nem as
+# especificações DRN/DR1/DR2/DR3. Nos arquivos reais (conferido em 03/10/2026,
+# COTAHIST_A2026 e diários) eles vêm assim:
+#   BDI 34 = BDR não patrocinado, ESPECI "DRN", ISIN BRxxxxBDRnnn
+#   BDI 35 = BDR patrocinado nível I/II/III, ESPECI "DR1"/"DR2"/"DR3"
+#   BDI 36 = BDR de ETF, ESPECI "DRE" (o site não acompanha)
+# Como isso não está no layout oficial, o leitor confere as três coisas juntas
+# (BDI, especificação e ISIN) e PARA se uma linha de BDR acompanhada vier
+# diferente: é o sinal de que a B3 mudou o arquivo.
+BDI_BDR = {"34": ("DRN",), "35": ("DR1", "DR2", "DR3")}
+BDI_ACEITOS = {"02", "12"} | set(BDI_BDR)
 MERCADO_VISTA = "010"
 
 
 class LayoutInvalido(Exception):
     pass
+
+
+# Preço médio fora da faixa mínima–máxima do próprio arquivo: acontece de verdade
+# no COTAHIST (12 linhas entre 2025 e 2026 nos 245 ativos, conferido em 03/10/2026:
+# o PREMED é volume ÷ quantidade e às vezes inclui negócio que não entrou na
+# mínima/máxima). A trava continua: cada caso precisa estar declarado, com a
+# conta, em _src/excecoes-b3.json; só a regra do preço médio é dispensada, e só
+# naquele papel e naquele dia. Abertura e fechamento continuam presos à faixa, e
+# o volume continua tendo de bater com quantidade × preço médio.
+_EXC = Path(__file__).resolve().parent / "excecoes-b3.json"
+EXCECOES_PREMED = {(c, d) for c, ds in (json.loads(_EXC.read_text(encoding="utf-8")).items() if _EXC.exists() else [])
+                   if not c.startswith("_") for d in ds}
 
 
 def _campo(linha, ini, fim):
@@ -115,8 +139,11 @@ def interpretar(n_linha, l):
     if not (0 < mn <= mx):
         raise LayoutInvalido(f"linha {n_linha} ({r['codneg']}): mínima {mn} / máxima {mx} incoerentes")
     for p in ("preabe", "premed", "preult"):
+        if p == "premed" and (r["codneg"], r["data"].isoformat()) in EXCECOES_PREMED:
+            continue
         if not (mn - 0.005 <= r[p] <= mx + 0.005):
-            raise LayoutInvalido(f"linha {n_linha} ({r['codneg']}): {p}={r[p]} fora de [{mn}, {mx}]")
+            raise LayoutInvalido(f"linha {n_linha} ({r['codneg']} {r['data']}): {p}={r[p]} fora de [{mn}, {mx}]"
+                                 + (" — se o arquivo da B3 é assim mesmo, declare em _src/excecoes-b3.json" if p == "premed" else ""))
     if r["totneg"] <= 0 or r["quatot"] <= 0 or r["voltot"] <= 0:
         raise LayoutInvalido(f"linha {n_linha} ({r['codneg']}): negócios/quantidade/volume zerados")
     # volume ≈ quantidade × preço médio (tolerância larga, 30%: papel ilíquido diverge até ~15%; layout deslocado erra por ordens de grandeza)
@@ -153,6 +180,11 @@ def cotacoes(caminho, codigos):
         if l[10:12] not in BDI_ACEITOS or l[24:27] != MERCADO_VISTA:
             continue
         r = interpretar(n, l)
+        if r["codbdi"] in BDI_BDR:
+            esp = (r["especi"].split() or [""])[0]
+            if esp not in BDI_BDR[r["codbdi"]] or r["codisi"][6:9] != "BDR":
+                raise LayoutInvalido(f"linha {n} ({cod}): BDI {r['codbdi']} com especificação {r['especi']!r} e ISIN "
+                                     f"{r['codisi']} — fora do padrão de BDR conferido em 03/10/2026")
         if r["data"].year != meta["ano"]:
             raise LayoutInvalido(f"{Path(caminho).name}: pregão {r['data']} fora do ano {meta['ano']} do header")
         saida[cod].append(r)

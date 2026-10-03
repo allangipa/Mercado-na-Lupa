@@ -1,0 +1,316 @@
+{
+ "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
+ "coletado_em": "2026-10-03T16:20+00:00",
+ "fontes": {
+  "agencia-brasil": {
+   "nome": "Agência Brasil",
+   "orgao": "EBC",
+   "site": "https://agenciabrasil.ebc.com.br/economia",
+   "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
+   "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
+   "ok": true,
+   "coletado_em": "2026-10-03T16:20+00:00",
+   "itens": [
+    {
+     "t": "Petrobras atinge recorde de valor de mercado após descoberta no Amapá",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/petrobras-atinge-recorde-de-valor-de-mercado-apos-descoberta-no-amapa",
+     "d": "2026-10-03T13:03-03:00"
+    },
+    {
+     "t": "Preço do limão está acima da média, mesmo na entressafra",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/preco-do-limao-esta-acima-da-media-mesmo-na-entressafra",
+     "d": "2026-10-03T09:00-03:00"
+    },
+    {
+     "t": "Nova descoberta aumenta expectativa da Petrobras na Foz do Amazonas",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/nova-descoberta-aumenta-expectativa-da-petrobras-na-foz-do-amazonas",
+     "d": "2026-10-02T19:25-03:00"
+    },
+    {
+     "t": "Distribuidoras se preparam para garantir energia no dia da eleição",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/distribuidoras-se-preparam-para-garantir-energia-no-dia-da-eleicao",
+     "d": "2026-10-02T17:17-03:00"
+    },
+    {
+     "t": "Embraer tem alta de 6% nas entregas no terceiro trimestre",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/embraer-tem-alta-de-6-nas-entregas-no-terceiro-trimestre",
+     "d": "2026-10-02T16:56-03:00"
+    },
+    {
+     "t": "Movimentação das bets cai R$ 652 milhões por dia após proibição",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/movimentacao-das-bets-cai-r-652-milhoes-por-dia-apos-proibicao",
+     "d": "2026-10-02T16:32-03:00"
+    },
+    {
+     "t": "Brasil amplia Margem Equatorial com base em decisão da ONU; entenda",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-amplia-margem-equatorial-com-base-em-decisao-da-onu-entenda",
+     "d": "2026-10-02T16:10-03:00"
+    },
+    {
+     "t": "Petrobras faz 2ª descoberta de petróleo em poço da Margem Equatorial",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/petrobras-faz-2a-descoberta-de-petroleo-em-poco-da-margem-equatorial",
+     "d": "2026-10-02T11:02-03:00"
+    },
+    {
+     "t": "Produção industrial cai 0,6% de julho para agosto, diz IBGE",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-industrial-cai-06-de-julho-para-agosto-diz-ibge",
+     "d": "2026-10-02T09:50-03:00"
+    },
+    {
+     "t": "Agência espacial institui política de inovação para fortalecer setor",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/agencia-espacial-institui-politica-de-inovacao-para-fortalecer-setor",
+     "d": "2026-10-02T07:51-03:00"
+    }
+   ]
+  },
+  "bcb-notas": {
+   "nome": "Banco Central — notas à imprensa",
+   "orgao": "BCB",
+   "site": "https://www.bcb.gov.br/",
+   "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
+   "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
+   "ok": true,
+   "coletado_em": "2026-10-03T16:20+00:00",
+   "itens": [
+    {
+     "t": "BC divulga Estatísticas Fiscais à imprensa",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21277/nota",
+     "d": "2026-09-30T08:33-03:00"
+    },
+    {
+     "t": "BC divulga Estatísticas Monetárias e de Crédito à imprensa",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21275/nota",
+     "d": "2026-09-29T08:31-03:00"
+    },
+    {
+     "t": "BC divulga Estatísticas do Setor Externo à imprensa",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21274/nota",
+     "d": "2026-09-28T08:33-03:00"
+    },
+    {
+     "t": "BC divulgará a Pesquisa Firmus do 3º trimestre de 2026 em 28 de setembro",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21273/nota",
+     "d": "2026-09-25T11:00-03:00"
+    },
+    {
+     "t": "Banco Central do Brasil e Banco Central Europeu iniciam fase de avaliação para interligação entre Pix e TIPS, sistema europeu de pagamentos instantâneos",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21271/nota",
+     "d": "2026-09-24T09:31-03:00"
+    },
+    {
+     "t": "BC divulga o Relatório de Política Monetária",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21270/nota",
+     "d": "2026-09-24T08:02-03:00"
+    },
+    {
+     "t": "BC aprimora regras relativas à prestação de serviços de ativos virtuais",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21267/nota",
+     "d": "2026-09-23T18:30-03:00"
+    },
+    {
+     "t": "BC anuncia leilões de swap cambial tradicional para fins de rolagem dos contratos vincendos em 3 de novembro de 2026",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21269/nota",
+     "d": "2026-09-23T18:30-03:00"
+    },
+    {
+     "t": "BC divulga IBCR de julho",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21266/nota",
+     "d": "2026-09-23T14:32-03:00"
+    },
+    {
+     "t": "BC divulga Ata da 281ª reunião do Copom",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21263/nota",
+     "d": "2026-09-22T08:00-03:00"
+    }
+   ]
+  },
+  "bcb-copom": {
+   "nome": "Banco Central — comunicados do Copom",
+   "orgao": "BCB",
+   "site": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom",
+   "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
+   "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
+   "ok": true,
+   "coletado_em": "2026-10-03T16:20+00:00",
+   "itens": [
+    {
+     "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21261",
+     "d": "2026-09-16T18:32-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 280ª Reunião - Copom reduz a taxa Selic para 14,00% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21215",
+     "d": "2026-08-05T18:33-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 279ª Reunião - Copom reduz a taxa Selic para 14,25% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21165",
+     "d": "2026-06-17T18:59-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 278ª Reunião - Copom reduz a taxa Selic para 14,50% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21107",
+     "d": "2026-04-29T18:34-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 277ª Reunião - Copom reduz a taxa Selic para 14,75% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21055",
+     "d": "2026-03-18T18:33-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 276ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21008",
+     "d": "2026-01-28T18:31-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 275ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/20960",
+     "d": "2025-12-10T18:37-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 274ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/20912",
+     "d": "2025-11-05T18:35-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 273ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/20840",
+     "d": "2025-09-17T18:32-03:00"
+    },
+    {
+     "t": "BC - Copom Comunicado - 272ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/20779",
+     "d": "2025-07-30T18:34-03:00"
+    }
+   ]
+  },
+  "b3": {
+   "nome": "B3 — notícias",
+   "orgao": "B3",
+   "site": "https://www.b3.com.br/pt_br/noticias/",
+   "url": "https://www.b3.com.br/pt_br/noticias/",
+   "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
+   "ok": true,
+   "coletado_em": "2026-10-03T16:20+00:00",
+   "itens": [
+    {
+     "t": "MUB3 convida crianças e famílias a conversar sobre dinheiro de forma lúdica",
+     "u": "https://www.b3.com.br/pt_br/noticias/entre-brincadeiras-e-oficinas-mub3-convida-criancas-e-familias-a-conversar-sobre-dinheiro-de-forma-ludica.htm",
+     "d": "2026-10-02"
+    },
+    {
+     "t": "Índice da B3 que mede expectativa de volatilidade do mercado brasileiro tem novo recorde",
+     "u": "https://www.b3.com.br/pt_br/noticias/outubro-inicia-com-recorde-do-indice-da-b3-que-mede-expectativa-de-volatilidade-do-mercado-brasileiro.htm",
+     "d": "2026-10-01"
+    },
+    {
+     "t": "B3 reduz em 40% tempo de entrega de produtos com uso de inteligência artificial",
+     "u": "https://www.b3.com.br/pt_br/noticias/tecnologia-8AE490C9A0EDAD8401A0F29BCBE02170.htm",
+     "d": "2026-09-30"
+    },
+    {
+     "t": "Indicador da B3 que mede expectativa de volatilidade alcança máxima histórica",
+     "u": "https://www.b3.com.br/pt_br/noticias/indicador-da-b3-que-mede-expectativa-de-volatilidade-alcanca-maxima-historica.htm",
+     "d": "2026-09-29"
+    },
+    {
+     "t": "BTG Pactual alcança melhor posição do ano e Embraer estreia nas ações mais negociadas em 2026",
+     "u": "https://www.b3.com.br/pt_br/noticias/btg-pactual-alcanca-melhor-posicao-do-ano-e-embraer-estreia-no-top-10-das-acoes-mais-negociadas-em-2026-segundo-datawise.htm",
+     "d": "2026-09-28"
+    },
+    {
+     "t": "Obras do MASP, Pinacoteca e mais museus revelam histórias pouco conhecidas em nova série de vídeos",
+     "u": "https://www.b3.com.br/pt_br/noticias/obras-do-masp-pinacoteca-museu-do-ipiranga-e-instituto-ricardo-brennand-revelam-historias-pouco-conhecidas-em-nova-serie-de-videos.htm",
+     "d": "2026-09-22"
+    },
+    {
+     "t": "Financiamento de veículos bate recorde para agosto e alcança maior volume em 15 anos",
+     "u": "https://www.b3.com.br/pt_br/noticias/financiamento-de-veiculos-bate-recorde-para-agosto-e-alcanca-maior-volume-em-15-anos-aponta-trillia.htm",
+     "d": "2026-09-22"
+    },
+    {
+     "t": "B3 e Invest RS unem esforços para ampliar o acesso de empresas gaúchas ao mercado de capitais",
+     "u": "https://www.b3.com.br/pt_br/noticias/regime-facil-8AE490C9A0C34B6A01A0C57F1DA31FEB.htm",
+     "d": "2026-09-21"
+    },
+    {
+     "t": "Centro de Convenções de Florianópolis é leiloado na B3",
+     "u": "https://www.b3.com.br/pt_br/noticias/centro-de-convencoes-de-florianopolis-e-leiloado-na-b3.htm",
+     "d": "2026-09-18"
+    }
+   ]
+  },
+  "tesouro": {
+   "nome": "Tesouro Nacional — notícias",
+   "orgao": "Tesouro Nacional",
+   "site": "https://www.gov.br/tesouronacional/pt-br/noticias",
+   "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
+   "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
+   "ok": true,
+   "coletado_em": "2026-10-03T16:20+00:00",
+   "itens": [
+    {
+     "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/segundo-trimestre-de-2026-registra-necessidade-liquida-de-financiamento-do-governo-geral-de-9-2-do-pib",
+     "d": "2026-10-01T10:09-03:00"
+    },
+    {
+     "t": "Saldo de operações de crédito garantidas pela União atinge R$ 353,64 bilhões no 2º quadrimestre de 2026",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/saldo-de-operacoes-de-credito-garantidas-pela-uniao-atinge-r-353-64-bilhoes-no-2o-quadrimestre-de-2026",
+     "d": "2026-09-30T11:16-03:00"
+    },
+    {
+     "t": "Investimentos no Tesouro Direto somam R$ 15,00 bilhões em agosto",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-15-00-bilhoes-em-agosto",
+     "d": "2026-09-25T10:00-03:00"
+    },
+    {
+     "t": "Tesouro publica cronograma de emissões da Dívida Pública para o 4º trimestre de 2026",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-publica-cronograma-de-emissoes-da-divida-publica-para-o-4o-trimestre-de-2026",
+     "d": "2026-09-18T18:00-03:00"
+    },
+    {
+     "t": "Tesouro honra em agosto R$ 79,95 milhões em dívidas garantidas pela União",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-honra-em-agosto-r-79-95-milhoes-em-dividas-garantidas-pela-uniao-1",
+     "d": "2026-09-15T11:05-03:00"
+    },
+    {
+     "t": "Tesouro Nacional convida o público a avaliar o Relatório Mensal da Dívida Pública Federal",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-lanca-pesquisa-sobre-relatorio-mensal-da-divida-publica-federal",
+     "d": "2026-08-31T16:51-03:00"
+    },
+    {
+     "t": "Investimentos no Tesouro Direto somam R$ 11,67 bilhões em julho",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-11-67-bilhoes-em-julho",
+     "d": "2026-08-25T16:00-03:00"
+    },
+    {
+     "t": "Tesouro Nacional amplia orientação e capacitação sobre identificação contábil de emendas parlamentares",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-amplia-orientacao-e-capacitacao-sobre-identificacao-contabil-de-emendas-parlamentares",
+     "d": "2026-08-25T14:13-03:00"
+    },
+    {
+     "t": "Tesouro honra em julho R$ 152,46 milhões em dívidas garantidas pela União",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-honra-em-julho-r-152-46-milhoes-em-dividas-garantidas-pela-uniao",
+     "d": "2026-08-17T10:56-03:00"
+    },
+    {
+     "t": "Tesouro e TCU tratam de nova abordagem para auditoria do Balanço Geral da União (BGU)",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-e-tcu-tratam-de-nova-abordagem-para-auditoria-do-balanco-geral-da-uniao-bgu",
+     "d": "2026-08-14T09:16-03:00"
+    },
+    {
+     "t": "Impacto da alteração do CNPJ em soluções que utilizam dados do Tesouro",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/impacto-da-alteracao-do-cnpj-em-solucoes-que-utilizam-dados-do-tesouro",
+     "d": "2026-07-29T11:02-03:00"
+    },
+    {
+     "t": "Balanço Tesouro Direto (Junho de 2026)",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/balanco-tesouro-direto-junho-de-2026",
+     "d": "2026-07-28T11:19-03:00"
+    }
+   ]
+  }
+ }
+}

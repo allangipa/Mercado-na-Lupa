@@ -141,11 +141,31 @@ def ler_json(p):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+TIPOS = {"acao": ("Ação", "Ações", "acoes"), "fii": ("Fundo imobiliário", "Fundos imobiliários", "fundos-imobiliarios"),
+         "bdr": ("BDR", "BDRs", "bdrs")}
+BDI_TIPO = {"02": "acao", "12": "fii", "34": "bdr", "35": "bdr"}
+
+
+def evento_info(v):
+    """eventos.json aceita o formato antigo (texto) e o novo (dict com fonte).
+    tipo "evento" (padrão): desdobramento, grupamento etc. — a variação do dia
+    não é comparável e não é exibida. tipo "mercado": variação real, conferida
+    e com fonte — é exibida normalmente; a declaração só libera a trava."""
+    if isinstance(v, str):
+        return {"evento": v, "fonte": None, "fonte_nome": None, "tipo": "evento"}
+    return {"tipo": "evento", "fonte": None, "fonte_nome": None, **v}
+
+
 def carregar():
     lista = ler_json(SRC / "ativos.json")
     papeis = ler_json(DADOS / "papeis.json")
     cad = ler_json(DADOS / "cadastro.json")
     eventos = ler_json(SRC / "eventos.json") if (SRC / "eventos.json").exists() else {}
+    eventos = {c: {d: evento_info(v) for d, v in ds.items()} for c, ds in eventos.items()}
+    com = ler_json(DADOS / "comunicados.json") if (DADOS / "comunicados.json").exists() else {"docs": [], "geral": [], "fontes": {}}
+    por_chave = {}
+    for d in com["docs"]:
+        por_chave.setdefault(d["k"], []).append(d)
     with (DADOS / "pregoes.csv").open(encoding="utf-8") as f:
         pregoes = [l["data"] for l in csv.DictReader(f)]
     if not pregoes:
@@ -159,8 +179,8 @@ def carregar():
             falha(f"{c}: sem dados/cotacoes/{c}.csv — rode _src/atualiza.py")
         if c not in papeis:
             falha(f"{c}: sem entrada em dados/papeis.json")
-        if c not in cad["ativos"]:
-            falha(f"{c}: sem cadastro da CVM — rode _src/cvm.py")
+        if a["tipo"] != "bdr" and c not in cad["ativos"] and c not in cad.get("sem_cadastro", {}):
+            falha(f"{c}: fora do cadastro da CVM — rode _src/cvm.py")
         with arq.open(encoding="utf-8") as f:
             rows = []
             for l in csv.DictReader(f):
@@ -170,25 +190,38 @@ def carregar():
         if len(rows) < 2:
             falha(f"{c}: menos de dois pregões gravados")
         ev = eventos.get(c, {})
+        datas = {r["data"] for r in rows}
+        for d in ev:
+            if d not in datas:
+                falha(f"{c}: _src/eventos.json declara {d}, que não é pregão com negócio do papel — data errada?")
         for ant, cur in zip(rows, rows[1:]):
             v = (cur["fechamento"] / ant["fechamento"] - 1) * 100
-            cur["var"] = None if cur["data"] in ev else v
+            cur["var"] = None if (cur["data"] in ev and ev[cur["data"]]["tipo"] == "evento") else v
             if abs(v) > VARIACAO_MAX and cur["data"] not in ev:
                 falha(f"{c} {cur['data']}: variação de {v:+.1f}% num pregão. Se for desdobramento, "
-                      "grupamento ou outro evento, declare em _src/eventos.json; se não, confira o arquivo da B3.")
+                      "grupamento ou outro evento, declare em _src/eventos.json (python _src/eventos_b3.py procura na B3); "
+                      "se não, confira o arquivo da B3.")
         rows[0]["var"] = None
         u = rows[-1]
         tipo = a["tipo"]
-        if tipo not in ("acao", "fii") or papeis[c]["fii"] != (tipo == "fii"):
-            falha(f"{c}: tipo {tipo!r} em ativos.json não bate com o código BDI da B3")
+        bdi = papeis[c].get("bdi") or ("12" if papeis[c]["fii"] else "02")
+        if tipo not in TIPOS or BDI_TIPO.get(bdi) != tipo:
+            falha(f"{c}: tipo {tipo!r} em ativos.json não bate com o código BDI {bdi} da B3")
+        chave = a.get("cnpj") if tipo != "bdr" else ("cvm:" + a["codigo_cvm"].lstrip("0") if a.get("codigo_cvm") else None)
         ativos.append({"codigo": c, "slug": c.lower(), "tipo": tipo, "nome": a["nome"], "rows": rows, "ult": u,
-                       "ant": rows[-2], "papel": papeis[c], "cad": cad["ativos"][c],
-                       "negociou_ultimo": u["data"] == ultimo, "evento": ev})
-    return ativos, pregoes, ultimo, cad
+                       "ant": rows[-2], "papel": papeis[c], "cad": cad["ativos"].get(c), "info": a,
+                       "sem_cadastro": cad.get("sem_cadastro", {}).get(c), "indices": a.get("indices", []),
+                       "negociou_ultimo": u["data"] == ultimo, "evento": ev,
+                       "comunicados": por_chave.get(chave, [])[:10] if chave else []})
+    if len({a["codigo"] for a in ativos}) != len(ativos):
+        falha("código repetido em _src/ativos.json")
+    return ativos, pregoes, ultimo, cad, com
 
 
 ESPECIE = {"ON": "ordinárias (ON)", "PN": "preferenciais (PN)", "PNA": "preferenciais classe A (PNA)",
-           "PNB": "preferenciais classe B (PNB)", "UNT": "units (UNT)", "CI": "cotas (CI)"}
+           "PNB": "preferenciais classe B (PNB)", "PNC": "preferenciais classe C (PNC)", "UNT": "units (UNT)", "CI": "cotas (CI)"}
+PROGRAMA_BDR = {"DRN": "não patrocinado", "DR1": "patrocinado nível I", "DR2": "patrocinado nível II",
+                "DR3": "patrocinado nível III"}
 SEGMENTO = {"NM": "Novo Mercado", "N1": "Nível 1", "N2": "Nível 2", "MA": "Bovespa Mais", "M2": "Bovespa Mais Nível 2"}
 
 
@@ -205,6 +238,8 @@ def nome_curto(a):
     B3 é abreviado em 12 letras ("ITAUUNIBANCO")."""
     if a["tipo"] == "acao":
         return f"{a['nome']} {a['papel']['especificacao'].split()[0]}"
+    if a["tipo"] == "bdr":
+        return f"{a['nome']} BDR"
     return a["nome"]
 
 
@@ -214,83 +249,58 @@ def janela(rows, dias):
     return [r for r in rows if r["data"] > ini]
 
 
-# --- gráfico SVG ---------------------------------------------------------------
+# --- gráfico (desenhado no navegador) -------------------------------------------
+# Antes o build escrevia três SVGs por página. Com 245 ativos isso pesava no
+# repositório: a janela de 12 meses anda todo dia e TODAS as coordenadas mudam,
+# então cada página era quase um arquivo novo por pregão. Agora a página leva a
+# série de fechamentos (desde 02/01/2025) num JSON enxuto, que só cresce no fim,
+# e um script pequeno desenha os três períodos com o mesmo desenho de antes.
+# Sem JavaScript, fica o resumo em texto (mínima e máxima de 12 meses) e a tabela.
 
-def passo_bonito(amp, n=4):
-    if amp <= 0:
-        return 1
-    bruto = amp / n
-    mag = 10 ** math.floor(math.log10(bruto))
-    for m in (1, 2, 2.5, 5, 10):
-        if bruto <= m * mag:
-            return m * mag
-    return 10 * mag
+def serie_json(rows):
+    """[dias desde o pregão anterior, fechamento, ...]; o 1º par traz a data inicial à parte."""
+    d0 = dt.date.fromisoformat(rows[0]["data"])
+    plano, ant = [], d0
+    for r in rows:
+        d = dt.date.fromisoformat(r["data"])
+        plano += [(d - ant).days, r["fechamento"]]
+        ant = d
+    return json.dumps({"d0": rows[0]["data"], "s": plano}, separators=(",", ":"))
 
 
-def svg_grafico(a, rows, classe, rotulo):
-    W, H, x0, x1, y0, y1 = 720, 330, 82, 708, 16, 282
-    vals = [r["fechamento"] for r in rows]
-    lo, hi = min(vals), max(vals)
-    p = passo_bonito(hi - lo)
-    ymin = math.floor(lo / p) * p
-    ymax = math.ceil(hi / p) * p
-    if ymax == ymin:
-        ymax = ymin + p
-    n = len(rows)
-    X = lambda i: x0 + (x1 - x0) * (i / (n - 1) if n > 1 else 0.5)
-    Y = lambda v: y1 - (y1 - y0) * (v - ymin) / (ymax - ymin)
-    pts = " ".join(f"{X(i):.1f},{Y(v):.1f}" for i, v in enumerate(vals))
-    area = f"M{X(0):.1f},{y1} L" + " L".join(f"{X(i):.1f},{Y(v):.1f}" for i, v in enumerate(vals)) + f" L{X(n-1):.1f},{y1} Z"
-    grade = []
-    v = ymin
-    casas = 2 if p < 1 else (1 if p < 10 and p != int(p) else 0)
-    while v <= ymax + 1e-9:
-        y = Y(v)
-        grade.append(f'<line class="grade-y" x1="{x0}" x2="{x1}" y1="{y:.1f}" y2="{y:.1f}"/>'
-                     f'<text x="{x0 - 10}" y="{y + 7:.1f}" text-anchor="end">{br(v, casas)}</text>')
-        v += p
-    # rótulos do eixo x: começo de mês (períodos longos) ou a cada ~5 pregões
-    xs = []
-    if classe == "g-1m":
-        for i in range(0, n, max(1, n // 4)):
-            d = dt.date.fromisoformat(rows[i]["data"])
-            xs.append((i, f"{d.day:02d}/{d.month:02d}"))
-    else:
-        mes_ant = None
-        passo = 1 if classe == "g-6m" else 2
-        cont = 0
-        for i, r in enumerate(rows):
-            d = dt.date.fromisoformat(r["data"])
-            if d.month != mes_ant:
-                if mes_ant is not None and cont % passo == 0 and i > 2:
-                    xs.append((i, MESES[d.month - 1] + ("/" + str(d.year)[2:] if d.month == 1 else "")))
-                if mes_ant is not None:
-                    cont += 1
-                mes_ant = d.month
-    eixo = "".join(f'<text x="{X(i):.1f}" y="{H - 14}" text-anchor="middle">{e(t)}</text>' for i, t in xs)
-    i_min, i_max = vals.index(lo), vals.index(hi)
-    marca = f'<circle class="ponto" cx="{X(n-1):.1f}" cy="{Y(vals[-1]):.1f}" r="6"/>'
-    tid = f"t-{a['slug']}-{classe}"
-    titulo = (f"{a['codigo']}: fechamento diário de {data_br(rows[0]['data'])} a {data_br(rows[-1]['data'])}. "
-              f"Mínimo de {brl(lo)} em {data_br(rows[i_min]['data'])}, máximo de {brl(hi)} em {data_br(rows[i_max]['data'])}.")
-    return (f'<svg class="{classe}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="{tid}">'
-            f'<title id="{tid}">{e(titulo)}</title>{"".join(grade)}<path class="area" d="{area}"/>'
-            f'<polyline class="linha" points="{pts}"/>{marca}{eixo}</svg>'), (lo, hi, rows[i_min]["data"], rows[i_max]["data"])
+GRAFICO_JS = r"""
+(function(){var G=document.querySelector('.grafico[data-cod]');if(!G)return;
+var J=JSON.parse(document.getElementById('serie').textContent),M=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+var rows=[],t=Date.parse(J.d0+'T00:00:00Z');for(var i=0;i<J.s.length;i+=2){t+=J.s[i]*864e5;rows.push([new Date(t),J.s[i+1]])}
+function br(v,c){return v.toLocaleString('pt-BR',{minimumFractionDigits:c,maximumFractionDigits:c})}
+function dt(d){return ('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)+'/'+d.getUTCFullYear()}
+function passo(a){if(a<=0)return 1;var b=a/4,m=Math.pow(10,Math.floor(Math.log10(b)));var k=[1,2,2.5,5,10];for(var i=0;i<k.length;i++)if(b<=k[i]*m)return k[i]*m;return 10*m}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function svg(rs,cl){var W=720,H=330,x0=82,x1=708,y0=16,y1=282,v=rs.map(function(r){return r[1]}),lo=Math.min.apply(0,v),hi=Math.max.apply(0,v),p=passo(hi-lo),
+ a=Math.floor(lo/p)*p,b=Math.ceil(hi/p)*p;if(b===a)b=a+p;var n=rs.length,
+ X=function(i){return x0+(x1-x0)*(n>1?i/(n-1):.5)},Y=function(y){return y1-(y1-y0)*(y-a)/(b-a)},
+ pts=v.map(function(y,i){return X(i).toFixed(1)+','+Y(y).toFixed(1)}).join(' '),o=[],c=p<1?2:(p<10&&p!==Math.floor(p)?1:0);
+ for(var y=a;y<=b+1e-9;y+=p){var yy=Y(y).toFixed(1);o.push('<line class="grade-y" x1="'+x0+'" x2="'+x1+'" y1="'+yy+'" y2="'+yy+'"/><text x="'+(x0-10)+'" y="'+(+yy+7).toFixed(1)+'" text-anchor="end">'+br(y,c)+'</text>')}
+ var xs=[];if(cl==='g-1m'){for(var i=0;i<n;i+=Math.max(1,Math.floor(n/4))){var d=rs[i][0];xs.push([i,('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)])}}
+ else{var ma=null,ps=cl==='g-6m'?1:2,ct=0;for(var i=0;i<n;i++){var d=rs[i][0],m=d.getUTCMonth();if(m!==ma){if(ma!==null&&ct%ps===0&&i>2)xs.push([i,M[m]+(m===0?'/'+String(d.getUTCFullYear()).slice(2):'')]);if(ma!==null)ct++;ma=m}}}
+ var eixo=xs.map(function(q){return '<text x="'+X(q[0]).toFixed(1)+'" y="'+(H-14)+'" text-anchor="middle">'+q[1]+'</text>'}).join('');
+ var il=v.indexOf(lo),ih=v.indexOf(hi),id='t-'+cl,tit=G.getAttribute('data-cod')+': fechamento diário de '+dt(rs[0][0])+' a '+dt(rs[n-1][0])+'. Mínimo de R$ '+br(lo,2)+' em '+dt(rs[il][0])+', máximo de R$ '+br(hi,2)+' em '+dt(rs[ih][0])+'.';
+ return '<svg class="'+cl+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="'+id+'"><title id="'+id+'">'+esc(tit)+'</title>'+o.join('')+
+  '<path class="area" d="M'+X(0).toFixed(1)+','+y1+' L'+pts.split(' ').join(' L')+' L'+X(n-1).toFixed(1)+','+y1+' Z"/><polyline class="linha" points="'+pts+'"/><circle class="ponto" cx="'+X(n-1).toFixed(1)+'" cy="'+Y(v[n-1]).toFixed(1)+'" r="6"/>'+eixo+'</svg>'}
+var fim=rows[rows.length-1][0],h='';[['g-12m',366],['g-6m',183],['g-1m',31]].forEach(function(q){var ini=+fim-q[1]*864e5,rs=rows.filter(function(r){return +r[0]>ini});h+=svg(rs,q[0])});
+G.querySelector('.paineis').innerHTML=h;G.classList.add('pronto');})();"""
 
 
 def bloco_grafico(a):
-    periodos = [("12m", "12 meses", 366), ("6m", "6 meses", 183), ("1m", "1 mês", 31)]
-    svgs, legendas = [], []
-    for k, nome, dias in periodos:
-        rs = janela(a["rows"], dias)
-        s, (lo, hi, dlo, dhi) = svg_grafico(a, rs, f"g-{k}", nome)
-        svgs.append(s)
-    return ('<div class="grafico">'
+    periodos = [("12m", "12 meses"), ("6m", "6 meses"), ("1m", "1 mês")]
+    return (f'<div class="grafico" data-cod="{a["codigo"]}">'
             # os rádios precisam ser irmãos de .paineis: o CSS liga cada um ao seu SVG
-            + "".join(f'<input type="radio" class="sr" name="per-{a["slug"]}" id="p-{k}"{" checked" if k == "12m" else ""}>' for k, _, _ in periodos)
+            + "".join(f'<input type="radio" class="sr" name="per-{a["slug"]}" id="p-{k}"{" checked" if k == "12m" else ""}>' for k, _ in periodos)
             + '<div class="periodos" role="group" aria-label="Período do gráfico">'
-            + "".join(f'<label for="p-{k}">{nome}</label>' for k, nome, _ in periodos)
-            + '</div><div class="paineis">' + "".join(svgs) + '</div>'
+            + "".join(f'<label for="p-{k}">{nome}</label>' for k, nome in periodos)
+            + '</div><div class="paineis"><p class="sem-js">O gráfico é desenhado no navegador e precisa de JavaScript. '
+              'Os números do período estão no texto logo abaixo e na tabela de pregões.</p></div>'
+            + f'<script type="application/json" id="serie">{serie_json(a["rows"])}</script>'
             + '<p class="legenda">Preço de fechamento diário, em reais, sem ajuste por proventos, desdobramentos ou grupamentos. '
               'Fonte: B3, série histórica de cotações.</p></div>')
 
@@ -320,6 +330,8 @@ LUPA_ARQUIVO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
 FUNDOS = {k: v for k, v in ler_json(SRC / "fundos.json").items() if not k.startswith("_")} \
     if (SRC / "fundos.json").exists() else {}
 FUNDO_DIR = RAIZ / "assets" / "img" / "fundo"
+# carteiras dos índices e critérios da lista (escrito por _src/carteiras.py)
+CARTEIRAS = ler_json(SRC / "carteiras.json") if (SRC / "carteiras.json").exists() else {}
 # No celular a foto é recortada pela altura (object-fit: cover), então ocupa
 # mais que a largura da tela: o sizes avisa o navegador para não pegar a pequena.
 FUNDO_SIZES = "(max-width: 700px) 200vw, 100vw"
@@ -408,7 +420,7 @@ def selo(a, tam=""):
     """Selo do ativo: o código num quadrado (ação) ou círculo (fundo imobiliário),
     em cor por tipo. Desenhado em CSS, sem logotipo de empresa nem imagem externa.
     É decorativo: o código aparece em texto ao lado."""
-    m = re.match(r"([A-Z]+)(\d+)$", a["codigo"])
+    m = re.match(r"(.+?)(\d{1,2})$", a["codigo"])
     letras, num = (m.group(1), m.group(2)) if m else (a["codigo"], "")
     cl = f" selo-{tam}" if tam else ""
     return f'<span class="selo selo-{a["tipo"]}{cl}" aria-hidden="true"><b>{letras}</b><i>{num}</i></span>'
@@ -577,6 +589,8 @@ def topo(base, atual=""):
     <a class="marca" href="{base}index.html" aria-label="{NOME}, página inicial">{LUPA_SVG}<span>Mercado <i>na Lupa</i></span></a>
     <nav class="nav" aria-label="Principal">
       <a href="{base}ativos.html"{cur('ativos')}>Ativos</a>
+      <a href="{base}comunicados.html"{cur('comunicados')}>Comunicados</a>
+      <a href="{base}noticias.html"{cur('noticias')}>Notícias</a>
       <a href="{base}guias.html"{cur('guias')}>Guias</a>
       <a href="{base}calculadoras.html"{cur('calculadoras')}>Calculadoras</a>
       <a href="{base}sobre.html"{cur('sobre')}>Sobre</a>
@@ -601,7 +615,7 @@ def rodape(base, ultimo=None):
   <div class="casca">
     <div class="rodape-marca">
       <a class="marca" href="{base}index.html" aria-label="{NOME}, página inicial">{LUPA_SVG}<span>Mercado <i>na Lupa</i></span></a>
-      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
       <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
     </div>
     <div>
@@ -615,7 +629,8 @@ def rodape(base, ultimo=None):
     <div>
       <h2>Navegue</h2>
       <ul>
-        <li><a href="{base}ativos.html">Ativos acompanhados</a></li>
+        <li><a href="{base}acoes.html">Ações</a> · <a href="{base}fundos-imobiliarios.html">Fundos imobiliários</a> · <a href="{base}bdrs.html">BDRs</a></li>
+        <li><a href="{base}comunicados.html">Comunicados</a> · <a href="{base}noticias.html">Notícias</a></li>
         <li><a href="{base}guias.html">Guias</a> · <a href="{base}calculadoras.html">Calculadoras</a></li>
         <li><a href="{base}sobre.html">Sobre</a> · <a href="{base}contato.html">Contato</a></li>
       </ul>
@@ -796,6 +811,18 @@ def gerar_marca():
 
 
 def og(nome_arq, rotulo, titulo, sub):
+    """Imagem og 1200×630. Guarda o texto que a gerou no comentário do JPEG e não
+    redesenha se nada mudou: com 245 ativos, isso tira segundos do build e evita
+    reescrever arquivos iguais."""
+    assinatura = f"og1|{rotulo}|{titulo}|{sub}".encode("utf-8")
+    arq = IMG / nome_arq
+    if arq.exists():
+        try:
+            with Image.open(arq) as velho:
+                if velho.info.get("comment") == assinatura:
+                    return f"{DOMINIO}/assets/img/{nome_arq}"
+        except OSError:
+            pass
     W, H = 1200, 630
     im = Image.new("RGB", (W, H), "#0F1B2D")
     d = ImageDraw.Draw(im)
@@ -821,7 +848,7 @@ def og(nome_arq, rotulo, titulo, sub):
         y += int(f.size * 1.15)
     d.text((80, H - 90), sub, font=fonte("Archivo-Regular.ttf", 28), fill="#A9B4C4")
     IMG.mkdir(parents=True, exist_ok=True)
-    im.save(IMG / nome_arq, "JPEG", quality=84, optimize=True, progressive=True)
+    im.save(arq, "JPEG", quality=84, optimize=True, progressive=True, comment=assinatura)
     return f"{DOMINIO}/assets/img/{nome_arq}"
 
 
@@ -866,6 +893,7 @@ def conferir_texto(nome, html_txt):
 def titulo_ativo(a):
     nc = nome_curto(a)
     for t in (f"{a['codigo']} ({nc}): cotação e histórico · {NOME}",
+              f"{a['codigo']} ({nc}): cotação · {NOME}",
               f"{a['codigo']}: cotação de fechamento e histórico · {NOME}",
               f"{a['codigo']}: cotação e histórico · {NOME}"):
         if len(t) <= TITULO_MAX:
@@ -874,20 +902,62 @@ def titulo_ativo(a):
 
 
 def descricao_ativo(a):
-    nc = nome_curto(a)
-    tipo = "da ação" if a["tipo"] == "acao" else "da cota do fundo imobiliário"
-    for d in (f"Cotação de fechamento {tipo} {a['codigo']} ({nc}) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.",
-              f"Fechamento de {a['codigo']} ({nc}) na B3: variação, mínima, máxima, volume, gráfico de 12 meses e cadastro da CVM.",
-              f"Cotação de fechamento de {a['codigo']} na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados públicos da CVM."):
+    nc, c = nome_curto(a), a["codigo"]
+    if a["tipo"] == "bdr":
+        nome = a["nome"]
+        cands = [f"Cotação de fechamento do BDR {c} ({nome}) na B3, em reais: variação do dia, mínima, máxima, volume, gráfico de 12 meses e o que é um BDR.",
+                 f"Fechamento do BDR {c} ({nome}) na B3, em reais: variação, mínima, máxima, volume, gráfico de 12 meses e o que é um BDR.",
+                 f"Cotação de fechamento do BDR {c} na B3, em reais: variação do dia, mínima, máxima, volume, gráfico de 12 meses e o que é um BDR."]
+    else:
+        tipo = "da ação" if a["tipo"] == "acao" else "da cota do fundo imobiliário"
+        fonte = "dados da CVM" if a["cad"] else "dados públicos"
+        cands = [f"Cotação de fechamento {tipo} {c} ({nc}) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e {fonte}.",
+                 f"Fechamento de {c} ({nc}) na B3: variação, mínima, máxima, volume, gráfico de 12 meses e {fonte}.",
+                 f"Fechamento de {c} ({nc}) na B3: variação, mínima, máxima, volume e gráfico de 12 meses.",
+                 f"Cotação de fechamento de {c} na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e {fonte} sobre o papel."]
+    for d in cands:
         if DESCRICAO_MIN <= len(d) <= DESCRICAO_MAX:
             return d
     falha(f"{a['codigo']}: sem descrição entre {DESCRICAO_MIN} e {DESCRICAO_MAX}")
 
 
+TEXTO_BDR = ("<p>Um <strong>BDR</strong> (Brazilian Depositary Receipt, ou certificado de depósito de valores mobiliários) "
+             "é um papel negociado na B3, em reais, que representa ações de uma empresa estrangeira guardadas no exterior "
+             "por uma instituição depositária. Quem compra o BDR não compra a ação diretamente na bolsa de origem: compra "
+             "o certificado emitido no Brasil, cujo preço acompanha o da ação lá fora, convertido pelo câmbio e pela proporção "
+             "entre BDR e ação definida no programa.</p>")
+
+
 def texto_ativo(a):
     c, cad = a["codigo"], a["cad"]
-    esp, seg = especificacao(a)
     isin = a["papel"]["isin"]
+    if a["tipo"] == "bdr":
+        inf = a["info"]
+        prog = inf.get("programa", "")
+        p1 = (f"<p><strong>{c}</strong> é o código de negociação na B3 de um BDR {PROGRAMA_BDR.get(prog, '')} "
+              f"(especificação {e(prog)} no arquivo da B3) que tem por trás a empresa estrangeira <strong>{e(inf['emissor'])}</strong>, "
+              f"segundo o cadastro de BDRs da B3. O ISIN do papel é {isin}.</p>")
+        if prog == "DRN":
+            p2 = ("<p>No BDR <strong>não patrocinado</strong>, o programa é aberto por uma instituição depositária no Brasil, "
+                  "sem participação da empresa estrangeira, que não presta informações à CVM por causa dele.</p>")
+        else:
+            p2 = ("<p>No BDR <strong>patrocinado</strong>, a própria empresa estrangeira contrata o programa e tem registro na CVM; "
+                  "por isso os comunicados dela aparecem nos dados abertos da CVM.</p>")
+        p3 = ("<p><strong>O preço desta página é o do BDR na B3, em reais.</strong> Não é a cotação da ação na bolsa de origem, "
+              "que é em outra moeda e por ação, e não por certificado.</p>")
+        return TEXTO_BDR + p1 + p2 + p3
+    esp, seg = especificacao(a)
+    if not cad:
+        if a["tipo"] == "fii":
+            tipo = "cotas do fundo imobiliário"
+            extra = (" O site não achou o cadastro deste fundo nos dados abertos da CVM (o ISIN da B3 não aparece no informe "
+                     "mensal dos fundos imobiliários), e por isso não mostra razão social, administrador nem patrimônio: "
+                     "é melhor não mostrar do que mostrar dado de outro fundo.")
+        else:
+            tipo = "ações"
+            extra = " O cadastro da companhia não foi achado ativo nos dados abertos da CVM, e por isso esta página não traz razão social nem setor."
+        return (f"<p><strong>{c}</strong> é o código de negociação de {tipo} na B3, com o nome de pregão "
+                f"“{e(a['papel']['nome_pregao'])}” e ISIN {isin}.{extra}</p>")
     if a["tipo"] == "acao":
         p1 = (f"A <strong>{e(cad['razao_social'])}</strong> é uma companhia aberta registrada na Comissão de Valores "
               f"Mobiliários (CVM) desde {data_br(cad['registro_cvm'])}, sob o código CVM {e(cad['codigo_cvm'])}, "
@@ -900,8 +970,13 @@ def texto_ativo(a):
         elif esp.startswith("preferenciais"):
             p3 = ("Ações preferenciais, em regra, não dão direito a voto, e têm em troca alguma preferência prevista "
                   "em lei e no estatuto, como prioridade no recebimento de dividendos.")
+        elif esp.startswith("units"):
+            p3 = ("Units são certificados que reúnem mais de uma ação da companhia, em geral ordinárias e preferenciais, "
+                  "e são negociados como um papel só.")
         else:
             p3 = ""
+        if "IBOV" in a["indices"]:
+            p3 += " O papel faz parte da carteira teórica vigente do Ibovespa."
         return f"<p>{p1}</p><p>{p2} {p3}</p>"
     ref = mes_ano(cad["referencia"])
     p1 = (f"O <strong>{e(cad['razao_social'])}</strong> é um fundo de investimento imobiliário (CNPJ {e(cad['cnpj'])}) "
@@ -912,54 +987,85 @@ def texto_ativo(a):
     # Segmento de atuação fora (decisão do dono, 03/10/2026): o campo do informe da CVM
     # nem sempre bate com a estratégia do fundo (ex.: MXRF11 aparecia como "Logística").
     p2 = (f"A gestão é declarada como {e(cad['gestao'].lower())}. <strong>{c}</strong> é o código de negociação das cotas na B3, "
-          f"com ISIN {isin}.")
+          f"com ISIN {isin}." + (" O fundo faz parte da carteira teórica vigente do IFIX." if "IFIX" in a["indices"] else ""))
     return f"<p>{p1}</p><p>{p2}</p>"
 
 
 def ficha_ativo(a):
     cad = a["cad"]
-    esp, seg = especificacao(a)
-    linhas = [("Razão social", cad["razao_social"]), ("CNPJ", cad["cnpj"])]
-    if a["tipo"] == "acao":
-        linhas += [("Código CVM", cad["codigo_cvm"]), ("Setor (CVM)", cad["setor"]),
-                   ("Controle acionário (CVM)", cad["controle"].capitalize()),
-                   ("Sede", f"{cad['municipio']} ({cad['uf']})"),
-                   ("Registro na CVM", data_br(cad["registro_cvm"])),
-                   ("Espécie", esp)]
+    if a["tipo"] == "bdr":
+        inf = a["info"]
+        linhas = [("Empresa estrangeira (B3)", inf["emissor"]),
+                  ("Programa", f"BDR {PROGRAMA_BDR.get(inf.get('programa'), '')} ({inf.get('programa')})"),
+                  ("Moeda da cotação", "Real (R$), na B3")]
+    elif not cad:
+        linhas = [("Cadastro na CVM", "não identificado")]
+    elif a["tipo"] == "acao":
+        esp, seg = especificacao(a)
+        linhas = [("Razão social", cad["razao_social"]), ("CNPJ", cad["cnpj"]),
+                  ("Código CVM", cad["codigo_cvm"]), ("Setor (CVM)", cad["setor"]),
+                  ("Controle acionário (CVM)", cad["controle"].capitalize()),
+                  ("Sede", f"{cad['municipio']} ({cad['uf']})"),
+                  ("Registro na CVM", data_br(cad["registro_cvm"])),
+                  ("Espécie", esp)]
         if seg:
             linhas.append(("Segmento de listagem", seg))
     else:
         dy = cad.get("dy_mes")
-        linhas += [("Administrador", cad["administrador"].title()), ("Início de funcionamento", data_br(cad["inicio_funcionamento"])),
-                   ("Mandato", cad["mandato"] or "não informado"),
-                   ("Público-alvo", cad["publico_alvo"].capitalize()),
-                   (f"Cotistas ({mes_ano(cad['referencia'])})", inteiro(cad["cotistas"])),
-                   ("Cotas emitidas", inteiro(cad["cotas_emitidas"])),
-                   ("Patrimônio líquido", compacto(cad["patrimonio_liquido"], True)),
-                   ("Valor patrimonial por cota", brl(cad["vp_cota"]))]
+        linhas = [("Razão social", cad["razao_social"]), ("CNPJ", cad["cnpj"]),
+                  ("Administrador", cad["administrador"].title()), ("Início de funcionamento", data_br(cad["inicio_funcionamento"])),
+                  ("Mandato", cad["mandato"] or "não informado"),
+                  ("Público-alvo", cad["publico_alvo"].capitalize()),
+                  (f"Cotistas ({mes_ano(cad['referencia'])})", inteiro(cad["cotistas"])),
+                  ("Cotas emitidas", inteiro(cad["cotas_emitidas"])),
+                  ("Patrimônio líquido", compacto(cad["patrimonio_liquido"], True)),
+                  ("Valor patrimonial por cota", brl(cad["vp_cota"]))]
         if dy is not None:
-            linhas.append((f"Dividend yield do mês informado à CVM", br(dy * 100) + "%"))
+            linhas.append(("Dividend yield do mês informado à CVM", br(dy * 100) + "%"))
+    if a["indices"]:
+        linhas.append(("Índice (carteira vigente)", ", ".join({"IBOV": "Ibovespa", "IFIX": "IFIX"}.get(i, i) for i in a["indices"])))
     linhas += [("Código ISIN", a["papel"]["isin"]), ("Nome no pregão (B3)", a["papel"]["nome_pregao"])]
     return '<dl class="ficha">' + "".join(f"<dt>{e(k)}</dt><dd>{e(v)}</dd>" for k, v in linhas) + "</dl>"
 
 
-def pagina_ativo(a, todos, ultimo, og_url):
+def lista_comunicados(docs, mostrar_ativo=None):
+    """Lista de documentos oficiais (CVM / Fundos.NET). mostrar_ativo: função doc -> HTML do(s) código(s)."""
+    itens = []
+    for d in docs:
+        quem = f' · <span class="com-ativo">{mostrar_ativo(d)}</span>' if mostrar_ativo else ""
+        itens.append(f'<li><span class="com-meta"><time datetime="{d["d"]}">{data_br(d["d"])}</time> · {e(d["c"])}{quem}</span>'
+                     f'<a href="{e(d["u"])}" rel="noopener nofollow">{e(d["a"])}</a></li>')
+    return '<ul class="comunicados">' + "".join(itens) + "</ul>"
+
+
+def outros_ativos(a, todos):
+    """Até 12 do mesmo tipo: na ação, primeiro as do mesmo setor da CVM; depois pelo volume do último pregão."""
+    mesmo = [x for x in todos if x["tipo"] == a["tipo"] and x is not a]
+    setor = (a["cad"] or {}).get("setor") if a["tipo"] == "acao" else None
+    chave = lambda x: (0 if (setor and (x["cad"] or {}).get("setor") == setor) else 1, -x["ult"]["volume"])
+    return sorted(mesmo, key=chave)[:12]
+
+
+def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
     base = "../"
     c, u, ant = a["codigo"], a["ult"], a["ant"]
     url = f"{DOMINIO}/ativos/{a['slug']}.html"
     titulo, desc = titulo_ativo(a), descricao_ativo(a)
     nc = nome_curto(a)
-    tipo_txt = "Ação" if a["tipo"] == "acao" else "Fundo imobiliário"
+    tipo_txt, tipo_pl, tipo_pg = TIPOS[a["tipo"]]
+    tipo_min = tipo_pl if a["tipo"] == "bdr" else tipo_pl.lower()
     a12 = janela(a["rows"], 366)
     lo12 = min(r["minima"] for r in a12)
     hi12 = max(r["maxima"] for r in a12)
     aviso_neg = ""
     if not a["negociou_ultimo"]:
-        aviso_neg = (f'<div class="aviso"><strong>Sem negócio no último pregão.</strong> {c} não foi negociado em lote padrão '
+        lote = "" if a["tipo"] == "bdr" else " em lote padrão"
+        aviso_neg = (f'<div class="aviso"><strong>Sem negócio no último pregão.</strong> {c} não foi negociado{lote} '
                      f'em {data_br(ultimo)}; os números abaixo são do último pregão em que houve negócio, {data_br(u["data"])}.</div>')
     ev_txt = ""
     if u["var"] is None and u["data"] in a["evento"]:
-        ev_txt = f'<div class="aviso"><strong>Evento no papel:</strong> {e(a["evento"][u["data"]])}. A variação do dia não é comparável e não é exibida.</div>'
+        ev_txt = (f'<div class="aviso"><strong>Evento no papel:</strong> {e(a["evento"][u["data"]]["evento"])} '
+                  'A variação do dia não é comparável e não é exibida.</div>')
     numeros = [("Abertura", brl(u["abertura"])), ("Mínima do dia", brl(u["minima"])), ("Máxima do dia", brl(u["maxima"])),
                ("Preço médio", brl(u["media"])), ("Fechamento anterior", brl(ant["fechamento"])),
                ("Volume financeiro", compacto(u["volume"], True)), ("Negócios", inteiro(u["negocios"])),
@@ -976,21 +1082,33 @@ def pagina_ativo(a, todos, ultimo, og_url):
     if a["tipo"] == "acao":
         guias = [("o-que-e-p-l", "O que é P/L"), ("o-que-e-dividend-yield", "O que é dividend yield"),
                  ("como-funciona-o-imposto-de-renda-na-bolsa", "Como funciona o imposto de renda na bolsa")]
-    else:
+    elif a["tipo"] == "fii":
         guias = [("o-que-e-dividend-yield", "O que é dividend yield"),
                  ("como-funciona-o-imposto-de-renda-na-bolsa", "Imposto de renda em fundos imobiliários")]
-    outros = [x for x in todos if x["tipo"] == a["tipo"] and x is not a]
+    else:
+        guias = [("como-funciona-o-imposto-de-renda-na-bolsa", "Como funciona o imposto de renda na bolsa"),
+                 ("o-que-e-dividend-yield", "O que é dividend yield")]
+    outros = outros_ativos(a, todos)
     cad = a["cad"]
-    fontes = [("B3 — Série histórica de cotações (arquivo COTAHIST do pregão)", "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/"),
-              (cad["fonte"], cad["fonte_url"])]
-    cab = f"""{migalhas_html(base, ("Ativos", base + "ativos.html"), (c, ""))}
+    fontes = [("B3 — Série histórica de cotações (arquivo COTAHIST do pregão)",
+               "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/")]
+    if cad:
+        fontes.append((cad["fonte"], cad["fonte_url"]))
+    if a["tipo"] == "bdr":
+        fontes.append(("B3 — BDRs listados (nome da empresa e tipo do programa)",
+                       "https://www.b3.com.br/pt_br/produtos-e-servicos/negociacao/renda-variavel/bdrs.htm"))
+    for i in a["indices"]:
+        fontes.append(({"IBOV": "B3 — composição da carteira do Ibovespa", "IFIX": "B3 — composição da carteira do IFIX"}[i],
+                       CARTEIRAS[i]["fonte"]))
+    razao = cad["razao_social"] if cad else (a["info"]["emissor"] if a["tipo"] == "bdr" else a["papel"]["nome_pregao"])
+    cab = f"""{migalhas_html(base, ("Ativos", base + "ativos.html"), (tipo_pl, f"{base}{tipo_pg}.html"), (c, ""))}
 <div class="cab-ativo">
   <div class="cab-id">
     {selo(a, "g")}
     <div>
     <p class="rotulo tipo">{tipo_txt} · B3</p>
     <h1><span class="cod">{c}</span> — {e(nc)}</h1>
-    <p class="razao">{e(cad['razao_social'])}</p>
+    <p class="razao">{e(razao)}</p>
     </div>
   </div>
   <div class="preco">
@@ -1000,9 +1118,33 @@ def pagina_ativo(a, todos, ultimo, og_url):
     {selo_dados(ultimo)}
   </div>
 </div>"""
+    # eventos declarados no período do gráfico, com a fonte de cada um
+    evs = [(d, x) for d, x in sorted(a["evento"].items(), reverse=True) if d >= a12[0]["data"]]
+    ev_hist = ""
+    if evs:
+        ev_hist = ('<h2 id="eventos">Eventos e variações fora do comum no período</h2><ul class="fontes">'
+                   + "".join(f'<li><strong>{data_br(d)}</strong> — {e(x["evento"])}'
+                             + (f' Fonte: <a href="{e(x["fonte"])}" rel="noopener nofollow">{e(x["fonte_nome"] or "fonte")}</a>.' if x["fonte"] else "")
+                             + "</li>" for d, x in evs) + "</ul>"
+                   + '<p class="data-regra">O gráfico e a tabela mostram o preço como foi negociado, sem ajuste: num desdobramento '
+                     'ou grupamento, a linha dá um salto que não é ganho nem perda.</p>')
+    quem = "pela companhia" if a["tipo"] != "fii" else "pelo administrador do fundo"
+    if a["comunicados"]:
+        com_html = ('<h2 id="comunicados">Últimos comunicados</h2>' + lista_comunicados(a["comunicados"])
+                    + f'<p class="data-regra">Documentos entregues {quem} à CVM, com link para o arquivo oficial. '
+                      'A lista vem dos dados abertos da CVM; veja também <a href="../comunicados.html">os comunicados mais recentes de todos os ativos</a>.</p>')
+    elif a["tipo"] == "bdr":
+        com_html = ""
+    else:
+        com_html = ('<h2 id="comunicados">Últimos comunicados</h2><p class="data-regra">Nenhum fato relevante, comunicado ou aviso '
+                    'deste papel nos dados abertos da CVM do período coletado.</p>')
+    aviso_bdr = ('<div class="aviso"><strong>Preço em reais, do BDR na B3.</strong> Não é a cotação da ação da empresa na bolsa de origem.</div>'
+                 if a["tipo"] == "bdr" else "")
+    lote = ", em lote padrão," if a["tipo"] == "acao" else ""
+    provento = "rendimento" if a["tipo"] == "fii" else "dividendo"
     corpo = f"""<main id="conteudo" class="com-faixa">
 {faixa("bovespa-arcos", base, cab, "faixa-ativo")}<div class="casca">
-{aviso_neg}{ev_txt}
+{aviso_neg}{ev_txt}{aviso_bdr}
 {nums}
 <h2 id="grafico">Histórico de fechamento</h2>
 {bloco_grafico(a)}
@@ -1013,29 +1155,35 @@ def pagina_ativo(a, todos, ultimo, og_url):
 </div>
 <h2 id="pregoes">Últimos pregões</h2>
 {tabela}
+{ev_hist}
+{com_html}
 <h2 id="como-ler">Como ler esta página</h2>
 <ul>
- <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista, em lote padrão, como publicado pela B3.</li>
- <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um dividendo, a queda de preço aparece como variação.</li>
+ <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista{lote} como publicado pela B3.</li>
+ <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um {provento}, a queda de preço aparece como variação.</li>
  <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
  <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
 </ul>
 <h2 id="guias">Para entender os números</h2>
 <ul>{''.join(f'<li><a href="{base}guias/{s}.html">{t}</a></li>' for s, t in guias)}</ul>
-<h2 id="outros">{'Outras ações acompanhadas' if a['tipo'] == 'acao' else 'Outros fundos imobiliários acompanhados'}</h2>
+<h2 id="outros">Outros {tipo_min} acompanhados</h2>
 <ul class="outros-ativos">{''.join(f'<li><a class="cartao" href="{x["slug"]}.html">{selo(x, "p")}<span><b>{x["codigo"]}</b><small>{e(nome_curto(x))}</small></span></a></li>' for x in outros)}</ul>
+<p><a href="{base}{tipo_pg}.html">Ver a lista completa de {tipo_min}</a></p>
 <h2 id="fontes">Fontes</h2>
 <ul class="fontes">{''.join(f'<li><a href="{e(uu)}" rel="noopener">{e(t)}</a></li>' for t, uu in fontes)}
-<li>Cadastro da CVM atualizado em {data_br(json.loads((DADOS / 'cadastro.json').read_text(encoding='utf-8'))['gerado_em'])}.</li></ul>
+{f'<li>Cadastro da CVM atualizado em {data_br(cad_gerado)}.</li>' if cad else ''}</ul>
 <div class="aviso"><strong>{AVISO_FIXO}</strong> Esta página reúne dados públicos sobre {c} e não é análise nem indicação de compra ou venda.</div>
 </div></main>
 """
-    sobre = ({"@type": "Corporation", "name": cad["razao_social"], "tickerSymbol": f"BVMF:{c}"} if a["tipo"] == "acao"
-             else {"@type": "InvestmentFund", "name": cad["razao_social"]})
+    if a["tipo"] == "fii":
+        sobre = {"@type": "InvestmentFund", "name": razao}
+    else:
+        sobre = {"@type": "Corporation", "name": razao, "tickerSymbol": f"BVMF:{c}"}
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "description": desc, "url": url,
            "inLanguage": "pt-BR", "dateModified": u["data"], "about": sobre, "publisher": ORG},
-          migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", f"{DOMINIO}/ativos.html"), (c, url))]
-    return cabeca(titulo, desc, url, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim(selo_js())
+          migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", f"{DOMINIO}/ativos.html"), (tipo_pl, f"{DOMINIO}/{tipo_pg}.html"), (c, url))]
+    return (cabeca(titulo, desc, url, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos")
+            + corpo + rodape(base, ultimo) + consentimento(base) + fim(GRAFICO_JS + selo_js()))
 
 
 def destaques(ativos, ultimo):
@@ -1057,15 +1205,54 @@ def destaques(ativos, ultimo):
 </div>"""
 
 
-def tabela_ativos(ativos, base, caption):
+def tabela_ativos(ativos, base, caption, filtro=False):
+    """Tabela de ativos. Com filtro=True, leva busca por código/nome e ordenação
+    (JS em LISTA_JS); sem JavaScript, a tabela continua inteira, em ordem de código."""
     linhas = []
     for a in ativos:
         u = a["ult"]
-        linhas.append(f'<tr><td><div class="ativo-cel">{selo(a, "p")}<div><a href="{base}ativos/{a["slug"]}.html">{a["codigo"]}</a><br><span class="nome">{e(nome_curto(a))}</span></div></div></td>'
-                      f'<td class="n">{br(u["fechamento"])}</td><td class="n">{var_html(u["var"])}</td>'
+        v = u["var"]
+        busca = (a["codigo"] + " " + nome_curto(a) + " " + ((a["cad"] or {}).get("razao_social") or (a["info"].get("emissor") or ""))).lower()
+        attrs = (f' data-b="{e(busca)}" data-c="{a["codigo"]}" data-f="{u["fechamento"]}" data-v="{"" if v is None else round(v, 4)}"'
+                 f' data-vol="{round(u["volume"])}"') if filtro else ""
+        linhas.append(f'<tr{attrs}><td><div class="ativo-cel">{selo(a, "p")}<div><a href="{base}ativos/{a["slug"]}.html">{a["codigo"]}</a><br><span class="nome">{e(nome_curto(a))}</span></div></div></td>'
+                      f'<td class="n">{br(u["fechamento"])}</td><td class="n">{var_html(v)}</td>'
                       f'<td class="n">{compacto(u["volume"], True)}</td></tr>')
-    return (f'<div class="rolagem"><table><caption>{caption}</caption><thead><tr><th>Ativo</th><th class="n">Fechamento (R$)</th>'
-            '<th class="n">Variação</th><th class="n">Volume</th></tr></thead><tbody>' + "".join(linhas) + "</tbody></table></div>")
+    if filtro:
+        cab = ('<th><button type="button" data-ord="c" aria-label="Ordenar por código">Ativo</button></th>'
+               '<th class="n"><button type="button" data-ord="f">Fechamento (R$)</button></th>'
+               '<th class="n"><button type="button" data-ord="v">Variação</button></th>'
+               '<th class="n"><button type="button" data-ord="vol">Volume</button></th>')
+    else:
+        cab = '<th>Ativo</th><th class="n">Fechamento (R$)</th><th class="n">Variação</th><th class="n">Volume</th>'
+    tabela = (f'<div class="rolagem"><table{" class=\"lista-ativos\"" if filtro else ""}><caption>{caption}</caption><thead><tr>{cab}</tr></thead><tbody>'
+              + "".join(linhas) + "</tbody></table></div>")
+    if not filtro:
+        return tabela
+    return (f'<div class="filtro" hidden><label for="filtro">Filtrar por código ou nome</label>'
+            f'<input id="filtro" type="search" autocomplete="off" spellcheck="false" placeholder="ex.: {ativos[0]["codigo"]}">'
+            f'<p class="filtro-conta" aria-live="polite"></p></div>{tabela}')
+
+
+LISTA_JS = r"""
+(function(){var T=document.querySelector('table.lista-ativos');if(!T)return;var B=T.tBodies[0],rows=[].slice.call(B.rows),
+F=document.querySelector('.filtro'),I=document.getElementById('filtro'),C=F.querySelector('.filtro-conta'),ord={k:null,d:1};
+F.hidden=false;
+function sem(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+rows.forEach(function(r){r._b=sem(r.getAttribute('data-b'))});
+function filtra(){var q=sem(I.value.trim()),n=0;rows.forEach(function(r){var ok=!q||r._b.indexOf(q)>=0;r.hidden=!ok;if(ok)n++});
+ C.textContent=q?(n+' de '+rows.length+' ativos'):(rows.length+' ativos')}
+I.addEventListener('input',filtra);
+var q=new URLSearchParams(location.search).get('q');if(q){I.value=q;}
+T.querySelectorAll('th button').forEach(function(bt){bt.addEventListener('click',function(){var k=bt.getAttribute('data-ord');
+ ord.d=ord.k===k?-ord.d:(k==='c'?1:-1);ord.k=k;
+ rows.sort(function(a,b){var x=a.getAttribute('data-'+k),y=b.getAttribute('data-'+k);
+  if(k==='c')return ord.d*x.localeCompare(y);
+  if(x==='')return 1;if(y==='')return -1;return ord.d*(parseFloat(x)-parseFloat(y))});
+ rows.forEach(function(r){B.appendChild(r)});
+ T.querySelectorAll('th').forEach(function(th){th.removeAttribute('aria-sort')});
+ bt.parentNode.setAttribute('aria-sort',ord.d>0?'ascending':'descending');});});
+filtra();})();"""
 
 
 def cartoes(itens, base, pasta, rotulo):
@@ -1075,23 +1262,61 @@ def cartoes(itens, base, pasta, rotulo):
         for g in itens) + "</ul>"
 
 
+def sem_recomendacao(txt):
+    """Texto de terceiros (manchete, assunto de comunicado) com linguagem que o site não usa fica de fora:
+    a trava do build vale para a página inteira e não pode parar a publicação por causa de uma manchete."""
+    for m in RECOMENDACAO.finditer(txt):
+        if not re.search(r"\bn[ãa]o\b|\bnem\b|\bsem\b", txt[max(0, m.start() - 70):m.start()], re.I):
+            return False
+    return True
+
+
 TITULO_HOME = f"{NOME}: cotações da B3, guias e calculadoras"
-DESC_HOME = ("Cotações de fechamento da B3 explicadas, com histórico e dados da CVM, guias para quem está começando e "
-             "calculadoras de juros. Educativo e com fonte.")
+DESC_HOME = ("Cotações de fechamento da B3 explicadas, com histórico e dados da CVM, comunicados oficiais, guias para "
+             "iniciantes e calculadoras. Educativo e com fonte.")
 
 
-def home(ativos, ultimo, guias, calcs, og_url):
+def por_volume(xs, n):
+    return sorted(xs, key=lambda a: -a["ult"]["volume"] if a["negociou_ultimo"] else 0)[:n]
+
+
+def doc_ativos(por_chave, base):
+    """Para o comunicado (chave = CNPJ ou cvm:código), os códigos acompanhados daquele emissor, com link."""
+    def f(d):
+        return " ".join(f'<a href="{base}ativos/{x["slug"]}.html">{x["codigo"]}</a>' for x in por_chave.get(d["k"], []))
+    return f
+
+
+def manchetes(noticias):
+    itens = []
+    for chave, f in noticias.get("fontes", {}).items():
+        for i in f.get("itens", []):
+            if sem_recomendacao(i["t"]):
+                itens.append({**i, "fonte": f["nome"], "orgao": f["orgao"], "chave": chave})
+    itens.sort(key=lambda i: i["d"], reverse=True)
+    return itens
+
+
+def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias):
     base = ""
-    busca_dados = json.dumps({a["codigo"]: f"ativos/{a['slug']}.html" for a in ativos})
-    acoes = [a for a in ativos if a["tipo"] == "acao"]
-    fiis = [a for a in ativos if a["tipo"] == "fii"]
+    busca_dados = json.dumps({a["codigo"]: f"ativos/{a['slug']}.html" for a in ativos}, separators=(",", ":"))
+    grupos = {t: [a for a in ativos if a["tipo"] == t] for t in TIPOS}
+    chips = por_volume(ativos, 12)
+    geral = set(com.get("geral", []))
+    docs = sorted([d for d in com["docs"] if d["u"] in geral and d["f"] == "ipe" and sem_recomendacao(d["a"])][:3]
+                  + [d for d in com["docs"] if d["u"] in geral and d["f"] == "fii"][:3], key=lambda d: d["d"], reverse=True)
+    noti = manchetes(noticias)[:6]
+    tabelas = "".join(
+        f'<section><h2>{TIPOS[t][1]}</h2>{tabela_ativos(por_volume(grupos[t], 8), base, f"Os 8 de maior volume em {data_br(ultimo)}")}'
+        f'<p><a href="{TIPOS[t][2]}.html">Ver {"os" if t == "bdr" else "as" if t == "acao" else "os"} {len(grupos[t])} {TIPOS[t][1] if t == "bdr" else TIPOS[t][1].lower()}</a></p></section>'
+        for t in TIPOS)
     corpo = f"""<main id="conteudo" class="com-faixa">
 <section class="heroi">{fundo_picture("hero-pregao", base)}{LINHA_FUNDO}
 <div class="casca abertura">
   {selo_dados(ultimo)}
   <p class="rotulo">Dados públicos · B3 e CVM</p>
   <h1>O mercado brasileiro, com lupa e com fonte.</h1>
-  <p class="lead">Cotação de fechamento, histórico e cadastro oficial de ações e fundos imobiliários, explicados sem palpite. Para quem quer entender antes de decidir qualquer coisa.</p>
+  <p class="lead">Cotação de fechamento, histórico, cadastro oficial e comunicados de {len(ativos)} ações, fundos imobiliários e BDRs, explicados sem palpite. Para quem quer entender antes de decidir qualquer coisa.</p>
   <form class="busca" role="search" id="busca" action="ativos.html">
     <label for="cod" class="sr">Código do ativo</label>
     <input id="cod" name="q" autocomplete="off" spellcheck="false" placeholder="Digite um código, ex.: PETR4" list="codigos" maxlength="8">
@@ -1099,7 +1324,7 @@ def home(ativos, ultimo, guias, calcs, og_url):
     <button class="botao" type="submit">Ver</button>
   </form>
   <p class="busca-msg" id="busca-msg" aria-live="polite"></p>
-  <ul class="chips">{''.join(f'<li><a href="ativos/{a["slug"]}.html">{a["codigo"]}</a></li>' for a in ativos)}</ul>
+  <ul class="chips" aria-label="Os 12 de maior volume no último pregão">{''.join(f'<li><a href="ativos/{a["slug"]}.html">{a["codigo"]}</a></li>' for a in chips)}</ul>
   {credito_fundo("hero-pregao")}
 </div>
 </section>
@@ -1111,9 +1336,13 @@ def home(ativos, ultimo, guias, calcs, og_url):
 {destaques(ativos, ultimo)}
 </section>
 
-<div class="grade grade-2" style="margin-top:1.4rem">
-<section><h2>Ações</h2>{tabela_ativos(acoes, base, f"Fechamento em {data_br(ultimo)}")}</section>
-<section><h2>Fundos imobiliários</h2>{tabela_ativos(fiis, base, f"Fechamento em {data_br(ultimo)}")}</section>
+<div class="grade grade-3 tabelas-home" style="margin-top:1.4rem">
+{tabelas}
+</div>
+
+<div class="grade grade-2">
+<section><h2 id="comunicados">Comunicados recentes</h2>{lista_comunicados(docs, doc_ativos(por_chave, base))}<p><a href="comunicados.html">Todos os comunicados recentes</a></p></section>
+<section><h2 id="noticias">Notícias de fontes oficiais</h2><ul class="comunicados">{''.join(f'<li><span class="com-meta"><time datetime="{i["d"][:10]}">{data_br(i["d"][:10])}</time> · {e(i["fonte"])}</span><a href="{e(i["u"])}" rel="noopener nofollow">{e(i["t"])}</a></li>' for i in noti)}</ul><p><a href="noticias.html">Mais notícias</a></p></section>
 </div>
 
 {divisor()}
@@ -1128,38 +1357,190 @@ def home(ativos, ultimo, guias, calcs, og_url):
 """
     js = f"""(function(){{var M={busca_dados},f=document.getElementById('busca'),i=document.getElementById('cod'),m=document.getElementById('busca-msg');
 f.addEventListener('submit',function(ev){{ev.preventDefault();var c=i.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
-if(!c){{m.textContent='Digite um código de negociação, como PETR4 ou MXRF11.';return}}
+if(!c){{m.textContent='Digite um código de negociação, como PETR4, MXRF11 ou AAPL34.';return}}
 if(M[c]){{location.href=M[c];return}}
-m.textContent=c+' ainda não está na lista acompanhada pelo site. Os disponíveis estão logo abaixo.';}});}})();"""
+var p=Object.keys(M).filter(function(k){{return k.indexOf(c)===0}});
+if(p.length===1){{location.href=M[p[0]];return}}
+if(p.length>1){{m.textContent='Mais de um código começa com '+c+': '+p.slice(0,8).join(', ')+'.';return}}
+m.textContent=c+' não está na lista acompanhada pelo site. Veja as listas de ações, fundos imobiliários e BDRs.';}});}})();"""
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": DOMINIO + "/", "inLanguage": "pt-BR",
            "description": DESC_HOME, "publisher": ORG}, {"@context": "https://schema.org", **ORG}]
     return cabeca(TITULO_HOME, DESC_HOME, DOMINIO + "/", og_url, base, ld, extra=fundo_preload("hero-pregao", base)) + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js + selo_js())
 
 
-TITULO_ATIVOS = f"Ações e fundos imobiliários acompanhados · {NOME}"
-DESC_ATIVOS = ("Lista das ações e dos fundos imobiliários acompanhados pelo site, com o fechamento e a variação do último "
-               "pregão da B3 e o histórico de cada um.")
+TITULO_ATIVOS = f"Ativos acompanhados: ações, FIIs e BDRs · {NOME}"
+DESC_ATIVOS = ("As ações do Ibovespa, os fundos imobiliários do IFIX e os BDRs mais negociados na B3, com fechamento, "
+               "variação e histórico de cada um. Critérios públicos.")
+LISTAS = {
+    "acao": (f"Ações do Ibovespa e mais negociadas · {NOME}",
+             "Cotação de fechamento das ações da carteira do Ibovespa e das mais negociadas da B3, com variação, volume, "
+             "busca por código e histórico de cada papel."),
+    "fii": (f"Fundos imobiliários do IFIX: cotações · {NOME}",
+            "Cotação de fechamento dos fundos imobiliários da carteira do IFIX na B3, com variação, volume, busca por "
+            "código e o cadastro de cada fundo na CVM."),
+    "bdr": (f"BDRs mais negociados na B3: cotações · {NOME}",
+            "Cotação em reais dos 50 BDRs mais negociados na B3 no ano, com variação, volume, busca e o que é um BDR. O preço é o do BDR, não o da ação lá fora."),
+}
+
+
+def criterio(t):
+    c = CARTEIRAS
+    if t == "acao":
+        return (f'Todas as {len(c["IBOV"]["codigos"])} ações da <a href="{e(c["IBOV"]["fonte"])}" rel="noopener">carteira do Ibovespa</a> '
+                f'vigente em {data_br(c["IBOV"]["data"])}, segundo a B3, mais {len(c["acoes_extras"]["codigos"])} ações e units fora do índice: '
+                f'{e(c["acoes_extras"]["criterio"])}.')
+    if t == "fii":
+        return (f'Os {len(c["IFIX"]["codigos"])} fundos da <a href="{e(c["IFIX"]["fonte"])}" rel="noopener">carteira do IFIX</a> '
+                f'vigente em {data_br(c["IFIX"]["data"])}, segundo a B3.')
+    return f'{e(c["BDR"]["criterio"][:1].upper() + c["BDR"]["criterio"][1:])}.'
 
 
 def pagina_ativos(ativos, ultimo, og_url):
     base = ""
-    acoes = [a for a in ativos if a["tipo"] == "acao"]
-    fiis = [a for a in ativos if a["tipo"] == "fii"]
+    grupos = {t: [a for a in ativos if a["tipo"] == t] for t in TIPOS}
     cab = f"""{migalhas_html(base, ("Ativos", ""))}
 <h1>Ativos acompanhados</h1>
-<p class="lead">Nesta primeira versão, o site acompanha {len(acoes)} ações e {len(fiis)} fundos imobiliários entre os mais conhecidos da B3. A lista não é seleção nem recomendação: é o ponto de partida, e vai crescer.</p>
+<p class="lead">{len(ativos)} papéis negociados na B3, escolhidos por critério público e mecânico — carteira dos índices da própria B3 e volume negociado —, nunca por juízo sobre eles. A lista não é seleção nem recomendação.</p>
 """
+    blocos = "".join(f"""<section class="cartao bloco-tipo"><h2>{TIPOS[t][1]} <small class="num">{len(grupos[t])}</small></h2>
+<p>{criterio(t)}</p>
+<p><a class="botao" href="{TIPOS[t][2]}.html">Ver {TIPOS[t][1] if t == "bdr" else TIPOS[t][1].lower()}</a></p></section>""" for t in TIPOS)
     corpo = f"""<main id="conteudo" class="com-faixa">
 {faixa("bovespa-arcos", base, cab)}<div class="casca">
-<h2>Ações</h2>{tabela_ativos(acoes, base, f"Fechamento em {data_br(ultimo)}")}
-<h2>Fundos imobiliários</h2>{tabela_ativos(fiis, base, f"Fechamento em {data_br(ultimo)}")}
+<div class="grade grade-3">{blocos}</div>
+<h2>Mais negociados no último pregão</h2>
+{tabela_ativos(por_volume(ativos, 15), base, f"Os 15 de maior volume em {data_br(ultimo)}, entre todos os tipos")}
+<p class="data-regra">A carteira dos índices muda a cada quatro meses (janeiro, maio e setembro), e a lista do site é revista quando isso acontece.</p>
 <div class="aviso"><strong>{AVISO_FIXO}</strong></div>
 </div></main>
 """
     u = f"{DOMINIO}/ativos.html"
     ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": TITULO_ATIVOS, "description": DESC_ATIVOS,
            "url": u, "inLanguage": "pt-BR"}, migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", u))]
-    return cabeca(TITULO_ATIVOS, DESC_ATIVOS, u, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim()
+    return cabeca(TITULO_ATIVOS, DESC_ATIVOS, u, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim(selo_js())
+
+
+def pagina_lista(t, ativos, ultimo, og_url):
+    base = ""
+    nome, plural, pg = TIPOS[t]
+    titulo, desc = LISTAS[t]
+    xs = sorted([a for a in ativos if a["tipo"] == t], key=lambda a: a["codigo"])
+    intro = {"acao": "Ações e units negociadas no mercado à vista da B3, com o fechamento do último pregão.",
+             "fii": "Cotas de fundos de investimento imobiliário negociadas na B3, com o fechamento do último pregão.",
+             "bdr": ("Certificados negociados na B3, em reais, que representam ações de empresas estrangeiras. "
+                     "O preço é o do BDR aqui, não o da ação na bolsa de origem.")}[t]
+    cab = f"""{migalhas_html(base, ("Ativos", "ativos.html"), (plural, ""))}
+<h1>{plural}</h1>
+<p class="lead">{intro}</p>
+{selo_dados(ultimo)}
+"""
+    extra_bdr = (f"<h2 id='o-que-e-bdr'>O que é um BDR</h2>{TEXTO_BDR}<p>Os BDRs desta lista são <strong>não patrocinados</strong> "
+                 "(abertos por uma instituição depositária, sem participação da empresa) ou <strong>patrocinados</strong> "
+                 "(contratados pela própria empresa, que então se registra na CVM). A página de cada um diz qual é o caso, "
+                 "conforme o cadastro da B3. BDRs de ETF ficam fora desta lista.</p>") if t == "bdr" else ""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("bovespa-arcos", base, cab)}<div class="casca">
+<p class="data-regra"><strong>Quais estão aqui:</strong> {criterio(t)}</p>
+{tabela_ativos(xs, base, f"{len(xs)} {plural if t == 'bdr' else plural.lower()} · fechamento em {data_br(ultimo)}", filtro=True)}
+<p class="data-regra">Toque no título de uma coluna para ordenar. Variação sem número (—) é dia de evento como desdobramento ou grupamento, em que a comparação não vale.</p>
+{extra_bdr}
+<div class="aviso"><strong>{AVISO_FIXO}</strong> Estar nesta lista não é indicação de compra ou venda.</div>
+</div></main>
+"""
+    u = f"{DOMINIO}/{pg}.html"
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": titulo, "description": desc, "url": u,
+           "inLanguage": "pt-BR", "numberOfItems": len(xs)},
+          migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", f"{DOMINIO}/ativos.html"), (plural, u))]
+    return (cabeca(titulo, desc, u, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos")
+            + corpo + rodape(base, ultimo) + consentimento(base) + fim(LISTA_JS + selo_js()))
+
+
+TITULO_COM = f"Comunicados de empresas e fundos na CVM · {NOME}"
+DESC_COM = ("Fatos relevantes, comunicados ao mercado e avisos das empresas e fundos imobiliários acompanhados, com data "
+            "e link para o documento oficial na CVM.")
+
+
+def fonte_ok_txt(f):
+    if not f:
+        return "ainda não coletada"
+    if f.get("ok"):
+        return f"coletada em {data_hora_br(f['coletado_em'])}"
+    return f"última coleta falhou em {data_hora_br(f['falhou_em'])}; mostrando a coleta anterior"
+
+
+def data_hora_br(s):
+    if not s:
+        return "—"
+    d = dt.datetime.fromisoformat(s).astimezone(BRASILIA)
+    return d.strftime("%d/%m/%Y %H:%M")
+
+
+def pagina_comunicados(com, por_chave, og_url, ultimo):
+    base = ""
+    geral = set(com.get("geral", []))
+    docs = [d for d in com["docs"] if d["u"] in geral and sem_recomendacao(d["a"])]
+    d_emp = [d for d in docs if d["f"] == "ipe"]
+    d_fii = [d for d in docs if d["f"] == "fii"]
+    fi, fp = com["fontes"].get("ipe"), com["fontes"].get("fii")
+    cab = f"""{migalhas_html(base, ("Comunicados", ""))}
+<h1>Comunicados recentes</h1>
+<p class="lead">Os documentos oficiais mais recentes das empresas e fundos acompanhados: fatos relevantes, comunicados ao mercado, avisos aos acionistas e, dos fundos imobiliários, avisos e relatórios gerenciais.</p>
+"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("paulista-dia", base, cab)}<div class="casca texto">
+<h2 id="empresas">Empresas</h2>
+{lista_comunicados(d_emp, doc_ativos(por_chave, base))}
+<h2 id="fundos">Fundos imobiliários</h2>
+{lista_comunicados(d_fii, doc_ativos(por_chave, base))}
+<h2 id="de-onde">De onde vem esta lista</h2>
+<ul>
+ <li><strong>Companhias abertas:</strong> documentos IPE dos <a href="https://dados.cvm.gov.br/dataset/cia_aberta-doc-ipe" rel="noopener">dados abertos da CVM</a>. O link leva ao documento no sistema da CVM. {e(fonte_ok_txt(fi))}{f"; arquivo da CVM atualizado em {data_hora_br(fi['arquivo_cvm_em'])}, com documentos até {data_br(fi['ultimo_documento'])}" if fi and fi.get('arquivo_cvm_em') else ""}. A CVM atualiza esse arquivo em lotes, então um comunicado pode levar alguns dias para aparecer aqui.</li>
+ <li><strong>Fundos imobiliários:</strong> documentos eventuais de fundos dos <a href="https://dados.cvm.gov.br/dataset/fi-doc-eventual" rel="noopener">dados abertos da CVM</a>, com link para o arquivo no Fundos.NET, da B3. Esse conjunto não traz o assunto do documento, só o tipo. {e(fonte_ok_txt(fp))}.</li>
+</ul>
+<p class="data-regra">O resumo de cada comunicado é o assunto informado pela própria empresa à CVM, sem edição. O site não comenta nem interpreta os documentos.</p>
+<div class="aviso"><strong>{AVISO_FIXO}</strong></div>
+</div></main>
+"""
+    u = f"{DOMINIO}/comunicados.html"
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": TITULO_COM, "description": DESC_COM, "url": u,
+           "inLanguage": "pt-BR"}, migalhas_ld((NOME, DOMINIO + "/"), ("Comunicados", u))]
+    return (cabeca(TITULO_COM, DESC_COM, u, og_url, base, ld, extra=fundo_preload("paulista-dia", base)) + topo(base, "comunicados")
+            + corpo + rodape(base, ultimo) + consentimento(base) + fim())
+
+
+TITULO_NOT = f"Notícias de economia de fontes oficiais · {NOME}"
+DESC_NOT = ("Manchetes recentes do Banco Central, do Tesouro Nacional, da B3 e da Agência Brasil, com link para o texto "
+            "original na fonte. Sem veículos privados.")
+
+
+def pagina_noticias(noticias, og_url, ultimo):
+    base = ""
+    secoes = []
+    for chave, f in noticias.get("fontes", {}).items():
+        itens = [i for i in f.get("itens", []) if sem_recomendacao(i["t"])]
+        estado = "" if f.get("ok") else f'<p class="aviso">A última coleta desta fonte falhou; abaixo, a anterior ({e(data_hora_br(f.get("coletado_em")))}).</p>'
+        lista = "".join(f'<li><span class="com-meta"><time datetime="{i["d"][:10]}">{data_br(i["d"][:10])}</time></span>'
+                        f'<a href="{e(i["u"])}" rel="noopener nofollow">{e(i["t"])}</a></li>' for i in itens)
+        secoes.append(f'<section><h2 id="{chave}">{e(f["nome"])}</h2>{estado}<ul class="comunicados">{lista or "<li>Nenhum item.</li>"}</ul>'
+                      f'<p class="data-regra">Crédito: {e(f["orgao"])} — <a href="{e(f["site"])}" rel="noopener">{e(f["site"].split("//")[1].rstrip("/"))}</a>. '
+                      f'Título e link, como publicados pela fonte; o texto está lá.</p></section>')
+    cab = f"""{migalhas_html(base, ("Notícias", ""))}
+<h1>Notícias de fontes oficiais</h1>
+<p class="lead">Manchetes do Banco Central, do Tesouro Nacional, da B3 e da Agência Brasil, a agência pública de notícias. Cada título leva ao texto na fonte original.</p>
+"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("paulista-noite", base, cab)}<div class="casca">
+<div class="grade grade-2">{''.join(secoes)}</div>
+<h2 id="criterio">Por que só estas fontes</h2>
+<p>O site reúne manchetes de órgãos públicos e da própria bolsa, que publicam a informação na origem — decisão do Copom, nota do Tesouro, comunicado da B3 —, e da Agência Brasil, da empresa pública de comunicação. Veículos privados ficam de fora. Só o título, a data e o link são reproduzidos: o texto é de cada fonte, e ler a notícia é no site dela.</p>
+<div class="aviso"><strong>{AVISO_FIXO}</strong> Notícia não é recomendação, nem a seleção destas manchetes é.</div>
+</div></main>
+"""
+    u = f"{DOMINIO}/noticias.html"
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": TITULO_NOT, "description": DESC_NOT, "url": u,
+           "inLanguage": "pt-BR"}, migalhas_ld((NOME, DOMINIO + "/"), ("Notícias", u))]
+    return (cabeca(TITULO_NOT, DESC_NOT, u, og_url, base, ld, extra=fundo_preload("paulista-noite", base)) + topo(base, "noticias")
+            + corpo + rodape(base, ultimo) + consentimento(base) + fim())
 
 
 def pagina_conteudo(g, pasta, rotulo_pasta, og_url, artigo):
@@ -1256,12 +1637,15 @@ def pagina_sobre(og_url):
 {faixa("paulista-dia", base, cab)}<div class="casca texto">
 
 <h2>O que é</h2>
-<p>O <strong>{NOME}</strong> é um projeto editorial independente, feito no Brasil. Reúne a cotação de fechamento de ações e fundos imobiliários negociados na B3, o histórico de preços e o cadastro oficial de cada empresa ou fundo na CVM, e explica conceitos básicos em guias curtos e calculadoras.</p>
+<p>O <strong>{NOME}</strong> é um projeto editorial independente, feito no Brasil. Reúne a cotação de fechamento de ações, fundos imobiliários e BDRs negociados na B3, o histórico de preços, o cadastro oficial e os comunicados de cada empresa ou fundo na CVM, e explica conceitos básicos em guias curtos e calculadoras.</p>
 
 <h2>De onde vêm os dados</h2>
 <ul>
  <li><strong>Cotações:</strong> série histórica de cotações da B3 (arquivo COTAHIST), publicada pela própria bolsa depois de cada pregão, lida segundo o layout oficial do arquivo. O site é atualizado uma vez por dia útil, à noite. Os dados têm atraso e não servem para negociar.</li>
- <li><strong>Cadastro:</strong> dados abertos da CVM — o cadastro de companhias abertas e o informe mensal dos fundos imobiliários.</li>
+ <li><strong>Cadastro:</strong> dados abertos da CVM — o cadastro de companhias abertas e o informe mensal dos fundos imobiliários. Para os BDRs, o nome da empresa estrangeira e o tipo do programa vêm do cadastro de BDRs da B3.</li>
+ <li><strong>Lista de ativos:</strong> as carteiras do Ibovespa e do IFIX publicadas pela B3, as ações e units mais negociadas fora do índice e os 50 BDRs mais negociados no ano, pelo próprio arquivo da B3. Os critérios estão na página <a href="ativos.html">Ativos</a>.</li>
+ <li><strong>Comunicados:</strong> fatos relevantes, comunicados e avisos entregues à CVM, dos dados abertos da CVM, sempre com link para o documento oficial.</li>
+ <li><strong>Notícias:</strong> só título, data e link de manchetes do Banco Central, do Tesouro Nacional, da B3 e da Agência Brasil. O texto fica na fonte.</li>
  <li><strong>Regras de imposto e conceitos:</strong> o texto das leis no portal do Planalto, publicações da Receita Federal, da CVM, do Banco Central e da B3, sempre listados ao fim de cada guia.</li>
 </ul>
 
@@ -1269,7 +1653,7 @@ def pagina_sobre(og_url):
 <p>O programa que lê o arquivo da B3 confere o arquivo inteiro antes de gravar qualquer número: tamanho de cada registro, cabeçalho, contagem do rodapé, moeda, faixa de preço do dia e coerência entre quantidade, preço médio e volume. Se algo não bater — inclusive uma mudança de layout pela B3 —, a atualização para e nada é publicado. Uma variação diária acima de 25% também trava a publicação até que alguém confira se houve desdobramento, grupamento ou erro. Página desatualizada é melhor que número errado.</p>
 
 <h2>O que este site não faz</h2>
-<p>Não recomenda ativos, não monta carteira, não dá preço-alvo nem nota, e não diz o que comprar ou vender. O site não é casa de análise, consultoria ou intermediário, e seu conteúdo não é relatório de análise de valores mobiliários nos termos da regulamentação da CVM. A lista de ativos acompanhados é só um ponto de partida, escolhida por serem papéis conhecidos e muito negociados, e não por qualquer juízo sobre eles.</p>
+<p>Não recomenda ativos, não monta carteira, não dá preço-alvo nem nota, e não diz o que comprar ou vender. O site não é casa de análise, consultoria ou intermediário, e seu conteúdo não é relatório de análise de valores mobiliários nos termos da regulamentação da CVM. A lista de ativos acompanhados segue critérios mecânicos — a carteira dos índices da B3 e o volume negociado —, e não qualquer juízo sobre os papéis.</p>
 
 <h2>Correções</h2>
 <p>Viu um número ou uma regra errada? Escreva pela página de <a href="contato.html">contato</a>, de preferência com a fonte. O erro confirmado é corrigido, e a data de atualização da página muda.</p>
@@ -1381,7 +1765,7 @@ ACTIONS_URL = "https://github.com/allangipa/Mercado-na-Lupa/actions/workflows/at
 DIAS_SEMANA = ["seg", "ter", "qua", "qui", "sex", "sáb", "dom"]
 
 
-def pagina_status(ativos, pregoes, ultimo, gerado, og_url):
+def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
     """Página técnica para o dono conferir se as cotações estão em dia. noindex, fora do sitemap."""
     base = ""
     br_t = gerado.astimezone(BRASILIA)
@@ -1402,6 +1786,21 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url):
     n_atras = sum(1 for a in ativos if a["ult"]["data"] != ultimo)
     resumo_atras = ("Todos os ativos tiveram negócio no último pregão lido." if not n_atras else
                     f"{n_atras} ativo(s) sem negócio no último pregão lido — destacado(s) na tabela.")
+    linhas_fontes = []
+    for chave, f in list(com.get("fontes", {}).items()) + list(noticias.get("fontes", {}).items()):
+        ok = f.get("ok")
+        estado = ('<span class="selo-dados selo-mini" data-estado="ok"><span class="selo-ponto" aria-hidden="true">✓</span><span class="selo-txt">OK</span></span>'
+                  if ok else '<span class="selo-dados selo-mini" data-estado="atraso"><span class="selo-ponto" aria-hidden="true">×</span><span class="selo-txt">Falhou</span></span>')
+        if "itens" in f:
+            recente = data_br(f["itens"][0]["d"][:10]) if f.get("itens") else "—"
+            tipo_f = "Notícias"
+        else:
+            recente = data_br(f["ultimo_documento"]) if f.get("ultimo_documento") else "—"
+            tipo_f = "Comunicados"
+        erro = f'<br><span class="nome">{e(f.get("erro", ""))} (em {e(data_hora_br(f.get("falhou_em")))})</span>' if not ok else ""
+        extra = f'<br><span class="nome">arquivo da CVM de {e(data_hora_br(f["arquivo_cvm_em"]))}</span>' if f.get("arquivo_cvm_em") else ""
+        linhas_fontes.append(f'<tr{"" if ok else " class=\"atrasado\""}><td>{tipo_f}</td><td style="white-space:normal">{e(f["nome"])}{erro}</td>'
+                             f'<td class="n">{e(data_hora_br(f.get("coletado_em")))}{extra}</td><td class="n">{recente}</td><td>{estado}</td></tr>')
     prox = proximos_uteis(ultimo, 5)
     prox_html = "".join(f'<li data-dia="{d.isoformat()}"><span class="num">{DIAS_SEMANA[d.weekday()]} {data_br(d)}</span>'
                         f'<span class="prox-estado"></span></li>' for d in prox)
@@ -1437,6 +1836,12 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url):
 <p class="data-regra">A rotina roda no GitHub Actions às 19h30 e à 1h30 (Brasília), de segunda a sexta: baixa o arquivo da B3, gera o site e publica. “passing” é a última execução sem erro; “failing” quer dizer que ela parou — nada errado é publicado, e o site fica como estava. <a href="{ACTIONS_URL}" rel="noopener">Ver as execuções</a>.</p>
 </section>
 </div>
+
+<h2 id="fontes-extras">Comunicados e notícias</h2>
+<p class="data-regra">Coletados pela mesma rotina, depois das cotações. Uma fonte que falha não para o resto: o site mantém a última coleta boa dela e a marca aqui.</p>
+<div class="rolagem"><table class="tabela-status"><caption>Última coleta de cada fonte (horário de Brasília)</caption><thead><tr><th>Tipo</th><th>Fonte</th><th class="n">Última coleta boa</th><th class="n">Item mais recente</th><th>Situação</th></tr></thead><tbody>
+{"".join(linhas_fontes)}
+</tbody></table></div>
 
 <h2 id="ativos">Ativos</h2>
 <p class="data-regra">{resumo_atras}</p>
@@ -1535,7 +1940,16 @@ def data_git(caminho):
 # --- main --------------------------------------------------------------------------
 
 def main():
-    ativos, pregoes, ultimo, cad = carregar()
+    ativos, pregoes, ultimo, cad, com = carregar()
+    noticias = ler_json(DADOS / "noticias.json") if (DADOS / "noticias.json").exists() else {"fontes": {}}
+    if not CARTEIRAS:
+        falha("_src/carteiras.json não existe — rode python _src/carteiras.py --gravar")
+    # comunicado -> ativos do mesmo emissor (CNPJ, ou código CVM do BDR patrocinado)
+    por_chave = {}
+    for a in ativos:
+        k = a["info"].get("cnpj") if a["tipo"] != "bdr" else ("cvm:" + a["info"]["codigo_cvm"].lstrip("0") if a["info"].get("codigo_cvm") else None)
+        if k:
+            por_chave.setdefault(k, []).append(a)
     guias = sorted((ler_pagina(f) for f in (SRC / "paginas" / "guias").glob("*.html")), key=lambda g: g["slug"])
     calcs = sorted((ler_pagina(f) for f in (SRC / "paginas" / "calculadoras").glob("*.html")), key=lambda g: g["slug"])
     ordem_guias = ["o-que-e-dividend-yield", "o-que-e-p-l", "como-funciona-o-imposto-de-renda-na-bolsa"]
@@ -1547,7 +1961,8 @@ def main():
     seo = {"home": (TITULO_HOME, DESC_HOME), "ativos": (TITULO_ATIVOS, DESC_ATIVOS), "sobre": (TITULO_SOBRE, DESC_SOBRE),
            "contato": (TITULO_CONTATO, DESC_CONTATO), "privacidade": (TITULO_PRIV, DESC_PRIV),
            "guias": (TITULO_GUIAS, DESC_GUIAS), "calculadoras": (TITULO_CALCS, DESC_CALCS),
-           "status": (TITULO_STATUS, DESC_STATUS)}
+           "status": (TITULO_STATUS, DESC_STATUS), "comunicados": (TITULO_COM, DESC_COM), "noticias": (TITULO_NOT, DESC_NOT)}
+    seo.update({TIPOS[t][2]: LISTAS[t] for t in TIPOS})
     seo.update({f"ativos/{a['slug']}": (titulo_ativo(a), descricao_ativo(a)) for a in ativos})
     seo.update({f"guias/{g['slug']}": (g["titulo"], g["descricao"]) for g in guias})
     seo.update({f"calculadoras/{g['slug']}": (g["titulo"], g["descricao"]) for g in calcs})
@@ -1557,16 +1972,21 @@ def main():
 
     gerar_marca()
     og_home = og("og-home.jpg", "Dados públicos · B3 e CVM", "O mercado brasileiro, com lupa e com fonte.", "mercadonalupa.com.br")
-    og_a = {a["codigo"]: og(f"og-{a['slug']}.jpg", ("Ação" if a["tipo"] == "acao" else "Fundo imobiliário") + " · B3",
-                            f"{a['codigo']} — {nome_curto(a)}", "Cotação de fechamento, histórico e cadastro") for a in ativos}
+    og_a = {a["codigo"]: og(f"og-{a['slug']}.jpg", TIPOS[a["tipo"]][0] + " · B3", f"{a['codigo']} — {nome_curto(a)}",
+                            "Cotação em reais, histórico e o que é um BDR" if a["tipo"] == "bdr" else "Cotação de fechamento, histórico e cadastro")
+            for a in ativos}
     og_g = {g["slug"]: og(f"og-guia-{g['slug']}.jpg", "Guia", g["h1"], "mercadonalupa.com.br") for g in guias}
     og_c = {g["slug"]: og(f"og-calc-{g['slug']}.jpg", "Calculadora", g["h1"], "Simulação educativa") for g in calcs}
 
     saidas = {}
-    saidas["index.html"] = home(ativos, ultimo, guias, calcs, og_home)
+    saidas["index.html"] = home(ativos, ultimo, guias, calcs, og_home, com, por_chave, noticias)
     saidas["ativos.html"] = pagina_ativos(ativos, ultimo, og_home)
+    for t in TIPOS:
+        saidas[f"{TIPOS[t][2]}.html"] = pagina_lista(t, ativos, ultimo, og_home)
+    saidas["comunicados.html"] = pagina_comunicados(com, por_chave, og_home, ultimo)
+    saidas["noticias.html"] = pagina_noticias(noticias, og_home, ultimo)
     for a in ativos:
-        saidas[f"ativos/{a['slug']}.html"] = pagina_ativo(a, ativos, ultimo, og_a[a["codigo"]])
+        saidas[f"ativos/{a['slug']}.html"] = pagina_ativo(a, ativos, ultimo, og_a[a["codigo"]], cad["gerado_em"])
     for g in guias:
         saidas[f"guias/{g['slug']}.html"] = pagina_conteudo(g, "guias", "Guias", og_g[g["slug"]], True)
     for g in calcs:
@@ -1581,7 +2001,7 @@ def main():
     saidas["404.html"] = pagina_404(og_home)
     # status.html: noindex e fora do sitemap. Leva a hora da geração, então muda a cada build.
     gerado = dt.datetime.now(dt.timezone.utc).replace(second=0, microsecond=0)
-    saidas["status.html"] = pagina_status(ativos, pregoes, ultimo, gerado, og_home)
+    saidas["status.html"] = pagina_status(ativos, pregoes, ultimo, gerado, og_home, com, noticias)
     conferir_feriados(pregoes)
 
     for nome, txt in saidas.items():
@@ -1597,7 +2017,9 @@ def main():
     escritos = []
     for nome, txt in saidas.items():
         p = RAIZ / nome
-        p.write_text(txt, encoding="utf-8")
+        # só reescreve o que mudou (o OneDrive e o git agradecem)
+        if not p.exists() or p.read_text(encoding="utf-8") != txt:
+            p.write_text(txt, encoding="utf-8")
         escritos.append(p)
 
     ads = RAIZ / "ads.txt"
@@ -1612,6 +2034,12 @@ def main():
     # data do arquivo-fonte no git; páginas fixas pelo build.py.
     fixas = data_git(Path(__file__))
     datas = {DOMINIO + "/": ultimo, f"{DOMINIO}/ativos.html": ultimo}
+    datas.update({f"{DOMINIO}/{TIPOS[t][2]}.html": ultimo for t in TIPOS})
+    if com["docs"]:
+        datas[f"{DOMINIO}/comunicados.html"] = max(d["d"] for d in com["docs"])
+    itens_not = [i["d"][:10] for f in noticias.get("fontes", {}).values() for i in f.get("itens", [])]
+    if itens_not:
+        datas[f"{DOMINIO}/noticias.html"] = max(itens_not)
     datas.update({f"{DOMINIO}/ativos/{a['slug']}.html": a["ult"]["data"] for a in ativos})
     for pasta, itens in (("guias", guias), ("calculadoras", calcs)):
         ds = []

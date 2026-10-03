@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selic, CDI, IPCA e dólar hoje · Mercado na Lupa</title>
+<meta name="description" content="Selic, CDI, IPCA, poupança, TR, dólar e euro PTAX com a data de referência de cada número e a fonte oficial. Dados abertos do Banco Central.">
+<link rel="canonical" href="https://mercadonalupa.com.br/indicadores.html">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="assets/marca/lupa.svg" type="image/svg+xml">
+<link rel="icon" href="assets/marca/lupa-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/marca/lupa-180.png">
+<link rel="preload" href="/assets/fontes/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<style>@font-face{font-family:"Archivo";font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fontes/archivo-latin.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/fraunces-latin-600.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fontes/plex-mono-latin-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fontes/plex-mono-latin-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/plex-mono-latin-600.woff2) format("woff2")}
+:root{
+  --fundo:#F4F6F9; --papel:#FFFFFF; --superficie:#EDF1F6; --linha:#D9DFE8;
+  --tinta:#0F1B2D; --suave:#475467; --apagado:#667085;
+  --acao:#1D4ED8; --acao-forte:#1E3A8A; --acao-suave:#E3EAFD;
+  --ouro:#B7791F;
+  --alta:#067647; --alta-suave:#DCFAE6; --baixa:#B42318; --baixa-suave:#FEE4E2;
+  --grafico:#1D4ED8; --grafico-area:rgba(29,78,216,.10);
+  --sombra:0 1px 2px rgba(15,27,45,.05),0 8px 24px -16px rgba(15,27,45,.25);
+  --raio:14px; --raio-s:9px;
+  --sombra-alta:0 2px 4px rgba(15,27,45,.06),0 18px 36px -18px rgba(15,27,45,.35);
+  --textura-traco:rgba(29,78,216,.07);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --fundo:#0B1220; --papel:#111A2B; --superficie:#16223A; --linha:#26344D;
+    --tinta:#E7ECF3; --suave:#A9B4C4; --apagado:#8C98AA;
+    --acao:#8DB2FF; --acao-forte:#B9CEFF; --acao-suave:#1A2C52;
+    --ouro:#E0A84A;
+    --alta:#47CD89; --alta-suave:#0E2E20; --baixa:#FF8A80; --baixa-suave:#3A1714;
+    --grafico:#8DB2FF; --grafico-area:rgba(141,178,255,.13);
+    --sombra:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.8);
+    --sombra-alta:0 2px 4px rgba(0,0,0,.5),0 20px 40px -18px rgba(0,0,0,.95);
+    --textura-traco:rgba(141,178,255,.08);
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fundo);color:var(--tinta);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;height:auto}
+a{color:var(--acao);text-underline-offset:.18em}
+a:hover{color:var(--acao-forte)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--acao);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,1.3rem + 2.6vw,3rem);margin-bottom:.8rem}
+h2{font-size:clamp(1.35rem,1.1rem + 1vw,1.75rem);margin-top:2.4rem;margin-bottom:.8rem;scroll-margin-top:84px}
+h3{font-size:1.15rem;margin-top:1.6rem;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+ul,ol{padding-left:1.25rem;margin:0 0 1rem}
+li{margin-bottom:.35rem}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;background:var(--superficie);padding:.08em .35em;border-radius:5px}
+.num,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.casca{max-width:72rem;margin:0 auto;padding:0 16px}
+@media (min-width:700px){.casca{padding:0 28px}}
+.estreita{max-width:46rem}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:1rem;top:1rem;z-index:60;background:var(--acao);color:#fff;padding:.6rem 1rem;border-radius:8px}
+.rotulo{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.topo{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--papel) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linha)}
+.topo .casca{display:flex;align-items:center;gap:1rem;min-height:62px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--tinta)}
+.marca svg{width:34px;height:34px;flex:none}
+.marca span{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em;white-space:nowrap}
+.marca span i{font-style:normal;color:var(--acao)}
+.nav{display:flex;gap:.2rem;margin-left:auto;flex-wrap:wrap}
+.nav a{color:var(--suave);text-decoration:none;font-size:.95rem;padding:.45rem .65rem;border-radius:8px}
+.nav a:hover,.nav a[aria-current]{color:var(--tinta);background:var(--superficie)}
+@media (max-width:620px){
+  .topo .casca{padding-top:.5rem;padding-bottom:.35rem;gap:.2rem}
+  .nav{margin-left:-.65rem;width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .nav a{font-size:.9rem;padding:.4rem .6rem;white-space:nowrap}
+}
+main{display:block;padding:2rem 0 3.5rem}
+main.com-faixa{padding-top:0}
+.migalhas{font-size:.86rem;color:var(--suave);margin-bottom:1rem}
+.migalhas a{color:var(--suave)}
+.migalhas span[aria-current]{color:var(--tinta)}
+.lead{font-size:1.12rem;color:var(--suave);max-width:44rem}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1.2rem 1.25rem;box-shadow:var(--sombra)}
+a.cartao{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.cartao:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta);border-color:var(--acao)}
+@media (prefers-reduced-motion:reduce){a.cartao,.cartoes .seta{transition:none}a.cartao:hover{transform:none}}
+.grade{display:grid;gap:1rem}
+.grade>*{min-width:0}
+@media (min-width:760px){.grade-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.grade-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:959px){.cartoes.grade-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.aviso{border-left:4px solid var(--ouro);background:var(--papel);padding:.85rem 1rem;border-radius:0 var(--raio-s) var(--raio-s) 0;font-size:.95rem;color:var(--suave);margin:1.5rem 0}
+.aviso strong{color:var(--tinta)}
+.botao{display:inline-flex;align-items:center;gap:.4rem;background:var(--acao);color:#fff;border:0;border-radius:10px;padding:.7rem 1.1rem;font:600 1rem "Archivo",sans-serif;text-decoration:none;cursor:pointer}
+@media (prefers-color-scheme:dark){.botao{color:#0B1220}}
+.botao:hover{background:var(--acao-forte);color:#fff}
+@media (prefers-color-scheme:dark){.botao:hover{color:#0B1220}}
+.botao.claro{background:var(--superficie);color:var(--tinta)}
+.busca{display:flex;gap:.5rem;margin:1.4rem 0 .5rem;max-width:34rem}
+.busca input{flex:1;min-width:0;font:500 1.05rem "IBM Plex Mono",monospace;text-transform:uppercase;padding:.75rem .9rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.busca input::placeholder{text-transform:none;font-family:"Archivo",sans-serif;color:var(--apagado)}
+.busca-msg{font-size:.92rem;color:var(--suave);min-height:1.5em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.chips a{display:inline-block;font:500 .85rem "IBM Plex Mono",monospace;padding:.3rem .55rem;border-radius:7px;background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:var(--tinta)}
+.chips a:hover{border-color:var(--acao)}
+.destaques h3{margin-top:0;font-family:"Archivo",sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.01em}
+.lista-dest{list-style:none;padding:0;margin:0}
+.lista-dest li{display:flex;align-items:baseline;gap:.6rem;padding:.45rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-dest li:first-child{border-top:0}
+.lista-dest a{font:600 .95rem "IBM Plex Mono",monospace;text-decoration:none;min-width:4.6rem}
+.lista-dest .nome{flex:1;color:var(--suave);font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cartoes{list-style:none;padding:0;margin:0}
+.cartoes a{display:block;height:100%;text-decoration:none;color:var(--tinta)}
+.cartoes a:hover{border-color:var(--acao)}
+.cartoes h3{margin:.3rem 0 .4rem;font-size:1.12rem}
+.cartoes p{color:var(--suave);font-size:.95rem;margin:0}
+.var{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.var.alta{color:var(--alta)}.var.baixa{color:var(--baixa)}.var.zero{color:var(--suave)}
+.selo-var{display:inline-block;padding:.12rem .45rem;border-radius:6px;font-size:.92rem}
+.selo-var.alta{background:var(--alta-suave)}.selo-var.baixa{background:var(--baixa-suave)}.selo-var.zero{background:var(--superficie)}
+.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel)}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+caption{text-align:left;padding:.8rem 1rem 0;color:var(--suave);font-size:.88rem;caption-side:top}
+th,td{padding:.6rem .9rem;text-align:left;border-bottom:1px solid var(--linha);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--suave);font-size:.82rem;letter-spacing:.02em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+td a{font-family:"IBM Plex Mono",monospace;font-weight:600;text-decoration:none}
+td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
+.cab-ativo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:1.4rem}
+.cab-ativo .tipo{margin-bottom:.4rem}
+.cab-ativo h1 .cod{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:-.02em}
+.cab-ativo .razao{color:var(--suave);margin:.35rem 0 0}
+.preco{text-align:left}
+.preco .valor{font:600 clamp(2rem,1.5rem + 2.4vw,2.9rem)/1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.preco .valor small{font-size:.45em;color:var(--suave);font-weight:500;margin-right:.25rem;letter-spacing:0}
+.preco .quando{color:var(--suave);font-size:.88rem;margin-top:.45rem}
+.numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:0;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel);overflow:hidden}
+@media (min-width:640px){.numeros{grid-template-columns:repeat(4,1fr)}}
+.numeros div{padding:.8rem 1rem;border-bottom:1px solid var(--linha);border-right:1px solid var(--linha)}
+.numeros dt{font-size:.8rem;color:var(--suave);margin-bottom:.15rem}
+.numeros dd{margin:0;font:500 1.05rem "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.ficha{display:grid;grid-template-columns:minmax(8rem,13rem) 1fr;gap:.1rem 1rem;margin:0;font-size:.95rem}
+.ficha dt{color:var(--suave);padding:.45rem 0;border-top:1px solid var(--linha)}
+.ficha dd{margin:0;padding:.45rem 0;border-top:1px solid var(--linha);overflow-wrap:anywhere}
+@media (max-width:520px){.ficha{grid-template-columns:1fr}.ficha dd{border-top:0;padding-top:0}}
+.grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.periodos{display:flex;gap:.3rem;margin-bottom:.6rem}
+.periodos input{position:absolute;opacity:0;pointer-events:none}
+.periodos label{font:500 .85rem "IBM Plex Mono",monospace;padding:.35rem .7rem;border-radius:8px;border:1px solid var(--linha);cursor:pointer;color:var(--suave)}
+.grafico svg{display:none;width:100%;height:auto}
+#p-12m:checked~.paineis .g-12m,#p-6m:checked~.paineis .g-6m,#p-1m:checked~.paineis .g-1m{display:block}
+.grafico:has(#p-12m:checked) label[for=p-12m],.grafico:has(#p-6m:checked) label[for=p-6m],.grafico:has(#p-1m:checked) label[for=p-1m]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.grafico .linha{fill:none;stroke:var(--grafico);stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.grafico .area{fill:var(--grafico-area)}
+.grafico .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico text{font:500 20px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico text{font-size:15px}}
+.grafico .ponto{fill:var(--papel);stroke:var(--grafico);stroke-width:2;vector-effect:non-scaling-stroke}
+.grafico .legenda{font-size:.84rem;color:var(--suave);margin:.4rem 0 0}
+.texto{max-width:44rem}
+.texto h2{scroll-margin-top:80px}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:1rem;background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--acao);border-radius:0 var(--raio-s) var(--raio-s) 0;padding:.9rem 1rem;margin:1rem 0 1.2rem;overflow-x:auto;white-space:nowrap}
+.exemplo{background:var(--superficie);border-radius:var(--raio-s);padding:1rem 1.1rem;margin:1rem 0 1.4rem}
+.exemplo p:last-child{margin-bottom:0}
+.fontes{font-size:.9rem;color:var(--suave)}
+.fontes li{margin-bottom:.5rem}
+.data-regra{font-size:.9rem;color:var(--suave)}
+.calc{display:grid;gap:1.2rem}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,22rem) 1fr;align-items:start}}
+.campos label{display:block;font-weight:600;font-size:.93rem;margin:0 0 .3rem}
+.campos .dica{display:block;font-weight:400;color:var(--suave);font-size:.84rem}
+.campos .campo{margin-bottom:1rem}
+.entrada{display:flex;align-items:center;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);overflow:hidden}
+.entrada:focus-within{border-color:var(--acao)}
+.entrada span{padding:0 .7rem;color:var(--suave);font:500 .92rem "IBM Plex Mono",monospace;background:var(--superficie);align-self:stretch;display:flex;align-items:center}
+.entrada input{flex:1;min-width:0;border:0;background:transparent;color:var(--tinta);font:500 1.05rem "IBM Plex Mono",monospace;padding:.65rem .75rem;font-variant-numeric:tabular-nums}
+.entrada input:focus{outline:none}
+.resultado .grande{font:600 clamp(1.6rem,1.2rem + 2vw,2.3rem)/1.1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:.2rem 0 .6rem}
+.resultado .linha-res{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px solid var(--linha);font-size:.95rem}
+.resultado .linha-res b{font-family:"IBM Plex Mono",monospace;font-weight:500;font-variant-numeric:tabular-nums}
+.barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--superficie);margin:.6rem 0 .3rem}
+.barra i{display:block;height:100%}
+.barra .b1{background:var(--suave)}.barra .b2{background:var(--acao)}
+.legenda-barra{display:flex;gap:1rem;font-size:.82rem;color:var(--suave);flex-wrap:wrap}
+.legenda-barra i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;margin-right:.3rem;vertical-align:-1px}
+.erro-calc{color:var(--baixa);font-size:.9rem;min-height:1.2em}
+.pregao{font-size:.9rem;color:var(--suave);border-top:1px solid var(--linha);padding:1rem 0;margin-top:2rem}
+.rodape{background:var(--papel);border-top:1px solid var(--linha);padding:2rem 0 1.4rem;font-size:.92rem;color:var(--suave)}
+.rodape .casca{display:grid;gap:1.4rem}
+@media (min-width:760px){.rodape .casca{grid-template-columns:1.3fr 1fr 1fr}}
+.rodape h2{font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;color:var(--tinta);margin:0 0 .5rem}
+.rodape ul{list-style:none;padding:0;margin:0}
+.rodape a{color:var(--suave)}
+.rodape a:hover{color:var(--tinta)}
+.rodape .fixo{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:1rem;font-size:.86rem}
+.rodape .fixo strong{color:var(--tinta)}
+.consentimento{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 10px 40px -10px rgba(0,0,0,.35)}
+.consentimento .casca{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;padding:.9rem 1rem}
+.consentimento p{margin:0;flex:1 1 22rem;font-size:.9rem;color:var(--suave)}
+.consentimento .botoes{display:flex;gap:.5rem}
+.consentimento button{font:600 .9rem "Archivo",sans-serif;padding:.55rem .9rem;border-radius:9px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);cursor:pointer}
+.consentimento button.principal{background:var(--acao);border-color:var(--acao);color:#fff}
+@media (prefers-color-scheme:dark){.consentimento button.principal{color:#0B1220}}
+.heroi,.faixa{position:relative;isolation:isolate;overflow:hidden;background:#0B1424;color:#F4F6F9;border-bottom:3px solid #1D4ED8}
+.fundo,.fundo img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.fundo{z-index:-2}
+.fundo img{object-fit:cover;object-position:center}
+.heroi::before,.faixa::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(8,14,28,.93) 0%,rgba(8,14,28,.86) 48%,rgba(8,14,28,.74) 100%),
+             linear-gradient(0deg,rgba(8,14,28,.55) 0%,rgba(8,14,28,0) 45%)}
+@media (max-width:700px){.heroi::before,.faixa::before{background:linear-gradient(180deg,rgba(8,14,28,.74) 0%,rgba(8,14,28,.8) 60%,rgba(8,14,28,.9) 100%)}}
+.linha-fundo{position:absolute;left:0;right:0;bottom:0;width:100%;height:42%;z-index:-1;pointer-events:none}
+.linha-fundo polyline{fill:none;stroke:rgba(141,178,255,.32);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.heroi a,.faixa a{color:#B9CEFF}
+.heroi a:hover,.faixa a:hover{color:#FFFFFF}
+.heroi .rotulo,.faixa .rotulo{color:#C3CEDD}
+.heroi .lead,.faixa .lead{color:#DCE3EE}
+.heroi a:focus-visible,.faixa a:focus-visible,.heroi input:focus-visible,.heroi button:focus-visible{outline-color:#B9CEFF}
+.credito-foto{font-size:.72rem;line-height:1.45;color:#C3CEDD;margin:1.4rem 0 0;max-width:46rem}
+.credito-foto a{color:#DCE3EE}
+@media (min-width:900px){.credito-foto{margin-left:auto;text-align:right}}
+.heroi .abertura{padding:3rem 16px 1.6rem;min-height:min(78vh,620px);display:flex;flex-direction:column;justify-content:center}
+@media (min-width:700px){.heroi .abertura{padding:4.2rem 28px 1.6rem}}
+.heroi h1{max-width:20ch;margin:.5rem 0 .9rem;color:#FFFFFF;font-size:clamp(2.1rem,1.4rem + 3vw,3.6rem)}
+.heroi .lead{font-size:clamp(1.05rem,1rem + .4vw,1.22rem)}
+.heroi .busca input{background:#FFFFFF;color:#0F1B2D;border-color:transparent;box-shadow:0 6px 24px -10px rgba(0,0,0,.6)}
+.heroi .busca input::placeholder{color:#5B6678}
+.heroi .botao{background:#2F64F0;color:#FFFFFF}
+.heroi .botao:hover{background:#1D4ED8;color:#FFFFFF}
+.heroi .busca-msg{color:#DCE3EE}
+.heroi .chips a{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);color:#F4F6F9}
+.heroi .chips a:hover{background:rgba(255,255,255,.16);border-color:#B9CEFF;color:#FFFFFF}
+.faixa{margin-bottom:2rem}
+.faixa-conteudo{padding-top:1.6rem;padding-bottom:1.1rem;min-height:15rem;display:flex;flex-direction:column;justify-content:flex-end}
+@media (min-width:700px){.faixa-conteudo{padding-top:2.4rem;min-height:17rem}}
+.faixa h1{color:#FFFFFF;margin-bottom:.5rem}
+.faixa .lead{margin-bottom:0}
+.faixa .migalhas,.faixa .migalhas a{color:#C3CEDD}
+.faixa .migalhas span[aria-current]{color:#FFFFFF}
+.faixa.faixa-ativo .cab-ativo{margin-bottom:0}
+.faixa .razao,.faixa .preco .quando,.faixa .preco .valor small{color:#C3CEDD}
+.faixa .preco .valor{color:#FFFFFF}
+.faixa .selo-var.zero{background:rgba(255,255,255,.12);color:#DCE3EE}
+.cab-id{display:flex;align-items:center;gap:1rem}
+.cab-id h1{margin-bottom:0}
+.cab-conteudo{display:flex;align-items:flex-start;gap:1rem}
+.cab-conteudo h1{max-width:28ch}
+.faixa .icone-caixa{background:rgba(255,255,255,.1);color:#B9CEFF;border:1px solid rgba(255,255,255,.2);flex:none;margin-top:.15rem}
+@media (max-width:520px){.cab-conteudo .icone-caixa{display:none}}
+.selo{--t:15px;font-size:var(--t);width:2.9em;height:2.9em;flex:none;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.12em;color:#FFFFFF;border-radius:.62em;line-height:1;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 1px 2px rgba(15,27,45,.18);user-select:none}
+.selo b{font-weight:600;font-size:.74em;letter-spacing:-.02em}
+.selo i{font-style:normal;font-weight:500;font-size:.6em;padding:.12em .42em;border-radius:99px;background:rgba(255,255,255,.2)}
+.selo-acao{background:linear-gradient(150deg,#2F64F0 0%,#1D4ED8 45%,#1E3A8A 100%)}
+.selo-fii{border-radius:50%;background:linear-gradient(150deg,#A06A1A 0%,#8A5A12 50%,#6B4510 100%)}
+.selo-p{--t:12.5px}
+.selo-g{--t:25px}
+@media (max-width:520px){.selo-g{--t:19px}}
+.ativo-cel{display:flex;align-items:center;gap:.65rem}
+@media (max-width:520px){.ativo-cel{gap:.5rem}.ativo-cel .selo{--t:10.5px}}
+.lista-dest li{align-items:center}
+.destaques h3{display:flex;align-items:center;gap:.45rem}
+.destaques h3 .icone{width:1.15rem;height:1.15rem;color:var(--acao)}
+.destaques .cartao{border-top:3px solid var(--acao)}
+.outros-ativos{list-style:none;padding:0;margin:0;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13.5rem),1fr))}
+.outros-ativos li{margin:0}
+.outros-ativos a{display:flex;align-items:center;gap:.7rem;padding:.65rem .8rem;text-decoration:none;color:var(--tinta);height:100%}
+.outros-ativos a>span:not(.selo)>b{display:block;font:600 .98rem "IBM Plex Mono",monospace}
+.outros-ativos a>span:not(.selo)>small{display:block;color:var(--suave);font-size:.84rem;line-height:1.3}
+.cartoes a.cartao{position:relative;display:flex;flex-direction:column;padding-bottom:2.6rem}
+.cartao-topo{display:flex;align-items:center;gap:.7rem;margin-bottom:.2rem}
+.icone-caixa{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:12px;background:var(--acao-suave);color:var(--acao)}
+.icone-caixa .icone{width:1.5rem;height:1.5rem}
+.cartoes .seta{position:absolute;right:1.1rem;bottom:1rem;width:1.2rem;height:1.2rem;color:var(--acao);transition:transform .18s ease}
+.cartoes a.cartao:hover .seta{transform:translateX(3px)}
+.textura{background-color:var(--papel);
+  background-image:linear-gradient(var(--textura-traco) 1px,transparent 1px),linear-gradient(90deg,var(--textura-traco) 1px,transparent 1px);
+  background-size:100% 2.4rem,2.4rem 100%}
+.painel{position:relative;margin-top:2rem;border:1px solid var(--linha);border-radius:calc(var(--raio) + 4px);padding:.4rem 1rem 1.2rem;box-shadow:var(--sombra)}
+@media (min-width:700px){.painel{padding:.6rem 1.5rem 1.6rem}}
+.painel>h2:first-child{margin-top:1rem}
+.painel .cartao{box-shadow:var(--sombra-alta)}
+.divisor{display:flex;align-items:center;gap:.8rem;margin:2.6rem 0 0;color:var(--acao)}
+.divisor::before,.divisor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--linha) 20%,var(--linha) 80%,transparent)}
+.divisor span{display:inline-flex;width:2.6rem;height:1.6rem;align-items:center;justify-content:center;border:1px solid var(--linha);border-radius:99px;background:var(--papel)}
+.divisor svg{width:1.6rem;height:.8rem}
+.divisor polyline{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.divisor+h2{margin-top:1.4rem}
+.rodape{position:relative;overflow:hidden;padding-top:2.6rem}
+.rodape .linha-fundo{top:0;bottom:auto;height:4.5rem;z-index:0}
+.rodape .linha-fundo polyline{stroke:var(--textura-traco);stroke-width:3}
+.rodape .casca{position:relative;z-index:1}
+@media (min-width:760px){.rodape .casca{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.rodape .casca{grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.2fr}}
+.rodape li{margin-bottom:.45rem;line-height:1.4}
+.rodape-marca .marca{margin-bottom:.7rem}
+.rodape-marca p{margin-bottom:.8rem}
+.fontes-selos{display:flex;gap:.4rem;flex-wrap:wrap}
+.fontes-selos span{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.08em;padding:.25rem .55rem;border-radius:6px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta)}
+.rodape .assinatura{grid-column:1/-1;margin:0;font-size:.82rem;color:var(--apagado)}
+.selo-dados{display:inline-flex;align-items:center;gap:.45rem;margin:0;padding:.28rem .7rem .28rem .5rem;border-radius:999px;
+  font:500 .8rem/1.3 "IBM Plex Mono",monospace;letter-spacing:.01em;background:var(--papel);border:1px solid var(--linha);color:var(--tinta);max-width:100%}
+.selo-dados .selo-txt{min-width:0}
+.selo-ponto{display:none;flex:none;width:1.15rem;height:1.15rem;border-radius:50%;font:700 .72rem/1.15rem "Archivo",sans-serif;text-align:center;color:#fff}
+.selo-dados[data-estado] .selo-ponto{display:inline-block}
+.selo-dados[data-estado=ok]{--cor-selo:#067647;--fundo-selo:#DCFAE6}
+.selo-dados[data-estado=aviso]{--cor-selo:#93370D;--fundo-selo:#FEF0C7}
+.selo-dados[data-estado=atraso]{--cor-selo:#B42318;--fundo-selo:#FEE4E2}
+.selo-dados[data-estado]{background:var(--fundo-selo);border-color:color-mix(in srgb,var(--cor-selo) 35%,transparent);color:var(--cor-selo)}
+.selo-dados[data-estado] .selo-ponto{background:var(--cor-selo)}
+.selo-dados[data-estado=ok] .selo-ponto{box-shadow:0 0 0 3px color-mix(in srgb,var(--cor-selo) 22%,transparent)}
+@media (prefers-color-scheme:dark){
+  .selo-dados[data-estado=ok]{--cor-selo:#47CD89;--fundo-selo:#0E2E20}
+  .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;--fundo-selo:#33240A}
+  .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;--fundo-selo:#3A1714}
+  .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+}
+.heroi .selo-dados,.faixa .selo-dados{background:rgba(8,14,28,.55);border-color:rgba(255,255,255,.22);color:#DCE3EE;backdrop-filter:blur(4px)}
+.heroi .selo-dados[data-estado=ok],.faixa .selo-dados[data-estado=ok]{--cor-selo:#47CD89;color:#C9F5DC}
+.heroi .selo-dados[data-estado=aviso],.faixa .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;color:#FCE3B0}
+.heroi .selo-dados[data-estado=atraso],.faixa .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;color:#FFD3CE}
+.heroi .selo-dados[data-estado],.faixa .selo-dados[data-estado]{border-color:color-mix(in srgb,var(--cor-selo) 55%,transparent)}
+.heroi .selo-dados[data-estado] .selo-ponto,.faixa .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+.heroi .selo-dados{align-self:flex-start;margin-bottom:.9rem}
+.preco .selo-dados{margin-top:.7rem}
+.selo-dados.selo-g{font-size:.92rem;padding:.4rem .9rem .4rem .6rem;margin-top:1rem}
+.selo-dados.selo-g .selo-ponto{width:1.35rem;height:1.35rem;line-height:1.35rem;font-size:.82rem}
+.selo-dados.selo-mini{font-size:.74rem;padding:.12rem .55rem .12rem .35rem;gap:.35rem}
+.selo-dados.selo-mini .selo-ponto{width:1rem;height:1rem;line-height:1rem;font-size:.64rem}
+@media (max-width:420px){.selo-dados{font-size:.74rem}}
+.legenda-selo{list-style:none;padding:0}
+.legenda-selo li{margin-bottom:.7rem;line-height:1.5}
+.legenda-selo .selo-dados{margin-right:.35rem;vertical-align:.05em}
+.tabela-status td{vertical-align:middle}
+.tabela-status tr.atrasado td{background:color-mix(in srgb,var(--ouro) 12%,transparent)}
+.tabela-status tr.atrasado td:first-child{box-shadow:inset 4px 0 0 var(--ouro)}
+.marca-atraso{display:block;font-size:.78rem;color:var(--suave);margin-top:.2rem}
+.marca-atraso::before{content:"⚠ ";color:var(--ouro)}
+.lista-prox{list-style:none;padding:0}
+.lista-prox li{padding:.4rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-prox li:first-child{border-top:0}
+.lista-prox li.devido{color:var(--baixa);font-weight:600}
+.selo-actions{display:inline-block;line-height:0}
+.selo-actions img{height:20px;width:auto}
+.selo-dados[data-estado=neutro]{--cor-selo:#1E3A8A;--fundo-selo:#E3EAFD;margin:0 0 1rem}
+@media (prefers-color-scheme:dark){.selo-dados[data-estado=neutro]{--cor-selo:#B9CEFF;--fundo-selo:#1A2C52}}
+.selo-dados[data-estado=neutro] .selo-ponto{font-style:italic}
+.grafico svg.unico{display:block}
+figure.grafico{margin:0 0 1.2rem}
+.grafico .linha-2{stroke:var(--ouro);stroke-dasharray:6 5}
+.chave{display:inline-block;width:1.4rem;height:0;border-top:2.5px solid var(--grafico);vertical-align:middle}
+.chave-2{border-top:2.5px dashed var(--ouro)}
+.ind-grade{list-style:none;padding:0;margin:0 0 1.4rem;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
+.ind-grade li{margin:0}
+.ind-cartao{display:flex;flex-direction:column;gap:.15rem;height:100%;padding:1rem 1.1rem;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:var(--sombra);text-decoration:none;color:var(--tinta)}
+.ind-cartao:hover{border-color:var(--acao);color:var(--tinta)}
+.ind-valor{font-size:clamp(1.5rem,1.2rem + 1.2vw,2rem);font-weight:600;letter-spacing:-.02em;color:var(--acao-forte)}
+@media (prefers-color-scheme:dark){.ind-valor{color:var(--acao)}}
+.ind-ref{font-size:.86rem;color:var(--suave)}
+.ind-fonte{font:500 .72rem "IBM Plex Mono",monospace;color:var(--apagado);margin-top:auto;padding-top:.4rem}
+.seletor{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font-weight:600;font-size:.92rem;margin-bottom:.7rem}
+.seletor select,.campos select{max-width:100%;min-width:0;font:500 .92rem "Archivo",sans-serif;padding:.5rem .6rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.td-graf{min-height:4rem}
+.grupos-glo{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}
+.indice-az{margin-bottom:1rem}
+.termo{border-top:1px solid var(--linha);padding:.6rem 0 .4rem;scroll-margin-top:84px}
+.termo h3{margin-top:.4rem}
+.termo:target{background:var(--acao-suave);border-radius:var(--raio-s);padding-left:.7rem;padding-right:.7rem}
+.sinonimos{font-size:.86rem;color:var(--suave);margin:.1rem 0 .5rem}
+.termo-links{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.92rem}
+.termo-fontes{font-size:.86rem;color:var(--suave);margin-bottom:.6rem}
+.termo-fontes summary{cursor:pointer}
+.tabela-sim td:first-child{text-align:left;font-family:"Archivo",sans-serif}
+.tabela-sim tr.melhor td{font-weight:600}
+.barras-sim{list-style:none;padding:0;margin:0 0 1rem}
+.barras-sim li{display:grid;grid-template-columns:minmax(0,9rem) 1fr;gap:.6rem;align-items:center;margin-bottom:.45rem;font-size:.88rem}
+.barras-sim .trilho{background:var(--superficie);border-radius:6px;overflow:hidden;min-width:0}
+.barras-sim .trilho i{display:block;height:1.35rem;background:var(--acao);border-radius:6px 0 0 6px;min-width:2px}
+.barras-sim .trilho span{display:block;font:500 .78rem "IBM Plex Mono",monospace;margin-top:.15rem;color:var(--suave)}
+.premissas{font-size:.9rem}
+.grade-campos{display:grid;gap:0 1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr))}
+.texto ol li,.texto ul li{overflow-wrap:anywhere}
+.calc>*{min-width:0}
+.entrada select{border:0;background:var(--superficie);color:var(--tinta);font:500 .92rem "IBM Plex Mono",monospace;padding:0 .5rem;align-self:stretch}
+.campos details{margin:.4rem 0 .8rem}.campos summary{cursor:pointer;margin-bottom:.8rem}
+@media (max-width:420px){.nav{gap:0}.nav a{font-size:.84rem;padding:.4rem .42rem}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/fundo/paulista-dia-640.webp 640w, assets/img/fundo/paulista-dia-1280.webp 1280w, assets/img/fundo/paulista-dia-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
+<meta property="og:site_name" content="Mercado na Lupa">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Selic, CDI, IPCA e dólar hoje · Mercado na Lupa">
+<meta property="og:description" content="Selic, CDI, IPCA, poupança, TR, dólar e euro PTAX com a data de referência de cada número e a fonte oficial. Dados abertos do Banco Central.">
+<meta property="og:url" content="https://mercadonalupa.com.br/indicadores.html">
+<meta property="og:image" content="https://mercadonalupa.com.br/assets/img/og-indicadores.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Selic, CDI, IPCA e dólar hoje · Mercado na Lupa", "description": "Selic, CDI, IPCA, poupança, TR, dólar e euro PTAX com a data de referência de cada número e a fonte oficial. Dados abertos do Banco Central.", "url": "https://mercadonalupa.com.br/indicadores.html", "inLanguage": "pt-BR", "dateModified": "2026-10-03", "publisher": {"@type": "Organization", "name": "Mercado na Lupa", "url": "https://mercadonalupa.com.br/", "logo": {"@type": "ImageObject", "url": "https://mercadonalupa.com.br/assets/marca/lupa-512.png", "width": 512, "height": 512}, "email": "allangipa@gmail.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Indicadores econômicos do Banco Central", "description": "Meta Selic, Selic over, CDI, IPCA, poupança, TR e PTAX", "url": "https://mercadonalupa.com.br/indicadores.html", "isBasedOn": "https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries", "license": "https://opendatacommons.org/licenses/odbl/1-0/", "temporalCoverage": "2021-01-01/2026-10-01", "inLanguage": "pt-BR", "creator": {"@type": "GovernmentOrganization", "name": "Banco Central do Brasil"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mercado na Lupa", "item": "https://mercadonalupa.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Indicadores de hoje", "item": "https://mercadonalupa.com.br/indicadores.html"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="casca">
+    <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="ativos.html">Ativos</a>
+      <a href="indicadores.html" aria-current="page">Indicadores</a>
+      <a href="guias.html">Guias</a>
+      <a href="calculadoras.html">Calculadoras</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="com-faixa">
+<div class="faixa"><picture class="fundo"><source type="image/webp" srcset="assets/img/fundo/paulista-dia-640.webp 640w, assets/img/fundo/paulista-dia-1280.webp 1280w, assets/img/fundo/paulista-dia-1920.webp 1920w" sizes="(max-width: 700px) 200vw, 100vw"><img src="assets/img/fundo/paulista-dia-1280.jpg" srcset="assets/img/fundo/paulista-dia-640.jpg 640w, assets/img/fundo/paulista-dia-1280.jpg 1280w, assets/img/fundo/paulista-dia-1920.jpg 1920w" sizes="(max-width: 700px) 200vw, 100vw" width="1280" height="561" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg><div class="casca faixa-conteudo"><nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a> › <span aria-current="page">Indicadores de hoje</span></nav>
+<h1>Indicadores de hoje</h1>
+<p class="lead">Juros, inflação, poupança e câmbio em um só lugar, direto das fontes oficiais e com a data de cada número.</p>
+<p class="credito-foto">Foto: Avenida Paulista vista do Instituto Moreira Salles, São Paulo, 2025 — <a href="https://commons.wikimedia.org/wiki/File:Vista_da_Avenida_Paulista_a_partir_do_IMS_Paulista.jpg" rel="noopener">Boaventuravinicius</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a> · recortada, dessaturada e escurecida</p></div></div>
+<div class="casca">
+
+<p class="selo-dados" data-estado="neutro"><span class="selo-ponto" aria-hidden="true">i</span><span class="selo-txt">Coletado no Banco Central em 03/10/2026 às 14:38 · cada número traz a própria data de referência</span></p>
+<ul class="ind-grade"><li><a class="ind-cartao" href="indicadores/selic-hoje.html"><span class="rotulo">Meta Selic</span><span class="ind-valor num">13,75%</span><span class="ind-ref">ao ano · desde 17/09/2026</span><span class="ind-fonte">Fonte: SGS 432</span></a></li><li><a class="ind-cartao" href="indicadores/selic-hoje.html"><span class="rotulo">Selic over</span><span class="ind-valor num">13,65%</span><span class="ind-ref">ao ano · 02/10/2026 · 12 meses: 14,46%</span><span class="ind-fonte">Fonte: SGS 11 e 1178</span></a></li><li><a class="ind-cartao" href="indicadores/cdi-hoje.html"><span class="rotulo">CDI</span><span class="ind-valor num">13,65%</span><span class="ind-ref">ao ano · 01/10/2026</span><span class="ind-fonte">Fonte: SGS 12 e 4389</span></a></li><li><a class="ind-cartao" href="indicadores/cdi-hoje.html"><span class="rotulo">CDI em 12 meses</span><span class="ind-valor num">14,47%</span><span class="ind-ref">acumulado até 01/10/2026 · no ano: 10,56%</span><span class="ind-fonte">Fonte: SGS 12</span></a></li><li><a class="ind-cartao" href="indicadores/ipca-acumulado-12-meses.html"><span class="rotulo">IPCA em 12 meses</span><span class="ind-valor num">4,22%</span><span class="ind-ref">até agosto de 2026 · no mês: -0,32%</span><span class="ind-fonte">Fonte: IBGE, SGS 13522 e 433</span></a></li><li><a class="ind-cartao" href="indicadores/rendimento-da-poupanca.html"><span class="rotulo">Poupança</span><span class="ind-valor num">0,6624%</span><span class="ind-ref">no mês iniciado em 01/10/2026 · 0,5% + TR</span><span class="ind-fonte">Fonte: SGS 195</span></a></li><li><a class="ind-cartao" href="indicadores/rendimento-da-poupanca.html"><span class="rotulo">TR</span><span class="ind-valor num">0,1616%</span><span class="ind-ref">período iniciado em 01/10/2026</span><span class="ind-fonte">Fonte: SGS 226</span></a></li><li><a class="ind-cartao" href="indicadores/dolar-ptax-hoje.html"><span class="rotulo">Dólar PTAX</span><span class="ind-valor num">R$ 5,2238</span><span class="ind-ref">venda · fechamento de 02/10/2026</span><span class="ind-fonte">Fonte: PTAX</span></a></li><li><a class="ind-cartao" href="indicadores/euro-ptax-hoje.html"><span class="rotulo">Euro PTAX</span><span class="ind-valor num">R$ 5,8815</span><span class="ind-ref">venda · fechamento de 02/10/2026</span><span class="ind-fonte">Fonte: PTAX</span></a></li></ul>
+<div class="texto">
+<h2 id="como-ler">Como ler estes números</h2>
+<p>Cada indicador tem a sua data: o CDI e a Selic over saem a cada dia útil, com um dia de atraso; o IPCA é mensal e sai por volta do dia 10 do mês seguinte; a PTAX é publicada todo dia útil, à tarde; a poupança tem um número para cada dia de aniversário. Por isso as datas dos cartões não são iguais — e o site mostra cada uma em vez de fingir que tudo é “de hoje”.</p>
+<p>Todos vêm de dados abertos do <strong>Banco Central do Brasil</strong> (SGS e PTAX); o IPCA é calculado pelo <strong>IBGE</strong> e publicado também no SGS. A coleta roda junto com a atualização diária do site, e uma falha numa fonte não derruba as outras: a página mostra o último dado bom e avisa.</p>
+<h2 id="tesouro">Tesouro Direto</h2>
+<p>As taxas e os preços dos títulos públicos do dia, com histórico, estão na página do <a href="tesouro-direto.html">Tesouro Direto</a> (dados abertos do Tesouro Nacional, base de 02/10/2026).</p>
+<h2 id="igpm">E o IGP-M?</h2>
+<p>O IGP-M é calculado pela Fundação Getulio Vargas, uma instituição privada, e não está entre os dados abertos do Banco Central com licença aberta. Para não republicar número sem licença clara, o site não o mostra; a fonte é o portal do FGV IBRE.</p>
+<h2 id="resumo">Todos os números</h2>
+</div>
+<div class="rolagem"><table><caption>Indicadores de hoje, com data de referência</caption><thead><tr><th>Indicador</th><th class="n">Valor</th><th class="n">Referência</th></tr></thead><tbody><tr><td class="n">Meta Selic</td><td class="n">13,75%</td><td class="n">ao ano · desde 17/09/2026</td></tr><tr><td class="n">Selic over</td><td class="n">13,65%</td><td class="n">ao ano · 02/10/2026 · 12 meses: 14,46%</td></tr><tr><td class="n">CDI</td><td class="n">13,65%</td><td class="n">ao ano · 01/10/2026</td></tr><tr><td class="n">CDI em 12 meses</td><td class="n">14,47%</td><td class="n">acumulado até 01/10/2026 · no ano: 10,56%</td></tr><tr><td class="n">IPCA em 12 meses</td><td class="n">4,22%</td><td class="n">até agosto de 2026 · no mês: -0,32%</td></tr><tr><td class="n">Poupança</td><td class="n">0,6624%</td><td class="n">no mês iniciado em 01/10/2026 · 0,5% + TR</td></tr><tr><td class="n">TR</td><td class="n">0,1616%</td><td class="n">período iniciado em 01/10/2026</td></tr><tr><td class="n">Dólar PTAX</td><td class="n">R$ 5,2238</td><td class="n">venda · fechamento de 02/10/2026</td></tr><tr><td class="n">Euro PTAX</td><td class="n">R$ 5,8815</td><td class="n">venda · fechamento de 02/10/2026</td></tr></tbody></table></div>
+<h2 id="veja-tambem">Veja também</h2><ul class="cartoes grade grade-3"><li><a class="cartao" href="calculadoras/simulador-renda-fixa.html"><span class="rotulo">Simulador</span><h3>Renda fixa: poupança, CDB, LCI, LCA e Tesouro</h3><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a class="cartao" href="tesouro-direto.html"><span class="rotulo">Dados abertos</span><h3>Tesouro Direto: taxas do dia</h3><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a class="cartao" href="glossario.html"><span class="rotulo">Glossário</span><h3>Termos do mercado explicados</h3><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li></ul>
+
+<div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Os indicadores são reproduzidos das fontes oficiais citadas, com a data de referência de cada número.</div>
+</div></main>
+<footer class="rodape">
+  <svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg>
+  <div class="casca">
+    <div class="rodape-marca">
+      <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span><span>BC</span><span>Tesouro</span></p>
+    </div>
+    <div>
+      <h2>Guias</h2>
+      <ul></ul>
+    </div>
+    <div>
+      <h2>Calculadoras</h2>
+      <ul></ul>
+    </div>
+    <div>
+      <h2>Navegue</h2>
+      <ul>
+        <li><a href="ativos.html">Ativos acompanhados</a></li>
+        <li><a href="indicadores.html">Indicadores de hoje</a> · <a href="tesouro-direto.html">Tesouro Direto</a></li>
+        <li><a href="glossario.html">Glossário</a></li>
+        <li><a href="guias.html">Guias</a> · <a href="calculadoras.html">Calculadoras</a></li>
+        <li><a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Este site</h2>
+      <ul>
+        <li>Exibe anúncios do Google AdSense. <a href="privacidade.html">Política de privacidade</a>. <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>.</li>
+        <li>Da mesma casa: <a href="https://guiaprodutonalupa.com.br" rel="noopener">Guia Produto na Lupa</a> e <a href="https://viagemnalupa.com.br" rel="noopener">Viagem na Lupa</a>.</li>
+      </ul>
+    </div>
+    <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br · <a href="status.html">Status dos dados</a></p>
+  </div>
+</footer>
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="casca">
+    <p>Este site usa cookies do Google AdSense para exibir anúncios e medir audiência. Não pedimos cadastro nem e-mail, e as calculadoras não enviam o que você digita. Detalhes na <a href="privacidade.html">política de privacidade</a>.</p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var CHAVE='ml-consentimento', PUB='pub-4401770243539507', BLOQUEIA=false;
+  function ler(){try{return localStorage.getItem(CHAVE)}catch(e){return null}}
+  function gravar(v){try{localStorage.setItem(CHAVE,v)}catch(e){}}
+  function carrega(){
+    if(!PUB||document.getElementById('ads-google'))return;
+    var s=document.createElement('script');s.id='ads-google';s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-'+PUB;
+    document.head.appendChild(s);
+  }
+  // "Rever escolha de cookies", no rodapé: apaga a escolha salva e recarrega.
+  document.querySelectorAll('[data-rever-cookies]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      try{localStorage.removeItem(CHAVE)}catch(e){}
+      location.reload();
+    });
+  });
+  var escolha=ler();
+  if(escolha==='aceitar'||(escolha===null&&!BLOQUEIA))carrega();
+  var caixa=document.getElementById('consentimento');
+  if(escolha===null&&caixa){
+    caixa.hidden=false;
+    caixa.addEventListener('click',function(ev){
+      var b=ev.target.closest('[data-consent]');if(!b)return;
+      var v=b.dataset.consent;gravar(v);caixa.hidden=true;
+      if(v==='aceitar')carrega();else{var x=document.getElementById('ads-google');if(x)x.remove();}
+    });
+  }
+  // Europa, Reino Unido, Suíça: quem pergunta é a mensagem do Google (CMP
+  // certificada). Se ela diz que o GDPR se aplica, esta faixa sai da frente.
+  if(escolha===null&&caixa){
+    var n=0,t=setInterval(function(){
+      if(typeof window.__tcfapi==='function'){
+        clearInterval(t);
+        window.__tcfapi('addEventListener',2,function(tc,ok){if(ok&&tc&&tc.gdprApplies)caixa.hidden=true;});
+      }else if(++n>40)clearInterval(t);
+    },250);
+  }
+})();
+</script>
+</body>
+</html>

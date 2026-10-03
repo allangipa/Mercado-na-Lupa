@@ -28,6 +28,10 @@ _src/
   paginas/guias/         um .html por guia, com front matter JSON no 1º comentário
   paginas/calculadoras/  idem, com o <script> da calculadora no fim
   fontes-ttf/       fontes para desenhar as imagens og (Archivo, Fraunces, Plex Mono; OFL)
+  bcb.py            indicadores do Banco Central (SGS e PTAX) -> dados/bcb.json
+  tesouro.py        taxas e preços do Tesouro Direto (Tesouro Transparente) -> dados/tesouro.json
+  paginas_dados.py  páginas de indicadores, Tesouro Direto e glossário (chamado pelo build.py)
+  glossario.json    os termos do glossário, com fonte quando há regra legal
 dados/
   cotacoes/<CODIGO>.csv  um pregão por linha, desde 02/01/2025
   pregoes.csv            todos os pregões processados
@@ -130,6 +134,47 @@ fim de semana e `_src/feriados-b3.json`: verde = nenhum pregão faltando, âmbar
 vermelho = 2 ou mais. `status.html` (noindex, fora do sitemap, link no rodapé) traz hora da
 geração, selo do GitHub Actions, situação de cada ativo e próximos pregões. Para testar:
 `status.html?hoje=2026-10-07` ou `?hoje=2026-10-05T20` (só vale nessa página).
+
+## Dados abertos: indicadores, Tesouro Direto, glossário (03/10/2026)
+
+Sem B3: só Banco Central, IBGE (via SGS) e Tesouro Nacional.
+
+```
+python _src/bcb.py       # dados/bcb.json  (falha isolada por série)
+python _src/tesouro.py   # dados/tesouro.json (falha isolada)
+```
+
+| fonte | séries | licença / uso |
+|---|---|---|
+| BC, SGS (SOAP oficial; a API JSON api.bcb.gov.br não resolve no DNS) | 432 meta Selic, 11/1178 Selic over, 12/4389 CDI, 433/13522 IPCA, 195 poupança, 226 TR | 432, 11, 1178 e 195 estão no portal de dados abertos do BC com licença ODbL; as demais vêm do SGS público (o BC permite reprodução citando a fonte). CDI é calculado pela B3 e republicado pelo BC; o site lê só o SGS. IPCA é do IBGE. |
+| BC, PTAX (API Olinda) | dólar e euro, boletim de fechamento, 2 anos | ODbL (portal de dados abertos do BC) |
+| Tesouro Transparente (CKAN) | "Taxas dos Títulos Ofertados pelo Tesouro Direto", CSV desde 2002 | ODbL (conferido na API CKAN) |
+
+**IGP-M fica de fora**: é da FGV e não está nos dados abertos do BC com licença aberta.
+
+Páginas: `indicadores.html` (hub) e `indicadores/` (selic-hoje, cdi-hoje, ipca-acumulado-12-meses,
+rendimento-da-poupanca, dolar-ptax-hoje, euro-ptax-hoje), `tesouro-direto.html` (histórico semanal de 3 anos
+em `assets/tesouro/historico.json`, carregado sob demanda), `glossario.html` (uma página com âncoras: termo curto
+não vira página rala). Simuladores em `_src/paginas/calculadoras/` (simulador-renda-fixa, calculadora-darf-acoes):
+os valores do dia entram por placeholders `{{CDI_ANO}}`, `{{TD_TITULOS}}`… (`valores_calc` em paginas_dados.py;
+placeholder desconhecido PARA o build).
+
+O build PARA (número errado não sai) se:
+- o CDI/Selic diário não bater com o anualizado do mesmo dia ((1+d)^252);
+- o IPCA 12M do SGS não bater com o produto dos 12 meses;
+- o rendimento da poupança publicado não bater com a regra da lei (0,5% + TR com meta > 8,5%; senão 70% da meta mensalizada + TR).
+
+Conferências feitas em 03/10/2026: CDI e Selic acumulados de 01/10/2025 a 01/10/2026 = 1,14474060, igual à
+Calculadora do Cidadão do BC; poupança de 05/09/2025 a 05/09/2026 = 1,0827863, igual à calculadora (1,08278630);
+preço do Tesouro Prefixado = 1000/(1+taxa)^(du/252), com du a partir do dia útil seguinte à data-base e feriados
+nacionais, reproduz o PU de compra do arquivo (4 títulos, diferença ≤ R$ 0,01).
+
+Regras com data (conferidas em 03/10/2026; revisar quando mudarem): tabela regressiva de IR (Lei 11.033, art. 1º);
+IOF regressivo (Decreto 6.306, art. 32 e anexo; LCA alíquota zero); custódia B3 0,20% a.a., Tesouro Selic isento até
+R$ 10 mil (página de tarifas da B3); LCI/LCA prazo mínimo de 6 meses (Res. CMN 5.215/2025); MP 1.303/2025 perdeu a
+vigência em 08/10/2025 (ADC nº 67/2025); JCP 17,5% (LC 224/2025); dividendos > R$ 50 mil/mês (Lei 15.270/2025).
+Os guias de IR são para a declaração de 2027 e precisam ser revistos quando a Receita publicar o programa e o
+Perguntas e Respostas IRPF 2027 (março de 2027): códigos de Bens e Direitos estão marcados como "do programa de 2026".
 
 ## Publicação
 

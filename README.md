@@ -159,10 +159,16 @@ não vira página rala). Simuladores em `_src/paginas/calculadoras/` (simulador-
 os valores do dia entram por placeholders `{{CDI_ANO}}`, `{{TD_TITULOS}}`… (`valores_calc` em paginas_dados.py;
 placeholder desconhecido PARA o build).
 
-O build PARA (número errado não sai) se:
-- o CDI/Selic diário não bater com o anualizado do mesmo dia ((1+d)^252);
-- o IPCA 12M do SGS não bater com o produto dos 12 meses;
-- o rendimento da poupança publicado não bater com a regra da lei (0,5% + TR com meta > 8,5%; senão 70% da meta mensalizada + TR).
+Conferências por série (número inconsistente não sai, mas também não segura o resto do site):
+- CDI/Selic diário × anualizado do mesmo dia ((1+d)^252);
+- IPCA 12M do SGS × produto dos 12 meses;
+- poupança publicada × regra da lei (0,5% + TR com meta > 8,5%; senão 70% da meta mensalizada + TR);
+- meta Selic, PTAX (faixa, compra ≤ venda, salto > 15% no dia) e Tesouro (faixas de taxa e preço, ≥ 10 títulos).
+
+**Falha isolada:** a série que falhar volta ao último dado bom, guardado em `dados/bcb-bom.json` e
+`dados/tesouro-bom.json` (o build regrava esses arquivos quando a coleta passa); a página mostra o aviso
+"Dado novo com problema" e a status.html marca a série como "Com problema". O build só PARA se não houver dado
+bom anterior. Testado em 03/10/2026 com CDI, IPCA 12M, poupança e Tesouro adulterados.
 
 Conferências feitas em 03/10/2026: CDI e Selic acumulados de 01/10/2025 a 01/10/2026 = 1,14474060, igual à
 Calculadora do Cidadão do BC; poupança de 05/09/2025 a 05/09/2026 = 1,0827863, igual à calculadora (1,08278630);

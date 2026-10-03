@@ -20,7 +20,7 @@ PORTAL_SERIE = {432: "432-taxa-de-juros---meta-selic-definida-pelo-copom", 11: "
                 1178: "1178-taxa-de-juros---selic-anualizada-base-252",
                 195: "195-depositos-de-poupanca-a-partir-de-04052012---rentabilidade-no-periodo"}
 PTAX_PORTAL = {"dolar": "dolar-americano-usd-todos-os-boletins-diarios", "euro": "taxas-de-cambio-todos-os-boletins-diarios"}
-ESSENCIAIS = ("selic_meta", "selic", "selic_ano", "cdi", "cdi_ano", "ipca", "ipca12", "poupanca", "tr", "dolar", "euro")
+ESSENCIAIS = ("selic_meta", "selic", "selic_ano", "cdi", "cdi_ano", "ipca", "ipca12", "poupanca", "tr", "dolar", "euro")  # avisos do hub
 
 # Regras com data — aparecem nas páginas e nos simuladores. Conferidas em fonte oficial.
 CONFERIDO = "2026-10-03"
@@ -55,24 +55,111 @@ def dbr(d):
 
 # --- carga ---------------------------------------------------------------------------
 
+class Inconsistente(Exception):
+    """Dado de uma série que não passou na conferência. Não para o build: a série volta
+    para o último dado bom (dados/*-bom.json) e aparece como "com problema" no status.
+    O build só para se não houver dado bom anterior."""
+
+
+# grupo -> (séries que ele usa, séries que ele publica e que voltam juntas ao dado bom)
+GRUPOS = {
+    "meta": (("selic_meta",), ("selic_meta",)),
+    "selic": (("selic", "selic_ano"), ("selic", "selic_ano")),
+    "cdi": (("cdi", "cdi_ano"), ("cdi", "cdi_ano")),
+    "ipca": (("ipca", "ipca12"), ("ipca", "ipca12")),
+    "poup": (("poupanca", "tr", "selic_meta"), ("poupanca", "tr")),
+    "dolar": (("dolar",), ("dolar",)),
+    "euro": (("euro",), ("euro",)),
+}
+BOM_BCB = "bcb-bom.json"
+BOM_TD = "tesouro-bom.json"
+
+
+def _calc_grupo(g, S):
+    try:
+        for k in GRUPOS[g][0]:
+            if not S.get(k, {}).get("pontos"):
+                raise Inconsistente(f"série {k} vazia ou ausente")
+        return CALC[g](S)
+    except Inconsistente:
+        raise
+    except Exception as ex:  # noqa: BLE001 — dado estranho vira inconsistência da série, não erro do build
+        raise Inconsistente(f"{type(ex).__name__}: {ex}") from ex
+
+
+def _grava_json(arq, obj):
+    corpo = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    arq.write_text(corpo.replace("],[", "],\n[") + "\n", encoding="utf-8")
+
+
 def carregar():
     arq = B.DADOS / "bcb.json"
-    if not arq.exists():
-        B.falha("sem dados/bcb.json — rode _src/bcb.py")
-    bcb = B.ler_json(arq)
-    S = bcb["series"]
-    for k in ESSENCIAIS:
-        if k not in S or not S[k].get("pontos"):
-            B.falha(f"dados/bcb.json sem a série {k} — rode _src/bcb.py")
-    arq = B.DADOS / "tesouro.json"
-    if not arq.exists():
-        B.falha("sem dados/tesouro.json — rode _src/tesouro.py")
-    td = B.ler_json(arq)
-    if not td.get("titulos"):
-        B.falha("dados/tesouro.json sem títulos — rode _src/tesouro.py")
+    bcb = B.ler_json(arq) if arq.exists() else {"coletado_em": dt.datetime.now(dt.timezone.utc).isoformat(), "series": {}}
+    S = bcb.setdefault("series", {})
+    arq_bom = B.DADOS / BOM_BCB
+    Sb = B.ler_json(arq_bom)["series"] if arq_bom.exists() else {}
+    I, problemas, novo_bom = {}, {}, dict(Sb)
+    for g, (usa, publica) in GRUPOS.items():
+        try:
+            I[g] = _calc_grupo(g, S)
+            for k in publica:
+                novo_bom[k] = S[k]
+        except Inconsistente as ex:
+            msg = str(ex)[:300]
+            try:
+                I[g] = _calc_grupo(g, {**S, **{k: Sb[k] for k in usa if k in Sb}})
+            except Inconsistente as ex2:
+                B.falha(f"indicadores, grupo {g}: {msg} — e não há dado bom anterior em dados/{BOM_BCB} ({ex2})")
+            for k in publica:
+                S[k] = {**Sb[k], "problema": msg}
+            problemas[g] = msg
+            print(f"ATENÇÃO (dados do BC): {g} inconsistente — {msg}. Publicado o último dado bom.")
+    if novo_bom != Sb:
+        _grava_json(arq_bom, {"_leia": "Último dado do BC que passou nas conferências do build (_src/paginas_dados.py). "
+                                       "Usado quando a coleta nova vem inconsistente.", "series": novo_bom})
+    td = carregar_tesouro()
     glo = B.ler_json(B.SRC / "glossario.json") if (B.SRC / "glossario.json").exists() else None
-    I = calcular(S)
-    return {"bcb": bcb, "S": S, "td": td, "glo": glo, "I": I}
+    return {"bcb": bcb, "S": S, "td": td, "glo": glo, "I": I, "problemas": problemas}
+
+
+def conferir_tesouro(td):
+    try:
+        tit = td.get("titulos") or []
+        if len(tit) < 10:
+            raise Inconsistente(f"só {len(tit)} títulos")
+        dt.date.fromisoformat(td["data_base"])
+        for t in tit:
+            dt.date.fromisoformat(t["vencimento"])
+            for k in ("taxa_compra", "taxa_venda"):
+                if t[k] is not None and not -5 < t[k] < 40:
+                    raise Inconsistente(f"{t['tipo']} {t['vencimento']}: {k} fora de faixa ({t[k]})")
+            for k in ("pu_compra", "pu_venda"):
+                if t[k] is not None and not 0 < t[k] < 1e6:
+                    raise Inconsistente(f"{t['tipo']} {t['vencimento']}: {k} fora de faixa ({t[k]})")
+        if not isinstance(td.get("historico"), dict):
+            raise Inconsistente("sem histórico")
+    except Inconsistente:
+        raise
+    except Exception as ex:  # noqa: BLE001
+        raise Inconsistente(f"{type(ex).__name__}: {ex}") from ex
+
+
+def carregar_tesouro():
+    arq, arq_bom = B.DADOS / "tesouro.json", B.DADOS / BOM_TD
+    td = B.ler_json(arq) if arq.exists() else {}
+    try:
+        conferir_tesouro(td)
+        if not arq_bom.exists() or B.ler_json(arq_bom) != td:
+            _grava_json(arq_bom, td)
+        return td
+    except Inconsistente as ex:
+        msg = str(ex)[:300]
+        if not arq_bom.exists():
+            B.falha(f"Tesouro: {msg} — e não há dado bom anterior em dados/{BOM_TD}")
+        bom = B.ler_json(arq_bom)
+        conferir_tesouro(bom)
+        print(f"ATENÇÃO (Tesouro): {msg}. Publicado o último dado bom (data-base {bom['data_base']}).")
+        return {**bom, "problema": msg}
 
 
 def ult(S, k):
@@ -107,19 +194,17 @@ def diaria(S, k, kano):
     fmes, nmes = acumula(pts, d[:7] + "-01", d)
     da, va = S[kano]["pontos"][-1][0], S[kano]["pontos"][-1][1]
     if da != d:
-        B.falha(f"bcb.json: {k} e {kano} com datas diferentes ({d} × {da})")
+        raise Inconsistente(f"bcb.json: {k} e {kano} com datas diferentes ({d} × {da})")
     # mesmo valor anualizado: (1 + diária)^252
     if abs(((1 + v / 100) ** 252 - 1) * 100 - va) > 0.02:
-        B.falha(f"bcb.json: {k} diária {v} não bate com a anualizada {va}")
+        raise Inconsistente(f"bcb.json: {k} diária {v} não bate com a anualizada {va}")
     primeiro12 = next(p[0] for p in pts if p[0] >= ini12)
     return {"data": d, "dia": v, "ano": va, "acum12": (f12 - 1) * 100, "dias12": n12, "ini12": primeiro12,
             "acum_ano": (fano - 1) * 100, "dias_ano": nano, "acum_mes": (fmes - 1) * 100, "dias_mes": nmes,
             "serie_ano": [(p[0], p[1]) for p in S[kano]["pontos"]]}
 
 
-def calcular(S):
-    I = {}
-    # meta Selic: valor atual e desde quando vale
+def c_meta(S):
     pts = S["selic_meta"]["pontos"]
     d, v = pts[-1][0], pts[-1][1]
     desde = d
@@ -133,14 +218,16 @@ def calcular(S):
         if p[1] != ant:
             mudancas.append((p[0], p[1]))
             ant = p[1]
-    I["meta"] = {"data": d, "valor": v, "desde": desde, "mudancas": mudancas}
-    I["selic"] = diaria(S, "selic", "selic_ano")
-    I["cdi"] = diaria(S, "cdi", "cdi_ano")
-    # IPCA
+    if not 0 < v < 50:
+        raise Inconsistente(f"meta Selic fora de faixa ({v})")
+    return {"data": d, "valor": v, "desde": desde, "mudancas": mudancas}
+
+
+def c_ipca(S):
     ip = S["ipca"]["pontos"]
     ip12 = S["ipca12"]["pontos"]
     if ip[-1][0] != ip12[-1][0]:
-        B.falha(f"bcb.json: IPCA mensal ({ip[-1][0]}) e acumulado 12M ({ip12[-1][0]}) com meses diferentes")
+        raise Inconsistente(f"bcb.json: IPCA mensal ({ip[-1][0]}) e acumulado 12M ({ip12[-1][0]}) com meses diferentes")
     ref = ip[-1][0]
     fa = 1.0
     for dd, vv in ip:
@@ -152,9 +239,12 @@ def calcular(S):
     for _, vv in ult12:
         f12 *= 1 + vv / 100
     if abs((f12 - 1) * 100 - ip12[-1][1]) > 0.02:
-        B.falha(f"bcb.json: IPCA 12M do SGS ({ip12[-1][1]}) não bate com o produto dos 12 meses ({(f12 - 1) * 100:.4f})")
-    I["ipca"] = {"ref": ref, "mes": ip[-1][1], "doze": ip12[-1][1], "ano": (fa - 1) * 100, "mensal": ip, "serie12": ip12}
-    # poupança e TR: períodos mensais por aniversário
+        raise Inconsistente(f"bcb.json: IPCA 12M do SGS ({ip12[-1][1]}) não bate com o produto dos 12 meses ({(f12 - 1) * 100:.4f})")
+    return {"ref": ref, "mes": ip[-1][1], "doze": ip12[-1][1], "ano": (fa - 1) * 100, "mensal": ip, "serie12": ip12}
+
+
+def c_poup(S):
+    pts = S["selic_meta"]["pontos"]
     pp = S["poupanca"]["pontos"]
     ult_p = pp[-1]
     dia1 = [p for p in pp if p[0].endswith("-01")]
@@ -174,12 +264,14 @@ def calcular(S):
     else:
         esperado = ((1 + 0.7 * ((1 + meta_no_inicio / 100) ** (1 / 12) - 1)) * (1 + tr_v / 100) - 1) * 100
     if abs(esperado - ult_p[1]) > 0.0002 * 100:
-        B.falha(f"poupança de {ult_p[0]}: SGS diz {ult_p[1]}%, a regra legal com TR {tr_v}% e meta {meta_no_inicio}% dá {esperado:.4f}%")
-    I["poup"] = {"ini": ult_p[0], "fim": ult_p[2], "valor": ult_p[1], "acum12": (f - 1) * 100, "ini12": ult12[0][0],
+        raise Inconsistente(f"poupança de {ult_p[0]}: SGS diz {ult_p[1]}%, a regra legal com TR {tr_v}% e meta {meta_no_inicio}% dá {esperado:.4f}%")
+    return {"ini": ult_p[0], "fim": ult_p[2], "valor": ult_p[1], "acum12": (f - 1) * 100, "ini12": ult12[0][0],
                  "fim12": ult12[-1][2], "regra_05": regra_05, "meta": meta_no_inicio, "tr": tr_v, "tr_ini": ult_p[0],
                  "dia1": dia1, "tr1": tr1}
-    # PTAX
-    for k in ("dolar", "euro"):
+
+
+def c_moeda(S, k):
+    if True:
         pt = S[k]["pontos"]
         d, c, vd = pt[-1]
         ant = pt[-2]
@@ -190,11 +282,16 @@ def calcular(S):
         mx = max(janela, key=lambda p: p[2])
         mn = min(janela, key=lambda p: p[2])
         ini_ano = [p for p in pt if p[0] < d[:4] + "-01-01"]
-        I[k] = {"data": d, "compra": c, "venda": vd, "ant": ant, "var_dia": (vd / ant[2] - 1) * 100,
+        if not 1 < vd < 20 or c > vd or abs(vd / ant[2] - 1) > 0.15:
+            raise Inconsistente(f"{k}: PTAX estranha (compra {c}, venda {vd}, anterior {ant[2]})")
+        return {"data": d, "compra": c, "venda": vd, "ant": ant, "var_dia": (vd / ant[2] - 1) * 100,
                 "var12": (vd / base12[2] - 1) * 100, "base12": base12, "max": mx, "min": mn,
                 "var_ano": (vd / ini_ano[-1][2] - 1) * 100 if ini_ano else None,
                 "base_ano": ini_ano[-1] if ini_ano else None, "pontos": pt}
-    return I
+
+
+CALC = {"meta": c_meta, "selic": lambda S: diaria(S, "selic", "selic_ano"), "cdi": lambda S: diaria(S, "cdi", "cdi_ano"),
+        "ipca": c_ipca, "poup": c_poup, "dolar": lambda S: c_moeda(S, "dolar"), "euro": lambda S: c_moeda(S, "euro")}
 
 
 def valor_em(pts, data):
@@ -285,13 +382,20 @@ def fonte_sgs(S, k):
 
 
 def aviso_falha(S, ks):
-    ruins = [k for k in ks if not S[k].get("ok", True)]
+    prob = [k for k in ks if S[k].get("problema")]
+    ruins = [k for k in ks if not S[k].get("ok", True) and k not in prob]
+    txt = ""
+    if prob:
+        txt = ('<div class="aviso"><strong>Dado novo com problema</strong> em '
+               + ", ".join(e(S[k]["nome"]) for k in prob)
+               + ': a coleta mais recente não passou na conferência do site e não foi publicada. Os números abaixo são o '
+                 'último dado conferido, com a data de referência dele. Detalhes na <a href="{base}status.html">página de status</a>.</div>')
     if not ruins:
-        return ""
+        return txt
     return ('<div class="aviso"><strong>A última coleta no Banco Central falhou</strong> para '
             + ", ".join(e(S[k]["nome"]) for k in ruins)
             + '. Os números abaixo são da coleta anterior; a data de referência de cada um continua valendo. '
-              'Detalhes na <a href="' + "{base}" + 'status.html">página de status</a>.</div>')
+              'Detalhes na <a href="' + "{base}" + 'status.html">página de status</a>.</div>') + txt
 
 
 def coletado(bcb):
@@ -749,7 +853,9 @@ def p_tesouro(D, og):
     sel = "".join(f'<option value="{e(k)}"{" selected" if k == padrao else ""}>{e(n)}</option>' for k, n in opcoes)
     n_tipos = len(tipos)
     mod = dt.datetime.fromisoformat(td["arquivo_modificado_em"]).strftime("%d/%m/%Y") if td.get("arquivo_modificado_em") else "—"
-    falhou = "" if td.get("ok", True) else (f'<div class="aviso"><strong>A última coleta no Tesouro Transparente falhou</strong> '
+    falhou = (f'<div class="aviso"><strong>Dado novo do Tesouro com problema</strong> ({e(td["problema"])}): não foi publicado. '
+              f'Os números abaixo são o último dado conferido, com data-base de {dbr(td["data_base"])}.</div>') if td.get("problema") else ""
+    falhou += "" if td.get("ok", True) else (f'<div class="aviso"><strong>A última coleta no Tesouro Transparente falhou</strong> '
                                              f'({e(td.get("erro", ""))}). Os números abaixo são da coleta anterior, com data-base de {dbr(td["data_base"])}.</div>')
     corpo = f"""{falhou}
 {selo_ref(f"Data-base {dbr(td['data_base'])} · arquivo do Tesouro atualizado em {mod}")}
@@ -905,13 +1011,19 @@ def status_html(D):
     S, td, bcb = D["S"], D["td"], D["bcb"]
     lin = []
     for k, s in S.items():
-        ok = s.get("ok", True)
-        situ = "OK" if ok else f"Falhou em {e(s.get('falhou_em', ''))}: {e(s.get('erro', ''))}"
+        ok = s.get("ok", True) and not s.get("problema")
+        if s.get("problema"):
+            situ = f"Com problema: {e(s['problema'])} — publicado o último dado bom"
+        else:
+            situ = "OK" if ok else f"Falhou em {e(s.get('falhou_em', ''))}: {e(s.get('erro', ''))}"
         ult_p = s["pontos"][-1] if s.get("pontos") else None
         lin.append(f'<tr{"" if ok else " class=\"atrasado\""}><td>{e(s["nome"])}</td><td class="n">{e(s["sgs"])}</td>'
                    f'<td class="n">{dbr(ult_p[0]) if ult_p else "—"}</td><td>{situ}</td></tr>')
-    ok_td = td.get("ok", True)
-    situ_td = "OK" if ok_td else f"Falhou em {e(td.get('falhou_em', ''))}: {e(td.get('erro', ''))}"
+    ok_td = td.get("ok", True) and not td.get("problema")
+    if td.get("problema"):
+        situ_td = f"Com problema: {e(td['problema'])} — publicado o último dado bom"
+    else:
+        situ_td = "OK" if ok_td else f"Falhou em {e(td.get('falhou_em', ''))}: {e(td.get('erro', ''))}"
     return f"""<h2 id="indicadores">Indicadores do Banco Central</h2>
 <p class="data-regra">Última coleta: {coletado(bcb)} (Brasília). Série que falha mantém o último dado bom.</p>
 <div class="rolagem"><table class="tabela-status"><caption>Séries do SGS e PTAX</caption><thead><tr><th>Série</th><th class="n">Código</th><th class="n">Último dado</th><th>Situação</th></tr></thead><tbody>

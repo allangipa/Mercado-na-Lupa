@@ -1,0 +1,68 @@
+{
+  "_leia": "Fotos de fundo (topo da home e faixa das páginas internas). Fonte única dos créditos: o build lê daqui o crédito visível de cada página e gera CREDITOS-IMAGENS.md. Processamento em _src/fundos.py (recorte em frações da largura/altura do arquivo original).",
+  "hero-pregao": {
+    "titulo": "Sao Paulo Stock Exchange",
+    "autor": "Rafael Matsunaga",
+    "licenca": "CC BY 2.0",
+    "licenca_url": "https://creativecommons.org/licenses/by/2.0/",
+    "commons": "File:Sao Paulo Stock Exchange.jpg",
+    "origem": "https://commons.wikimedia.org/wiki/File:Sao_Paulo_Stock_Exchange.jpg",
+    "descricao": "Painel de cotações e mesa no salão de negociação da Bovespa, São Paulo, abril de 2007",
+    "recorte": [0, 0, 1, 1],
+    "saturacao": 0.3,
+    "brilho": 0.82,
+    "usada_em": "topo da página inicial"
+  },
+  "bovespa-arcos": {
+    "titulo": "Bovespa, São Paulo city downtown",
+    "autor": "Wilfredor",
+    "licenca": "CC BY-SA 4.0",
+    "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "commons": "File:Bovespa, São Paulo city downtown.jpg",
+    "origem": "https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg",
+    "descricao": "Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017",
+    "recorte": [0, 0.08, 1, 0.52],
+    "saturacao": 0.45,
+    "brilho": 0.8,
+    "usada_em": "páginas de ativo e lista de ativos"
+  },
+  "viva-voz": {
+    "titulo": "Bolsa de Valores (17391295482)",
+    "autor": "Núcleo Editorial de Revistas da Faculdade Cásper Líbero",
+    "licenca": "CC BY 2.0",
+    "licenca_url": "https://creativecommons.org/licenses/by/2.0/",
+    "commons": "File:Bolsa de Valores (17391295482).jpg",
+    "origem": "https://commons.wikimedia.org/wiki/File:Bolsa_de_Valores_(17391295482).jpg",
+    "descricao": "O antigo pregão viva-voz da Bovespa, com o painel de cotações",
+    "recorte": [0.01, 0, 0.99, 0.62],
+    "saturacao": 0,
+    "brilho": 0.8,
+    "usada_em": "guias"
+  },
+  "paulista-noite": {
+    "titulo": "Paulista Avenue 2019 at night",
+    "autor": "Boaventuravinicius",
+    "licenca": "CC BY-SA 4.0",
+    "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "commons": "File:Paulista Avenue 2019 at night.jpg",
+    "origem": "https://commons.wikimedia.org/wiki/File:Paulista_Avenue_2019_at_night.jpg",
+    "descricao": "Avenida Paulista à noite, vista do alto, São Paulo, 2019",
+    "recorte": [0, 0.12, 1, 0.72],
+    "saturacao": 0.4,
+    "brilho": 0.9,
+    "usada_em": "calculadoras"
+  },
+  "paulista-dia": {
+    "titulo": "Vista da Avenida Paulista a partir do IMS Paulista",
+    "autor": "Boaventuravinicius",
+    "licenca": "CC BY 4.0",
+    "licenca_url": "https://creativecommons.org/licenses/by/4.0/",
+    "commons": "File:Vista da Avenida Paulista a partir do IMS Paulista.jpg",
+    "origem": "https://commons.wikimedia.org/wiki/File:Vista_da_Avenida_Paulista_a_partir_do_IMS_Paulista.jpg",
+    "descricao": "Avenida Paulista vista do Instituto Moreira Salles, São Paulo, 2025",
+    "recorte": [0, 0.3, 1, 0.72],
+    "saturacao": 0.4,
+    "brilho": 0.8,
+    "usada_em": "sobre, contato e privacidade"
+  }
+}

@@ -29,6 +29,8 @@
   --grafico:#1D4ED8; --grafico-area:rgba(29,78,216,.10);
   --sombra:0 1px 2px rgba(15,27,45,.05),0 8px 24px -16px rgba(15,27,45,.25);
   --raio:14px; --raio-s:9px;
+  --sombra-alta:0 2px 4px rgba(15,27,45,.06),0 18px 36px -18px rgba(15,27,45,.35);
+  --textura-traco:rgba(29,78,216,.07);
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
@@ -40,6 +42,8 @@
     --alta:#47CD89; --alta-suave:#0E2E20; --baixa:#FF8A80; --baixa-suave:#3A1714;
     --grafico:#8DB2FF; --grafico-area:rgba(141,178,255,.13);
     --sombra:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.8);
+    --sombra-alta:0 2px 4px rgba(0,0,0,.5),0 20px 40px -18px rgba(0,0,0,.95);
+    --textura-traco:rgba(141,178,255,.08);
     color-scheme:dark;
   }
 }
@@ -84,11 +88,15 @@ code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;backgrou
   .nav a{font-size:.9rem;padding:.4rem .6rem;white-space:nowrap}
 }
 main{display:block;padding:2rem 0 3.5rem}
+main.com-faixa{padding-top:0}
 .migalhas{font-size:.86rem;color:var(--suave);margin-bottom:1rem}
 .migalhas a{color:var(--suave)}
 .migalhas span[aria-current]{color:var(--tinta)}
 .lead{font-size:1.12rem;color:var(--suave);max-width:44rem}
 .cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1.2rem 1.25rem;box-shadow:var(--sombra)}
+a.cartao{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.cartao:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta);border-color:var(--acao)}
+@media (prefers-reduced-motion:reduce){a.cartao,.cartoes .seta{transition:none}a.cartao:hover{transform:none}}
 .grade{display:grid;gap:1rem}
 .grade>*{min-width:0}
 @media (min-width:760px){.grade-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -101,8 +109,6 @@ main{display:block;padding:2rem 0 3.5rem}
 .botao:hover{background:var(--acao-forte);color:#fff}
 @media (prefers-color-scheme:dark){.botao:hover{color:#0B1220}}
 .botao.claro{background:var(--superficie);color:var(--tinta)}
-.abertura{padding:2.2rem 0 1rem}
-.abertura h1{max-width:20ch;margin:.4rem 0 .9rem}
 .busca{display:flex;gap:.5rem;margin:1.4rem 0 .5rem;max-width:34rem}
 .busca input{flex:1;min-width:0;font:500 1.05rem "IBM Plex Mono",monospace;text-transform:uppercase;padding:.75rem .9rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
 .busca input::placeholder{text-transform:none;font-family:"Archivo",sans-serif;color:var(--apagado)}
@@ -209,8 +215,106 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 .consentimento button{font:600 .9rem "Archivo",sans-serif;padding:.55rem .9rem;border-radius:9px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);cursor:pointer}
 .consentimento button.principal{background:var(--acao);border-color:var(--acao);color:#fff}
 @media (prefers-color-scheme:dark){.consentimento button.principal{color:#0B1220}}
+.heroi,.faixa{position:relative;isolation:isolate;overflow:hidden;background:#0B1424;color:#F4F6F9;border-bottom:3px solid #1D4ED8}
+.fundo,.fundo img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.fundo{z-index:-2}
+.fundo img{object-fit:cover;object-position:center}
+.heroi::before,.faixa::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(8,14,28,.93) 0%,rgba(8,14,28,.86) 48%,rgba(8,14,28,.74) 100%),
+             linear-gradient(0deg,rgba(8,14,28,.55) 0%,rgba(8,14,28,0) 45%)}
+@media (max-width:700px){.heroi::before,.faixa::before{background:linear-gradient(180deg,rgba(8,14,28,.74) 0%,rgba(8,14,28,.8) 60%,rgba(8,14,28,.9) 100%)}}
+.linha-fundo{position:absolute;left:0;right:0;bottom:0;width:100%;height:42%;z-index:-1;pointer-events:none}
+.linha-fundo polyline{fill:none;stroke:rgba(141,178,255,.32);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.heroi a,.faixa a{color:#B9CEFF}
+.heroi a:hover,.faixa a:hover{color:#FFFFFF}
+.heroi .rotulo,.faixa .rotulo{color:#C3CEDD}
+.heroi .lead,.faixa .lead{color:#DCE3EE}
+.heroi a:focus-visible,.faixa a:focus-visible,.heroi input:focus-visible,.heroi button:focus-visible{outline-color:#B9CEFF}
+.credito-foto{font-size:.72rem;line-height:1.45;color:#C3CEDD;margin:1.4rem 0 0;max-width:46rem}
+.credito-foto a{color:#DCE3EE}
+@media (min-width:900px){.credito-foto{margin-left:auto;text-align:right}}
+.heroi .abertura{padding:3rem 16px 1.6rem;min-height:min(78vh,620px);display:flex;flex-direction:column;justify-content:center}
+@media (min-width:700px){.heroi .abertura{padding:4.2rem 28px 1.6rem}}
+.heroi h1{max-width:20ch;margin:.5rem 0 .9rem;color:#FFFFFF;font-size:clamp(2.1rem,1.4rem + 3vw,3.6rem)}
+.heroi .lead{font-size:clamp(1.05rem,1rem + .4vw,1.22rem)}
+.heroi .busca input{background:#FFFFFF;color:#0F1B2D;border-color:transparent;box-shadow:0 6px 24px -10px rgba(0,0,0,.6)}
+.heroi .busca input::placeholder{color:#5B6678}
+.heroi .botao{background:#2F64F0;color:#FFFFFF}
+.heroi .botao:hover{background:#1D4ED8;color:#FFFFFF}
+.heroi .busca-msg{color:#DCE3EE}
+.heroi .chips a{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);color:#F4F6F9}
+.heroi .chips a:hover{background:rgba(255,255,255,.16);border-color:#B9CEFF;color:#FFFFFF}
+.faixa{margin-bottom:2rem}
+.faixa-conteudo{padding-top:1.6rem;padding-bottom:1.1rem;min-height:15rem;display:flex;flex-direction:column;justify-content:flex-end}
+@media (min-width:700px){.faixa-conteudo{padding-top:2.4rem;min-height:17rem}}
+.faixa h1{color:#FFFFFF;margin-bottom:.5rem}
+.faixa .lead{margin-bottom:0}
+.faixa .migalhas,.faixa .migalhas a{color:#C3CEDD}
+.faixa .migalhas span[aria-current]{color:#FFFFFF}
+.faixa.faixa-ativo .cab-ativo{margin-bottom:0}
+.faixa .razao,.faixa .preco .quando,.faixa .preco .valor small{color:#C3CEDD}
+.faixa .preco .valor{color:#FFFFFF}
+.faixa .selo-var.zero{background:rgba(255,255,255,.12);color:#DCE3EE}
+.cab-id{display:flex;align-items:center;gap:1rem}
+.cab-id h1{margin-bottom:0}
+.cab-conteudo{display:flex;align-items:flex-start;gap:1rem}
+.cab-conteudo h1{max-width:28ch}
+.faixa .icone-caixa{background:rgba(255,255,255,.1);color:#B9CEFF;border:1px solid rgba(255,255,255,.2);flex:none;margin-top:.15rem}
+@media (max-width:520px){.cab-conteudo .icone-caixa{display:none}}
+.selo{--t:15px;font-size:var(--t);width:2.9em;height:2.9em;flex:none;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.12em;color:#FFFFFF;border-radius:.62em;line-height:1;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 1px 2px rgba(15,27,45,.18);user-select:none}
+.selo b{font-weight:600;font-size:.74em;letter-spacing:-.02em}
+.selo i{font-style:normal;font-weight:500;font-size:.6em;padding:.12em .42em;border-radius:99px;background:rgba(255,255,255,.2)}
+.selo-acao{background:linear-gradient(150deg,#2F64F0 0%,#1D4ED8 45%,#1E3A8A 100%)}
+.selo-fii{border-radius:50%;background:linear-gradient(150deg,#A06A1A 0%,#8A5A12 50%,#6B4510 100%)}
+.selo-p{--t:12.5px}
+.selo-g{--t:25px}
+@media (max-width:520px){.selo-g{--t:19px}}
+.ativo-cel{display:flex;align-items:center;gap:.65rem}
+@media (max-width:520px){.ativo-cel{gap:.5rem}.ativo-cel .selo{--t:10.5px}}
+.lista-dest li{align-items:center}
+.destaques h3{display:flex;align-items:center;gap:.45rem}
+.destaques h3 .icone{width:1.15rem;height:1.15rem;color:var(--acao)}
+.destaques .cartao{border-top:3px solid var(--acao)}
+.outros-ativos{list-style:none;padding:0;margin:0;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13.5rem),1fr))}
+.outros-ativos li{margin:0}
+.outros-ativos a{display:flex;align-items:center;gap:.7rem;padding:.65rem .8rem;text-decoration:none;color:var(--tinta);height:100%}
+.outros-ativos a>span:not(.selo)>b{display:block;font:600 .98rem "IBM Plex Mono",monospace}
+.outros-ativos a>span:not(.selo)>small{display:block;color:var(--suave);font-size:.84rem;line-height:1.3}
+.cartoes a.cartao{position:relative;display:flex;flex-direction:column;padding-bottom:2.6rem}
+.cartao-topo{display:flex;align-items:center;gap:.7rem;margin-bottom:.2rem}
+.icone-caixa{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:12px;background:var(--acao-suave);color:var(--acao)}
+.icone-caixa .icone{width:1.5rem;height:1.5rem}
+.cartoes .seta{position:absolute;right:1.1rem;bottom:1rem;width:1.2rem;height:1.2rem;color:var(--acao);transition:transform .18s ease}
+.cartoes a.cartao:hover .seta{transform:translateX(3px)}
+.textura{background-color:var(--papel);
+  background-image:linear-gradient(var(--textura-traco) 1px,transparent 1px),linear-gradient(90deg,var(--textura-traco) 1px,transparent 1px);
+  background-size:100% 2.4rem,2.4rem 100%}
+.painel{position:relative;margin-top:2rem;border:1px solid var(--linha);border-radius:calc(var(--raio) + 4px);padding:.4rem 1rem 1.2rem;box-shadow:var(--sombra)}
+@media (min-width:700px){.painel{padding:.6rem 1.5rem 1.6rem}}
+.painel>h2:first-child{margin-top:1rem}
+.painel .cartao{box-shadow:var(--sombra-alta)}
+.divisor{display:flex;align-items:center;gap:.8rem;margin:2.6rem 0 0;color:var(--acao)}
+.divisor::before,.divisor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--linha) 20%,var(--linha) 80%,transparent)}
+.divisor span{display:inline-flex;width:2.6rem;height:1.6rem;align-items:center;justify-content:center;border:1px solid var(--linha);border-radius:99px;background:var(--papel)}
+.divisor svg{width:1.6rem;height:.8rem}
+.divisor polyline{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.divisor+h2{margin-top:1.4rem}
+.rodape{position:relative;overflow:hidden;padding-top:2.6rem}
+.rodape .linha-fundo{top:0;bottom:auto;height:4.5rem;z-index:0}
+.rodape .linha-fundo polyline{stroke:var(--textura-traco);stroke-width:3}
+.rodape .casca{position:relative;z-index:1}
+@media (min-width:760px){.rodape .casca{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.rodape .casca{grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.2fr}}
+.rodape li{margin-bottom:.45rem;line-height:1.4}
+.rodape-marca .marca{margin-bottom:.7rem}
+.rodape-marca p{margin-bottom:.8rem}
+.fontes-selos{display:flex;gap:.4rem;flex-wrap:wrap}
+.fontes-selos span{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.08em;padding:.25rem .55rem;border-radius:6px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta)}
+.rodape .assinatura{grid-column:1/-1;margin:0;font-size:.82rem;color:var(--apagado)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
-<meta property="og:type" content="website">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/fundo/paulista-dia-640.webp 640w, assets/img/fundo/paulista-dia-1280.webp 1280w, assets/img/fundo/paulista-dia-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Política de privacidade · Mercado na Lupa">
@@ -236,11 +340,13 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
     </nav>
   </div>
 </header>
-<main id="conteudo"><div class="casca texto">
-<nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a> › <span aria-current="page">Privacidade</span></nav>
+<main id="conteudo" class="com-faixa">
+<div class="faixa"><picture class="fundo"><source type="image/webp" srcset="assets/img/fundo/paulista-dia-640.webp 640w, assets/img/fundo/paulista-dia-1280.webp 1280w, assets/img/fundo/paulista-dia-1920.webp 1920w" sizes="(max-width: 700px) 200vw, 100vw"><img src="assets/img/fundo/paulista-dia-1280.jpg" srcset="assets/img/fundo/paulista-dia-640.jpg 640w, assets/img/fundo/paulista-dia-1280.jpg 1280w, assets/img/fundo/paulista-dia-1920.jpg 1920w" sizes="(max-width: 700px) 200vw, 100vw" width="1280" height="561" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg><div class="casca faixa-conteudo"><nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a> › <span aria-current="page">Privacidade</span></nav>
 <p class="rotulo">Documento · atualizado em 3 de outubro de 2026</p>
 <h1>Política de privacidade</h1>
 <p class="lead">O que o Mercado na Lupa coleta, o que não coleta, quem mais está envolvido e o que você pode exigir.</p>
+<p class="credito-foto">Foto: Avenida Paulista vista do Instituto Moreira Salles, São Paulo, 2025 — <a href="https://commons.wikimedia.org/wiki/File:Vista_da_Avenida_Paulista_a_partir_do_IMS_Paulista.jpg" rel="noopener">Boaventuravinicius</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a> · recortada, dessaturada e escurecida</p></div></div>
+<div class="casca texto">
 
 <div class="aviso"><strong>O resumo.</strong> Não pedimos cadastro, não temos formulário e não guardamos seu e-mail. As calculadoras fazem a conta no seu próprio navegador: o que você digita nelas não é enviado a lugar nenhum. O que existe são cookies de publicidade do Google, que você pode recusar na faixa da primeira visita, rever pelo link “Rever escolha de cookies”, no rodapé, ou desligar nas configurações do Google.</div>
 
@@ -278,10 +384,20 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 <p>Se algo mudar — uma nova rede de anúncios, uma ferramenta de medição, uma área de comentários —, esta página muda junto, e a data no topo é atualizada.</p>
 </div></main>
 <footer class="rodape">
+  <svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg>
   <div class="casca">
-    <div>
-      <h2>Mercado na Lupa</h2>
+    <div class="rodape-marca">
+      <a class="marca" href="index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
       <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
+    </div>
+    <div>
+      <h2>Guias</h2>
+      <ul><li><a href="guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="guias/o-que-e-p-l.html">O que é P/L, o preço sobre lucro</a></li><li><a href="guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
+    </div>
+    <div>
+      <h2>Calculadoras</h2>
+      <ul><li><a href="calculadoras/juros-compostos.html">Calculadora de juros compostos</a></li><li><a href="calculadoras/primeiro-milhao.html">Quanto tempo até o primeiro milhão</a></li><li><a href="calculadoras/reserva-de-emergencia.html">Calculadora de reserva de emergência</a></li></ul>
     </div>
     <div>
       <h2>Navegue</h2>
@@ -299,6 +415,7 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
       </ul>
     </div>
     <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br</p>
   </div>
 </footer>
 <div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>

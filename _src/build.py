@@ -313,6 +313,141 @@ LUPA_ARQUIVO = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
                 '<path d="M41 41 L56 56" stroke="#0F1B2D" stroke-width="7.5" stroke-linecap="round"/></svg>\n')
 
 
+# --- fotos de fundo, selo do ativo, ícones ------------------------------------------
+# As fotos são preparadas por _src/fundos.py (recorte, dessaturação, escurecimento,
+# WebP + JPEG em várias larguras); o crédito de cada uma vem de _src/fundos.json.
+
+FUNDOS = {k: v for k, v in ler_json(SRC / "fundos.json").items() if not k.startswith("_")} \
+    if (SRC / "fundos.json").exists() else {}
+FUNDO_DIR = RAIZ / "assets" / "img" / "fundo"
+# No celular a foto é recortada pela altura (object-fit: cover), então ocupa
+# mais que a largura da tela: o sizes avisa o navegador para não pegar a pequena.
+FUNDO_SIZES = "(max-width: 700px) 200vw, 100vw"
+LICENCA_DERIVADA = {"CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/"}
+
+
+def _fundo_arquivos(chave):
+    if chave not in FUNDOS:
+        falha(f"foto de fundo {chave!r} não está em _src/fundos.json")
+    arqs = sorted(FUNDO_DIR.glob(f"{chave}-*.jpg"), key=lambda f: int(f.stem.rsplit("-", 1)[1]))
+    if not arqs:
+        falha(f"foto de fundo {chave!r} sem arquivos em assets/img/fundo — rode python _src/fundos.py")
+    saida = []
+    for jpg in arqs:
+        if not jpg.with_suffix(".webp").exists():
+            falha(f"{jpg.name}: falta a versão WebP — rode python _src/fundos.py")
+        with Image.open(jpg) as im:
+            saida.append((jpg.stem, im.size))
+    return saida
+
+
+def fundo_srcset(chave, base, ext):
+    return ", ".join(f"{base}assets/img/fundo/{n}.{ext} {w}w" for n, (w, h) in _fundo_arquivos(chave))
+
+
+def fundo_preload(chave, base):
+    """A foto do topo é o candidato a LCP: o navegador fica sabendo dela no <head>."""
+    return (f'<link rel="preload" as="image" type="image/webp" imagesrcset="{fundo_srcset(chave, base, "webp")}" '
+            f'imagesizes="{FUNDO_SIZES}" fetchpriority="high">')
+
+
+def fundo_picture(chave, base):
+    arqs = _fundo_arquivos(chave)
+    medio = arqs[min(1, len(arqs) - 1)]
+    w, h = medio[1]
+    # decorativa (alt vazio): o conteúdo está no texto por cima; o crédito vem logo abaixo
+    return (f'<picture class="fundo"><source type="image/webp" srcset="{fundo_srcset(chave, base, "webp")}" sizes="{FUNDO_SIZES}">'
+            f'<img src="{base}assets/img/fundo/{medio[0]}.jpg" srcset="{fundo_srcset(chave, base, "jpg")}" sizes="{FUNDO_SIZES}" '
+            f'width="{w}" height="{h}" alt="" loading="eager" fetchpriority="high" decoding="async"></picture>')
+
+
+def credito_fundo(chave):
+    f = FUNDOS[chave]
+    deriv = ""
+    if f["licenca"] in LICENCA_DERIVADA:
+        deriv = f' · esta versão também sob <a href="{LICENCA_DERIVADA[f["licenca"]]}" rel="license noopener">{f["licenca"]}</a>'
+    return (f'<p class="credito-foto">Foto: {e(f["descricao"])} — <a href="{e(f["origem"])}" rel="noopener">{e(f["autor"])}</a>, '
+            f'Wikimedia Commons · <a href="{e(f["licenca_url"])}" rel="license noopener">{e(f["licenca"])}</a> · '
+            f'recortada, dessaturada e escurecida{deriv}</p>')
+
+
+def faixa(chave, base, conteudo, classe=""):
+    """Cabeçalho com foto de fundo e camada escura (texto claro nos dois temas)."""
+    cl = f" {classe}" if classe else ""
+    return (f'<div class="faixa{cl}">{fundo_picture(chave, base)}{LINHA_FUNDO}'
+            f'<div class="casca faixa-conteudo">{conteudo}{credito_fundo(chave)}</div></div>\n')
+
+
+def creditos_md():
+    linhas = ["# Créditos das imagens", "",
+              "Gerado por `_src/build.py` a partir de `_src/fundos.json`. Não editar à mão.", "",
+              "Fotos de fundo do site (topo da página inicial e faixa das páginas internas). Todas vêm do",
+              "Wikimedia Commons, sob licença que permite uso comercial com atribuição. Cada página exibe o",
+              "crédito da foto que usa. Modificação em todas: recorte, redução de tamanho, dessaturação e",
+              "escurecimento, mais uma camada escura em CSS por cima.", ""]
+    for chave, f in FUNDOS.items():
+        arqs = ", ".join(f"`assets/img/fundo/{n}.webp|.jpg`" for n, _ in _fundo_arquivos(chave))
+        linhas += [f"## {f['descricao']}", "",
+                   f"- Obra: “{f['titulo']}” — {f['origem']}",
+                   f"- Autor: {f['autor']}",
+                   f"- Licença: {f['licenca']} — {f['licenca_url']}",
+                   f"- Modificação: recortada, dessaturada e escurecida"
+                   + (f"; a versão adaptada é distribuída sob {f['licenca']}" if f["licenca"] in LICENCA_DERIVADA else ""),
+                   f"- Usada em: {f['usada_em']}",
+                   f"- Arquivos: {arqs}", ""]
+    return "\n".join(linhas)
+
+
+# Linha de gráfico decorativa (sobre as fotos e nas texturas).
+LINHA_FUNDO = ('<svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+               '<polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 '
+               '800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg>')
+
+
+def selo(a, tam=""):
+    """Selo do ativo: o código num quadrado (ação) ou círculo (fundo imobiliário),
+    em cor por tipo. Desenhado em CSS, sem logotipo de empresa nem imagem externa.
+    É decorativo: o código aparece em texto ao lado."""
+    m = re.match(r"([A-Z]+)(\d+)$", a["codigo"])
+    letras, num = (m.group(1), m.group(2)) if m else (a["codigo"], "")
+    cl = f" selo-{tam}" if tam else ""
+    return f'<span class="selo selo-{a["tipo"]}{cl}" aria-hidden="true"><b>{letras}</b><i>{num}</i></span>'
+
+
+def _icone(corpo):
+    return ('<svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{corpo}</svg>')
+
+
+ICONES = {
+    # guias
+    "o-que-e-dividend-yield": _icone('<ellipse cx="9" cy="6.5" rx="6" ry="2.5"/><path d="M3 6.5v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/>'
+                                     '<path d="M3 10.5v4c0 1.4 2.7 2.5 6 2.5"/><path d="M15 21l6-6"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="20.5" cy="20.5" r="1"/>'),
+    "o-que-e-p-l": _icone('<path d="M12 4v16M8 20h8M5 7h14"/><path d="M5 7l-3 6.5a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6.5a3 3 0 0 0 6 0z"/>'),
+    "como-funciona-o-imposto-de-renda-na-bolsa": _icone('<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9.5 17l5-6"/>'
+                                                        '<circle cx="10" cy="11.5" r="1"/><circle cx="14" cy="16.5" r="1"/>'),
+    # calculadoras
+    "juros-compostos": _icone('<path d="M4 4v16h16"/><path d="M7 16c4.5 0 7.5-2.5 11-10"/><path d="M14.5 6H18v3.5"/>'),
+    "primeiro-milhao": _icone('<path d="M5 21V4"/><path d="M5 4.5h12l-2.5 3.5L17 11.5H5"/><path d="M9 21h-4"/>'),
+    "reserva-de-emergencia": _icone('<path d="M12 3l7 3v5.5c0 4.5-3 7.8-7 9.5-4-1.7-7-5-7-9.5V6z"/><path d="M9 12l2 2 4-4.5"/>'),
+}
+ICONE_PADRAO = _icone('<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M7 12l2.5-2.5 2 1.5 2.5-3"/>')
+SETA = _icone('<path d="M5 12h14M13 6l6 6-6 6"/>').replace('class="icone"', 'class="seta"')
+ICONE_ALTA = _icone('<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>')
+ICONE_BAIXA = _icone('<path d="M3 7l6 6 4-4 8 8"/><path d="M15 17h6v-6"/>')
+ICONE_VOLUME = _icone('<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>')
+
+
+def divisor():
+    return ('<div class="divisor" aria-hidden="true"><span>'
+            '<svg viewBox="0 0 40 16" focusable="false"><polyline points="2,12 10,8 16,10 24,4 30,6 38,2"/></svg>'
+            '</span></div>')
+
+
+# Links do rodapé (guias e calculadoras), preenchido em main() antes de gerar as páginas.
+RODAPE_LINKS = {"guias": [], "calculadoras": []}
+
+
 def adsense_head():
     if not ADSENSE_LIGADO:
         return "<!-- AdSense desligado em _src/build.py -->"
@@ -394,7 +529,7 @@ def css_inline():
     return CSS_INLINE
 
 
-def cabeca(titulo, descricao, url, imagem, base, jsonld, tipo="website", indexar=True):
+def cabeca(titulo, descricao, url, imagem, base, jsonld, tipo="website", indexar=True, extra=""):
     if indexar:
         canon = (f'<link rel="canonical" href="{e(url)}">\n'
                  '<meta name="robots" content="max-image-preview:large">')
@@ -418,7 +553,7 @@ def cabeca(titulo, descricao, url, imagem, base, jsonld, tipo="website", indexar
 <link rel="preload" href="/assets/fontes/plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
 {adsense_head()}
 <style>{css_inline()}</style>
-<meta property="og:type" content="{tipo}">
+{extra}<meta property="og:type" content="{tipo}">
 <meta property="og:site_name" content="{e(NOME)}">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="{e(titulo)}">
@@ -459,11 +594,23 @@ def linha_pregao(ultimo):
 def rodape(base, ultimo=None):
     rever = ' <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>.' if ADSENSE_LIGADO else ""
     pregao = linha_pregao(ultimo) if ultimo else ""
+    guias = "".join(f'<li><a href="{base}guias/{sl}.html">{e(t)}</a></li>' for sl, t in RODAPE_LINKS["guias"])
+    calcs = "".join(f'<li><a href="{base}calculadoras/{sl}.html">{e(t)}</a></li>' for sl, t in RODAPE_LINKS["calculadoras"])
     return f"""{pregao}<footer class="rodape">
+  {LINHA_FUNDO}
   <div class="casca">
-    <div>
-      <h2>{NOME}</h2>
+    <div class="rodape-marca">
+      <a class="marca" href="{base}index.html" aria-label="{NOME}, página inicial">{LUPA_SVG}<span>Mercado <i>na Lupa</i></span></a>
       <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
+    </div>
+    <div>
+      <h2>Guias</h2>
+      <ul>{guias}</ul>
+    </div>
+    <div>
+      <h2>Calculadoras</h2>
+      <ul>{calcs}</ul>
     </div>
     <div>
       <h2>Navegue</h2>
@@ -481,6 +628,7 @@ def rodape(base, ultimo=None):
       </ul>
     </div>
     <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+    <p class="assinatura">© {dt.date.today().year} {NOME} · mercadonalupa.com.br</p>
   </div>
 </footer>
 """
@@ -748,20 +896,24 @@ def pagina_ativo(a, todos, ultimo, og_url):
     cad = a["cad"]
     fontes = [("B3 — Série histórica de cotações (arquivo COTAHIST do pregão)", "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/"),
               (cad["fonte"], cad["fonte_url"])]
-    corpo = f"""<main id="conteudo"><div class="casca">
-{migalhas_html(base, ("Ativos", base + "ativos.html"), (c, ""))}
+    cab = f"""{migalhas_html(base, ("Ativos", base + "ativos.html"), (c, ""))}
 <div class="cab-ativo">
-  <div>
+  <div class="cab-id">
+    {selo(a, "g")}
+    <div>
     <p class="rotulo tipo">{tipo_txt} · B3</p>
     <h1><span class="cod">{c}</span> — {e(nc)}</h1>
     <p class="razao">{e(cad['razao_social'])}</p>
+    </div>
   </div>
   <div class="preco">
     <div class="valor num"><small>R$</small>{br(u['fechamento'])}</div>
     <div style="margin-top:.5rem">{var_html(u['var'], selo=True)} <span class="quando">no dia</span></div>
     <p class="quando">Fechamento de {data_br(u['data'])}, comparado com {data_br(ant['data'])}</p>
   </div>
-</div>
+</div>"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("bovespa-arcos", base, cab, "faixa-ativo")}<div class="casca">
 {aviso_neg}{ev_txt}
 {nums}
 <h2 id="grafico">Histórico de fechamento</h2>
@@ -783,7 +935,7 @@ def pagina_ativo(a, todos, ultimo, og_url):
 <h2 id="guias">Para entender os números</h2>
 <ul>{''.join(f'<li><a href="{base}guias/{s}.html">{t}</a></li>' for s, t in guias)}</ul>
 <h2 id="outros">Outros {'ações' if a['tipo'] == 'acao' else 'fundos imobiliários'} acompanhados</h2>
-<ul class="chips">{''.join(f'<li><a href="{x["slug"]}.html">{x["codigo"]}</a></li>' for x in outros)}</ul>
+<ul class="outros-ativos">{''.join(f'<li><a class="cartao" href="{x["slug"]}.html">{selo(x, "p")}<span><b>{x["codigo"]}</b><small>{e(nome_curto(x))}</small></span></a></li>' for x in outros)}</ul>
 <h2 id="fontes">Fontes</h2>
 <ul class="fontes">{''.join(f'<li><a href="{e(uu)}" rel="noopener">{e(t)}</a></li>' for t, uu in fontes)}
 <li>Cadastro da CVM atualizado em {data_br(json.loads((DADOS / 'cadastro.json').read_text(encoding='utf-8'))['gerado_em'])}.</li></ul>
@@ -795,7 +947,7 @@ def pagina_ativo(a, todos, ultimo, og_url):
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "description": desc, "url": url,
            "inLanguage": "pt-BR", "dateModified": u["data"], "about": sobre, "publisher": ORG},
           migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", f"{DOMINIO}/ativos.html"), (c, url))]
-    return cabeca(titulo, desc, url, og_url, base, ld) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim()
+    return cabeca(titulo, desc, url, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim()
 
 
 def destaques(ativos, ultimo):
@@ -808,12 +960,12 @@ def destaques(ativos, ultimo):
         if not xs:
             return '<p class="data-regra">Nenhum ativo da lista nesta condição no pregão.</p>'
         return '<ul class="lista-dest">' + "".join(
-            f'<li><a href="ativos/{a["slug"]}.html">{a["codigo"]}</a><span class="nome">{e(nome_curto(a))}</span>{valor(a)}</li>'
+            f'<li>{selo(a, "p")}<a href="ativos/{a["slug"]}.html">{a["codigo"]}</a><span class="nome">{e(nome_curto(a))}</span>{valor(a)}</li>'
             for a in xs) + "</ul>"
     return f"""<div class="grade grade-3 destaques">
-  <section class="cartao"><h3>Maiores altas</h3>{lista(altas, lambda a: var_html(a['ult']['var']))}</section>
-  <section class="cartao"><h3>Maiores baixas</h3>{lista(baixas, lambda a: var_html(a['ult']['var']))}</section>
-  <section class="cartao"><h3>Mais negociados (volume)</h3>{lista(vol, lambda a: '<span class="num">' + compacto(a['ult']['volume'], True) + '</span>')}</section>
+  <section class="cartao"><h3>{ICONE_ALTA}Maiores altas</h3>{lista(altas, lambda a: var_html(a['ult']['var']))}</section>
+  <section class="cartao"><h3>{ICONE_BAIXA}Maiores baixas</h3>{lista(baixas, lambda a: var_html(a['ult']['var']))}</section>
+  <section class="cartao"><h3>{ICONE_VOLUME}Mais negociados (volume)</h3>{lista(vol, lambda a: '<span class="num">' + compacto(a['ult']['volume'], True) + '</span>')}</section>
 </div>"""
 
 
@@ -821,7 +973,7 @@ def tabela_ativos(ativos, base, caption):
     linhas = []
     for a in ativos:
         u = a["ult"]
-        linhas.append(f'<tr><td><a href="{base}ativos/{a["slug"]}.html">{a["codigo"]}</a><br><span class="nome">{e(nome_curto(a))}</span></td>'
+        linhas.append(f'<tr><td><div class="ativo-cel">{selo(a, "p")}<div><a href="{base}ativos/{a["slug"]}.html">{a["codigo"]}</a><br><span class="nome">{e(nome_curto(a))}</span></div></div></td>'
                       f'<td class="n">{br(u["fechamento"])}</td><td class="n">{var_html(u["var"])}</td>'
                       f'<td class="n">{compacto(u["volume"], True)}</td></tr>')
     return (f'<div class="rolagem"><table><caption>{caption}</caption><thead><tr><th>Ativo</th><th class="n">Fechamento (R$)</th>'
@@ -830,7 +982,8 @@ def tabela_ativos(ativos, base, caption):
 
 def cartoes(itens, base, pasta, rotulo):
     return '<ul class="cartoes grade grade-3">' + "".join(
-        f'<li><a class="cartao" href="{base}{pasta}/{g["slug"]}.html"><span class="rotulo">{rotulo}</span><h3>{e(g["h1"])}</h3><p>{e(g["resumo"])}</p></a></li>'
+        f'<li><a class="cartao" href="{base}{pasta}/{g["slug"]}.html"><span class="cartao-topo"><span class="icone-caixa">{ICONES.get(g["slug"], ICONE_PADRAO)}</span>'
+        f'<span class="rotulo">{rotulo}</span></span><h3>{e(g["h1"])}</h3><p>{e(g["resumo"])}</p>{SETA}</a></li>'
         for g in itens) + "</ul>"
 
 
@@ -844,8 +997,9 @@ def home(ativos, ultimo, guias, calcs, og_url):
     busca_dados = json.dumps({a["codigo"]: f"ativos/{a['slug']}.html" for a in ativos})
     acoes = [a for a in ativos if a["tipo"] == "acao"]
     fiis = [a for a in ativos if a["tipo"] == "fii"]
-    corpo = f"""<main id="conteudo"><div class="casca">
-<section class="abertura">
+    corpo = f"""<main id="conteudo" class="com-faixa">
+<section class="heroi">{fundo_picture("hero-pregao", base)}{LINHA_FUNDO}
+<div class="casca abertura">
   <p class="rotulo">Dados públicos · B3 e CVM</p>
   <h1>O mercado brasileiro, com lupa e com fonte.</h1>
   <p class="lead">Cotação de fechamento, histórico e cadastro oficial de ações e fundos imobiliários, explicados sem palpite. Para quem quer entender antes de decidir qualquer coisa.</p>
@@ -857,19 +1011,26 @@ def home(ativos, ultimo, guias, calcs, og_url):
   </form>
   <p class="busca-msg" id="busca-msg" aria-live="polite"></p>
   <ul class="chips">{''.join(f'<li><a href="ativos/{a["slug"]}.html">{a["codigo"]}</a></li>' for a in ativos)}</ul>
+  {credito_fundo("hero-pregao")}
+</div>
 </section>
+<div class="casca">
 
+<section class="painel textura">
 <h2 id="pregao">Destaques do pregão de {data_br(ultimo)}</h2>
 <p class="data-regra">Entre os {len(ativos)} ativos acompanhados pelo site. É uma fotografia do dia, não um sinal: o que subiu hoje pode cair amanhã.</p>
 {destaques(ativos, ultimo)}
+</section>
 
 <div class="grade grade-2" style="margin-top:1.4rem">
 <section><h2>Ações</h2>{tabela_ativos(acoes, base, f"Fechamento em {data_br(ultimo)}")}</section>
 <section><h2>Fundos imobiliários</h2>{tabela_ativos(fiis, base, f"Fechamento em {data_br(ultimo)}")}</section>
 </div>
 
+{divisor()}
 <h2 id="guias">Guias para começar</h2>
 {cartoes(guias, base, "guias", "Guia")}
+{divisor()}
 <h2 id="calculadoras">Calculadoras</h2>
 {cartoes(calcs, base, "calculadoras", "Calculadora")}
 
@@ -883,7 +1044,7 @@ if(M[c]){{location.href=M[c];return}}
 m.textContent=c+' ainda não está na lista acompanhada pelo site. Os disponíveis estão logo abaixo.';}});}})();"""
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": DOMINIO + "/", "inLanguage": "pt-BR",
            "description": DESC_HOME, "publisher": ORG}, {"@context": "https://schema.org", **ORG}]
-    return cabeca(TITULO_HOME, DESC_HOME, DOMINIO + "/", og_url, base, ld) + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js)
+    return cabeca(TITULO_HOME, DESC_HOME, DOMINIO + "/", og_url, base, ld, extra=fundo_preload("hero-pregao", base)) + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js)
 
 
 TITULO_ATIVOS = f"Ações e fundos imobiliários acompanhados · {NOME}"
@@ -895,10 +1056,12 @@ def pagina_ativos(ativos, ultimo, og_url):
     base = ""
     acoes = [a for a in ativos if a["tipo"] == "acao"]
     fiis = [a for a in ativos if a["tipo"] == "fii"]
-    corpo = f"""<main id="conteudo"><div class="casca">
-{migalhas_html(base, ("Ativos", ""))}
+    cab = f"""{migalhas_html(base, ("Ativos", ""))}
 <h1>Ativos acompanhados</h1>
 <p class="lead">Nesta primeira versão, o site acompanha {len(acoes)} ações e {len(fiis)} fundos imobiliários entre os mais conhecidos da B3. A lista não é seleção nem recomendação: é o ponto de partida, e vai crescer.</p>
+"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("bovespa-arcos", base, cab)}<div class="casca">
 <h2>Ações</h2>{tabela_ativos(acoes, base, f"Fechamento em {data_br(ultimo)}")}
 <h2>Fundos imobiliários</h2>{tabela_ativos(fiis, base, f"Fechamento em {data_br(ultimo)}")}
 <div class="aviso"><strong>{AVISO_FIXO}</strong></div>
@@ -907,7 +1070,7 @@ def pagina_ativos(ativos, ultimo, og_url):
     u = f"{DOMINIO}/ativos.html"
     ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": TITULO_ATIVOS, "description": DESC_ATIVOS,
            "url": u, "inLanguage": "pt-BR"}, migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", u))]
-    return cabeca(TITULO_ATIVOS, DESC_ATIVOS, u, og_url, base, ld) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim()
+    return cabeca(TITULO_ATIVOS, DESC_ATIVOS, u, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim()
 
 
 def pagina_conteudo(g, pasta, rotulo_pasta, og_url, artigo):
@@ -919,11 +1082,15 @@ def pagina_conteudo(g, pasta, rotulo_pasta, og_url, artigo):
                   + "".join(f'<li><a href="{e(f["url"])}" rel="noopener">{e(f["nome"])}</a></li>' for f in g["fontes"]) + "</ul>")
     datas = f'Publicado em {data_longa(g["publicado"])}' + (f' · atualizado em {data_longa(g["atualizado"])}' if g["atualizado"] != g["publicado"] else "")
     largura = "texto" if artigo else ""
-    corpo = f"""<main id="conteudo"><div class="casca">
-{migalhas_html(base, (rotulo_pasta, base + pasta + ".html"), (g['h1'], ""))}
-<article class="{largura}">
+    foto = "viva-voz" if artigo else "paulista-noite"
+    cab = f"""{migalhas_html(base, (rotulo_pasta, base + pasta + ".html"), (g['h1'], ""))}
+<div class="cab-conteudo"><span class="icone-caixa">{ICONES.get(g["slug"], ICONE_PADRAO)}</span><div>
 <p class="rotulo">{'Guia' if artigo else 'Calculadora'} · {datas}</p>
 <h1>{e(g['h1'])}</h1>
+</div></div>"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa(foto, base, cab)}<div class="casca">
+<article class="{largura}">
 {g['corpo']}
 {fontes}
 </article>
@@ -936,24 +1103,28 @@ def pagina_conteudo(g, pasta, rotulo_pasta, og_url, artigo):
         ld0.update(headline=g["h1"], author=ORG, image=og_url, mainEntityOfPage={"@type": "WebPage", "@id": url})
     ld = [ld0, migalhas_ld((NOME, DOMINIO + "/"), (rotulo_pasta, f"{DOMINIO}/{pasta}.html"), (g["h1"], url))]
     js = (JS_COMUM + g["script"]) if g["script"] else ""
-    return cabeca(g["titulo"], g["descricao"], url, og_url, base, ld, tipo="article" if artigo else "website") \
+    return cabeca(g["titulo"], g["descricao"], url, og_url, base, ld, tipo="article" if artigo else "website",
+                  extra=fundo_preload(foto, base)) \
         + topo(base, pasta) + corpo + rodape(base) + consentimento(base) + fim(js)
 
 
 def pagina_hub(itens, pasta, titulo, desc, h1, lead, rotulo, og_url):
     base = ""
     u = f"{DOMINIO}/{pasta}.html"
-    corpo = f"""<main id="conteudo"><div class="casca">
-{migalhas_html(base, (h1, ""))}
+    foto = "viva-voz" if pasta == "guias" else "paulista-noite"
+    cab = f"""{migalhas_html(base, (h1, ""))}
 <h1>{e(h1)}</h1>
 <p class="lead">{lead}</p>
-<div style="margin-top:1.6rem">{cartoes(itens, base, pasta, rotulo)}</div>
+"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa(foto, base, cab)}<div class="casca">
+<div>{cartoes(itens, base, pasta, rotulo)}</div>
 <div class="aviso"><strong>{AVISO_FIXO}</strong></div>
 </div></main>
 """
     ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": titulo, "description": desc, "url": u, "inLanguage": "pt-BR"},
           migalhas_ld((NOME, DOMINIO + "/"), (h1, u))]
-    return cabeca(titulo, desc, u, og_url, base, ld) + topo(base, pasta) + corpo + rodape(base) + consentimento(base) + fim()
+    return cabeca(titulo, desc, u, og_url, base, ld, extra=fundo_preload(foto, base)) + topo(base, pasta) + corpo + rodape(base) + consentimento(base) + fim()
 
 
 def pagina_404(og_url):
@@ -988,10 +1159,12 @@ DESC_CALCS = ("Calculadoras gratuitas de juros compostos, reserva de emergência
 
 def pagina_sobre(og_url):
     base = ""
-    corpo = f"""<main id="conteudo"><div class="casca texto">
-{migalhas_html(base, ("Sobre", ""))}
+    cab = f"""{migalhas_html(base, ("Sobre", ""))}
 <h1>Sobre o {NOME}</h1>
 <p class="lead">Um site de dados públicos sobre o mercado brasileiro, feito para quem está começando e quer entender o que os números querem dizer.</p>
+"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("paulista-dia", base, cab)}<div class="casca texto">
 
 <h2>O que é</h2>
 <p>O <strong>{NOME}</strong> é um projeto editorial independente, feito no Brasil. Reúne a cotação de fechamento de ações e fundos imobiliários negociados na B3, o histórico de preços e o cadastro oficial de cada empresa ou fundo na CVM, e explica conceitos básicos em guias curtos e calculadoras.</p>
@@ -1017,7 +1190,7 @@ def pagina_sobre(og_url):
 </div></main>
 """
     u = DOMINIO + "/sobre.html"
-    return (cabeca(TITULO_SOBRE, DESC_SOBRE, u, og_url, base,
+    return (cabeca(TITULO_SOBRE, DESC_SOBRE, u, og_url, base, extra=fundo_preload("paulista-dia", base), jsonld=
                    [{"@context": "https://schema.org", "@type": "AboutPage", "name": TITULO_SOBRE, "description": DESC_SOBRE, "url": u, "inLanguage": "pt-BR"},
                     migalhas_ld((NOME, DOMINIO + "/"), ("Sobre", u))])
             + topo(base, "sobre") + corpo + rodape(base) + consentimento(base) + fim())
@@ -1025,10 +1198,12 @@ def pagina_sobre(og_url):
 
 def pagina_contato(og_url):
     base = ""
-    corpo = f"""<main id="conteudo"><div class="casca texto">
-{migalhas_html(base, ("Contato", ""))}
+    cab = f"""{migalhas_html(base, ("Contato", ""))}
 <h1>Fale com o {NOME}</h1>
 <p class="lead">Correção, sugestão ou pedido sobre seus dados: o caminho é um só.</p>
+"""
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("paulista-dia", base, cab)}<div class="casca texto">
 <div class="aviso"><strong>E-mail:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></div>
 <h2>Para que escrever</h2>
 <ul>
@@ -1044,17 +1219,20 @@ def pagina_contato(og_url):
 </div></main>
 """
     u = DOMINIO + "/contato.html"
-    return (cabeca(TITULO_CONTATO, DESC_CONTATO, u, og_url, base,
+    return (cabeca(TITULO_CONTATO, DESC_CONTATO, u, og_url, base, extra=fundo_preload("paulista-dia", base), jsonld=
                    [{"@context": "https://schema.org", "@type": "ContactPage", "name": TITULO_CONTATO, "description": DESC_CONTATO, "url": u, "inLanguage": "pt-BR"},
                     migalhas_ld((NOME, DOMINIO + "/"), ("Contato", u))])
             + topo(base, "contato") + corpo + rodape(base) + consentimento(base) + fim())
 
 
-PRIVACIDADE = """<main id="conteudo"><div class="casca texto">
-{{MIGALHAS}}
+PRIVACIDADE_CAB = """{{MIGALHAS}}
 <p class="rotulo">Documento · atualizado em {{DATA}}</p>
 <h1>Política de privacidade</h1>
 <p class="lead">O que o {{NOME}} coleta, o que não coleta, quem mais está envolvido e o que você pode exigir.</p>
+"""
+
+PRIVACIDADE = """<main id="conteudo" class="com-faixa">
+{{FAIXA}}<div class="casca texto">
 
 <div class="aviso"><strong>O resumo.</strong> Não pedimos cadastro, não temos formulário e não guardamos seu e-mail. As calculadoras fazem a conta no seu próprio navegador: o que você digita nelas não é enviado a lugar nenhum. O que existe são cookies de publicidade do Google, que você pode recusar na faixa da primeira visita, rever pelo link “Rever escolha de cookies”, no rodapé, ou desligar nas configurações do Google.</div>
 
@@ -1096,10 +1274,12 @@ PRIVACIDADE = """<main id="conteudo"><div class="casca texto">
 
 def pagina_privacidade(og_url):
     base = ""
-    corpo = (PRIVACIDADE.replace("{{NOME}}", NOME).replace("{{EMAIL}}", EMAIL).replace("{{CHAVE}}", CHAVE_CONSENTIMENTO)
+    cab = (PRIVACIDADE_CAB.replace("{{NOME}}", NOME).replace("{{DATA}}", "3 de outubro de 2026")
+           .replace("{{MIGALHAS}}", migalhas_html(base, ("Privacidade", ""))))
+    corpo = (PRIVACIDADE.replace("{{FAIXA}}", faixa("paulista-dia", base, cab)).replace("{{NOME}}", NOME).replace("{{EMAIL}}", EMAIL).replace("{{CHAVE}}", CHAVE_CONSENTIMENTO)
              .replace("{{DATA}}", "3 de outubro de 2026").replace("{{MIGALHAS}}", migalhas_html(base, ("Privacidade", ""))))
     u = DOMINIO + "/privacidade.html"
-    return (cabeca(TITULO_PRIV, DESC_PRIV, u, og_url, base,
+    return (cabeca(TITULO_PRIV, DESC_PRIV, u, og_url, base, extra=fundo_preload("paulista-dia", base), jsonld=
                    [{"@context": "https://schema.org", "@type": "WebPage", "name": TITULO_PRIV, "description": DESC_PRIV, "url": u, "inLanguage": "pt-BR"},
                     migalhas_ld((NOME, DOMINIO + "/"), ("Política de privacidade", u))])
             + topo(base) + corpo + rodape(base) + consentimento(base) + fim())
@@ -1183,6 +1363,8 @@ def main():
     seo.update({f"guias/{g['slug']}": (g["titulo"], g["descricao"]) for g in guias})
     seo.update({f"calculadoras/{g['slug']}": (g["titulo"], g["descricao"]) for g in calcs})
     conferir_seo(seo)
+    RODAPE_LINKS["guias"] = [(g["slug"], g["h1"]) for g in guias]
+    RODAPE_LINKS["calculadoras"] = [(g["slug"], g["h1"]) for g in calcs]
 
     gerar_marca()
     og_home = og("og-home.jpg", "Dados públicos · B3 e CVM", "O mercado brasileiro, com lupa e com fonte.", "mercadonalupa.com.br")
@@ -1252,6 +1434,7 @@ def main():
         + "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in datas.items()) + "</urlset>\n", encoding="utf-8")
     (RAIZ / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /dados/\n\nSitemap: {DOMINIO}/sitemap.xml\n", encoding="utf-8")
 
+    (RAIZ / "CREDITOS-IMAGENS.md").write_text(creditos_md() + "\n", encoding="utf-8")
     conferir_links(escritos)
     atraso = (dt.date.today() - dt.date.fromisoformat(ultimo)).days
     print(f"ok: {len(saidas)} páginas · {len(ativos)} ativos · {len(guias)} guias · {len(calcs)} calculadoras · "

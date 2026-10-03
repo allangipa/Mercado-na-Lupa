@@ -19,6 +19,10 @@ _src/
   ativos.json       A LISTA de ativos acompanhados (código, tipo, nome curto, CNPJ)
   eventos.json      desdobramentos/grupamentos declarados (ver "Variação anormal")
   site.css          estilos (vão inline no <head> de cada página)
+  fundos.json       fotos de fundo (topo e faixas): obra, autor, licença, recorte
+  fundos.py         baixa do Commons, recorta, escurece e grava assets/img/fundo/ (WebP + JPEG);
+                    rode à mão quando uma foto entrar ou mudar. Só PD, CC0, CC BY, CC BY-SA (nunca NC).
+                    O build escreve CREDITOS-IMAGENS.md e o crédito visível de cada página.
   paginas/guias/         um .html por guia, com front matter JSON no 1º comentário
   paginas/calculadoras/  idem, com o <script> da calculadora no fim
   fontes-ttf/       fontes para desenhar as imagens og (Archivo, Fraunces, Plex Mono; OFL)

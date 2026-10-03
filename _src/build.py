@@ -674,8 +674,9 @@ def texto_ativo(a):
           f"No informe mensal entregue à CVM referente a {ref}, o fundo declarou {inteiro(cad['cotistas'])} cotistas, "
           f"patrimônio líquido de {compacto(cad['patrimonio_liquido'], True)} e valor patrimonial de "
           f"{brl(cad['vp_cota'])} por cota.")
-    p2 = (f"O segmento de atuação informado pelo administrador no informe é “{e(cad['segmento'])}”, e a gestão é "
-          f"declarada como {e(cad['gestao'].lower())}. <strong>{c}</strong> é o código de negociação das cotas na B3, "
+    # Segmento de atuação fora (decisão do dono, 03/10/2026): o campo do informe da CVM
+    # nem sempre bate com a estratégia do fundo (ex.: MXRF11 aparecia como "Logística").
+    p2 = (f"A gestão é declarada como {e(cad['gestao'].lower())}. <strong>{c}</strong> é o código de negociação das cotas na B3, "
           f"com ISIN {isin}.")
     return f"<p>{p1}</p><p>{p2}</p>"
 
@@ -695,7 +696,7 @@ def ficha_ativo(a):
     else:
         dy = cad.get("dy_mes")
         linhas += [("Administrador", cad["administrador"].title()), ("Início de funcionamento", data_br(cad["inicio_funcionamento"])),
-                   ("Segmento informado", cad["segmento"]), ("Mandato", cad["mandato"] or "não informado"),
+                   ("Mandato", cad["mandato"] or "não informado"),
                    ("Público-alvo", cad["publico_alvo"].capitalize()),
                    (f"Cotistas ({mes_ano(cad['referencia'])})", inteiro(cad["cotistas"])),
                    ("Cotas emitidas", inteiro(cad["cotas_emitidas"])),

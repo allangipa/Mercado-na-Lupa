@@ -1,0 +1,72 @@
+{
+ "ABEV3": {
+  "data": "2026-10-02",
+  "especificacao": "ON",
+  "fii": false,
+  "isin": "BRABEVACNOR1",
+  "nome_pregao": "AMBEV S/A"
+ },
+ "BBAS3": {
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRBBASACNOR3",
+  "nome_pregao": "BRASIL"
+ },
+ "HGLG11": {
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRHGLGCTF004",
+  "nome_pregao": "FII HGLG PAX"
+ },
+ "ITUB4": {
+  "data": "2026-10-02",
+  "especificacao": "PN  EJ  N1",
+  "fii": false,
+  "isin": "BRITUBACNPR1",
+  "nome_pregao": "ITAUUNIBANCO"
+ },
+ "KNRI11": {
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRKNRICTF007",
+  "nome_pregao": "FII KINEA"
+ },
+ "MXRF11": {
+  "data": "2026-10-02",
+  "especificacao": "CI  ER",
+  "fii": true,
+  "isin": "BRMXRFCTF008",
+  "nome_pregao": "FII MAXI REN"
+ },
+ "PETR4": {
+  "data": "2026-10-02",
+  "especificacao": "PN      N2",
+  "fii": false,
+  "isin": "BRPETRACNPR6",
+  "nome_pregao": "PETROBRAS"
+ },
+ "VALE3": {
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRVALEACNOR0",
+  "nome_pregao": "VALE"
+ },
+ "WEGE3": {
+  "data": "2026-10-02",
+  "especificacao": "ON      NM",
+  "fii": false,
+  "isin": "BRWEGEACNOR0",
+  "nome_pregao": "WEG"
+ },
+ "XPML11": {
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": true,
+  "isin": "BRXPMLCTF000",
+  "nome_pregao": "FII XP MALLS"
+ }
+}

@@ -1,0 +1,75 @@
+# Atualização diária do Mercado na Lupa.
+#
+# A ATIVAR QUANDO O REPOSITÓRIO EXISTIR NO GITHUB. Até lá este arquivo não faz
+# nada. Depois do primeiro push, confira em Settings > Actions > General que
+# "Workflow permissions" está em "Read and write" (o job faz commit e push).
+#
+# O que faz, em dia útil:
+#   1. baixa da B3 os arquivos COTAHIST_D dos pregões que faltam (feriado ou
+#      arquivo ainda não publicado = pula, sem erro);
+#   2. uma vez por mês (a partir do dia 16, quando os informes mensais dos
+#      fundos do mês anterior já foram entregues), atualiza o cadastro da CVM;
+#   3. roda o build (que PARA se o layout da B3 não bater, se uma variação
+#      passar de 25% sem evento declarado, ou se SEO/links falharem);
+#   4. faz commit e push — e o push é o que publica na Hostinger.
+# Se qualquer passo falhar, nada é commitado e o site fica como estava; o
+# GitHub manda e-mail de falha ao dono do repositório.
+name: Atualiza cotações
+
+on:
+  schedule:
+    # 22h30 UTC = 19h30 em Brasília; segunda a sexta. A B3 costuma publicar o
+    # arquivo do dia no começo da noite. A segunda rodada (01h30 UTC, já no dia
+    # seguinte) pega o pregão se a primeira chegou cedo demais.
+    - cron: "30 22 * * 1-5"
+    - cron: "30 1 * * 2-6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualiza
+  cancel-in-progress: false
+
+jobs:
+  atualiza:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # o build usa o histórico do git para o lastmod do sitemap
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow==12.*
+
+      - name: Cotações da B3
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/atualiza.py diario
+
+      - name: Cadastro da CVM (uma vez por mês, a partir do dia 16)
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/cvm.py --se-velho
+
+      - name: Build
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/build.py
+
+      - name: Commit e push
+        run: |
+          git config user.name "mercadonalupa-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A dados ativos guias calculadoras assets *.html sitemap.xml robots.txt ads.txt
+          if git diff --cached --quiet; then
+            echo "sem mudança"
+          else
+            git commit -m "Cotações do pregão $(tail -1 dados/pregoes.csv | cut -d, -f1)"
+            git push
+          fi

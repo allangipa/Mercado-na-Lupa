@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BBAS3: cotação de fechamento e histórico · Mercado na Lupa</title>
+<meta name="description" content="Cotação de fechamento da ação BBAS3 (Banco do Brasil ON) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.">
+<link rel="canonical" href="https://mercadonalupa.com.br/ativos/bbas3.html">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="../assets/marca/lupa.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/marca/lupa-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="../assets/marca/lupa-180.png">
+<link rel="preload" href="/assets/fontes/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<style>@font-face{font-family:"Archivo";font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fontes/archivo-latin.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/fraunces-latin-600.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fontes/plex-mono-latin-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fontes/plex-mono-latin-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/plex-mono-latin-600.woff2) format("woff2")}
+:root{
+  --fundo:#F4F6F9; --papel:#FFFFFF; --superficie:#EDF1F6; --linha:#D9DFE8;
+  --tinta:#0F1B2D; --suave:#475467; --apagado:#667085;
+  --acao:#1D4ED8; --acao-forte:#1E3A8A; --acao-suave:#E3EAFD;
+  --ouro:#B7791F;
+  --alta:#067647; --alta-suave:#DCFAE6; --baixa:#B42318; --baixa-suave:#FEE4E2;
+  --grafico:#1D4ED8; --grafico-area:rgba(29,78,216,.10);
+  --sombra:0 1px 2px rgba(15,27,45,.05),0 8px 24px -16px rgba(15,27,45,.25);
+  --raio:14px; --raio-s:9px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --fundo:#0B1220; --papel:#111A2B; --superficie:#16223A; --linha:#26344D;
+    --tinta:#E7ECF3; --suave:#A9B4C4; --apagado:#8C98AA;
+    --acao:#8DB2FF; --acao-forte:#B9CEFF; --acao-suave:#1A2C52;
+    --ouro:#E0A84A;
+    --alta:#47CD89; --alta-suave:#0E2E20; --baixa:#FF8A80; --baixa-suave:#3A1714;
+    --grafico:#8DB2FF; --grafico-area:rgba(141,178,255,.13);
+    --sombra:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fundo);color:var(--tinta);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;height:auto}
+a{color:var(--acao);text-underline-offset:.18em}
+a:hover{color:var(--acao-forte)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--acao);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,1.3rem + 2.6vw,3rem);margin-bottom:.8rem}
+h2{font-size:clamp(1.35rem,1.1rem + 1vw,1.75rem);margin-top:2.4rem;margin-bottom:.8rem;scroll-margin-top:84px}
+h3{font-size:1.15rem;margin-top:1.6rem;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+ul,ol{padding-left:1.25rem;margin:0 0 1rem}
+li{margin-bottom:.35rem}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;background:var(--superficie);padding:.08em .35em;border-radius:5px}
+.num,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.casca{max-width:72rem;margin:0 auto;padding:0 16px}
+@media (min-width:700px){.casca{padding:0 28px}}
+.estreita{max-width:46rem}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:1rem;top:1rem;z-index:60;background:var(--acao);color:#fff;padding:.6rem 1rem;border-radius:8px}
+.rotulo{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.topo{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--papel) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linha)}
+.topo .casca{display:flex;align-items:center;gap:1rem;min-height:62px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--tinta)}
+.marca svg{width:34px;height:34px;flex:none}
+.marca span{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em;white-space:nowrap}
+.marca span i{font-style:normal;color:var(--acao)}
+.nav{display:flex;gap:.2rem;margin-left:auto;flex-wrap:wrap}
+.nav a{color:var(--suave);text-decoration:none;font-size:.95rem;padding:.45rem .65rem;border-radius:8px}
+.nav a:hover,.nav a[aria-current]{color:var(--tinta);background:var(--superficie)}
+@media (max-width:620px){
+  .topo .casca{padding-top:.5rem;padding-bottom:.35rem;gap:.2rem}
+  .nav{margin-left:-.65rem;width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .nav a{font-size:.9rem;padding:.4rem .6rem;white-space:nowrap}
+}
+main{display:block;padding:2rem 0 3.5rem}
+.migalhas{font-size:.86rem;color:var(--suave);margin-bottom:1rem}
+.migalhas a{color:var(--suave)}
+.migalhas span[aria-current]{color:var(--tinta)}
+.lead{font-size:1.12rem;color:var(--suave);max-width:44rem}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1.2rem 1.25rem;box-shadow:var(--sombra)}
+.grade{display:grid;gap:1rem}
+.grade>*{min-width:0}
+@media (min-width:760px){.grade-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.grade-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:959px){.cartoes.grade-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.aviso{border-left:4px solid var(--ouro);background:var(--papel);padding:.85rem 1rem;border-radius:0 var(--raio-s) var(--raio-s) 0;font-size:.95rem;color:var(--suave);margin:1.5rem 0}
+.aviso strong{color:var(--tinta)}
+.botao{display:inline-flex;align-items:center;gap:.4rem;background:var(--acao);color:#fff;border:0;border-radius:10px;padding:.7rem 1.1rem;font:600 1rem "Archivo",sans-serif;text-decoration:none;cursor:pointer}
+@media (prefers-color-scheme:dark){.botao{color:#0B1220}}
+.botao:hover{background:var(--acao-forte);color:#fff}
+@media (prefers-color-scheme:dark){.botao:hover{color:#0B1220}}
+.botao.claro{background:var(--superficie);color:var(--tinta)}
+.abertura{padding:2.2rem 0 1rem}
+.abertura h1{max-width:20ch;margin:.4rem 0 .9rem}
+.busca{display:flex;gap:.5rem;margin:1.4rem 0 .5rem;max-width:34rem}
+.busca input{flex:1;min-width:0;font:500 1.05rem "IBM Plex Mono",monospace;text-transform:uppercase;padding:.75rem .9rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.busca input::placeholder{text-transform:none;font-family:"Archivo",sans-serif;color:var(--apagado)}
+.busca-msg{font-size:.92rem;color:var(--suave);min-height:1.5em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.chips a{display:inline-block;font:500 .85rem "IBM Plex Mono",monospace;padding:.3rem .55rem;border-radius:7px;background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:var(--tinta)}
+.chips a:hover{border-color:var(--acao)}
+.destaques h3{margin-top:0;font-family:"Archivo",sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.01em}
+.lista-dest{list-style:none;padding:0;margin:0}
+.lista-dest li{display:flex;align-items:baseline;gap:.6rem;padding:.45rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-dest li:first-child{border-top:0}
+.lista-dest a{font:600 .95rem "IBM Plex Mono",monospace;text-decoration:none;min-width:4.6rem}
+.lista-dest .nome{flex:1;color:var(--suave);font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cartoes{list-style:none;padding:0;margin:0}
+.cartoes a{display:block;height:100%;text-decoration:none;color:var(--tinta)}
+.cartoes a:hover{border-color:var(--acao)}
+.cartoes h3{margin:.3rem 0 .4rem;font-size:1.12rem}
+.cartoes p{color:var(--suave);font-size:.95rem;margin:0}
+.var{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.var.alta{color:var(--alta)}.var.baixa{color:var(--baixa)}.var.zero{color:var(--suave)}
+.selo-var{display:inline-block;padding:.12rem .45rem;border-radius:6px;font-size:.92rem}
+.selo-var.alta{background:var(--alta-suave)}.selo-var.baixa{background:var(--baixa-suave)}.selo-var.zero{background:var(--superficie)}
+.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel)}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+caption{text-align:left;padding:.8rem 1rem 0;color:var(--suave);font-size:.88rem;caption-side:top}
+th,td{padding:.6rem .9rem;text-align:left;border-bottom:1px solid var(--linha);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--suave);font-size:.82rem;letter-spacing:.02em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+td a{font-family:"IBM Plex Mono",monospace;font-weight:600;text-decoration:none}
+td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
+.cab-ativo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:1.4rem}
+.cab-ativo .tipo{margin-bottom:.4rem}
+.cab-ativo h1 .cod{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:-.02em}
+.cab-ativo .razao{color:var(--suave);margin:.35rem 0 0}
+.preco{text-align:left}
+.preco .valor{font:600 clamp(2rem,1.5rem + 2.4vw,2.9rem)/1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.preco .valor small{font-size:.45em;color:var(--suave);font-weight:500;margin-right:.25rem;letter-spacing:0}
+.preco .quando{color:var(--suave);font-size:.88rem;margin-top:.45rem}
+.numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:0;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel);overflow:hidden}
+@media (min-width:640px){.numeros{grid-template-columns:repeat(4,1fr)}}
+.numeros div{padding:.8rem 1rem;border-bottom:1px solid var(--linha);border-right:1px solid var(--linha)}
+.numeros dt{font-size:.8rem;color:var(--suave);margin-bottom:.15rem}
+.numeros dd{margin:0;font:500 1.05rem "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.ficha{display:grid;grid-template-columns:minmax(8rem,13rem) 1fr;gap:.1rem 1rem;margin:0;font-size:.95rem}
+.ficha dt{color:var(--suave);padding:.45rem 0;border-top:1px solid var(--linha)}
+.ficha dd{margin:0;padding:.45rem 0;border-top:1px solid var(--linha);overflow-wrap:anywhere}
+@media (max-width:520px){.ficha{grid-template-columns:1fr}.ficha dd{border-top:0;padding-top:0}}
+.grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.periodos{display:flex;gap:.3rem;margin-bottom:.6rem}
+.periodos input{position:absolute;opacity:0;pointer-events:none}
+.periodos label{font:500 .85rem "IBM Plex Mono",monospace;padding:.35rem .7rem;border-radius:8px;border:1px solid var(--linha);cursor:pointer;color:var(--suave)}
+.grafico svg{display:none;width:100%;height:auto}
+#p-12m:checked~.paineis .g-12m,#p-6m:checked~.paineis .g-6m,#p-1m:checked~.paineis .g-1m{display:block}
+.grafico:has(#p-12m:checked) label[for=p-12m],.grafico:has(#p-6m:checked) label[for=p-6m],.grafico:has(#p-1m:checked) label[for=p-1m]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.grafico .linha{fill:none;stroke:var(--grafico);stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.grafico .area{fill:var(--grafico-area)}
+.grafico .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico text{font:500 20px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico text{font-size:15px}}
+.grafico .ponto{fill:var(--papel);stroke:var(--grafico);stroke-width:2;vector-effect:non-scaling-stroke}
+.grafico .legenda{font-size:.84rem;color:var(--suave);margin:.4rem 0 0}
+.texto{max-width:44rem}
+.texto h2{scroll-margin-top:80px}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:1rem;background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--acao);border-radius:0 var(--raio-s) var(--raio-s) 0;padding:.9rem 1rem;margin:1rem 0 1.2rem;overflow-x:auto;white-space:nowrap}
+.exemplo{background:var(--superficie);border-radius:var(--raio-s);padding:1rem 1.1rem;margin:1rem 0 1.4rem}
+.exemplo p:last-child{margin-bottom:0}
+.fontes{font-size:.9rem;color:var(--suave)}
+.fontes li{margin-bottom:.5rem}
+.data-regra{font-size:.9rem;color:var(--suave)}
+.calc{display:grid;gap:1.2rem}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,22rem) 1fr;align-items:start}}
+.campos label{display:block;font-weight:600;font-size:.93rem;margin:0 0 .3rem}
+.campos .dica{display:block;font-weight:400;color:var(--suave);font-size:.84rem}
+.campos .campo{margin-bottom:1rem}
+.entrada{display:flex;align-items:center;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);overflow:hidden}
+.entrada:focus-within{border-color:var(--acao)}
+.entrada span{padding:0 .7rem;color:var(--suave);font:500 .92rem "IBM Plex Mono",monospace;background:var(--superficie);align-self:stretch;display:flex;align-items:center}
+.entrada input{flex:1;min-width:0;border:0;background:transparent;color:var(--tinta);font:500 1.05rem "IBM Plex Mono",monospace;padding:.65rem .75rem;font-variant-numeric:tabular-nums}
+.entrada input:focus{outline:none}
+.resultado .grande{font:600 clamp(1.6rem,1.2rem + 2vw,2.3rem)/1.1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:.2rem 0 .6rem}
+.resultado .linha-res{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px solid var(--linha);font-size:.95rem}
+.resultado .linha-res b{font-family:"IBM Plex Mono",monospace;font-weight:500;font-variant-numeric:tabular-nums}
+.barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--superficie);margin:.6rem 0 .3rem}
+.barra i{display:block;height:100%}
+.barra .b1{background:var(--suave)}.barra .b2{background:var(--acao)}
+.legenda-barra{display:flex;gap:1rem;font-size:.82rem;color:var(--suave);flex-wrap:wrap}
+.legenda-barra i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;margin-right:.3rem;vertical-align:-1px}
+.erro-calc{color:var(--baixa);font-size:.9rem;min-height:1.2em}
+.pregao{font-size:.9rem;color:var(--suave);border-top:1px solid var(--linha);padding:1rem 0;margin-top:2rem}
+.rodape{background:var(--papel);border-top:1px solid var(--linha);padding:2rem 0 1.4rem;font-size:.92rem;color:var(--suave)}
+.rodape .casca{display:grid;gap:1.4rem}
+@media (min-width:760px){.rodape .casca{grid-template-columns:1.3fr 1fr 1fr}}
+.rodape h2{font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;color:var(--tinta);margin:0 0 .5rem}
+.rodape ul{list-style:none;padding:0;margin:0}
+.rodape a{color:var(--suave)}
+.rodape a:hover{color:var(--tinta)}
+.rodape .fixo{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:1rem;font-size:.86rem}
+.rodape .fixo strong{color:var(--tinta)}
+.consentimento{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 10px 40px -10px rgba(0,0,0,.35)}
+.consentimento .casca{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;padding:.9rem 1rem}
+.consentimento p{margin:0;flex:1 1 22rem;font-size:.9rem;color:var(--suave)}
+.consentimento .botoes{display:flex;gap:.5rem}
+.consentimento button{font:600 .9rem "Archivo",sans-serif;padding:.55rem .9rem;border-radius:9px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);cursor:pointer}
+.consentimento button.principal{background:var(--acao);border-color:var(--acao);color:#fff}
+@media (prefers-color-scheme:dark){.consentimento button.principal{color:#0B1220}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mercado na Lupa">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="BBAS3: cotação de fechamento e histórico · Mercado na Lupa">
+<meta property="og:description" content="Cotação de fechamento da ação BBAS3 (Banco do Brasil ON) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.">
+<meta property="og:url" content="https://mercadonalupa.com.br/ativos/bbas3.html">
+<meta property="og:image" content="https://mercadonalupa.com.br/assets/img/og-bbas3.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "BBAS3: cotação de fechamento e histórico · Mercado na Lupa", "description": "Cotação de fechamento da ação BBAS3 (Banco do Brasil ON) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.", "url": "https://mercadonalupa.com.br/ativos/bbas3.html", "inLanguage": "pt-BR", "dateModified": "2026-10-02", "about": {"@type": "Corporation", "name": "BANCO DO BRASIL S.A.", "tickerSymbol": "BVMF:BBAS3"}, "publisher": {"@type": "Organization", "name": "Mercado na Lupa", "url": "https://mercadonalupa.com.br/", "logo": {"@type": "ImageObject", "url": "https://mercadonalupa.com.br/assets/marca/lupa-512.png", "width": 512, "height": 512}, "email": "allangipa@gmail.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mercado na Lupa", "item": "https://mercadonalupa.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Ativos", "item": "https://mercadonalupa.com.br/ativos.html"}, {"@type": "ListItem", "position": 3, "name": "BBAS3", "item": "https://mercadonalupa.com.br/ativos/bbas3.html"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="casca">
+    <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="../ativos.html" aria-current="page">Ativos</a>
+      <a href="../guias.html">Guias</a>
+      <a href="../calculadoras.html">Calculadoras</a>
+      <a href="../sobre.html">Sobre</a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo"><div class="casca">
+<nav class="migalhas" aria-label="Você está em"><a href="../index.html">Início</a> › <a href="../ativos.html">Ativos</a> › <span aria-current="page">BBAS3</span></nav>
+<div class="cab-ativo">
+  <div>
+    <p class="rotulo tipo">Ação · B3</p>
+    <h1><span class="cod">BBAS3</span> — Banco do Brasil ON</h1>
+    <p class="razao">BANCO DO BRASIL S.A.</p>
+  </div>
+  <div class="preco">
+    <div class="valor num"><small>R$</small>23,72</div>
+    <div style="margin-top:.5rem"><span class="var alta selo-var">▲ +3,04%</span> <span class="quando">no dia</span></div>
+    <p class="quando">Fechamento de 02/10/2026, comparado com 01/10/2026</p>
+  </div>
+</div>
+
+<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 23,36</dd></div><div><dt>Mínima do dia</dt><dd>R$ 22,96</dd></div><div><dt>Máxima do dia</dt><dd>R$ 23,78</dd></div><div><dt>Preço médio</dt><dd>R$ 23,43</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 23,02</dd></div><div><dt>Volume financeiro</dt><dd>R$ 1,21 bi</dd></div><div><dt>Negócios</dt><dd>69.121</dd></div><div><dt>Quantidade negociada</dt><dd>51,56 mi</dd></div></dl>
+<h2 id="grafico">Histórico de fechamento</h2>
+<div class="grafico"><input type="radio" class="sr" name="per-bbas3" id="p-12m" checked><input type="radio" class="sr" name="per-bbas3" id="p-6m"><input type="radio" class="sr" name="per-bbas3" id="p-1m"><div class="periodos" role="group" aria-label="Período do gráfico"><label for="p-12m">12 meses</label><label for="p-6m">6 meses</label><label for="p-1m">1 mês</label></div><div class="paineis"><svg class="g-12m" viewBox="0 0 720 330" role="img" aria-labelledby="t-bbas3-g-12m"><title id="t-bbas3-g-12m">BBAS3: fechamento diário de 02/10/2025 a 02/10/2026. Mínimo de R$ 17,80 em 18/08/2026, máximo de R$ 27,58 em 25/02/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">17,5</text><line class="grade-y" x1="82" x2="708" y1="228.8" y2="228.8"/><text x="72" y="235.8" text-anchor="end">20,0</text><line class="grade-y" x1="82" x2="708" y1="175.6" y2="175.6"/><text x="72" y="182.6" text-anchor="end">22,5</text><line class="grade-y" x1="82" x2="708" y1="122.4" y2="122.4"/><text x="72" y="129.4" text-anchor="end">25,0</text><line class="grade-y" x1="82" x2="708" y1="69.2" y2="69.2"/><text x="72" y="76.2" text-anchor="end">27,5</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">30,0</text><path class="area" d="M82.0,282 L82.0,191.3 L84.5,195.2 L87.0,198.8 L89.5,203.1 L92.1,205.0 L94.6,203.5 L97.1,215.8 L99.6,210.1 L102.1,213.9 L104.6,222.0 L107.1,220.9 L109.7,209.6 L112.2,212.4 L114.7,217.3 L117.2,214.1 L119.7,215.0 L122.2,217.7 L124.7,210.7 L127.3,208.4 L129.8,202.8 L132.3,194.1 L134.8,188.4 L137.3,184.5 L139.8,180.5 L142.3,173.3 L144.9,167.9 L147.4,167.3 L149.9,169.6 L152.4,155.0 L154.9,169.2 L157.4,175.6 L159.9,176.9 L162.4,175.6 L165.0,188.8 L167.5,195.2 L170.0,186.2 L172.5,189.6 L175.0,186.9 L177.5,181.6 L180.0,182.8 L182.6,176.2 L185.1,180.7 L187.6,174.3 L190.1,178.2 L192.6,169.9 L195.1,204.1 L197.6,194.8 L200.2,197.1 L202.7,194.8 L205.2,195.4 L207.7,192.6 L210.2,186.0 L212.7,192.4 L215.2,195.8 L217.8,195.0 L220.3,198.2 L222.8,201.1 L225.3,191.6 L227.8,189.4 L230.3,192.2 L232.8,187.9 L235.4,193.0 L237.9,188.8 L240.4,183.7 L242.9,192.6 L245.4,190.1 L247.9,189.2 L250.4,189.0 L253.0,203.3 L255.5,196.9 L258.0,197.7 L260.5,199.6 L263.0,200.9 L265.5,196.0 L268.0,177.7 L270.6,155.4 L273.1,137.7 L275.6,135.2 L278.1,129.0 L280.6,113.9 L283.1,111.8 L285.6,117.7 L288.2,116.0 L290.7,107.7 L293.2,120.3 L295.7,134.3 L298.2,136.7 L300.7,126.2 L303.2,126.7 L305.8,124.3 L308.3,100.5 L310.8,113.2 L313.3,105.0 L315.8,91.3 L318.3,80.1 L320.8,83.5 L323.3,77.3 L325.9,67.5 L328.4,73.9 L330.9,80.9 L333.4,80.9 L335.9,106.0 L338.4,102.4 L340.9,122.4 L343.5,127.7 L346.0,128.8 L348.5,119.4 L351.0,115.2 L353.5,138.8 L356.0,147.7 L358.5,145.8 L361.1,150.7 L363.6,156.2 L366.1,154.1 L368.6,159.2 L371.1,144.5 L373.6,151.1 L376.1,146.7 L378.7,163.7 L381.2,172.2 L383.7,177.7 L386.2,165.0 L388.7,151.6 L391.2,156.7 L393.7,155.8 L396.3,155.6 L398.8,133.3 L401.3,128.4 L403.8,128.1 L406.3,127.7 L408.8,114.3 L411.3,135.2 L413.9,137.7 L416.4,135.2 L418.9,137.7 L421.4,156.4 L423.9,165.0 L426.4,171.3 L428.9,175.4 L431.5,174.7 L434.0,192.4 L436.5,181.8 L439.0,188.2 L441.5,187.9 L444.0,184.8 L446.5,192.8 L449.1,190.5 L451.6,196.0 L454.1,200.7 L456.6,212.6 L459.1,212.6 L461.6,213.9 L464.1,219.9 L466.7,223.9 L469.2,213.9 L471.7,211.4 L474.2,208.8 L476.7,193.7 L479.2,205.2 L481.7,206.0 L484.2,215.8 L486.8,222.4 L489.3,227.1 L491.8,231.1 L494.3,238.8 L496.8,246.5 L499.3,248.0 L501.8,247.7 L504.4,250.1 L506.9,241.4 L509.4,240.3 L511.9,241.8 L514.4,241.6 L516.9,241.4 L519.4,238.8 L522.0,241.1 L524.5,237.7 L527.0,231.8 L529.5,234.5 L532.0,227.7 L534.5,221.6 L537.0,223.3 L539.6,230.7 L542.1,234.5 L544.6,228.8 L547.1,229.2 L549.6,233.7 L552.1,234.5 L554.6,238.8 L557.2,228.8 L559.7,216.5 L562.2,223.7 L564.7,216.2 L567.2,217.1 L569.7,212.6 L572.2,218.4 L574.8,225.2 L577.3,210.1 L579.8,205.6 L582.3,209.0 L584.8,221.4 L587.3,218.2 L589.8,211.1 L592.4,212.2 L594.9,203.5 L597.4,200.1 L599.9,201.8 L602.4,207.7 L604.9,206.5 L607.4,222.8 L610.0,227.5 L612.5,228.2 L615.0,244.1 L617.5,250.1 L620.0,266.9 L622.5,263.3 L625.0,272.4 L627.6,275.6 L630.1,269.7 L632.6,270.5 L635.1,262.2 L637.6,258.6 L640.1,238.0 L642.6,239.0 L645.1,229.4 L647.7,225.2 L650.2,213.1 L652.7,203.1 L655.2,180.7 L657.7,176.7 L660.2,175.2 L662.7,173.5 L665.3,182.4 L667.8,169.2 L670.3,175.8 L672.8,183.7 L675.3,185.4 L677.8,171.1 L680.3,169.6 L682.9,160.7 L685.4,165.2 L687.9,172.0 L690.4,182.6 L692.9,196.0 L695.4,195.0 L697.9,197.1 L700.5,185.4 L703.0,163.5 L705.5,164.5 L708.0,149.6 L708.0,282 Z"/><polyline class="linha" points="82.0,191.3 84.5,195.2 87.0,198.8 89.5,203.1 92.1,205.0 94.6,203.5 97.1,215.8 99.6,210.1 102.1,213.9 104.6,222.0 107.1,220.9 109.7,209.6 112.2,212.4 114.7,217.3 117.2,214.1 119.7,215.0 122.2,217.7 124.7,210.7 127.3,208.4 129.8,202.8 132.3,194.1 134.8,188.4 137.3,184.5 139.8,180.5 142.3,173.3 144.9,167.9 147.4,167.3 149.9,169.6 152.4,155.0 154.9,169.2 157.4,175.6 159.9,176.9 162.4,175.6 165.0,188.8 167.5,195.2 170.0,186.2 172.5,189.6 175.0,186.9 177.5,181.6 180.0,182.8 182.6,176.2 185.1,180.7 187.6,174.3 190.1,178.2 192.6,169.9 195.1,204.1 197.6,194.8 200.2,197.1 202.7,194.8 205.2,195.4 207.7,192.6 210.2,186.0 212.7,192.4 215.2,195.8 217.8,195.0 220.3,198.2 222.8,201.1 225.3,191.6 227.8,189.4 230.3,192.2 232.8,187.9 235.4,193.0 237.9,188.8 240.4,183.7 242.9,192.6 245.4,190.1 247.9,189.2 250.4,189.0 253.0,203.3 255.5,196.9 258.0,197.7 260.5,199.6 263.0,200.9 265.5,196.0 268.0,177.7 270.6,155.4 273.1,137.7 275.6,135.2 278.1,129.0 280.6,113.9 283.1,111.8 285.6,117.7 288.2,116.0 290.7,107.7 293.2,120.3 295.7,134.3 298.2,136.7 300.7,126.2 303.2,126.7 305.8,124.3 308.3,100.5 310.8,113.2 313.3,105.0 315.8,91.3 318.3,80.1 320.8,83.5 323.3,77.3 325.9,67.5 328.4,73.9 330.9,80.9 333.4,80.9 335.9,106.0 338.4,102.4 340.9,122.4 343.5,127.7 346.0,128.8 348.5,119.4 351.0,115.2 353.5,138.8 356.0,147.7 358.5,145.8 361.1,150.7 363.6,156.2 366.1,154.1 368.6,159.2 371.1,144.5 373.6,151.1 376.1,146.7 378.7,163.7 381.2,172.2 383.7,177.7 386.2,165.0 388.7,151.6 391.2,156.7 393.7,155.8 396.3,155.6 398.8,133.3 401.3,128.4 403.8,128.1 406.3,127.7 408.8,114.3 411.3,135.2 413.9,137.7 416.4,135.2 418.9,137.7 421.4,156.4 423.9,165.0 426.4,171.3 428.9,175.4 431.5,174.7 434.0,192.4 436.5,181.8 439.0,188.2 441.5,187.9 444.0,184.8 446.5,192.8 449.1,190.5 451.6,196.0 454.1,200.7 456.6,212.6 459.1,212.6 461.6,213.9 464.1,219.9 466.7,223.9 469.2,213.9 471.7,211.4 474.2,208.8 476.7,193.7 479.2,205.2 481.7,206.0 484.2,215.8 486.8,222.4 489.3,227.1 491.8,231.1 494.3,238.8 496.8,246.5 499.3,248.0 501.8,247.7 504.4,250.1 506.9,241.4 509.4,240.3 511.9,241.8 514.4,241.6 516.9,241.4 519.4,238.8 522.0,241.1 524.5,237.7 527.0,231.8 529.5,234.5 532.0,227.7 534.5,221.6 537.0,223.3 539.6,230.7 542.1,234.5 544.6,228.8 547.1,229.2 549.6,233.7 552.1,234.5 554.6,238.8 557.2,228.8 559.7,216.5 562.2,223.7 564.7,216.2 567.2,217.1 569.7,212.6 572.2,218.4 574.8,225.2 577.3,210.1 579.8,205.6 582.3,209.0 584.8,221.4 587.3,218.2 589.8,211.1 592.4,212.2 594.9,203.5 597.4,200.1 599.9,201.8 602.4,207.7 604.9,206.5 607.4,222.8 610.0,227.5 612.5,228.2 615.0,244.1 617.5,250.1 620.0,266.9 622.5,263.3 625.0,272.4 627.6,275.6 630.1,269.7 632.6,270.5 635.1,262.2 637.6,258.6 640.1,238.0 642.6,239.0 645.1,229.4 647.7,225.2 650.2,213.1 652.7,203.1 655.2,180.7 657.7,176.7 660.2,175.2 662.7,173.5 665.3,182.4 667.8,169.2 670.3,175.8 672.8,183.7 675.3,185.4 677.8,171.1 680.3,169.6 682.9,160.7 685.4,165.2 687.9,172.0 690.4,182.6 692.9,196.0 695.4,195.0 697.9,197.1 700.5,185.4 703.0,163.5 705.5,164.5 708.0,149.6"/><circle class="ponto" cx="708.0" cy="149.6" r="6"/><text x="137.3" y="316" text-anchor="middle">nov</text><text x="235.4" y="316" text-anchor="middle">jan/26</text><text x="333.4" y="316" text-anchor="middle">mar</text><text x="439.0" y="316" text-anchor="middle">mai</text><text x="542.1" y="316" text-anchor="middle">jul</text><text x="652.7" y="316" text-anchor="middle">set</text></svg><svg class="g-6m" viewBox="0 0 720 330" role="img" aria-labelledby="t-bbas3-g-6m"><title id="t-bbas3-g-6m">BBAS3: fechamento diário de 06/04/2026 a 02/10/2026. Mínimo de R$ 17,80 em 18/08/2026, máximo de R$ 25,38 em 14/04/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">16</text><line class="grade-y" x1="82" x2="708" y1="228.8" y2="228.8"/><text x="72" y="235.8" text-anchor="end">18</text><line class="grade-y" x1="82" x2="708" y1="175.6" y2="175.6"/><text x="72" y="182.6" text-anchor="end">20</text><line class="grade-y" x1="82" x2="708" y1="122.4" y2="122.4"/><text x="72" y="129.4" text-anchor="end">22</text><line class="grade-y" x1="82" x2="708" y1="69.2" y2="69.2"/><text x="72" y="76.2" text-anchor="end">24</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">26</text><path class="area" d="M82.0,282 L82.0,84.4 L87.0,84.1 L92.0,56.2 L97.0,50.0 L102.0,49.8 L107.0,49.2 L112.0,32.5 L117.1,58.6 L122.1,61.8 L127.1,58.6 L132.1,61.8 L137.1,85.2 L142.1,95.8 L147.1,103.8 L152.1,108.8 L157.1,108.0 L162.1,130.1 L167.1,116.8 L172.1,124.8 L177.2,124.5 L182.2,120.5 L187.2,130.6 L192.2,127.7 L197.2,134.6 L202.2,140.5 L207.2,155.4 L212.2,155.4 L217.2,157.0 L222.2,164.4 L227.2,169.5 L232.2,157.0 L237.2,153.8 L242.3,150.6 L247.3,131.7 L252.3,146.1 L257.3,147.1 L262.3,159.4 L267.3,167.6 L272.3,173.5 L277.3,178.5 L282.3,188.1 L287.3,197.7 L292.3,199.5 L297.3,199.3 L302.4,202.2 L307.4,191.3 L312.4,190.0 L317.4,191.8 L322.4,191.6 L327.4,191.3 L332.4,188.1 L337.4,191.0 L342.4,186.8 L347.4,179.3 L352.4,182.8 L357.4,174.3 L362.4,166.6 L367.5,168.7 L372.5,178.0 L377.5,182.8 L382.5,175.6 L387.5,176.1 L392.5,181.7 L397.5,182.8 L402.5,188.1 L407.5,175.6 L412.5,160.2 L417.5,169.2 L422.5,159.9 L427.6,161.0 L432.6,155.4 L437.6,162.6 L442.6,171.1 L447.6,152.2 L452.6,146.6 L457.6,150.9 L462.6,166.3 L467.6,162.3 L472.6,153.5 L477.6,154.9 L482.6,143.9 L487.6,139.7 L492.7,141.8 L497.7,149.3 L502.7,147.7 L507.7,168.2 L512.7,174.0 L517.7,174.8 L522.7,194.8 L527.7,202.2 L532.7,223.2 L537.7,218.7 L542.7,230.1 L547.7,234.1 L552.8,226.7 L557.8,227.7 L562.8,217.4 L567.8,212.8 L572.8,187.0 L577.8,188.4 L582.8,176.4 L587.8,171.1 L592.8,155.9 L597.8,143.4 L602.8,115.5 L607.8,110.4 L612.8,108.6 L617.9,106.4 L622.9,117.6 L627.9,101.1 L632.9,109.4 L637.9,119.2 L642.9,121.3 L647.9,103.5 L652.9,101.7 L657.9,90.5 L662.9,96.1 L667.9,104.6 L672.9,117.9 L678.0,134.6 L683.0,133.3 L688.0,136.0 L693.0,121.3 L698.0,93.9 L703.0,95.3 L708.0,76.6 L708.0,282 Z"/><polyline class="linha" points="82.0,84.4 87.0,84.1 92.0,56.2 97.0,50.0 102.0,49.8 107.0,49.2 112.0,32.5 117.1,58.6 122.1,61.8 127.1,58.6 132.1,61.8 137.1,85.2 142.1,95.8 147.1,103.8 152.1,108.8 157.1,108.0 162.1,130.1 167.1,116.8 172.1,124.8 177.2,124.5 182.2,120.5 187.2,130.6 192.2,127.7 197.2,134.6 202.2,140.5 207.2,155.4 212.2,155.4 217.2,157.0 222.2,164.4 227.2,169.5 232.2,157.0 237.2,153.8 242.3,150.6 247.3,131.7 252.3,146.1 257.3,147.1 262.3,159.4 267.3,167.6 272.3,173.5 277.3,178.5 282.3,188.1 287.3,197.7 292.3,199.5 297.3,199.3 302.4,202.2 307.4,191.3 312.4,190.0 317.4,191.8 322.4,191.6 327.4,191.3 332.4,188.1 337.4,191.0 342.4,186.8 347.4,179.3 352.4,182.8 357.4,174.3 362.4,166.6 367.5,168.7 372.5,178.0 377.5,182.8 382.5,175.6 387.5,176.1 392.5,181.7 397.5,182.8 402.5,188.1 407.5,175.6 412.5,160.2 417.5,169.2 422.5,159.9 427.6,161.0 432.6,155.4 437.6,162.6 442.6,171.1 447.6,152.2 452.6,146.6 457.6,150.9 462.6,166.3 467.6,162.3 472.6,153.5 477.6,154.9 482.6,143.9 487.6,139.7 492.7,141.8 497.7,149.3 502.7,147.7 507.7,168.2 512.7,174.0 517.7,174.8 522.7,194.8 527.7,202.2 532.7,223.2 537.7,218.7 542.7,230.1 547.7,234.1 552.8,226.7 557.8,227.7 562.8,217.4 567.8,212.8 572.8,187.0 577.8,188.4 582.8,176.4 587.8,171.1 592.8,155.9 597.8,143.4 602.8,115.5 607.8,110.4 612.8,108.6 617.9,106.4 622.9,117.6 627.9,101.1 632.9,109.4 637.9,119.2 642.9,121.3 647.9,103.5 652.9,101.7 657.9,90.5 662.9,96.1 667.9,104.6 672.9,117.9 678.0,134.6 683.0,133.3 688.0,136.0 693.0,121.3 698.0,93.9 703.0,95.3 708.0,76.6"/><circle class="ponto" cx="708.0" cy="76.6" r="6"/><text x="172.1" y="316" text-anchor="middle">mai</text><text x="272.3" y="316" text-anchor="middle">jun</text><text x="377.5" y="316" text-anchor="middle">jul</text><text x="492.7" y="316" text-anchor="middle">ago</text><text x="597.8" y="316" text-anchor="middle">set</text><text x="703.0" y="316" text-anchor="middle">out</text></svg><svg class="g-1m" viewBox="0 0 720 330" role="img" aria-labelledby="t-bbas3-g-1m"><title id="t-bbas3-g-1m">BBAS3: fechamento diário de 02/09/2026 a 02/10/2026. Mínimo de R$ 21,49 em 28/09/2026, máximo de R$ 23,72 em 02/10/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">21</text><line class="grade-y" x1="82" x2="708" y1="193.3" y2="193.3"/><text x="72" y="200.3" text-anchor="end">22</text><line class="grade-y" x1="82" x2="708" y1="104.7" y2="104.7"/><text x="72" y="111.7" text-anchor="end">23</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">24</text><path class="area" d="M82.0,282 L82.0,170.3 L111.8,153.4 L141.6,147.2 L171.4,140.1 L201.2,177.4 L231.0,122.4 L260.9,149.9 L290.7,182.7 L320.5,189.8 L350.3,130.4 L380.1,124.2 L409.9,86.9 L439.7,105.6 L469.5,133.9 L499.3,178.3 L529.1,234.1 L559.0,229.7 L588.8,238.6 L618.6,189.8 L648.4,98.5 L678.2,102.9 L708.0,40.8 L708.0,282 Z"/><polyline class="linha" points="82.0,170.3 111.8,153.4 141.6,147.2 171.4,140.1 201.2,177.4 231.0,122.4 260.9,149.9 290.7,182.7 320.5,189.8 350.3,130.4 380.1,124.2 409.9,86.9 439.7,105.6 469.5,133.9 499.3,178.3 529.1,234.1 559.0,229.7 588.8,238.6 618.6,189.8 648.4,98.5 678.2,102.9 708.0,40.8"/><circle class="ponto" cx="708.0" cy="40.8" r="6"/><text x="82.0" y="316" text-anchor="middle">02/09</text><text x="231.0" y="316" text-anchor="middle">10/09</text><text x="380.1" y="316" text-anchor="middle">17/09</text><text x="529.1" y="316" text-anchor="middle">24/09</text><text x="678.2" y="316" text-anchor="middle">01/10</text></svg></div><p class="legenda">Preço de fechamento diário, em reais, sem ajuste por proventos, desdobramentos ou grupamentos. Fonte: B3, série histórica de cotações.</p></div>
+<p class="data-regra" style="margin-top:.8rem">Em 12 meses, o preço oscilou entre <span class="num">R$ 17,79</span> (mínima intradiária) e <span class="num">R$ 27,81</span> (máxima intradiária).</p>
+<div class="grade grade-2" style="margin-top:1rem">
+<section><h2 id="o-que-e">O que é BBAS3</h2><p>A <strong>BANCO DO BRASIL S.A.</strong> é uma companhia aberta registrada na Comissão de Valores Mobiliários (CVM) desde 20/07/1977, sob o código CVM 1023, com sede em Brasília (DF). No cadastro da CVM, o setor de atividade informado é “Bancos”.</p><p><strong>BBAS3</strong> é o código de negociação das ações ordinárias (ON) da companhia na B3, no segmento de listagem Novo Mercado. O código ISIN do papel é BRBBASACNOR3. Ações ordinárias dão direito a voto nas assembleias de acionistas.</p></section>
+<section><h2 id="ficha">Ficha</h2><dl class="ficha"><dt>Razão social</dt><dd>BANCO DO BRASIL S.A.</dd><dt>CNPJ</dt><dd>00.000.000/0001-91</dd><dt>Código CVM</dt><dd>1023</dd><dt>Setor (CVM)</dt><dd>Bancos</dd><dt>Controle acionário (CVM)</dt><dd>Estatal</dd><dt>Sede</dt><dd>Brasília (DF)</dd><dt>Registro na CVM</dt><dd>20/07/1977</dd><dt>Espécie</dt><dd>ordinárias (ON)</dd><dt>Segmento de listagem</dt><dd>Novo Mercado</dd><dt>Código ISIN</dt><dd>BRBBASACNOR3</dd><dt>Nome no pregão (B3)</dt><dd>BRASIL</dd></dl></section>
+</div>
+<h2 id="pregoes">Últimos pregões</h2>
+<div class="rolagem"><table><caption>Últimos 10 pregões com negócio</caption><thead><tr><th>Data</th><th class="n">Fechamento</th><th class="n">Variação</th><th class="n">Mínima</th><th class="n">Máxima</th><th class="n">Volume</th></tr></thead><tbody><tr><td class="n">02/10/2026</td><td class="n">23,72</td><td class="n"><span class="var alta">▲ +3,04%</span></td><td class="n">22,96</td><td class="n">23,78</td><td class="n">R$ 1,21 bi</td></tr><tr><td class="n">01/10/2026</td><td class="n">23,02</td><td class="n"><span class="var baixa">▼ −0,22%</span></td><td class="n">22,66</td><td class="n">23,21</td><td class="n">R$ 1,02 bi</td></tr><tr><td class="n">30/09/2026</td><td class="n">23,07</td><td class="n"><span class="var alta">▲ +4,67%</span></td><td class="n">22,23</td><td class="n">23,07</td><td class="n">R$ 947,41 mi</td></tr><tr><td class="n">29/09/2026</td><td class="n">22,04</td><td class="n"><span class="var alta">▲ +2,56%</span></td><td class="n">21,34</td><td class="n">22,18</td><td class="n">R$ 812,48 mi</td></tr><tr><td class="n">28/09/2026</td><td class="n">21,49</td><td class="n"><span class="var baixa">▼ −0,46%</span></td><td class="n">21,18</td><td class="n">21,81</td><td class="n">R$ 959,55 mi</td></tr><tr><td class="n">25/09/2026</td><td class="n">21,59</td><td class="n"><span class="var alta">▲ +0,23%</span></td><td class="n">21,27</td><td class="n">21,77</td><td class="n">R$ 931,84 mi</td></tr><tr><td class="n">24/09/2026</td><td class="n">21,54</td><td class="n"><span class="var baixa">▼ −2,84%</span></td><td class="n">21,48</td><td class="n">22,24</td><td class="n">R$ 804,02 mi</td></tr><tr><td class="n">23/09/2026</td><td class="n">22,17</td><td class="n"><span class="var baixa">▼ −2,21%</span></td><td class="n">22,12</td><td class="n">23,07</td><td class="n">R$ 886,85 mi</td></tr><tr><td class="n">22/09/2026</td><td class="n">22,67</td><td class="n"><span class="var baixa">▼ −1,39%</span></td><td class="n">22,30</td><td class="n">22,89</td><td class="n">R$ 1,17 bi</td></tr><tr><td class="n">21/09/2026</td><td class="n">22,99</td><td class="n"><span class="var baixa">▼ −0,91%</span></td><td class="n">22,83</td><td class="n">23,38</td><td class="n">R$ 1,33 bi</td></tr></tbody></table></div>
+<h2 id="como-ler">Como ler esta página</h2>
+<ul>
+ <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista, em lote padrão, como publicado pela B3.</li>
+ <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um dividendo, a queda de preço aparece como variação.</li>
+ <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
+ <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
+</ul>
+<h2 id="guias">Para entender os números</h2>
+<ul><li><a href="../guias/o-que-e-p-l.html">O que é P/L</a></li><li><a href="../guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="../guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
+<h2 id="outros">Outros ações acompanhados</h2>
+<ul class="chips"><li><a href="petr4.html">PETR4</a></li><li><a href="vale3.html">VALE3</a></li><li><a href="itub4.html">ITUB4</a></li><li><a href="wege3.html">WEGE3</a></li><li><a href="abev3.html">ABEV3</a></li></ul>
+<h2 id="fontes">Fontes</h2>
+<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv" rel="noopener">CVM, cadastro de companhias abertas</a></li>
+<li>Cadastro da CVM atualizado em 03/10/2026.</li></ul>
+<div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Esta página reúne dados públicos sobre BBAS3 e não é análise nem indicação de compra ou venda.</div>
+</div></main>
+<p class="pregao casca">Cotações de fechamento do pregão de 02/10/2026. Fonte: B3. Dados com atraso, apenas informativos.</p><footer class="rodape">
+  <div class="casca">
+    <div>
+      <h2>Mercado na Lupa</h2>
+      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+    </div>
+    <div>
+      <h2>Navegue</h2>
+      <ul>
+        <li><a href="../ativos.html">Ativos acompanhados</a></li>
+        <li><a href="../guias.html">Guias</a> · <a href="../calculadoras.html">Calculadoras</a></li>
+        <li><a href="../sobre.html">Sobre</a> · <a href="../contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Este site</h2>
+      <ul>
+        <li>Exibe anúncios do Google AdSense. <a href="../privacidade.html">Política de privacidade</a>. <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>.</li>
+        <li>Da mesma casa: <a href="https://guiaprodutonalupa.com.br" rel="noopener">Guia Produto na Lupa</a> e <a href="https://viagemnalupa.com.br" rel="noopener">Viagem na Lupa</a>.</li>
+      </ul>
+    </div>
+    <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+  </div>
+</footer>
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="casca">
+    <p>Este site usa cookies do Google AdSense para exibir anúncios e medir audiência. Não pedimos cadastro nem e-mail, e as calculadoras não enviam o que você digita. Detalhes na <a href="../privacidade.html">política de privacidade</a>.</p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var CHAVE='ml-consentimento', PUB='pub-4401770243539507', BLOQUEIA=false;
+  function ler(){try{return localStorage.getItem(CHAVE)}catch(e){return null}}
+  function gravar(v){try{localStorage.setItem(CHAVE,v)}catch(e){}}
+  function carrega(){
+    if(!PUB||document.getElementById('ads-google'))return;
+    var s=document.createElement('script');s.id='ads-google';s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-'+PUB;
+    document.head.appendChild(s);
+  }
+  // "Rever escolha de cookies", no rodapé: apaga a escolha salva e recarrega.
+  document.querySelectorAll('[data-rever-cookies]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      try{localStorage.removeItem(CHAVE)}catch(e){}
+      location.reload();
+    });
+  });
+  var escolha=ler();
+  if(escolha==='aceitar'||(escolha===null&&!BLOQUEIA))carrega();
+  var caixa=document.getElementById('consentimento');
+  if(escolha===null&&caixa){
+    caixa.hidden=false;
+    caixa.addEventListener('click',function(ev){
+      var b=ev.target.closest('[data-consent]');if(!b)return;
+      var v=b.dataset.consent;gravar(v);caixa.hidden=true;
+      if(v==='aceitar')carrega();else{var x=document.getElementById('ads-google');if(x)x.remove();}
+    });
+  }
+  // Europa, Reino Unido, Suíça: quem pergunta é a mensagem do Google (CMP
+  // certificada). Se ela diz que o GDPR se aplica, esta faixa sai da frente.
+  if(escolha===null&&caixa){
+    var n=0,t=setInterval(function(){
+      if(typeof window.__tcfapi==='function'){
+        clearInterval(t);
+        window.__tcfapi('addEventListener',2,function(tc,ok){if(ok&&tc&&tc.gdprApplies)caixa.hidden=true;});
+      }else if(++n>40)clearInterval(t);
+    },250);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!--{
+ "titulo": "Quanto tempo até o primeiro milhão? · Mercado na Lupa",
+ "descricao": "Simule em quantos anos e meses um patrimônio chega a R$ 1 milhão (ou outra meta) com aporte mensal e taxa de juros. Fórmula explicada e aviso de simulação.",
+ "h1": "Quanto tempo até o primeiro milhão",
+ "resumo": "Com quanto você começa, quanto guarda por mês e a que taxa: em quanto tempo a conta chega à meta.",
+ "publicado": "2026-10-03",
+ "atualizado": "2026-10-03",
+ "fontes": []
+}-->
+<p class="lead">O “primeiro milhão” é uma meta redonda, e a conta por trás dela é a mesma dos juros compostos — só que resolvida ao contrário: em vez de perguntar quanto se terá daqui a <em>n</em> anos, pergunta quantos meses faltam para chegar a um valor.</p>
+
+<div class="calc">
+ <form class="cartao campos" id="f" onsubmit="return false" novalidate>
+  <div class="campo"><label for="meta">Meta</label><div class="entrada"><span>R$</span><input id="meta" inputmode="decimal" value="1.000.000"></div></div>
+  <div class="campo"><label for="ini">Quanto você já tem</label><div class="entrada"><span>R$</span><input id="ini" inputmode="decimal" value="10.000"></div></div>
+  <div class="campo"><label for="mes">Aporte mensal <span class="dica">feito no fim de cada mês</span></label><div class="entrada"><span>R$</span><input id="mes" inputmode="decimal" value="1.500"></div></div>
+  <div class="campo"><label for="taxa">Taxa de juros ao ano <span class="dica">use uma taxa real (acima da inflação) para ver a meta em dinheiro de hoje</span></label><div class="entrada"><input id="taxa" inputmode="decimal" value="6"><span>% a.a.</span></div></div>
+  <p class="erro-calc" id="erro" role="alert"></p>
+ </form>
+ <div class="cartao resultado" aria-live="polite">
+  <span class="rotulo">Tempo até a meta</span>
+  <div class="grande" id="r-tempo">—</div>
+  <div class="barra" aria-hidden="true"><i class="b1" id="b-ap"></i><i class="b2" id="b-ju"></i></div>
+  <div class="legenda-barra"><span><i style="background:var(--suave)"></i>Total aportado</span><span><i style="background:var(--acao)"></i>Juros</span></div>
+  <div class="linha-res"><span>Total aportado até lá</span><b id="r-ap">—</b></div>
+  <div class="linha-res"><span>Juros até lá</span><b id="r-ju">—</b></div>
+  <div class="linha-res"><span>Sem juros, levaria</span><b id="r-sem">—</b></div>
+ </div>
+</div>
+
+<h2 id="formula">A fórmula</h2>
+<p>Com valor inicial <em>P</em>, aporte mensal <em>A</em>, meta <em>M</em> e taxa mensal <em>i</em> — a taxa anual <em>a</em> convertida por <em>i = (1 + a)<sup>1/12</sup> − 1</em> —, o número de meses <em>n</em> sai de isolar <em>n</em> na fórmula do saldo:</p>
+<div class="formula">n = ln[(M × i + A) ÷ (P × i + A)] ÷ ln(1 + i)</div>
+<p>O resultado é arredondado para cima, porque a meta só é alcançada no fim de um mês. Com taxa zero, a conta vira uma divisão simples: <em>n = (M − P) ÷ A</em>.</p>
+
+<h2 id="leitura">Como ler o resultado</h2>
+<ul>
+ <li><strong>Taxa nominal ou real?</strong> Com uma taxa nominal (por exemplo, a de um título que rende 10% ao ano), o milhão chega antes, mas vale menos: a inflação do período come parte dele. Com uma taxa real, o resultado é um milhão com poder de compra de hoje.</li>
+ <li><strong>O tempo é o que mais pesa.</strong> Nos primeiros anos, quase todo o saldo é aporte; perto do fim, os juros do mês podem superar o próprio aporte. É o efeito da barra acima.</li>
+ <li><strong>Nada é garantido.</strong> Taxas mudam, aplicações de risco oscilam, e a vida interrompe aportes.</li>
+</ul>
+
+<div class="aviso"><strong>É uma simulação.</strong> Supõe taxa constante e aportes sem falha, e não desconta imposto de renda nem custos. Não é promessa de rentabilidade nem recomendação de investimento.</div>
+
+<script>
+(function(){
+ var $=function(id){return document.getElementById(id)};
+ function limpa(){['r-tempo','r-ap','r-ju','r-sem'].forEach(function(k){$(k).textContent='—'});$('b-ap').style.width=$('b-ju').style.width='0'}
+ function calc(){
+  var M=lerNum($('meta').value),P=lerNum($('ini').value),A=lerNum($('mes').value),a=lerNum($('taxa').value);
+  var erro='';
+  if([M,P,A,a].some(isNaN))erro='Preencha todos os campos com números.';
+  else if(M<=0||P<0||A<0)erro='Meta maior que zero; valores sem sinal negativo.';
+  else if(a<=-100||a>1000)erro='Use uma taxa entre −99% e 1000% ao ano.';
+  $('erro').textContent=erro;
+  if(erro){limpa();return}
+  if(P>=M){limpa();$('r-tempo').textContent='meta já atingida';return}
+  var i=Math.pow(1+a/100,1/12)-1,n;
+  if(Math.abs(i)<1e-12){n=A>0?Math.ceil((M-P)/A):Infinity}
+  else{var num=M*i+A,den=P*i+A;n=(num>0&&den>0&&num/den>0)?Math.ceil(Math.log(num/den)/Math.log(1+i)):Infinity;if(!(n>0))n=Infinity}
+  $('r-sem').textContent=A>0?duracao(Math.ceil((M-P)/A)):'não chega sem aporte';
+  if(!isFinite(n)||n>1200){limpa();$('r-tempo').textContent='mais de 100 anos';$('r-sem').textContent=A>0?duracao(Math.ceil((M-P)/A)):'não chega sem aporte';return}
+  var s=P;for(var k=0;k<n;k++)s=s*(1+i)+A;
+  var ap=P+A*n;
+  $('r-tempo').textContent=duracao(n);$('r-ap').textContent=brl(ap);$('r-ju').textContent=brl(s-ap);
+  var t=Math.max(s,ap);$('b-ap').style.width=(Math.min(ap,s)/t*100)+'%';$('b-ju').style.width=(Math.max(s-ap,0)/t*100)+'%';
+ }
+ $('f').addEventListener('input',calc);calc();
+})();
+</script>

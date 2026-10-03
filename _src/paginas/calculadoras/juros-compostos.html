@@ -1,0 +1,66 @@
+<!--{
+ "titulo": "Calculadora de juros compostos · Mercado na Lupa",
+ "descricao": "Simule quanto um valor inicial e aportes mensais podem somar com juros compostos. Taxa anual convertida em mensal, tabela por ano e fórmula explicada.",
+ "h1": "Calculadora de juros compostos",
+ "resumo": "Valor inicial, aporte mensal, taxa e prazo: quanto o dinheiro pode somar, e quanto disso é juro.",
+ "publicado": "2026-10-03",
+ "atualizado": "2026-10-03",
+ "fontes": []
+}-->
+<p class="lead">Juros compostos são juros que rendem sobre juros: a cada mês, a taxa incide sobre o saldo que já inclui os rendimentos anteriores. Preencha os campos e o resultado muda na hora.</p>
+
+<div class="calc">
+ <form class="cartao campos" id="f" onsubmit="return false" novalidate>
+  <div class="campo"><label for="ini">Valor inicial</label><div class="entrada"><span>R$</span><input id="ini" inputmode="decimal" value="1.000"></div></div>
+  <div class="campo"><label for="mes">Aporte mensal <span class="dica">feito no fim de cada mês</span></label><div class="entrada"><span>R$</span><input id="mes" inputmode="decimal" value="500"></div></div>
+  <div class="campo"><label for="taxa">Taxa de juros ao ano</label><div class="entrada"><input id="taxa" inputmode="decimal" value="10"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="anos">Prazo</label><div class="entrada"><input id="anos" inputmode="numeric" value="10"><span>anos</span></div></div>
+  <p class="erro-calc" id="erro" role="alert"></p>
+ </form>
+ <div class="cartao resultado" aria-live="polite">
+  <span class="rotulo">Valor final simulado</span>
+  <div class="grande" id="r-final">—</div>
+  <div class="barra" aria-hidden="true"><i class="b1" id="b-ap"></i><i class="b2" id="b-ju"></i></div>
+  <div class="legenda-barra"><span><i style="background:var(--suave)"></i>Total aportado</span><span><i style="background:var(--acao)"></i>Juros</span></div>
+  <div class="linha-res"><span>Total aportado</span><b id="r-ap">—</b></div>
+  <div class="linha-res"><span>Juros acumulados</span><b id="r-ju">—</b></div>
+  <div class="linha-res"><span>Taxa mensal equivalente</span><b id="r-tm">—</b></div>
+ </div>
+</div>
+
+<h2 id="tabela">Ano a ano</h2>
+<div class="rolagem"><table><thead><tr><th>Ano</th><th class="n">Total aportado</th><th class="n">Juros</th><th class="n">Saldo</th></tr></thead><tbody id="tab"></tbody></table></div>
+
+<h2 id="formula">A fórmula</h2>
+<p>A taxa anual <em>a</em> é convertida na taxa mensal equivalente <em>i</em> — a que, composta por 12 meses, dá a mesma taxa anual:</p>
+<div class="formula">i = (1 + a)<sup>1/12</sup> − 1</div>
+<p>Depois de <em>n</em> meses, com valor inicial <em>P</em> e aporte mensal <em>A</em> no fim de cada mês:</p>
+<div class="formula">Saldo = P × (1 + i)<sup>n</sup> + A × [(1 + i)<sup>n</sup> − 1] ÷ i</div>
+<p>A primeira parte é o valor inicial crescendo; a segunda é a soma de todos os aportes, cada um rendendo pelo tempo que ficou aplicado. Com taxa zero, o saldo é simplesmente <em>P + A × n</em>.</p>
+<p>Exemplo: 10% ao ano equivalem a cerca de 0,797% ao mês, e não a 0,833% (10 ÷ 12). Dividir a taxa anual por 12 superestima o resultado.</p>
+
+<div class="aviso"><strong>É uma simulação.</strong> A conta supõe taxa constante, e o mundo não tem taxa constante. Ela não desconta imposto de renda, taxas nem inflação — e o valor final, em reais de daqui a muitos anos, compra menos do que hoje. Não é promessa de rentabilidade nem recomendação de investimento.</div>
+
+<script>
+(function(){
+ var $=function(id){return document.getElementById(id)};
+ function calc(){
+  var P=lerNum($('ini').value),A=lerNum($('mes').value),a=lerNum($('taxa').value),anos=lerNum($('anos').value);
+  var erro='';
+  if([P,A,a,anos].some(isNaN))erro='Preencha todos os campos com números.';
+  else if(P<0||A<0)erro='Valores não podem ser negativos.';
+  else if(a<=-100||a>1000)erro='Use uma taxa entre −99% e 1000% ao ano.';
+  else if(anos<=0||anos>100||Math.round(anos)!==anos)erro='Use um prazo inteiro entre 1 e 100 anos.';
+  $('erro').textContent=erro;
+  if(erro){['r-final','r-ap','r-ju','r-tm'].forEach(function(k){$(k).textContent='—'});$('tab').innerHTML='';return}
+  var i=Math.pow(1+a/100,1/12)-1,s=P,linhas='',ap=P;
+  for(var m=1;m<=anos*12;m++){s=s*(1+i)+A;ap+=A;
+   if(m%12===0)linhas+='<tr><td>'+(m/12)+'</td><td class="n">'+brl(ap)+'</td><td class="n">'+brl(s-ap)+'</td><td class="n">'+brl(s)+'</td></tr>'}
+  $('r-final').textContent=brl(s);$('r-ap').textContent=brl(ap);$('r-ju').textContent=brl(s-ap);
+  $('r-tm').textContent=pct(i*100,3)+' a.m.';
+  var t=Math.max(s,ap,1);$('b-ap').style.width=(Math.min(ap,s)/t*100)+'%';$('b-ju').style.width=(Math.max(s-ap,0)/t*100)+'%';
+  $('tab').innerHTML=linhas;
+ }
+ $('f').addEventListener('input',calc);calc();
+})();
+</script>

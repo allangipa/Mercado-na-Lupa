@@ -1,0 +1,12 @@
+[
+ {"codigo": "PETR4", "tipo": "acao", "nome": "Petrobras", "cnpj": "33.000.167/0001-01"},
+ {"codigo": "VALE3", "tipo": "acao", "nome": "Vale", "cnpj": "33.592.510/0001-54"},
+ {"codigo": "ITUB4", "tipo": "acao", "nome": "Itaú Unibanco", "cnpj": "60.872.504/0001-23"},
+ {"codigo": "BBAS3", "tipo": "acao", "nome": "Banco do Brasil", "cnpj": "00.000.000/0001-91"},
+ {"codigo": "WEGE3", "tipo": "acao", "nome": "WEG", "cnpj": "84.429.695/0001-11"},
+ {"codigo": "ABEV3", "tipo": "acao", "nome": "Ambev", "cnpj": "07.526.557/0001-00"},
+ {"codigo": "MXRF11", "tipo": "fii", "nome": "FII Maxi Renda", "cnpj": "97.521.225/0001-25"},
+ {"codigo": "HGLG11", "tipo": "fii", "nome": "Pátria Log FII", "cnpj": "11.728.688/0001-47"},
+ {"codigo": "KNRI11", "tipo": "fii", "nome": "Kinea Renda Imobiliária FII", "cnpj": "12.005.956/0001-65"},
+ {"codigo": "XPML11", "tipo": "fii", "nome": "XP Malls FII", "cnpj": "28.757.546/0001-00"}
+]

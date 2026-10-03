@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PETR4 (Petrobras PN): cotação e histórico · Mercado na Lupa</title>
+<meta name="description" content="Cotação de fechamento da ação PETR4 (Petrobras PN) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.">
+<link rel="canonical" href="https://mercadonalupa.com.br/ativos/petr4.html">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="../assets/marca/lupa.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/marca/lupa-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="../assets/marca/lupa-180.png">
+<link rel="preload" href="/assets/fontes/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<style>@font-face{font-family:"Archivo";font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fontes/archivo-latin.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/fraunces-latin-600.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fontes/plex-mono-latin-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fontes/plex-mono-latin-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/plex-mono-latin-600.woff2) format("woff2")}
+:root{
+  --fundo:#F4F6F9; --papel:#FFFFFF; --superficie:#EDF1F6; --linha:#D9DFE8;
+  --tinta:#0F1B2D; --suave:#475467; --apagado:#667085;
+  --acao:#1D4ED8; --acao-forte:#1E3A8A; --acao-suave:#E3EAFD;
+  --ouro:#B7791F;
+  --alta:#067647; --alta-suave:#DCFAE6; --baixa:#B42318; --baixa-suave:#FEE4E2;
+  --grafico:#1D4ED8; --grafico-area:rgba(29,78,216,.10);
+  --sombra:0 1px 2px rgba(15,27,45,.05),0 8px 24px -16px rgba(15,27,45,.25);
+  --raio:14px; --raio-s:9px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --fundo:#0B1220; --papel:#111A2B; --superficie:#16223A; --linha:#26344D;
+    --tinta:#E7ECF3; --suave:#A9B4C4; --apagado:#8C98AA;
+    --acao:#8DB2FF; --acao-forte:#B9CEFF; --acao-suave:#1A2C52;
+    --ouro:#E0A84A;
+    --alta:#47CD89; --alta-suave:#0E2E20; --baixa:#FF8A80; --baixa-suave:#3A1714;
+    --grafico:#8DB2FF; --grafico-area:rgba(141,178,255,.13);
+    --sombra:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fundo);color:var(--tinta);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;height:auto}
+a{color:var(--acao);text-underline-offset:.18em}
+a:hover{color:var(--acao-forte)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--acao);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,1.3rem + 2.6vw,3rem);margin-bottom:.8rem}
+h2{font-size:clamp(1.35rem,1.1rem + 1vw,1.75rem);margin-top:2.4rem;margin-bottom:.8rem;scroll-margin-top:84px}
+h3{font-size:1.15rem;margin-top:1.6rem;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+ul,ol{padding-left:1.25rem;margin:0 0 1rem}
+li{margin-bottom:.35rem}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;background:var(--superficie);padding:.08em .35em;border-radius:5px}
+.num,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.casca{max-width:72rem;margin:0 auto;padding:0 16px}
+@media (min-width:700px){.casca{padding:0 28px}}
+.estreita{max-width:46rem}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:1rem;top:1rem;z-index:60;background:var(--acao);color:#fff;padding:.6rem 1rem;border-radius:8px}
+.rotulo{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.topo{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--papel) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linha)}
+.topo .casca{display:flex;align-items:center;gap:1rem;min-height:62px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--tinta)}
+.marca svg{width:34px;height:34px;flex:none}
+.marca span{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em;white-space:nowrap}
+.marca span i{font-style:normal;color:var(--acao)}
+.nav{display:flex;gap:.2rem;margin-left:auto;flex-wrap:wrap}
+.nav a{color:var(--suave);text-decoration:none;font-size:.95rem;padding:.45rem .65rem;border-radius:8px}
+.nav a:hover,.nav a[aria-current]{color:var(--tinta);background:var(--superficie)}
+@media (max-width:620px){
+  .topo .casca{padding-top:.5rem;padding-bottom:.35rem;gap:.2rem}
+  .nav{margin-left:-.65rem;width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .nav a{font-size:.9rem;padding:.4rem .6rem;white-space:nowrap}
+}
+main{display:block;padding:2rem 0 3.5rem}
+.migalhas{font-size:.86rem;color:var(--suave);margin-bottom:1rem}
+.migalhas a{color:var(--suave)}
+.migalhas span[aria-current]{color:var(--tinta)}
+.lead{font-size:1.12rem;color:var(--suave);max-width:44rem}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1.2rem 1.25rem;box-shadow:var(--sombra)}
+.grade{display:grid;gap:1rem}
+.grade>*{min-width:0}
+@media (min-width:760px){.grade-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.grade-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:959px){.cartoes.grade-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.aviso{border-left:4px solid var(--ouro);background:var(--papel);padding:.85rem 1rem;border-radius:0 var(--raio-s) var(--raio-s) 0;font-size:.95rem;color:var(--suave);margin:1.5rem 0}
+.aviso strong{color:var(--tinta)}
+.botao{display:inline-flex;align-items:center;gap:.4rem;background:var(--acao);color:#fff;border:0;border-radius:10px;padding:.7rem 1.1rem;font:600 1rem "Archivo",sans-serif;text-decoration:none;cursor:pointer}
+@media (prefers-color-scheme:dark){.botao{color:#0B1220}}
+.botao:hover{background:var(--acao-forte);color:#fff}
+@media (prefers-color-scheme:dark){.botao:hover{color:#0B1220}}
+.botao.claro{background:var(--superficie);color:var(--tinta)}
+.abertura{padding:2.2rem 0 1rem}
+.abertura h1{max-width:20ch;margin:.4rem 0 .9rem}
+.busca{display:flex;gap:.5rem;margin:1.4rem 0 .5rem;max-width:34rem}
+.busca input{flex:1;min-width:0;font:500 1.05rem "IBM Plex Mono",monospace;text-transform:uppercase;padding:.75rem .9rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.busca input::placeholder{text-transform:none;font-family:"Archivo",sans-serif;color:var(--apagado)}
+.busca-msg{font-size:.92rem;color:var(--suave);min-height:1.5em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.chips a{display:inline-block;font:500 .85rem "IBM Plex Mono",monospace;padding:.3rem .55rem;border-radius:7px;background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:var(--tinta)}
+.chips a:hover{border-color:var(--acao)}
+.destaques h3{margin-top:0;font-family:"Archivo",sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.01em}
+.lista-dest{list-style:none;padding:0;margin:0}
+.lista-dest li{display:flex;align-items:baseline;gap:.6rem;padding:.45rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-dest li:first-child{border-top:0}
+.lista-dest a{font:600 .95rem "IBM Plex Mono",monospace;text-decoration:none;min-width:4.6rem}
+.lista-dest .nome{flex:1;color:var(--suave);font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cartoes{list-style:none;padding:0;margin:0}
+.cartoes a{display:block;height:100%;text-decoration:none;color:var(--tinta)}
+.cartoes a:hover{border-color:var(--acao)}
+.cartoes h3{margin:.3rem 0 .4rem;font-size:1.12rem}
+.cartoes p{color:var(--suave);font-size:.95rem;margin:0}
+.var{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.var.alta{color:var(--alta)}.var.baixa{color:var(--baixa)}.var.zero{color:var(--suave)}
+.selo-var{display:inline-block;padding:.12rem .45rem;border-radius:6px;font-size:.92rem}
+.selo-var.alta{background:var(--alta-suave)}.selo-var.baixa{background:var(--baixa-suave)}.selo-var.zero{background:var(--superficie)}
+.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel)}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+caption{text-align:left;padding:.8rem 1rem 0;color:var(--suave);font-size:.88rem;caption-side:top}
+th,td{padding:.6rem .9rem;text-align:left;border-bottom:1px solid var(--linha);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--suave);font-size:.82rem;letter-spacing:.02em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+td a{font-family:"IBM Plex Mono",monospace;font-weight:600;text-decoration:none}
+td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
+.cab-ativo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:1.4rem}
+.cab-ativo .tipo{margin-bottom:.4rem}
+.cab-ativo h1 .cod{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:-.02em}
+.cab-ativo .razao{color:var(--suave);margin:.35rem 0 0}
+.preco{text-align:left}
+.preco .valor{font:600 clamp(2rem,1.5rem + 2.4vw,2.9rem)/1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.preco .valor small{font-size:.45em;color:var(--suave);font-weight:500;margin-right:.25rem;letter-spacing:0}
+.preco .quando{color:var(--suave);font-size:.88rem;margin-top:.45rem}
+.numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:0;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel);overflow:hidden}
+@media (min-width:640px){.numeros{grid-template-columns:repeat(4,1fr)}}
+.numeros div{padding:.8rem 1rem;border-bottom:1px solid var(--linha);border-right:1px solid var(--linha)}
+.numeros dt{font-size:.8rem;color:var(--suave);margin-bottom:.15rem}
+.numeros dd{margin:0;font:500 1.05rem "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.ficha{display:grid;grid-template-columns:minmax(8rem,13rem) 1fr;gap:.1rem 1rem;margin:0;font-size:.95rem}
+.ficha dt{color:var(--suave);padding:.45rem 0;border-top:1px solid var(--linha)}
+.ficha dd{margin:0;padding:.45rem 0;border-top:1px solid var(--linha);overflow-wrap:anywhere}
+@media (max-width:520px){.ficha{grid-template-columns:1fr}.ficha dd{border-top:0;padding-top:0}}
+.grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.periodos{display:flex;gap:.3rem;margin-bottom:.6rem}
+.periodos input{position:absolute;opacity:0;pointer-events:none}
+.periodos label{font:500 .85rem "IBM Plex Mono",monospace;padding:.35rem .7rem;border-radius:8px;border:1px solid var(--linha);cursor:pointer;color:var(--suave)}
+.grafico svg{display:none;width:100%;height:auto}
+#p-12m:checked~.paineis .g-12m,#p-6m:checked~.paineis .g-6m,#p-1m:checked~.paineis .g-1m{display:block}
+.grafico:has(#p-12m:checked) label[for=p-12m],.grafico:has(#p-6m:checked) label[for=p-6m],.grafico:has(#p-1m:checked) label[for=p-1m]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.grafico .linha{fill:none;stroke:var(--grafico);stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.grafico .area{fill:var(--grafico-area)}
+.grafico .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico text{font:500 20px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico text{font-size:15px}}
+.grafico .ponto{fill:var(--papel);stroke:var(--grafico);stroke-width:2;vector-effect:non-scaling-stroke}
+.grafico .legenda{font-size:.84rem;color:var(--suave);margin:.4rem 0 0}
+.texto{max-width:44rem}
+.texto h2{scroll-margin-top:80px}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:1rem;background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--acao);border-radius:0 var(--raio-s) var(--raio-s) 0;padding:.9rem 1rem;margin:1rem 0 1.2rem;overflow-x:auto;white-space:nowrap}
+.exemplo{background:var(--superficie);border-radius:var(--raio-s);padding:1rem 1.1rem;margin:1rem 0 1.4rem}
+.exemplo p:last-child{margin-bottom:0}
+.fontes{font-size:.9rem;color:var(--suave)}
+.fontes li{margin-bottom:.5rem}
+.data-regra{font-size:.9rem;color:var(--suave)}
+.calc{display:grid;gap:1.2rem}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,22rem) 1fr;align-items:start}}
+.campos label{display:block;font-weight:600;font-size:.93rem;margin:0 0 .3rem}
+.campos .dica{display:block;font-weight:400;color:var(--suave);font-size:.84rem}
+.campos .campo{margin-bottom:1rem}
+.entrada{display:flex;align-items:center;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);overflow:hidden}
+.entrada:focus-within{border-color:var(--acao)}
+.entrada span{padding:0 .7rem;color:var(--suave);font:500 .92rem "IBM Plex Mono",monospace;background:var(--superficie);align-self:stretch;display:flex;align-items:center}
+.entrada input{flex:1;min-width:0;border:0;background:transparent;color:var(--tinta);font:500 1.05rem "IBM Plex Mono",monospace;padding:.65rem .75rem;font-variant-numeric:tabular-nums}
+.entrada input:focus{outline:none}
+.resultado .grande{font:600 clamp(1.6rem,1.2rem + 2vw,2.3rem)/1.1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:.2rem 0 .6rem}
+.resultado .linha-res{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px solid var(--linha);font-size:.95rem}
+.resultado .linha-res b{font-family:"IBM Plex Mono",monospace;font-weight:500;font-variant-numeric:tabular-nums}
+.barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--superficie);margin:.6rem 0 .3rem}
+.barra i{display:block;height:100%}
+.barra .b1{background:var(--suave)}.barra .b2{background:var(--acao)}
+.legenda-barra{display:flex;gap:1rem;font-size:.82rem;color:var(--suave);flex-wrap:wrap}
+.legenda-barra i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;margin-right:.3rem;vertical-align:-1px}
+.erro-calc{color:var(--baixa);font-size:.9rem;min-height:1.2em}
+.pregao{font-size:.9rem;color:var(--suave);border-top:1px solid var(--linha);padding:1rem 0;margin-top:2rem}
+.rodape{background:var(--papel);border-top:1px solid var(--linha);padding:2rem 0 1.4rem;font-size:.92rem;color:var(--suave)}
+.rodape .casca{display:grid;gap:1.4rem}
+@media (min-width:760px){.rodape .casca{grid-template-columns:1.3fr 1fr 1fr}}
+.rodape h2{font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;color:var(--tinta);margin:0 0 .5rem}
+.rodape ul{list-style:none;padding:0;margin:0}
+.rodape a{color:var(--suave)}
+.rodape a:hover{color:var(--tinta)}
+.rodape .fixo{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:1rem;font-size:.86rem}
+.rodape .fixo strong{color:var(--tinta)}
+.consentimento{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 10px 40px -10px rgba(0,0,0,.35)}
+.consentimento .casca{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;padding:.9rem 1rem}
+.consentimento p{margin:0;flex:1 1 22rem;font-size:.9rem;color:var(--suave)}
+.consentimento .botoes{display:flex;gap:.5rem}
+.consentimento button{font:600 .9rem "Archivo",sans-serif;padding:.55rem .9rem;border-radius:9px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);cursor:pointer}
+.consentimento button.principal{background:var(--acao);border-color:var(--acao);color:#fff}
+@media (prefers-color-scheme:dark){.consentimento button.principal{color:#0B1220}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mercado na Lupa">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="PETR4 (Petrobras PN): cotação e histórico · Mercado na Lupa">
+<meta property="og:description" content="Cotação de fechamento da ação PETR4 (Petrobras PN) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.">
+<meta property="og:url" content="https://mercadonalupa.com.br/ativos/petr4.html">
+<meta property="og:image" content="https://mercadonalupa.com.br/assets/img/og-petr4.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "PETR4 (Petrobras PN): cotação e histórico · Mercado na Lupa", "description": "Cotação de fechamento da ação PETR4 (Petrobras PN) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.", "url": "https://mercadonalupa.com.br/ativos/petr4.html", "inLanguage": "pt-BR", "dateModified": "2026-10-02", "about": {"@type": "Corporation", "name": "PETRÓLEO BRASILEIRO S.A. - PETROBRAS", "tickerSymbol": "BVMF:PETR4"}, "publisher": {"@type": "Organization", "name": "Mercado na Lupa", "url": "https://mercadonalupa.com.br/", "logo": {"@type": "ImageObject", "url": "https://mercadonalupa.com.br/assets/marca/lupa-512.png", "width": 512, "height": 512}, "email": "allangipa@gmail.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mercado na Lupa", "item": "https://mercadonalupa.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Ativos", "item": "https://mercadonalupa.com.br/ativos.html"}, {"@type": "ListItem", "position": 3, "name": "PETR4", "item": "https://mercadonalupa.com.br/ativos/petr4.html"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="casca">
+    <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="../ativos.html" aria-current="page">Ativos</a>
+      <a href="../guias.html">Guias</a>
+      <a href="../calculadoras.html">Calculadoras</a>
+      <a href="../sobre.html">Sobre</a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo"><div class="casca">
+<nav class="migalhas" aria-label="Você está em"><a href="../index.html">Início</a> › <a href="../ativos.html">Ativos</a> › <span aria-current="page">PETR4</span></nav>
+<div class="cab-ativo">
+  <div>
+    <p class="rotulo tipo">Ação · B3</p>
+    <h1><span class="cod">PETR4</span> — Petrobras PN</h1>
+    <p class="razao">PETRÓLEO BRASILEIRO S.A. - PETROBRAS</p>
+  </div>
+  <div class="preco">
+    <div class="valor num"><small>R$</small>51,17</div>
+    <div style="margin-top:.5rem"><span class="var alta selo-var">▲ +2,81%</span> <span class="quando">no dia</span></div>
+    <p class="quando">Fechamento de 02/10/2026, comparado com 01/10/2026</p>
+  </div>
+</div>
+
+<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 49,74</dd></div><div><dt>Mínima do dia</dt><dd>R$ 49,40</dd></div><div><dt>Máxima do dia</dt><dd>R$ 51,35</dd></div><div><dt>Preço médio</dt><dd>R$ 50,50</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 49,77</dd></div><div><dt>Volume financeiro</dt><dd>R$ 2,89 bi</dd></div><div><dt>Negócios</dt><dd>67.446</dd></div><div><dt>Quantidade negociada</dt><dd>57,29 mi</dd></div></dl>
+<h2 id="grafico">Histórico de fechamento</h2>
+<div class="grafico"><input type="radio" class="sr" name="per-petr4" id="p-12m" checked><input type="radio" class="sr" name="per-petr4" id="p-6m"><input type="radio" class="sr" name="per-petr4" id="p-1m"><div class="periodos" role="group" aria-label="Período do gráfico"><label for="p-12m">12 meses</label><label for="p-6m">6 meses</label><label for="p-1m">1 mês</label></div><div class="paineis"><svg class="g-12m" viewBox="0 0 720 330" role="img" aria-labelledby="t-petr4-g-12m"><title id="t-petr4-g-12m">PETR4: fechamento diário de 02/10/2025 a 02/10/2026. Mínimo de R$ 29,45 em 16/10/2025, máximo de R$ 51,17 em 02/10/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">20</text><line class="grade-y" x1="82" x2="708" y1="215.5" y2="215.5"/><text x="72" y="222.5" text-anchor="end">30</text><line class="grade-y" x1="82" x2="708" y1="149.0" y2="149.0"/><text x="72" y="156.0" text-anchor="end">40</text><line class="grade-y" x1="82" x2="708" y1="82.5" y2="82.5"/><text x="72" y="89.5" text-anchor="end">50</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">60</text><path class="area" d="M82.0,282 L82.0,208.3 L84.5,208.8 L87.0,210.7 L89.5,210.0 L92.1,211.2 L94.6,214.1 L97.1,215.9 L99.6,214.0 L102.1,215.4 L104.6,217.2 L107.1,219.2 L109.7,217.3 L112.2,217.2 L114.7,218.8 L117.2,216.5 L119.7,214.2 L122.2,216.6 L124.7,215.5 L127.3,215.6 L129.8,215.4 L132.3,216.2 L134.8,217.2 L137.3,214.8 L139.8,213.8 L142.3,209.8 L144.9,208.8 L147.4,201.0 L149.9,199.8 L152.4,194.2 L154.9,199.9 L157.4,198.9 L159.9,197.5 L162.4,196.3 L165.0,195.6 L167.5,196.7 L170.0,198.4 L172.5,198.6 L175.0,200.3 L177.5,200.7 L180.0,199.5 L182.6,203.6 L185.1,203.2 L187.6,201.7 L190.1,200.1 L192.6,198.7 L195.1,206.4 L197.6,204.5 L200.2,203.1 L202.7,202.6 L205.2,207.1 L207.7,204.9 L210.2,204.2 L212.7,210.6 L215.2,208.3 L217.8,209.5 L220.3,208.8 L222.8,208.2 L225.3,213.4 L227.8,212.8 L230.3,210.6 L232.8,210.0 L235.4,210.8 L237.9,214.2 L240.4,217.9 L242.9,216.6 L245.4,214.2 L247.9,213.5 L250.4,213.1 L253.0,207.9 L255.5,202.3 L258.0,203.6 L260.5,201.9 L263.0,201.1 L265.5,200.3 L268.0,192.7 L270.6,191.7 L273.1,182.0 L275.6,179.9 L278.1,174.7 L280.6,166.7 L283.1,164.3 L285.6,163.9 L288.2,167.4 L290.7,165.1 L293.2,165.5 L295.7,168.9 L298.2,171.3 L300.7,166.8 L303.2,166.6 L305.8,161.8 L308.3,168.2 L310.8,169.7 L313.3,167.7 L315.8,163.6 L318.3,162.5 L320.8,158.4 L323.3,151.9 L325.9,151.9 L328.4,151.6 L330.9,153.5 L333.4,141.5 L335.9,142.7 L338.4,145.7 L340.9,144.4 L343.5,135.0 L346.0,128.0 L348.5,129.5 L351.0,117.1 L353.5,115.8 L356.0,117.9 L358.5,111.9 L361.1,106.6 L363.6,102.4 L366.1,103.9 L368.6,111.3 L371.1,108.9 L373.6,100.7 L376.1,99.1 L378.7,95.7 L381.2,86.4 L383.7,84.7 L386.2,91.3 L388.7,100.0 L391.2,94.8 L393.7,89.5 L396.3,92.4 L398.8,105.0 L401.3,96.5 L403.8,89.0 L406.3,84.0 L408.8,96.6 L411.3,103.2 L413.9,91.9 L416.4,107.6 L418.9,102.3 L421.4,98.0 L423.9,97.3 L426.4,101.4 L428.9,100.0 L431.5,99.0 L434.0,89.4 L436.5,88.6 L439.0,86.9 L441.5,91.4 L444.0,100.7 L446.5,107.6 L449.1,111.3 L451.6,106.2 L454.1,111.2 L456.6,118.6 L459.1,115.8 L461.6,112.6 L464.1,106.2 L466.7,108.5 L469.2,118.4 L471.7,116.1 L474.2,119.2 L476.7,126.4 L479.2,126.1 L481.7,130.2 L484.2,132.3 L486.8,135.7 L489.3,133.2 L491.8,138.6 L494.3,140.7 L496.8,143.1 L499.3,140.9 L501.8,141.2 L504.4,138.0 L506.9,137.3 L509.4,141.2 L511.9,155.3 L514.4,158.7 L516.9,158.5 L519.4,156.6 L522.0,157.0 L524.5,154.5 L527.0,153.5 L529.5,160.4 L532.0,159.3 L534.5,161.9 L537.0,161.4 L539.6,163.6 L542.1,163.4 L544.6,162.6 L547.1,160.6 L549.6,163.8 L552.1,159.4 L554.6,151.3 L557.2,154.3 L559.7,151.3 L562.2,144.6 L564.7,144.6 L567.2,145.1 L569.7,149.7 L572.2,143.0 L574.8,141.4 L577.3,138.0 L579.8,131.8 L582.3,129.4 L584.8,134.3 L587.3,142.3 L589.8,141.0 L592.4,135.7 L594.9,130.1 L597.4,126.3 L599.9,128.7 L602.4,132.4 L604.9,136.2 L607.4,134.8 L610.0,143.2 L612.5,134.2 L615.0,138.0 L617.5,139.4 L620.0,136.4 L622.5,135.1 L625.0,132.6 L627.6,131.7 L630.1,128.3 L632.6,120.3 L635.1,120.4 L637.6,135.0 L640.1,140.0 L642.6,139.4 L645.1,131.0 L647.7,125.4 L650.2,115.6 L652.7,103.3 L655.2,94.5 L657.7,98.7 L660.2,101.7 L662.7,95.2 L665.3,93.0 L667.8,88.4 L670.3,89.2 L672.8,89.7 L675.3,79.6 L677.8,91.5 L680.3,91.7 L682.9,92.5 L685.4,95.8 L687.9,93.5 L690.4,85.2 L692.9,87.4 L695.4,95.9 L697.9,91.0 L700.5,88.5 L703.0,88.4 L705.5,84.0 L708.0,74.7 L708.0,282 Z"/><polyline class="linha" points="82.0,208.3 84.5,208.8 87.0,210.7 89.5,210.0 92.1,211.2 94.6,214.1 97.1,215.9 99.6,214.0 102.1,215.4 104.6,217.2 107.1,219.2 109.7,217.3 112.2,217.2 114.7,218.8 117.2,216.5 119.7,214.2 122.2,216.6 124.7,215.5 127.3,215.6 129.8,215.4 132.3,216.2 134.8,217.2 137.3,214.8 139.8,213.8 142.3,209.8 144.9,208.8 147.4,201.0 149.9,199.8 152.4,194.2 154.9,199.9 157.4,198.9 159.9,197.5 162.4,196.3 165.0,195.6 167.5,196.7 170.0,198.4 172.5,198.6 175.0,200.3 177.5,200.7 180.0,199.5 182.6,203.6 185.1,203.2 187.6,201.7 190.1,200.1 192.6,198.7 195.1,206.4 197.6,204.5 200.2,203.1 202.7,202.6 205.2,207.1 207.7,204.9 210.2,204.2 212.7,210.6 215.2,208.3 217.8,209.5 220.3,208.8 222.8,208.2 225.3,213.4 227.8,212.8 230.3,210.6 232.8,210.0 235.4,210.8 237.9,214.2 240.4,217.9 242.9,216.6 245.4,214.2 247.9,213.5 250.4,213.1 253.0,207.9 255.5,202.3 258.0,203.6 260.5,201.9 263.0,201.1 265.5,200.3 268.0,192.7 270.6,191.7 273.1,182.0 275.6,179.9 278.1,174.7 280.6,166.7 283.1,164.3 285.6,163.9 288.2,167.4 290.7,165.1 293.2,165.5 295.7,168.9 298.2,171.3 300.7,166.8 303.2,166.6 305.8,161.8 308.3,168.2 310.8,169.7 313.3,167.7 315.8,163.6 318.3,162.5 320.8,158.4 323.3,151.9 325.9,151.9 328.4,151.6 330.9,153.5 333.4,141.5 335.9,142.7 338.4,145.7 340.9,144.4 343.5,135.0 346.0,128.0 348.5,129.5 351.0,117.1 353.5,115.8 356.0,117.9 358.5,111.9 361.1,106.6 363.6,102.4 366.1,103.9 368.6,111.3 371.1,108.9 373.6,100.7 376.1,99.1 378.7,95.7 381.2,86.4 383.7,84.7 386.2,91.3 388.7,100.0 391.2,94.8 393.7,89.5 396.3,92.4 398.8,105.0 401.3,96.5 403.8,89.0 406.3,84.0 408.8,96.6 411.3,103.2 413.9,91.9 416.4,107.6 418.9,102.3 421.4,98.0 423.9,97.3 426.4,101.4 428.9,100.0 431.5,99.0 434.0,89.4 436.5,88.6 439.0,86.9 441.5,91.4 444.0,100.7 446.5,107.6 449.1,111.3 451.6,106.2 454.1,111.2 456.6,118.6 459.1,115.8 461.6,112.6 464.1,106.2 466.7,108.5 469.2,118.4 471.7,116.1 474.2,119.2 476.7,126.4 479.2,126.1 481.7,130.2 484.2,132.3 486.8,135.7 489.3,133.2 491.8,138.6 494.3,140.7 496.8,143.1 499.3,140.9 501.8,141.2 504.4,138.0 506.9,137.3 509.4,141.2 511.9,155.3 514.4,158.7 516.9,158.5 519.4,156.6 522.0,157.0 524.5,154.5 527.0,153.5 529.5,160.4 532.0,159.3 534.5,161.9 537.0,161.4 539.6,163.6 542.1,163.4 544.6,162.6 547.1,160.6 549.6,163.8 552.1,159.4 554.6,151.3 557.2,154.3 559.7,151.3 562.2,144.6 564.7,144.6 567.2,145.1 569.7,149.7 572.2,143.0 574.8,141.4 577.3,138.0 579.8,131.8 582.3,129.4 584.8,134.3 587.3,142.3 589.8,141.0 592.4,135.7 594.9,130.1 597.4,126.3 599.9,128.7 602.4,132.4 604.9,136.2 607.4,134.8 610.0,143.2 612.5,134.2 615.0,138.0 617.5,139.4 620.0,136.4 622.5,135.1 625.0,132.6 627.6,131.7 630.1,128.3 632.6,120.3 635.1,120.4 637.6,135.0 640.1,140.0 642.6,139.4 645.1,131.0 647.7,125.4 650.2,115.6 652.7,103.3 655.2,94.5 657.7,98.7 660.2,101.7 662.7,95.2 665.3,93.0 667.8,88.4 670.3,89.2 672.8,89.7 675.3,79.6 677.8,91.5 680.3,91.7 682.9,92.5 685.4,95.8 687.9,93.5 690.4,85.2 692.9,87.4 695.4,95.9 697.9,91.0 700.5,88.5 703.0,88.4 705.5,84.0 708.0,74.7"/><circle class="ponto" cx="708.0" cy="74.7" r="6"/><text x="137.3" y="316" text-anchor="middle">nov</text><text x="235.4" y="316" text-anchor="middle">jan/26</text><text x="333.4" y="316" text-anchor="middle">mar</text><text x="439.0" y="316" text-anchor="middle">mai</text><text x="542.1" y="316" text-anchor="middle">jul</text><text x="652.7" y="316" text-anchor="middle">set</text></svg><svg class="g-6m" viewBox="0 0 720 330" role="img" aria-labelledby="t-petr4-g-6m"><title id="t-petr4-g-6m">PETR4: fechamento diário de 06/04/2026 a 02/10/2026. Mínimo de R$ 37,77 em 06/07/2026, máximo de R$ 51,17 em 02/10/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">35</text><line class="grade-y" x1="82" x2="708" y1="215.5" y2="215.5"/><text x="72" y="222.5" text-anchor="end">40</text><line class="grade-y" x1="82" x2="708" y1="149.0" y2="149.0"/><text x="72" y="156.0" text-anchor="end">45</text><line class="grade-y" x1="82" x2="708" y1="82.5" y2="82.5"/><text x="72" y="89.5" text-anchor="end">50</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">55</text><path class="area" d="M82.0,282 L82.0,96.6 L87.0,102.3 L92.0,127.6 L97.0,110.4 L102.0,95.4 L107.0,85.4 L112.0,110.7 L117.1,123.9 L122.1,101.4 L127.1,132.8 L132.1,122.1 L137.1,113.5 L142.1,112.2 L147.1,120.3 L152.1,117.5 L157.1,115.5 L162.1,96.3 L167.1,94.7 L172.1,91.3 L177.2,100.3 L182.2,118.8 L187.2,132.8 L192.2,140.1 L197.2,130.0 L202.2,140.0 L207.2,154.7 L212.2,149.0 L217.2,142.7 L222.2,129.8 L227.2,134.5 L232.2,154.3 L237.2,149.7 L242.3,155.9 L247.3,170.3 L252.3,169.7 L257.3,178.0 L262.3,182.1 L267.3,188.9 L272.3,184.0 L277.3,194.6 L282.3,198.9 L287.3,203.7 L292.3,199.3 L297.3,199.9 L302.4,193.6 L307.4,192.1 L312.4,199.8 L317.4,228.0 L322.4,234.9 L327.4,234.5 L332.4,230.8 L337.4,231.5 L342.4,226.5 L347.4,224.4 L352.4,238.2 L357.4,236.1 L362.4,241.3 L367.5,240.2 L372.5,244.8 L377.5,244.4 L382.5,242.6 L387.5,238.8 L392.5,245.2 L397.5,236.2 L402.5,220.2 L407.5,226.0 L412.5,220.2 L417.5,206.7 L422.5,206.7 L427.6,207.7 L432.6,217.0 L437.6,203.5 L442.6,200.2 L447.6,193.4 L452.6,181.2 L457.6,176.3 L462.6,186.1 L467.6,202.1 L472.6,199.4 L477.6,188.9 L482.6,177.7 L487.6,170.0 L492.7,174.9 L497.7,182.2 L502.7,189.8 L507.7,187.2 L512.7,203.9 L517.7,185.8 L522.7,193.4 L527.7,196.2 L532.7,190.2 L537.7,187.7 L542.7,182.6 L547.7,180.9 L552.8,174.1 L557.8,158.0 L562.8,158.3 L567.8,187.4 L572.8,197.5 L577.8,196.2 L582.8,179.6 L587.8,168.3 L592.8,148.7 L597.8,124.1 L602.8,106.4 L607.8,115.0 L612.8,120.9 L617.9,107.9 L622.9,103.5 L627.9,94.2 L632.9,95.8 L637.9,96.9 L642.9,76.8 L647.9,100.5 L652.9,101.0 L657.9,102.4 L662.9,109.1 L667.9,104.4 L672.9,87.8 L678.0,92.3 L683.0,109.2 L688.0,99.5 L693.0,94.5 L698.0,94.2 L703.0,85.6 L708.0,66.9 L708.0,282 Z"/><polyline class="linha" points="82.0,96.6 87.0,102.3 92.0,127.6 97.0,110.4 102.0,95.4 107.0,85.4 112.0,110.7 117.1,123.9 122.1,101.4 127.1,132.8 132.1,122.1 137.1,113.5 142.1,112.2 147.1,120.3 152.1,117.5 157.1,115.5 162.1,96.3 167.1,94.7 172.1,91.3 177.2,100.3 182.2,118.8 187.2,132.8 192.2,140.1 197.2,130.0 202.2,140.0 207.2,154.7 212.2,149.0 217.2,142.7 222.2,129.8 227.2,134.5 232.2,154.3 237.2,149.7 242.3,155.9 247.3,170.3 252.3,169.7 257.3,178.0 262.3,182.1 267.3,188.9 272.3,184.0 277.3,194.6 282.3,198.9 287.3,203.7 292.3,199.3 297.3,199.9 302.4,193.6 307.4,192.1 312.4,199.8 317.4,228.0 322.4,234.9 327.4,234.5 332.4,230.8 337.4,231.5 342.4,226.5 347.4,224.4 352.4,238.2 357.4,236.1 362.4,241.3 367.5,240.2 372.5,244.8 377.5,244.4 382.5,242.6 387.5,238.8 392.5,245.2 397.5,236.2 402.5,220.2 407.5,226.0 412.5,220.2 417.5,206.7 422.5,206.7 427.6,207.7 432.6,217.0 437.6,203.5 442.6,200.2 447.6,193.4 452.6,181.2 457.6,176.3 462.6,186.1 467.6,202.1 472.6,199.4 477.6,188.9 482.6,177.7 487.6,170.0 492.7,174.9 497.7,182.2 502.7,189.8 507.7,187.2 512.7,203.9 517.7,185.8 522.7,193.4 527.7,196.2 532.7,190.2 537.7,187.7 542.7,182.6 547.7,180.9 552.8,174.1 557.8,158.0 562.8,158.3 567.8,187.4 572.8,197.5 577.8,196.2 582.8,179.6 587.8,168.3 592.8,148.7 597.8,124.1 602.8,106.4 607.8,115.0 612.8,120.9 617.9,107.9 622.9,103.5 627.9,94.2 632.9,95.8 637.9,96.9 642.9,76.8 647.9,100.5 652.9,101.0 657.9,102.4 662.9,109.1 667.9,104.4 672.9,87.8 678.0,92.3 683.0,109.2 688.0,99.5 693.0,94.5 698.0,94.2 703.0,85.6 708.0,66.9"/><circle class="ponto" cx="708.0" cy="66.9" r="6"/><text x="172.1" y="316" text-anchor="middle">mai</text><text x="272.3" y="316" text-anchor="middle">jun</text><text x="377.5" y="316" text-anchor="middle">jul</text><text x="492.7" y="316" text-anchor="middle">ago</text><text x="597.8" y="316" text-anchor="middle">set</text><text x="703.0" y="316" text-anchor="middle">out</text></svg><svg class="g-1m" viewBox="0 0 720 330" role="img" aria-labelledby="t-petr4-g-1m"><title id="t-petr4-g-1m">PETR4: fechamento diário de 02/09/2026 a 02/10/2026. Mínimo de R$ 47,11 em 04/09/2026, máximo de R$ 51,17 em 02/10/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">46</text><line class="grade-y" x1="82" x2="708" y1="193.3" y2="193.3"/><text x="72" y="200.3" text-anchor="end">48</text><line class="grade-y" x1="82" x2="708" y1="104.7" y2="104.7"/><text x="72" y="111.7" text-anchor="end">50</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">52</text><path class="area" d="M82.0,282 L82.0,184.5 L111.8,212.8 L141.6,232.8 L171.4,189.3 L201.2,174.7 L231.0,143.7 L260.9,149.0 L290.7,152.5 L320.5,85.6 L350.3,164.5 L380.1,166.3 L409.9,171.2 L439.7,193.3 L469.5,177.8 L499.3,122.4 L529.1,137.5 L559.0,193.8 L588.8,161.4 L618.6,144.6 L648.4,143.7 L678.2,114.9 L708.0,52.8 L708.0,282 Z"/><polyline class="linha" points="82.0,184.5 111.8,212.8 141.6,232.8 171.4,189.3 201.2,174.7 231.0,143.7 260.9,149.0 290.7,152.5 320.5,85.6 350.3,164.5 380.1,166.3 409.9,171.2 439.7,193.3 469.5,177.8 499.3,122.4 529.1,137.5 559.0,193.8 588.8,161.4 618.6,144.6 648.4,143.7 678.2,114.9 708.0,52.8"/><circle class="ponto" cx="708.0" cy="52.8" r="6"/><text x="82.0" y="316" text-anchor="middle">02/09</text><text x="231.0" y="316" text-anchor="middle">10/09</text><text x="380.1" y="316" text-anchor="middle">17/09</text><text x="529.1" y="316" text-anchor="middle">24/09</text><text x="678.2" y="316" text-anchor="middle">01/10</text></svg></div><p class="legenda">Preço de fechamento diário, em reais, sem ajuste por proventos, desdobramentos ou grupamentos. Fonte: B3, série histórica de cotações.</p></div>
+<p class="data-regra" style="margin-top:.8rem">Em 12 meses, o preço oscilou entre <span class="num">R$ 29,31</span> (mínima intradiária) e <span class="num">R$ 51,35</span> (máxima intradiária).</p>
+<div class="grade grade-2" style="margin-top:1rem">
+<section><h2 id="o-que-e">O que é PETR4</h2><p>A <strong>PETRÓLEO BRASILEIRO S.A. - PETROBRAS</strong> é uma companhia aberta registrada na Comissão de Valores Mobiliários (CVM) desde 20/07/1977, sob o código CVM 9512, com sede em Rio de Janeiro (RJ). No cadastro da CVM, o setor de atividade informado é “Petróleo e Gás”.</p><p><strong>PETR4</strong> é o código de negociação das ações preferenciais (PN) da companhia na B3, no segmento de listagem Nível 2. O código ISIN do papel é BRPETRACNPR6. Ações preferenciais, em regra, não dão direito a voto, e têm em troca alguma preferência prevista em lei e no estatuto, como prioridade no recebimento de dividendos.</p></section>
+<section><h2 id="ficha">Ficha</h2><dl class="ficha"><dt>Razão social</dt><dd>PETRÓLEO BRASILEIRO S.A. - PETROBRAS</dd><dt>CNPJ</dt><dd>33.000.167/0001-01</dd><dt>Código CVM</dt><dd>9512</dd><dt>Setor (CVM)</dt><dd>Petróleo e Gás</dd><dt>Controle acionário (CVM)</dt><dd>Estatal holding</dd><dt>Sede</dt><dd>Rio de Janeiro (RJ)</dd><dt>Registro na CVM</dt><dd>20/07/1977</dd><dt>Espécie</dt><dd>preferenciais (PN)</dd><dt>Segmento de listagem</dt><dd>Nível 2</dd><dt>Código ISIN</dt><dd>BRPETRACNPR6</dd><dt>Nome no pregão (B3)</dt><dd>PETROBRAS</dd></dl></section>
+</div>
+<h2 id="pregoes">Últimos pregões</h2>
+<div class="rolagem"><table><caption>Últimos 10 pregões com negócio</caption><thead><tr><th>Data</th><th class="n">Fechamento</th><th class="n">Variação</th><th class="n">Mínima</th><th class="n">Máxima</th><th class="n">Volume</th></tr></thead><tbody><tr><td class="n">02/10/2026</td><td class="n">51,17</td><td class="n"><span class="var alta">▲ +2,81%</span></td><td class="n">49,40</td><td class="n">51,35</td><td class="n">R$ 2,89 bi</td></tr><tr><td class="n">01/10/2026</td><td class="n">49,77</td><td class="n"><span class="var alta">▲ +1,32%</span></td><td class="n">49,13</td><td class="n">50,03</td><td class="n">R$ 1,70 bi</td></tr><tr><td class="n">30/09/2026</td><td class="n">49,12</td><td class="n"><span class="var alta">▲ +0,04%</span></td><td class="n">49,12</td><td class="n">50,03</td><td class="n">R$ 1,58 bi</td></tr><tr><td class="n">29/09/2026</td><td class="n">49,10</td><td class="n"><span class="var alta">▲ +0,78%</span></td><td class="n">47,89</td><td class="n">49,10</td><td class="n">R$ 1,17 bi</td></tr><tr><td class="n">28/09/2026</td><td class="n">48,72</td><td class="n"><span class="var alta">▲ +1,52%</span></td><td class="n">48,28</td><td class="n">49,27</td><td class="n">R$ 2,29 bi</td></tr><tr><td class="n">25/09/2026</td><td class="n">47,99</td><td class="n"><span class="var baixa">▼ −2,58%</span></td><td class="n">47,92</td><td class="n">48,87</td><td class="n">R$ 1,66 bi</td></tr><tr><td class="n">24/09/2026</td><td class="n">49,26</td><td class="n"><span class="var baixa">▼ −0,69%</span></td><td class="n">49,17</td><td class="n">50,24</td><td class="n">R$ 1,72 bi</td></tr><tr><td class="n">23/09/2026</td><td class="n">49,60</td><td class="n"><span class="var alta">▲ +2,59%</span></td><td class="n">48,52</td><td class="n">50,06</td><td class="n">R$ 2,16 bi</td></tr><tr><td class="n">22/09/2026</td><td class="n">48,35</td><td class="n"><span class="var alta">▲ +0,73%</span></td><td class="n">47,30</td><td class="n">48,54</td><td class="n">R$ 2,35 bi</td></tr><tr><td class="n">21/09/2026</td><td class="n">48,00</td><td class="n"><span class="var baixa">▼ −1,03%</span></td><td class="n">47,80</td><td class="n">48,40</td><td class="n">R$ 1,38 bi</td></tr></tbody></table></div>
+<h2 id="como-ler">Como ler esta página</h2>
+<ul>
+ <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista, em lote padrão, como publicado pela B3.</li>
+ <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um dividendo, a queda de preço aparece como variação.</li>
+ <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
+ <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
+</ul>
+<h2 id="guias">Para entender os números</h2>
+<ul><li><a href="../guias/o-que-e-p-l.html">O que é P/L</a></li><li><a href="../guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="../guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
+<h2 id="outros">Outros ações acompanhados</h2>
+<ul class="chips"><li><a href="vale3.html">VALE3</a></li><li><a href="itub4.html">ITUB4</a></li><li><a href="bbas3.html">BBAS3</a></li><li><a href="wege3.html">WEGE3</a></li><li><a href="abev3.html">ABEV3</a></li></ul>
+<h2 id="fontes">Fontes</h2>
+<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv" rel="noopener">CVM, cadastro de companhias abertas</a></li>
+<li>Cadastro da CVM atualizado em 03/10/2026.</li></ul>
+<div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Esta página reúne dados públicos sobre PETR4 e não é análise nem indicação de compra ou venda.</div>
+</div></main>
+<p class="pregao casca">Cotações de fechamento do pregão de 02/10/2026. Fonte: B3. Dados com atraso, apenas informativos.</p><footer class="rodape">
+  <div class="casca">
+    <div>
+      <h2>Mercado na Lupa</h2>
+      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+    </div>
+    <div>
+      <h2>Navegue</h2>
+      <ul>
+        <li><a href="../ativos.html">Ativos acompanhados</a></li>
+        <li><a href="../guias.html">Guias</a> · <a href="../calculadoras.html">Calculadoras</a></li>
+        <li><a href="../sobre.html">Sobre</a> · <a href="../contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Este site</h2>
+      <ul>
+        <li>Exibe anúncios do Google AdSense. <a href="../privacidade.html">Política de privacidade</a>. <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>.</li>
+        <li>Da mesma casa: <a href="https://guiaprodutonalupa.com.br" rel="noopener">Guia Produto na Lupa</a> e <a href="https://viagemnalupa.com.br" rel="noopener">Viagem na Lupa</a>.</li>
+      </ul>
+    </div>
+    <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+  </div>
+</footer>
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="casca">
+    <p>Este site usa cookies do Google AdSense para exibir anúncios e medir audiência. Não pedimos cadastro nem e-mail, e as calculadoras não enviam o que você digita. Detalhes na <a href="../privacidade.html">política de privacidade</a>.</p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var CHAVE='ml-consentimento', PUB='pub-4401770243539507', BLOQUEIA=false;
+  function ler(){try{return localStorage.getItem(CHAVE)}catch(e){return null}}
+  function gravar(v){try{localStorage.setItem(CHAVE,v)}catch(e){}}
+  function carrega(){
+    if(!PUB||document.getElementById('ads-google'))return;
+    var s=document.createElement('script');s.id='ads-google';s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-'+PUB;
+    document.head.appendChild(s);
+  }
+  // "Rever escolha de cookies", no rodapé: apaga a escolha salva e recarrega.
+  document.querySelectorAll('[data-rever-cookies]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      try{localStorage.removeItem(CHAVE)}catch(e){}
+      location.reload();
+    });
+  });
+  var escolha=ler();
+  if(escolha==='aceitar'||(escolha===null&&!BLOQUEIA))carrega();
+  var caixa=document.getElementById('consentimento');
+  if(escolha===null&&caixa){
+    caixa.hidden=false;
+    caixa.addEventListener('click',function(ev){
+      var b=ev.target.closest('[data-consent]');if(!b)return;
+      var v=b.dataset.consent;gravar(v);caixa.hidden=true;
+      if(v==='aceitar')carrega();else{var x=document.getElementById('ads-google');if(x)x.remove();}
+    });
+  }
+  // Europa, Reino Unido, Suíça: quem pergunta é a mensagem do Google (CMP
+  // certificada). Se ela diz que o GDPR se aplica, esta faixa sai da frente.
+  if(escolha===null&&caixa){
+    var n=0,t=setInterval(function(){
+      if(typeof window.__tcfapi==='function'){
+        clearInterval(t);
+        window.__tcfapi('addEventListener',2,function(tc,ok){if(ok&&tc&&tc.gdprApplies)caixa.hidden=true;});
+      }else if(++n>40)clearInterval(t);
+    },250);
+  }
+})();
+</script>
+</body>
+</html>

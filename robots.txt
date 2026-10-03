@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_src/
+Disallow: /dados/
+
+Sitemap: https://mercadonalupa.com.br/sitemap.xml

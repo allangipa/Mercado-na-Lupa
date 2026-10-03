@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ITUB4: cotação de fechamento e histórico · Mercado na Lupa</title>
+<meta name="description" content="Cotação de fechamento da ação ITUB4 (Itaú Unibanco PN) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.">
+<link rel="canonical" href="https://mercadonalupa.com.br/ativos/itub4.html">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="../assets/marca/lupa.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/marca/lupa-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="../assets/marca/lupa-180.png">
+<link rel="preload" href="/assets/fontes/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<style>@font-face{font-family:"Archivo";font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fontes/archivo-latin.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/fraunces-latin-600.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fontes/plex-mono-latin-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fontes/plex-mono-latin-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fontes/plex-mono-latin-600.woff2) format("woff2")}
+:root{
+  --fundo:#F4F6F9; --papel:#FFFFFF; --superficie:#EDF1F6; --linha:#D9DFE8;
+  --tinta:#0F1B2D; --suave:#475467; --apagado:#667085;
+  --acao:#1D4ED8; --acao-forte:#1E3A8A; --acao-suave:#E3EAFD;
+  --ouro:#B7791F;
+  --alta:#067647; --alta-suave:#DCFAE6; --baixa:#B42318; --baixa-suave:#FEE4E2;
+  --grafico:#1D4ED8; --grafico-area:rgba(29,78,216,.10);
+  --sombra:0 1px 2px rgba(15,27,45,.05),0 8px 24px -16px rgba(15,27,45,.25);
+  --raio:14px; --raio-s:9px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --fundo:#0B1220; --papel:#111A2B; --superficie:#16223A; --linha:#26344D;
+    --tinta:#E7ECF3; --suave:#A9B4C4; --apagado:#8C98AA;
+    --acao:#8DB2FF; --acao-forte:#B9CEFF; --acao-suave:#1A2C52;
+    --ouro:#E0A84A;
+    --alta:#47CD89; --alta-suave:#0E2E20; --baixa:#FF8A80; --baixa-suave:#3A1714;
+    --grafico:#8DB2FF; --grafico-area:rgba(141,178,255,.13);
+    --sombra:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fundo);color:var(--tinta);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;height:auto}
+a{color:var(--acao);text-underline-offset:.18em}
+a:hover{color:var(--acao-forte)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--acao);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,1.3rem + 2.6vw,3rem);margin-bottom:.8rem}
+h2{font-size:clamp(1.35rem,1.1rem + 1vw,1.75rem);margin-top:2.4rem;margin-bottom:.8rem;scroll-margin-top:84px}
+h3{font-size:1.15rem;margin-top:1.6rem;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+ul,ol{padding-left:1.25rem;margin:0 0 1rem}
+li{margin-bottom:.35rem}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;background:var(--superficie);padding:.08em .35em;border-radius:5px}
+.num,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.casca{max-width:72rem;margin:0 auto;padding:0 16px}
+@media (min-width:700px){.casca{padding:0 28px}}
+.estreita{max-width:46rem}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:1rem;top:1rem;z-index:60;background:var(--acao);color:#fff;padding:.6rem 1rem;border-radius:8px}
+.rotulo{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.topo{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--papel) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--linha)}
+.topo .casca{display:flex;align-items:center;gap:1rem;min-height:62px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--tinta)}
+.marca svg{width:34px;height:34px;flex:none}
+.marca span{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em;white-space:nowrap}
+.marca span i{font-style:normal;color:var(--acao)}
+.nav{display:flex;gap:.2rem;margin-left:auto;flex-wrap:wrap}
+.nav a{color:var(--suave);text-decoration:none;font-size:.95rem;padding:.45rem .65rem;border-radius:8px}
+.nav a:hover,.nav a[aria-current]{color:var(--tinta);background:var(--superficie)}
+@media (max-width:620px){
+  .topo .casca{padding-top:.5rem;padding-bottom:.35rem;gap:.2rem}
+  .nav{margin-left:-.65rem;width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .nav a{font-size:.9rem;padding:.4rem .6rem;white-space:nowrap}
+}
+main{display:block;padding:2rem 0 3.5rem}
+.migalhas{font-size:.86rem;color:var(--suave);margin-bottom:1rem}
+.migalhas a{color:var(--suave)}
+.migalhas span[aria-current]{color:var(--tinta)}
+.lead{font-size:1.12rem;color:var(--suave);max-width:44rem}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1.2rem 1.25rem;box-shadow:var(--sombra)}
+.grade{display:grid;gap:1rem}
+.grade>*{min-width:0}
+@media (min-width:760px){.grade-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.grade-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:959px){.cartoes.grade-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.aviso{border-left:4px solid var(--ouro);background:var(--papel);padding:.85rem 1rem;border-radius:0 var(--raio-s) var(--raio-s) 0;font-size:.95rem;color:var(--suave);margin:1.5rem 0}
+.aviso strong{color:var(--tinta)}
+.botao{display:inline-flex;align-items:center;gap:.4rem;background:var(--acao);color:#fff;border:0;border-radius:10px;padding:.7rem 1.1rem;font:600 1rem "Archivo",sans-serif;text-decoration:none;cursor:pointer}
+@media (prefers-color-scheme:dark){.botao{color:#0B1220}}
+.botao:hover{background:var(--acao-forte);color:#fff}
+@media (prefers-color-scheme:dark){.botao:hover{color:#0B1220}}
+.botao.claro{background:var(--superficie);color:var(--tinta)}
+.abertura{padding:2.2rem 0 1rem}
+.abertura h1{max-width:20ch;margin:.4rem 0 .9rem}
+.busca{display:flex;gap:.5rem;margin:1.4rem 0 .5rem;max-width:34rem}
+.busca input{flex:1;min-width:0;font:500 1.05rem "IBM Plex Mono",monospace;text-transform:uppercase;padding:.75rem .9rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.busca input::placeholder{text-transform:none;font-family:"Archivo",sans-serif;color:var(--apagado)}
+.busca-msg{font-size:.92rem;color:var(--suave);min-height:1.5em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.chips a{display:inline-block;font:500 .85rem "IBM Plex Mono",monospace;padding:.3rem .55rem;border-radius:7px;background:var(--papel);border:1px solid var(--linha);text-decoration:none;color:var(--tinta)}
+.chips a:hover{border-color:var(--acao)}
+.destaques h3{margin-top:0;font-family:"Archivo",sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.01em}
+.lista-dest{list-style:none;padding:0;margin:0}
+.lista-dest li{display:flex;align-items:baseline;gap:.6rem;padding:.45rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-dest li:first-child{border-top:0}
+.lista-dest a{font:600 .95rem "IBM Plex Mono",monospace;text-decoration:none;min-width:4.6rem}
+.lista-dest .nome{flex:1;color:var(--suave);font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cartoes{list-style:none;padding:0;margin:0}
+.cartoes a{display:block;height:100%;text-decoration:none;color:var(--tinta)}
+.cartoes a:hover{border-color:var(--acao)}
+.cartoes h3{margin:.3rem 0 .4rem;font-size:1.12rem}
+.cartoes p{color:var(--suave);font-size:.95rem;margin:0}
+.var{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.var.alta{color:var(--alta)}.var.baixa{color:var(--baixa)}.var.zero{color:var(--suave)}
+.selo-var{display:inline-block;padding:.12rem .45rem;border-radius:6px;font-size:.92rem}
+.selo-var.alta{background:var(--alta-suave)}.selo-var.baixa{background:var(--baixa-suave)}.selo-var.zero{background:var(--superficie)}
+.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel)}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+caption{text-align:left;padding:.8rem 1rem 0;color:var(--suave);font-size:.88rem;caption-side:top}
+th,td{padding:.6rem .9rem;text-align:left;border-bottom:1px solid var(--linha);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--suave);font-size:.82rem;letter-spacing:.02em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+td a{font-family:"IBM Plex Mono",monospace;font-weight:600;text-decoration:none}
+td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
+.cab-ativo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:1.4rem}
+.cab-ativo .tipo{margin-bottom:.4rem}
+.cab-ativo h1 .cod{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:-.02em}
+.cab-ativo .razao{color:var(--suave);margin:.35rem 0 0}
+.preco{text-align:left}
+.preco .valor{font:600 clamp(2rem,1.5rem + 2.4vw,2.9rem)/1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.preco .valor small{font-size:.45em;color:var(--suave);font-weight:500;margin-right:.25rem;letter-spacing:0}
+.preco .quando{color:var(--suave);font-size:.88rem;margin-top:.45rem}
+.numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:0;border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel);overflow:hidden}
+@media (min-width:640px){.numeros{grid-template-columns:repeat(4,1fr)}}
+.numeros div{padding:.8rem 1rem;border-bottom:1px solid var(--linha);border-right:1px solid var(--linha)}
+.numeros dt{font-size:.8rem;color:var(--suave);margin-bottom:.15rem}
+.numeros dd{margin:0;font:500 1.05rem "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.ficha{display:grid;grid-template-columns:minmax(8rem,13rem) 1fr;gap:.1rem 1rem;margin:0;font-size:.95rem}
+.ficha dt{color:var(--suave);padding:.45rem 0;border-top:1px solid var(--linha)}
+.ficha dd{margin:0;padding:.45rem 0;border-top:1px solid var(--linha);overflow-wrap:anywhere}
+@media (max-width:520px){.ficha{grid-template-columns:1fr}.ficha dd{border-top:0;padding-top:0}}
+.grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.periodos{display:flex;gap:.3rem;margin-bottom:.6rem}
+.periodos input{position:absolute;opacity:0;pointer-events:none}
+.periodos label{font:500 .85rem "IBM Plex Mono",monospace;padding:.35rem .7rem;border-radius:8px;border:1px solid var(--linha);cursor:pointer;color:var(--suave)}
+.grafico svg{display:none;width:100%;height:auto}
+#p-12m:checked~.paineis .g-12m,#p-6m:checked~.paineis .g-6m,#p-1m:checked~.paineis .g-1m{display:block}
+.grafico:has(#p-12m:checked) label[for=p-12m],.grafico:has(#p-6m:checked) label[for=p-6m],.grafico:has(#p-1m:checked) label[for=p-1m]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.grafico .linha{fill:none;stroke:var(--grafico);stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.grafico .area{fill:var(--grafico-area)}
+.grafico .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico text{font:500 20px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico text{font-size:15px}}
+.grafico .ponto{fill:var(--papel);stroke:var(--grafico);stroke-width:2;vector-effect:non-scaling-stroke}
+.grafico .legenda{font-size:.84rem;color:var(--suave);margin:.4rem 0 0}
+.texto{max-width:44rem}
+.texto h2{scroll-margin-top:80px}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:1rem;background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--acao);border-radius:0 var(--raio-s) var(--raio-s) 0;padding:.9rem 1rem;margin:1rem 0 1.2rem;overflow-x:auto;white-space:nowrap}
+.exemplo{background:var(--superficie);border-radius:var(--raio-s);padding:1rem 1.1rem;margin:1rem 0 1.4rem}
+.exemplo p:last-child{margin-bottom:0}
+.fontes{font-size:.9rem;color:var(--suave)}
+.fontes li{margin-bottom:.5rem}
+.data-regra{font-size:.9rem;color:var(--suave)}
+.calc{display:grid;gap:1.2rem}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,22rem) 1fr;align-items:start}}
+.campos label{display:block;font-weight:600;font-size:.93rem;margin:0 0 .3rem}
+.campos .dica{display:block;font-weight:400;color:var(--suave);font-size:.84rem}
+.campos .campo{margin-bottom:1rem}
+.entrada{display:flex;align-items:center;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);overflow:hidden}
+.entrada:focus-within{border-color:var(--acao)}
+.entrada span{padding:0 .7rem;color:var(--suave);font:500 .92rem "IBM Plex Mono",monospace;background:var(--superficie);align-self:stretch;display:flex;align-items:center}
+.entrada input{flex:1;min-width:0;border:0;background:transparent;color:var(--tinta);font:500 1.05rem "IBM Plex Mono",monospace;padding:.65rem .75rem;font-variant-numeric:tabular-nums}
+.entrada input:focus{outline:none}
+.resultado .grande{font:600 clamp(1.6rem,1.2rem + 2vw,2.3rem)/1.1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:.2rem 0 .6rem}
+.resultado .linha-res{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-top:1px solid var(--linha);font-size:.95rem}
+.resultado .linha-res b{font-family:"IBM Plex Mono",monospace;font-weight:500;font-variant-numeric:tabular-nums}
+.barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--superficie);margin:.6rem 0 .3rem}
+.barra i{display:block;height:100%}
+.barra .b1{background:var(--suave)}.barra .b2{background:var(--acao)}
+.legenda-barra{display:flex;gap:1rem;font-size:.82rem;color:var(--suave);flex-wrap:wrap}
+.legenda-barra i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;margin-right:.3rem;vertical-align:-1px}
+.erro-calc{color:var(--baixa);font-size:.9rem;min-height:1.2em}
+.pregao{font-size:.9rem;color:var(--suave);border-top:1px solid var(--linha);padding:1rem 0;margin-top:2rem}
+.rodape{background:var(--papel);border-top:1px solid var(--linha);padding:2rem 0 1.4rem;font-size:.92rem;color:var(--suave)}
+.rodape .casca{display:grid;gap:1.4rem}
+@media (min-width:760px){.rodape .casca{grid-template-columns:1.3fr 1fr 1fr}}
+.rodape h2{font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;color:var(--tinta);margin:0 0 .5rem}
+.rodape ul{list-style:none;padding:0;margin:0}
+.rodape a{color:var(--suave)}
+.rodape a:hover{color:var(--tinta)}
+.rodape .fixo{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:1rem;font-size:.86rem}
+.rodape .fixo strong{color:var(--tinta)}
+.consentimento{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 10px 40px -10px rgba(0,0,0,.35)}
+.consentimento .casca{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;padding:.9rem 1rem}
+.consentimento p{margin:0;flex:1 1 22rem;font-size:.9rem;color:var(--suave)}
+.consentimento .botoes{display:flex;gap:.5rem}
+.consentimento button{font:600 .9rem "Archivo",sans-serif;padding:.55rem .9rem;border-radius:9px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);cursor:pointer}
+.consentimento button.principal{background:var(--acao);border-color:var(--acao);color:#fff}
+@media (prefers-color-scheme:dark){.consentimento button.principal{color:#0B1220}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mercado na Lupa">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="ITUB4: cotação de fechamento e histórico · Mercado na Lupa">
+<meta property="og:description" content="Cotação de fechamento da ação ITUB4 (Itaú Unibanco PN) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.">
+<meta property="og:url" content="https://mercadonalupa.com.br/ativos/itub4.html">
+<meta property="og:image" content="https://mercadonalupa.com.br/assets/img/og-itub4.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "ITUB4: cotação de fechamento e histórico · Mercado na Lupa", "description": "Cotação de fechamento da ação ITUB4 (Itaú Unibanco PN) na B3: variação do dia, mínima, máxima, volume, gráfico de 12 meses e dados da CVM.", "url": "https://mercadonalupa.com.br/ativos/itub4.html", "inLanguage": "pt-BR", "dateModified": "2026-10-02", "about": {"@type": "Corporation", "name": "ITAÚ UNIBANCO HOLDING S.A.", "tickerSymbol": "BVMF:ITUB4"}, "publisher": {"@type": "Organization", "name": "Mercado na Lupa", "url": "https://mercadonalupa.com.br/", "logo": {"@type": "ImageObject", "url": "https://mercadonalupa.com.br/assets/marca/lupa-512.png", "width": 512, "height": 512}, "email": "allangipa@gmail.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mercado na Lupa", "item": "https://mercadonalupa.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Ativos", "item": "https://mercadonalupa.com.br/ativos.html"}, {"@type": "ListItem", "position": 3, "name": "ITUB4", "item": "https://mercadonalupa.com.br/ativos/itub4.html"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="casca">
+    <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="../ativos.html" aria-current="page">Ativos</a>
+      <a href="../guias.html">Guias</a>
+      <a href="../calculadoras.html">Calculadoras</a>
+      <a href="../sobre.html">Sobre</a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo"><div class="casca">
+<nav class="migalhas" aria-label="Você está em"><a href="../index.html">Início</a> › <a href="../ativos.html">Ativos</a> › <span aria-current="page">ITUB4</span></nav>
+<div class="cab-ativo">
+  <div>
+    <p class="rotulo tipo">Ação · B3</p>
+    <h1><span class="cod">ITUB4</span> — Itaú Unibanco PN</h1>
+    <p class="razao">ITAÚ UNIBANCO HOLDING S.A.</p>
+  </div>
+  <div class="preco">
+    <div class="valor num"><small>R$</small>44,83</div>
+    <div style="margin-top:.5rem"><span class="var alta selo-var">▲ +1,54%</span> <span class="quando">no dia</span></div>
+    <p class="quando">Fechamento de 02/10/2026, comparado com 01/10/2026</p>
+  </div>
+</div>
+
+<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 45,25</dd></div><div><dt>Mínima do dia</dt><dd>R$ 43,10</dd></div><div><dt>Máxima do dia</dt><dd>R$ 45,27</dd></div><div><dt>Preço médio</dt><dd>R$ 44,17</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 44,15</dd></div><div><dt>Volume financeiro</dt><dd>R$ 1,98 bi</dd></div><div><dt>Negócios</dt><dd>59.049</dd></div><div><dt>Quantidade negociada</dt><dd>44,87 mi</dd></div></dl>
+<h2 id="grafico">Histórico de fechamento</h2>
+<div class="grafico"><input type="radio" class="sr" name="per-itub4" id="p-12m" checked><input type="radio" class="sr" name="per-itub4" id="p-6m"><input type="radio" class="sr" name="per-itub4" id="p-1m"><div class="periodos" role="group" aria-label="Período do gráfico"><label for="p-12m">12 meses</label><label for="p-6m">6 meses</label><label for="p-1m">1 mês</label></div><div class="paineis"><svg class="g-12m" viewBox="0 0 720 330" role="img" aria-labelledby="t-itub4-g-12m"><title id="t-itub4-g-12m">ITUB4: fechamento diário de 02/10/2025 a 02/10/2026. Mínimo de R$ 37,14 em 10/10/2025, máximo de R$ 49,37 em 11/02/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">35</text><line class="grade-y" x1="82" x2="708" y1="193.3" y2="193.3"/><text x="72" y="200.3" text-anchor="end">40</text><line class="grade-y" x1="82" x2="708" y1="104.7" y2="104.7"/><text x="72" y="111.7" text-anchor="end">45</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">50</text><path class="area" d="M82.0,282 L82.0,230.0 L84.5,225.1 L87.0,232.9 L89.5,243.5 L92.1,242.3 L94.6,243.3 L97.1,244.1 L99.6,241.4 L102.1,238.6 L104.6,238.6 L107.1,240.1 L109.7,237.8 L112.2,226.0 L114.7,232.3 L117.2,226.8 L119.7,227.4 L122.2,228.3 L124.7,222.6 L127.3,220.3 L129.8,205.0 L132.3,205.9 L134.8,203.3 L137.3,191.9 L139.8,194.0 L142.3,191.0 L144.9,191.0 L147.4,190.3 L149.9,185.5 L152.4,171.7 L154.9,188.4 L157.4,185.5 L159.9,182.7 L162.4,188.0 L165.0,191.6 L167.5,196.0 L170.0,193.9 L172.5,196.5 L175.0,194.9 L177.5,178.3 L180.0,180.7 L182.6,164.3 L185.1,170.3 L187.6,154.0 L190.1,154.0 L192.6,135.5 L195.1,171.0 L197.6,167.4 L200.2,169.0 L202.7,203.3 L205.2,203.8 L207.7,197.6 L210.2,186.9 L212.7,205.4 L215.2,211.6 L217.8,208.1 L220.3,201.7 L222.8,200.2 L225.3,188.7 L227.8,209.3 L230.3,211.4 L232.8,207.0 L235.4,208.4 L237.9,198.3 L240.4,194.0 L242.9,205.4 L245.4,194.6 L247.9,196.0 L250.4,202.4 L253.0,208.1 L255.5,200.4 L258.0,194.4 L260.5,200.2 L263.0,201.3 L265.5,194.8 L268.0,163.7 L270.6,138.7 L273.1,130.0 L275.6,119.7 L278.1,99.0 L280.6,80.9 L283.1,84.3 L285.6,95.8 L288.2,89.1 L290.7,84.5 L293.2,111.4 L295.7,95.4 L298.2,73.6 L300.7,46.0 L303.2,44.0 L305.8,27.2 L308.3,47.2 L310.8,55.5 L313.3,51.6 L315.8,41.7 L318.3,29.7 L320.8,61.2 L323.3,48.5 L325.9,55.2 L328.4,57.3 L330.9,73.1 L333.4,88.4 L335.9,115.7 L338.4,104.5 L340.9,131.1 L343.5,141.4 L346.0,137.3 L348.5,125.9 L351.0,124.4 L353.5,145.6 L356.0,150.8 L358.5,140.1 L361.1,145.3 L363.6,152.9 L366.1,147.6 L368.6,165.8 L371.1,144.0 L373.6,148.3 L376.1,138.4 L378.7,158.9 L381.2,167.6 L383.7,165.0 L386.2,131.6 L388.7,125.4 L391.2,134.8 L393.7,131.4 L396.3,132.0 L398.8,105.0 L401.3,91.4 L403.8,85.7 L406.3,89.9 L408.8,77.5 L411.3,68.5 L413.9,69.6 L416.4,72.7 L418.9,80.4 L421.4,104.1 L423.9,119.2 L426.4,115.8 L428.9,122.6 L431.5,120.6 L434.0,142.4 L436.5,136.8 L439.0,150.8 L441.5,149.7 L444.0,161.8 L446.5,179.3 L449.1,171.0 L451.6,187.5 L454.1,195.6 L456.6,199.9 L459.1,186.2 L461.6,198.7 L464.1,200.1 L466.7,215.0 L469.2,199.2 L471.7,191.2 L474.2,203.4 L476.7,187.7 L479.2,192.3 L481.7,187.7 L484.2,193.3 L486.8,192.6 L489.3,204.7 L491.8,201.1 L494.3,216.0 L496.8,214.1 L499.3,219.6 L501.8,207.2 L504.4,204.7 L506.9,184.5 L509.4,182.7 L511.9,186.2 L514.4,185.4 L516.9,179.1 L519.4,184.6 L522.0,195.6 L524.5,176.7 L527.0,174.7 L529.5,176.1 L532.0,163.2 L534.5,153.6 L537.0,150.6 L539.6,154.7 L542.1,150.1 L544.6,149.5 L547.1,144.7 L549.6,147.9 L552.1,150.2 L554.6,159.8 L557.2,147.4 L559.7,117.1 L562.2,130.9 L564.7,129.0 L567.2,137.7 L569.7,148.1 L572.2,158.6 L574.8,152.5 L577.3,148.5 L579.8,141.9 L582.3,147.9 L584.8,156.1 L587.3,145.6 L589.8,142.6 L592.4,161.1 L594.9,144.7 L597.4,142.1 L599.9,137.1 L602.4,156.1 L604.9,151.1 L607.4,160.9 L610.0,180.0 L612.5,185.9 L615.0,211.1 L617.5,221.2 L620.0,223.3 L622.5,211.1 L625.0,222.1 L627.6,225.4 L630.1,222.2 L632.6,237.5 L635.1,218.2 L637.6,215.9 L640.1,203.3 L642.6,203.1 L645.1,209.3 L647.7,207.7 L650.2,201.8 L652.7,195.5 L655.2,168.3 L657.7,159.3 L660.2,159.3 L662.7,150.2 L665.3,165.1 L667.8,151.7 L670.3,144.9 L672.8,151.7 L675.3,146.0 L677.8,146.9 L680.3,147.6 L682.9,152.0 L685.4,138.7 L687.9,136.9 L690.4,151.3 L692.9,160.2 L695.4,155.6 L697.9,163.0 L700.5,152.5 L703.0,117.4 L705.5,119.7 L708.0,107.7 L708.0,282 Z"/><polyline class="linha" points="82.0,230.0 84.5,225.1 87.0,232.9 89.5,243.5 92.1,242.3 94.6,243.3 97.1,244.1 99.6,241.4 102.1,238.6 104.6,238.6 107.1,240.1 109.7,237.8 112.2,226.0 114.7,232.3 117.2,226.8 119.7,227.4 122.2,228.3 124.7,222.6 127.3,220.3 129.8,205.0 132.3,205.9 134.8,203.3 137.3,191.9 139.8,194.0 142.3,191.0 144.9,191.0 147.4,190.3 149.9,185.5 152.4,171.7 154.9,188.4 157.4,185.5 159.9,182.7 162.4,188.0 165.0,191.6 167.5,196.0 170.0,193.9 172.5,196.5 175.0,194.9 177.5,178.3 180.0,180.7 182.6,164.3 185.1,170.3 187.6,154.0 190.1,154.0 192.6,135.5 195.1,171.0 197.6,167.4 200.2,169.0 202.7,203.3 205.2,203.8 207.7,197.6 210.2,186.9 212.7,205.4 215.2,211.6 217.8,208.1 220.3,201.7 222.8,200.2 225.3,188.7 227.8,209.3 230.3,211.4 232.8,207.0 235.4,208.4 237.9,198.3 240.4,194.0 242.9,205.4 245.4,194.6 247.9,196.0 250.4,202.4 253.0,208.1 255.5,200.4 258.0,194.4 260.5,200.2 263.0,201.3 265.5,194.8 268.0,163.7 270.6,138.7 273.1,130.0 275.6,119.7 278.1,99.0 280.6,80.9 283.1,84.3 285.6,95.8 288.2,89.1 290.7,84.5 293.2,111.4 295.7,95.4 298.2,73.6 300.7,46.0 303.2,44.0 305.8,27.2 308.3,47.2 310.8,55.5 313.3,51.6 315.8,41.7 318.3,29.7 320.8,61.2 323.3,48.5 325.9,55.2 328.4,57.3 330.9,73.1 333.4,88.4 335.9,115.7 338.4,104.5 340.9,131.1 343.5,141.4 346.0,137.3 348.5,125.9 351.0,124.4 353.5,145.6 356.0,150.8 358.5,140.1 361.1,145.3 363.6,152.9 366.1,147.6 368.6,165.8 371.1,144.0 373.6,148.3 376.1,138.4 378.7,158.9 381.2,167.6 383.7,165.0 386.2,131.6 388.7,125.4 391.2,134.8 393.7,131.4 396.3,132.0 398.8,105.0 401.3,91.4 403.8,85.7 406.3,89.9 408.8,77.5 411.3,68.5 413.9,69.6 416.4,72.7 418.9,80.4 421.4,104.1 423.9,119.2 426.4,115.8 428.9,122.6 431.5,120.6 434.0,142.4 436.5,136.8 439.0,150.8 441.5,149.7 444.0,161.8 446.5,179.3 449.1,171.0 451.6,187.5 454.1,195.6 456.6,199.9 459.1,186.2 461.6,198.7 464.1,200.1 466.7,215.0 469.2,199.2 471.7,191.2 474.2,203.4 476.7,187.7 479.2,192.3 481.7,187.7 484.2,193.3 486.8,192.6 489.3,204.7 491.8,201.1 494.3,216.0 496.8,214.1 499.3,219.6 501.8,207.2 504.4,204.7 506.9,184.5 509.4,182.7 511.9,186.2 514.4,185.4 516.9,179.1 519.4,184.6 522.0,195.6 524.5,176.7 527.0,174.7 529.5,176.1 532.0,163.2 534.5,153.6 537.0,150.6 539.6,154.7 542.1,150.1 544.6,149.5 547.1,144.7 549.6,147.9 552.1,150.2 554.6,159.8 557.2,147.4 559.7,117.1 562.2,130.9 564.7,129.0 567.2,137.7 569.7,148.1 572.2,158.6 574.8,152.5 577.3,148.5 579.8,141.9 582.3,147.9 584.8,156.1 587.3,145.6 589.8,142.6 592.4,161.1 594.9,144.7 597.4,142.1 599.9,137.1 602.4,156.1 604.9,151.1 607.4,160.9 610.0,180.0 612.5,185.9 615.0,211.1 617.5,221.2 620.0,223.3 622.5,211.1 625.0,222.1 627.6,225.4 630.1,222.2 632.6,237.5 635.1,218.2 637.6,215.9 640.1,203.3 642.6,203.1 645.1,209.3 647.7,207.7 650.2,201.8 652.7,195.5 655.2,168.3 657.7,159.3 660.2,159.3 662.7,150.2 665.3,165.1 667.8,151.7 670.3,144.9 672.8,151.7 675.3,146.0 677.8,146.9 680.3,147.6 682.9,152.0 685.4,138.7 687.9,136.9 690.4,151.3 692.9,160.2 695.4,155.6 697.9,163.0 700.5,152.5 703.0,117.4 705.5,119.7 708.0,107.7"/><circle class="ponto" cx="708.0" cy="107.7" r="6"/><text x="137.3" y="316" text-anchor="middle">nov</text><text x="235.4" y="316" text-anchor="middle">jan/26</text><text x="333.4" y="316" text-anchor="middle">mar</text><text x="439.0" y="316" text-anchor="middle">mai</text><text x="542.1" y="316" text-anchor="middle">jul</text><text x="652.7" y="316" text-anchor="middle">set</text></svg><svg class="g-6m" viewBox="0 0 720 330" role="img" aria-labelledby="t-itub4-g-6m"><title id="t-itub4-g-6m">ITUB4: fechamento diário de 06/04/2026 a 02/10/2026. Mínimo de R$ 37,51 em 20/08/2026, máximo de R$ 47,04 em 15/04/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">37,5</text><line class="grade-y" x1="82" x2="708" y1="215.5" y2="215.5"/><text x="72" y="222.5" text-anchor="end">40,0</text><line class="grade-y" x1="82" x2="708" y1="149.0" y2="149.0"/><text x="72" y="156.0" text-anchor="end">42,5</text><line class="grade-y" x1="82" x2="708" y1="82.5" y2="82.5"/><text x="72" y="89.5" text-anchor="end">45,0</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">47,5</text><path class="area" d="M82.0,282 L82.0,122.7 L87.0,123.5 L92.0,83.0 L97.0,62.6 L102.0,54.0 L107.0,60.4 L112.0,41.8 L117.1,28.2 L122.1,29.8 L127.1,34.6 L132.1,46.1 L137.1,81.7 L142.1,104.3 L147.1,99.3 L152.1,109.4 L157.1,106.4 L162.1,139.2 L167.1,130.6 L172.1,151.7 L177.2,150.1 L182.2,168.2 L187.2,194.5 L192.2,182.0 L197.2,206.7 L202.2,219.0 L207.2,225.3 L212.2,204.9 L217.2,223.5 L222.2,225.6 L227.2,248.0 L232.2,224.3 L237.2,212.3 L242.3,230.7 L247.3,207.0 L252.3,213.9 L257.3,207.0 L262.3,215.5 L267.3,214.4 L272.3,232.5 L277.3,227.2 L282.3,249.5 L287.3,246.6 L292.3,254.9 L297.3,236.2 L302.4,232.5 L307.4,202.2 L312.4,199.5 L317.4,204.9 L322.4,203.5 L327.4,194.2 L332.4,202.5 L337.4,219.0 L342.4,190.5 L347.4,187.6 L352.4,189.7 L357.4,170.3 L362.4,155.9 L367.5,151.4 L372.5,157.5 L377.5,150.6 L382.5,149.8 L387.5,142.6 L392.5,147.4 L397.5,150.9 L402.5,165.2 L407.5,146.6 L412.5,101.1 L417.5,121.9 L422.5,118.9 L427.6,132.0 L432.6,147.7 L437.6,163.4 L442.6,154.3 L447.6,148.2 L452.6,138.4 L457.6,147.4 L462.6,159.6 L467.6,143.9 L472.6,139.4 L477.6,167.1 L482.6,142.6 L487.6,138.6 L492.7,131.2 L497.7,159.6 L502.7,152.2 L507.7,166.8 L512.7,195.6 L517.7,204.3 L522.7,242.1 L527.7,257.3 L532.7,260.5 L537.7,242.1 L542.7,258.6 L547.7,263.6 L552.8,258.9 L557.8,281.7 L562.8,252.7 L567.8,249.3 L572.8,230.4 L577.8,230.1 L582.8,239.4 L587.8,237.0 L592.8,228.3 L597.8,218.7 L602.8,178.0 L607.8,164.4 L612.8,164.4 L617.9,150.9 L622.9,173.2 L627.9,153.0 L632.9,142.9 L637.9,153.0 L642.9,144.5 L647.9,145.8 L652.9,146.9 L657.9,153.5 L662.9,133.6 L667.9,130.9 L672.9,152.5 L678.0,165.8 L683.0,158.8 L688.0,170.0 L693.0,154.3 L698.0,101.7 L703.0,105.1 L708.0,87.0 L708.0,282 Z"/><polyline class="linha" points="82.0,122.7 87.0,123.5 92.0,83.0 97.0,62.6 102.0,54.0 107.0,60.4 112.0,41.8 117.1,28.2 122.1,29.8 127.1,34.6 132.1,46.1 137.1,81.7 142.1,104.3 147.1,99.3 152.1,109.4 157.1,106.4 162.1,139.2 167.1,130.6 172.1,151.7 177.2,150.1 182.2,168.2 187.2,194.5 192.2,182.0 197.2,206.7 202.2,219.0 207.2,225.3 212.2,204.9 217.2,223.5 222.2,225.6 227.2,248.0 232.2,224.3 237.2,212.3 242.3,230.7 247.3,207.0 252.3,213.9 257.3,207.0 262.3,215.5 267.3,214.4 272.3,232.5 277.3,227.2 282.3,249.5 287.3,246.6 292.3,254.9 297.3,236.2 302.4,232.5 307.4,202.2 312.4,199.5 317.4,204.9 322.4,203.5 327.4,194.2 332.4,202.5 337.4,219.0 342.4,190.5 347.4,187.6 352.4,189.7 357.4,170.3 362.4,155.9 367.5,151.4 372.5,157.5 377.5,150.6 382.5,149.8 387.5,142.6 392.5,147.4 397.5,150.9 402.5,165.2 407.5,146.6 412.5,101.1 417.5,121.9 422.5,118.9 427.6,132.0 432.6,147.7 437.6,163.4 442.6,154.3 447.6,148.2 452.6,138.4 457.6,147.4 462.6,159.6 467.6,143.9 472.6,139.4 477.6,167.1 482.6,142.6 487.6,138.6 492.7,131.2 497.7,159.6 502.7,152.2 507.7,166.8 512.7,195.6 517.7,204.3 522.7,242.1 527.7,257.3 532.7,260.5 537.7,242.1 542.7,258.6 547.7,263.6 552.8,258.9 557.8,281.7 562.8,252.7 567.8,249.3 572.8,230.4 577.8,230.1 582.8,239.4 587.8,237.0 592.8,228.3 597.8,218.7 602.8,178.0 607.8,164.4 612.8,164.4 617.9,150.9 622.9,173.2 627.9,153.0 632.9,142.9 637.9,153.0 642.9,144.5 647.9,145.8 652.9,146.9 657.9,153.5 662.9,133.6 667.9,130.9 672.9,152.5 678.0,165.8 683.0,158.8 688.0,170.0 693.0,154.3 698.0,101.7 703.0,105.1 708.0,87.0"/><circle class="ponto" cx="708.0" cy="87.0" r="6"/><text x="172.1" y="316" text-anchor="middle">mai</text><text x="272.3" y="316" text-anchor="middle">jun</text><text x="377.5" y="316" text-anchor="middle">jul</text><text x="492.7" y="316" text-anchor="middle">ago</text><text x="597.8" y="316" text-anchor="middle">set</text><text x="703.0" y="316" text-anchor="middle">out</text></svg><svg class="g-1m" viewBox="0 0 720 330" role="img" aria-labelledby="t-itub4-g-1m"><title id="t-itub4-g-1m">ITUB4: fechamento diário de 02/09/2026 a 02/10/2026. Mínimo de R$ 41,41 em 02/09/2026, máximo de R$ 44,83 em 02/10/2026.</title><line class="grade-y" x1="82" x2="708" y1="282.0" y2="282.0"/><text x="72" y="289.0" text-anchor="end">41</text><line class="grade-y" x1="82" x2="708" y1="215.5" y2="215.5"/><text x="72" y="222.5" text-anchor="end">42</text><line class="grade-y" x1="82" x2="708" y1="149.0" y2="149.0"/><text x="72" y="156.0" text-anchor="end">43</text><line class="grade-y" x1="82" x2="708" y1="82.5" y2="82.5"/><text x="72" y="89.5" text-anchor="end">44</text><line class="grade-y" x1="82" x2="708" y1="16.0" y2="16.0"/><text x="72" y="23.0" text-anchor="end">45</text><path class="area" d="M82.0,282 L82.0,254.7 L111.8,220.8 L141.6,220.8 L171.4,186.9 L201.2,242.8 L231.0,192.2 L260.9,167.0 L290.7,192.2 L320.5,170.9 L350.3,174.3 L380.1,176.9 L409.9,193.6 L439.7,143.7 L469.5,137.0 L499.3,190.9 L529.1,224.1 L559.0,206.9 L588.8,234.8 L618.6,195.6 L648.4,63.9 L678.2,72.5 L708.0,27.3 L708.0,282 Z"/><polyline class="linha" points="82.0,254.7 111.8,220.8 141.6,220.8 171.4,186.9 201.2,242.8 231.0,192.2 260.9,167.0 290.7,192.2 320.5,170.9 350.3,174.3 380.1,176.9 409.9,193.6 439.7,143.7 469.5,137.0 499.3,190.9 529.1,224.1 559.0,206.9 588.8,234.8 618.6,195.6 648.4,63.9 678.2,72.5 708.0,27.3"/><circle class="ponto" cx="708.0" cy="27.3" r="6"/><text x="82.0" y="316" text-anchor="middle">02/09</text><text x="231.0" y="316" text-anchor="middle">10/09</text><text x="380.1" y="316" text-anchor="middle">17/09</text><text x="529.1" y="316" text-anchor="middle">24/09</text><text x="678.2" y="316" text-anchor="middle">01/10</text></svg></div><p class="legenda">Preço de fechamento diário, em reais, sem ajuste por proventos, desdobramentos ou grupamentos. Fonte: B3, série histórica de cotações.</p></div>
+<p class="data-regra" style="margin-top:.8rem">Em 12 meses, o preço oscilou entre <span class="num">R$ 36,96</span> (mínima intradiária) e <span class="num">R$ 49,67</span> (máxima intradiária).</p>
+<div class="grade grade-2" style="margin-top:1rem">
+<section><h2 id="o-que-e">O que é ITUB4</h2><p>A <strong>ITAÚ UNIBANCO HOLDING S.A.</strong> é uma companhia aberta registrada na Comissão de Valores Mobiliários (CVM) desde 30/12/2002, sob o código CVM 19348, com sede em São Paulo (SP). No cadastro da CVM, o setor de atividade informado é “Bancos”.</p><p><strong>ITUB4</strong> é o código de negociação das ações preferenciais (PN) da companhia na B3, no segmento de listagem Nível 1. O código ISIN do papel é BRITUBACNPR1. Ações preferenciais, em regra, não dão direito a voto, e têm em troca alguma preferência prevista em lei e no estatuto, como prioridade no recebimento de dividendos.</p></section>
+<section><h2 id="ficha">Ficha</h2><dl class="ficha"><dt>Razão social</dt><dd>ITAÚ UNIBANCO HOLDING S.A.</dd><dt>CNPJ</dt><dd>60.872.504/0001-23</dd><dt>Código CVM</dt><dd>19348</dd><dt>Setor (CVM)</dt><dd>Bancos</dd><dt>Controle acionário (CVM)</dt><dd>Privado</dd><dt>Sede</dt><dd>São Paulo (SP)</dd><dt>Registro na CVM</dt><dd>30/12/2002</dd><dt>Espécie</dt><dd>preferenciais (PN)</dd><dt>Segmento de listagem</dt><dd>Nível 1</dd><dt>Código ISIN</dt><dd>BRITUBACNPR1</dd><dt>Nome no pregão (B3)</dt><dd>ITAUUNIBANCO</dd></dl></section>
+</div>
+<h2 id="pregoes">Últimos pregões</h2>
+<div class="rolagem"><table><caption>Últimos 10 pregões com negócio</caption><thead><tr><th>Data</th><th class="n">Fechamento</th><th class="n">Variação</th><th class="n">Mínima</th><th class="n">Máxima</th><th class="n">Volume</th></tr></thead><tbody><tr><td class="n">02/10/2026</td><td class="n">44,83</td><td class="n"><span class="var alta">▲ +1,54%</span></td><td class="n">43,10</td><td class="n">45,27</td><td class="n">R$ 1,98 bi</td></tr><tr><td class="n">01/10/2026</td><td class="n">44,15</td><td class="n"><span class="var baixa">▼ −0,29%</span></td><td class="n">43,41</td><td class="n">44,63</td><td class="n">R$ 2,59 bi</td></tr><tr><td class="n">30/09/2026</td><td class="n">44,28</td><td class="n"><span class="var alta">▲ +4,68%</span></td><td class="n">42,71</td><td class="n">44,67</td><td class="n">R$ 3,25 bi</td></tr><tr><td class="n">29/09/2026</td><td class="n">42,30</td><td class="n"><span class="var alta">▲ +1,41%</span></td><td class="n">41,51</td><td class="n">42,36</td><td class="n">R$ 741,96 mi</td></tr><tr><td class="n">28/09/2026</td><td class="n">41,71</td><td class="n"><span class="var baixa">▼ −1,00%</span></td><td class="n">41,53</td><td class="n">42,14</td><td class="n">R$ 756,15 mi</td></tr><tr><td class="n">25/09/2026</td><td class="n">42,13</td><td class="n"><span class="var alta">▲ +0,62%</span></td><td class="n">41,72</td><td class="n">42,43</td><td class="n">R$ 691,03 mi</td></tr><tr><td class="n">24/09/2026</td><td class="n">41,87</td><td class="n"><span class="var baixa">▼ −1,18%</span></td><td class="n">41,86</td><td class="n">42,65</td><td class="n">R$ 625,47 mi</td></tr><tr><td class="n">23/09/2026</td><td class="n">42,37</td><td class="n"><span class="var baixa">▼ −1,88%</span></td><td class="n">42,35</td><td class="n">43,72</td><td class="n">R$ 826,40 mi</td></tr><tr><td class="n">22/09/2026</td><td class="n">43,18</td><td class="n"><span class="var alta">▲ +0,23%</span></td><td class="n">42,48</td><td class="n">43,44</td><td class="n">R$ 1,04 bi</td></tr><tr><td class="n">21/09/2026</td><td class="n">43,08</td><td class="n"><span class="var alta">▲ +1,77%</span></td><td class="n">42,70</td><td class="n">43,25</td><td class="n">R$ 672,39 mi</td></tr></tbody></table></div>
+<h2 id="como-ler">Como ler esta página</h2>
+<ul>
+ <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista, em lote padrão, como publicado pela B3.</li>
+ <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um dividendo, a queda de preço aparece como variação.</li>
+ <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
+ <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
+</ul>
+<h2 id="guias">Para entender os números</h2>
+<ul><li><a href="../guias/o-que-e-p-l.html">O que é P/L</a></li><li><a href="../guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="../guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
+<h2 id="outros">Outros ações acompanhados</h2>
+<ul class="chips"><li><a href="petr4.html">PETR4</a></li><li><a href="vale3.html">VALE3</a></li><li><a href="bbas3.html">BBAS3</a></li><li><a href="wege3.html">WEGE3</a></li><li><a href="abev3.html">ABEV3</a></li></ul>
+<h2 id="fontes">Fontes</h2>
+<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv" rel="noopener">CVM, cadastro de companhias abertas</a></li>
+<li>Cadastro da CVM atualizado em 03/10/2026.</li></ul>
+<div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Esta página reúne dados públicos sobre ITUB4 e não é análise nem indicação de compra ou venda.</div>
+</div></main>
+<p class="pregao casca">Cotações de fechamento do pregão de 02/10/2026. Fonte: B3. Dados com atraso, apenas informativos.</p><footer class="rodape">
+  <div class="casca">
+    <div>
+      <h2>Mercado na Lupa</h2>
+      <p>Dados públicos do mercado brasileiro — cotações da B3 e cadastros da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
+    </div>
+    <div>
+      <h2>Navegue</h2>
+      <ul>
+        <li><a href="../ativos.html">Ativos acompanhados</a></li>
+        <li><a href="../guias.html">Guias</a> · <a href="../calculadoras.html">Calculadoras</a></li>
+        <li><a href="../sobre.html">Sobre</a> · <a href="../contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Este site</h2>
+      <ul>
+        <li>Exibe anúncios do Google AdSense. <a href="../privacidade.html">Política de privacidade</a>. <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>.</li>
+        <li>Da mesma casa: <a href="https://guiaprodutonalupa.com.br" rel="noopener">Guia Produto na Lupa</a> e <a href="https://viagemnalupa.com.br" rel="noopener">Viagem na Lupa</a>.</li>
+      </ul>
+    </div>
+    <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
+  </div>
+</footer>
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="casca">
+    <p>Este site usa cookies do Google AdSense para exibir anúncios e medir audiência. Não pedimos cadastro nem e-mail, e as calculadoras não enviam o que você digita. Detalhes na <a href="../privacidade.html">política de privacidade</a>.</p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var CHAVE='ml-consentimento', PUB='pub-4401770243539507', BLOQUEIA=false;
+  function ler(){try{return localStorage.getItem(CHAVE)}catch(e){return null}}
+  function gravar(v){try{localStorage.setItem(CHAVE,v)}catch(e){}}
+  function carrega(){
+    if(!PUB||document.getElementById('ads-google'))return;
+    var s=document.createElement('script');s.id='ads-google';s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-'+PUB;
+    document.head.appendChild(s);
+  }
+  // "Rever escolha de cookies", no rodapé: apaga a escolha salva e recarrega.
+  document.querySelectorAll('[data-rever-cookies]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      try{localStorage.removeItem(CHAVE)}catch(e){}
+      location.reload();
+    });
+  });
+  var escolha=ler();
+  if(escolha==='aceitar'||(escolha===null&&!BLOQUEIA))carrega();
+  var caixa=document.getElementById('consentimento');
+  if(escolha===null&&caixa){
+    caixa.hidden=false;
+    caixa.addEventListener('click',function(ev){
+      var b=ev.target.closest('[data-consent]');if(!b)return;
+      var v=b.dataset.consent;gravar(v);caixa.hidden=true;
+      if(v==='aceitar')carrega();else{var x=document.getElementById('ads-google');if(x)x.remove();}
+    });
+  }
+  // Europa, Reino Unido, Suíça: quem pergunta é a mensagem do Google (CMP
+  // certificada). Se ela diz que o GDPR se aplica, esta faixa sai da frente.
+  if(escolha===null&&caixa){
+    var n=0,t=setInterval(function(){
+      if(typeof window.__tcfapi==='function'){
+        clearInterval(t);
+        window.__tcfapi('addEventListener',2,function(tc,ok){if(ok&&tc&&tc.gdprApplies)caixa.hidden=true;});
+      }else if(++n>40)clearInterval(t);
+    },250);
+  }
+})();
+</script>
+</body>
+</html>

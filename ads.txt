@@ -1,0 +1,3 @@
+# Declaração de vendedor autorizado (IAB ads.txt)
+# Gerado por _src/build.py a partir de ADSENSE_PUB. Não editar à mão.
+google.com, pub-4401770243539507, DIRECT, f08c47fec0942fa0

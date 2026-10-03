@@ -1,0 +1,68 @@
+<!--{
+ "titulo": "Calculadora de reserva de emergência · Mercado na Lupa",
+ "descricao": "Calcule o tamanho de uma reserva de emergência a partir do seu custo de vida mensal e veja em quantos meses ela fica pronta guardando um valor fixo.",
+ "h1": "Calculadora de reserva de emergência",
+ "resumo": "Quanto guardar para imprevistos a partir do seu custo de vida, e em quanto tempo a reserva fica pronta.",
+ "publicado": "2026-10-03",
+ "atualizado": "2026-10-03",
+ "fontes": [
+  {"nome": "Banco Central do Brasil — Caderno de Educação Financeira: Gestão de Finanças Pessoais", "url": "https://www.bcb.gov.br/content/cidadaniafinanceira/documentos_cidadania/Cuidando_do_seu_dinheiro_Gestao_de_Financas_Pessoais/caderno_cidadania_financeira.pdf"}
+ ]
+}-->
+<p class="lead">Reserva de emergência é o dinheiro separado para imprevistos — perda de renda, conserto, problema de saúde — guardado onde dá para sacar rápido e sem perder valor. A conta começa pelo seu custo de vida, não pela sua renda.</p>
+
+<div class="calc">
+ <form class="cartao campos" id="f" onsubmit="return false" novalidate>
+  <div class="campo"><label for="custo">Custo de vida mensal <span class="dica">gastos essenciais: moradia, contas, comida, transporte, saúde</span></label><div class="entrada"><span>R$</span><input id="custo" inputmode="decimal" value="4.000"></div></div>
+  <div class="campo"><label for="meses">Meses de cobertura <span class="dica">por quanto tempo a reserva deve pagar esses gastos</span></label><div class="entrada"><input id="meses" inputmode="numeric" value="6"><span>meses</span></div></div>
+  <div class="campo"><label for="tem">Quanto você já tem guardado</label><div class="entrada"><span>R$</span><input id="tem" inputmode="decimal" value="0"></div></div>
+  <div class="campo"><label for="guarda">Quanto consegue guardar por mês</label><div class="entrada"><span>R$</span><input id="guarda" inputmode="decimal" value="800"></div></div>
+  <p class="erro-calc" id="erro" role="alert"></p>
+ </form>
+ <div class="cartao resultado" aria-live="polite">
+  <span class="rotulo">Reserva-alvo</span>
+  <div class="grande" id="r-alvo">—</div>
+  <div class="barra" aria-hidden="true"><i class="b2" id="b-tem"></i></div>
+  <div class="legenda-barra"><span><i style="background:var(--acao)"></i>Quanto já está guardado</span></div>
+  <div class="linha-res"><span>Falta guardar</span><b id="r-falta">—</b></div>
+  <div class="linha-res"><span>Tempo para completar</span><b id="r-tempo">—</b></div>
+  <div class="linha-res"><span>Já cobre hoje</span><b id="r-cobre">—</b></div>
+ </div>
+</div>
+
+<h2 id="formula">A conta</h2>
+<div class="formula">Reserva-alvo = custo de vida mensal × meses de cobertura</div>
+<div class="formula">Meses para completar = (reserva-alvo − já guardado) ÷ valor guardado por mês</div>
+<p>O tempo é arredondado para cima: se faltar um pedaço de mês, conta o mês inteiro. A conta não inclui rendimento — de propósito, para não depender de nenhuma taxa. Se o dinheiro render enquanto você junta, a reserva fica pronta um pouco antes.</p>
+
+<h2 id="quantos-meses">Quantos meses de cobertura?</h2>
+<p>Não existe número oficial. Materiais de educação financeira costumam citar algo entre <strong>3 e 12 meses</strong> de custo de vida, maior quando a renda é instável (autônomos, comissionados, quem sustenta a família sozinho) e menor quando a renda é mais previsível. A escolha é sua; a calculadora só faz a conta.</p>
+
+<h2 id="onde">Onde a reserva costuma ficar</h2>
+<p>O que se busca numa reserva é <strong>liquidez</strong> (sacar no mesmo dia ou no dia seguinte) e <strong>baixo risco</strong> de perder valor nominal — não o maior rendimento. Ações e cotas de fundos imobiliários, cujo preço oscila todo dia, não cumprem esse papel: no dia em que você precisar vender, o preço pode estar baixo.</p>
+
+<div class="aviso"><strong>É uma simulação educativa.</strong> Não é recomendação de produto financeiro nem de investimento.</div>
+
+<script>
+(function(){
+ var $=function(id){return document.getElementById(id)};
+ function calc(){
+  var c=lerNum($('custo').value),m=lerNum($('meses').value),t=lerNum($('tem').value),g=lerNum($('guarda').value);
+  var erro='';
+  if([c,m,t,g].some(isNaN))erro='Preencha todos os campos com números.';
+  else if(c<=0)erro='O custo de vida precisa ser maior que zero.';
+  else if(m<=0||m>60)erro='Use de 1 a 60 meses de cobertura.';
+  else if(t<0||g<0)erro='Valores não podem ser negativos.';
+  $('erro').textContent=erro;
+  if(erro){['r-alvo','r-falta','r-tempo','r-cobre'].forEach(function(k){$(k).textContent='—'});return}
+  var alvo=c*m,falta=Math.max(alvo-t,0);
+  $('r-alvo').textContent=brl(alvo);$('r-falta').textContent=brl(falta);
+  $('r-cobre').textContent=fmt(t/c,1)+' meses de custo de vida';
+  $('b-tem').style.width=Math.min(t/alvo*100,100)+'%';
+  if(falta===0)$('r-tempo').textContent='já está completa';
+  else if(g<=0)$('r-tempo').textContent='sem aporte mensal, não completa';
+  else $('r-tempo').textContent=duracao(Math.ceil(falta/g));
+ }
+ $('f').addEventListener('input',calc);calc();
+})();
+</script>

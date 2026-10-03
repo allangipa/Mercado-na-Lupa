@@ -18,6 +18,8 @@ _src/
   cvm.py            baixa o cadastro da CVM e grava dados/cadastro.json
   ativos.json       A LISTA de ativos acompanhados (código, tipo, nome curto, CNPJ)
   eventos.json      desdobramentos/grupamentos declarados (ver "Variação anormal")
+  feriados-b3.json  dias de semana sem pregão (2026 oficial da B3; 2027 PROVISÓRIO até a B3 publicar),
+                    usados pelo selo de atualização e pela status.html; o build avisa se faltar o ano
   site.css          estilos (vão inline no <head> de cada página)
   fundos.json       fotos de fundo (topo e faixas): obra, autor, licença, recorte
   fundos.py         baixa do Commons, recorta, escurece e grava assets/img/fundo/ (WebP + JPEG);
@@ -119,6 +121,15 @@ A página passa a mostrar o aviso do evento e não exibe a variação daquele di
 - guia sem fontes não sai;
 - trava de linguagem de recomendação no texto visível;
 - CSS inline; fontes no próprio domínio; imagens og em JPEG 1200×630.
+
+## Selo de atualização e status.html
+
+Topo da home e faixa de cada ativo: "Atualizado · pregão de DD/MM/AAAA". Um script no
+navegador compara o `data-pregao` com a hora de Brasília (depois das 19h o dia conta), pulando
+fim de semana e `_src/feriados-b3.json`: verde = nenhum pregão faltando, âmbar = falta 1,
+vermelho = 2 ou mais. `status.html` (noindex, fora do sitemap, link no rodapé) traz hora da
+geração, selo do GitHub Actions, situação de cada ativo e próximos pregões. Para testar:
+`status.html?hoje=2026-10-07` ou `?hoje=2026-10-05T20` (só vale nessa página).
 
 ## Publicação
 

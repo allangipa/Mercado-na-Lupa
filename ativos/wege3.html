@@ -313,6 +313,50 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 .fontes-selos{display:flex;gap:.4rem;flex-wrap:wrap}
 .fontes-selos span{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.08em;padding:.25rem .55rem;border-radius:6px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta)}
 .rodape .assinatura{grid-column:1/-1;margin:0;font-size:.82rem;color:var(--apagado)}
+.selo-dados{display:inline-flex;align-items:center;gap:.45rem;margin:0;padding:.28rem .7rem .28rem .5rem;border-radius:999px;
+  font:500 .8rem/1.3 "IBM Plex Mono",monospace;letter-spacing:.01em;background:var(--papel);border:1px solid var(--linha);color:var(--tinta);max-width:100%}
+.selo-dados .selo-txt{min-width:0}
+.selo-ponto{display:none;flex:none;width:1.15rem;height:1.15rem;border-radius:50%;font:700 .72rem/1.15rem "Archivo",sans-serif;text-align:center;color:#fff}
+.selo-dados[data-estado] .selo-ponto{display:inline-block}
+.selo-dados[data-estado=ok]{--cor-selo:#067647;--fundo-selo:#DCFAE6}
+.selo-dados[data-estado=aviso]{--cor-selo:#93370D;--fundo-selo:#FEF0C7}
+.selo-dados[data-estado=atraso]{--cor-selo:#B42318;--fundo-selo:#FEE4E2}
+.selo-dados[data-estado]{background:var(--fundo-selo);border-color:color-mix(in srgb,var(--cor-selo) 35%,transparent);color:var(--cor-selo)}
+.selo-dados[data-estado] .selo-ponto{background:var(--cor-selo)}
+.selo-dados[data-estado=ok] .selo-ponto{box-shadow:0 0 0 3px color-mix(in srgb,var(--cor-selo) 22%,transparent)}
+@media (prefers-color-scheme:dark){
+  .selo-dados[data-estado=ok]{--cor-selo:#47CD89;--fundo-selo:#0E2E20}
+  .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;--fundo-selo:#33240A}
+  .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;--fundo-selo:#3A1714}
+  .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+}
+.heroi .selo-dados,.faixa .selo-dados{background:rgba(8,14,28,.55);border-color:rgba(255,255,255,.22);color:#DCE3EE;backdrop-filter:blur(4px)}
+.heroi .selo-dados[data-estado=ok],.faixa .selo-dados[data-estado=ok]{--cor-selo:#47CD89;color:#C9F5DC}
+.heroi .selo-dados[data-estado=aviso],.faixa .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;color:#FCE3B0}
+.heroi .selo-dados[data-estado=atraso],.faixa .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;color:#FFD3CE}
+.heroi .selo-dados[data-estado],.faixa .selo-dados[data-estado]{border-color:color-mix(in srgb,var(--cor-selo) 55%,transparent)}
+.heroi .selo-dados[data-estado] .selo-ponto,.faixa .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+.heroi .selo-dados{align-self:flex-start;margin-bottom:.9rem}
+.preco .selo-dados{margin-top:.7rem}
+.selo-dados.selo-g{font-size:.92rem;padding:.4rem .9rem .4rem .6rem;margin-top:1rem}
+.selo-dados.selo-g .selo-ponto{width:1.35rem;height:1.35rem;line-height:1.35rem;font-size:.82rem}
+.selo-dados.selo-mini{font-size:.74rem;padding:.12rem .55rem .12rem .35rem;gap:.35rem}
+.selo-dados.selo-mini .selo-ponto{width:1rem;height:1rem;line-height:1rem;font-size:.64rem}
+@media (max-width:420px){.selo-dados{font-size:.74rem}}
+.legenda-selo{list-style:none;padding:0}
+.legenda-selo li{margin-bottom:.7rem;line-height:1.5}
+.legenda-selo .selo-dados{margin-right:.35rem;vertical-align:.05em}
+.tabela-status td{vertical-align:middle}
+.tabela-status tr.atrasado td{background:color-mix(in srgb,var(--ouro) 12%,transparent)}
+.tabela-status tr.atrasado td:first-child{box-shadow:inset 4px 0 0 var(--ouro)}
+.marca-atraso{display:block;font-size:.78rem;color:var(--suave);margin-top:.2rem}
+.marca-atraso::before{content:"⚠ ";color:var(--ouro)}
+.lista-prox{list-style:none;padding:0}
+.lista-prox li{padding:.4rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-prox li:first-child{border-top:0}
+.lista-prox li.devido{color:var(--baixa);font-weight:600}
+.selo-actions{display:inline-block;line-height:0}
+.selo-actions img{height:20px;width:auto}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/fundo/bovespa-arcos-640.webp 640w, ../assets/img/fundo/bovespa-arcos-1280.webp 1280w, ../assets/img/fundo/bovespa-arcos-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
@@ -355,6 +399,7 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
     <div class="valor num"><small>R$</small>51,45</div>
     <div style="margin-top:.5rem"><span class="var alta selo-var">▲ +3,81%</span> <span class="quando">no dia</span></div>
     <p class="quando">Fechamento de 02/10/2026, comparado com 01/10/2026</p>
+    <p class="selo-dados" data-pregao="2026-10-02"><span class="selo-ponto" aria-hidden="true"></span><span class="selo-txt">Pregão de 02/10/2026</span></p>
   </div>
 </div><p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
 <div class="casca">
@@ -417,7 +462,7 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
       </ul>
     </div>
     <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
-    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br</p>
+    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br · <a href="../status.html">Status dos dados</a></p>
   </div>
 </footer>
 <div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
@@ -471,5 +516,27 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
   }
 })();
 </script>
+<script>(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
+function iso(d){return d.toISOString().slice(0,10)}
+function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
+function util(d){var w=d.getUTCDay();return w>0&&w<6&&!F[iso(d)]}
+function agora(){var t=Date.now()-3*36e5;
+ if(TESTE){var m=/[?&]hoje=(\d{4}-\d{2}-\d{2})(?:T(\d{1,2}))?/.exec(location.search);
+  if(m){var b=Date.parse(m[1]+'T00:00:00Z');if(!isNaN(b))t=b+(m[2]?+m[2]:12)*36e5}}
+ return new Date(t)}
+function esperado(n){var d=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()));
+ if(!(util(d)&&n.getUTCHours()>=H)){do{d=new Date(+d-D)}while(!util(d))}return d}
+function faltam(p,e){var d=new Date(Date.parse(p+'T00:00:00Z')),c=0;
+ while(c<99){d=new Date(+d+D);if(d>e)break;if(util(d))c++}return c}
+var n=agora(),e=esperado(n),EST=[['ok','✓','Atualizado'],['aviso','!','Pode estar desatualizado'],['atraso','×','Desatualizado']];
+function estado(p){var f=faltam(p,e);return {f:f,s:EST[f>=2?2:f]}}
+window.MLselo={agora:n,esperado:iso(e),estado:estado};
+document.querySelectorAll('.selo-dados[data-pregao]').forEach(function(el){
+ var p=el.getAttribute('data-pregao'),r=estado(p);el.setAttribute('data-estado',r.s[0]);
+ el.querySelector('.selo-ponto').textContent=r.s[1];
+ el.querySelector('.selo-txt').textContent=el.classList.contains('selo-mini')?r.s[2]:r.s[2]+' · pregão de '+br(p);
+ if(r.f>=1)el.title=(r.f===1?'Falta 1 pregão':'Faltam '+r.f+' pregões')+' desde '+br(p)+' (último esperado: '+br(iso(e))+')';
+});
+})();</script>
 </body>
 </html>

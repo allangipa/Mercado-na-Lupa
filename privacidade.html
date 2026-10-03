@@ -313,6 +313,50 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 .fontes-selos{display:flex;gap:.4rem;flex-wrap:wrap}
 .fontes-selos span{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.08em;padding:.25rem .55rem;border-radius:6px;border:1px solid var(--linha);background:var(--superficie);color:var(--tinta)}
 .rodape .assinatura{grid-column:1/-1;margin:0;font-size:.82rem;color:var(--apagado)}
+.selo-dados{display:inline-flex;align-items:center;gap:.45rem;margin:0;padding:.28rem .7rem .28rem .5rem;border-radius:999px;
+  font:500 .8rem/1.3 "IBM Plex Mono",monospace;letter-spacing:.01em;background:var(--papel);border:1px solid var(--linha);color:var(--tinta);max-width:100%}
+.selo-dados .selo-txt{min-width:0}
+.selo-ponto{display:none;flex:none;width:1.15rem;height:1.15rem;border-radius:50%;font:700 .72rem/1.15rem "Archivo",sans-serif;text-align:center;color:#fff}
+.selo-dados[data-estado] .selo-ponto{display:inline-block}
+.selo-dados[data-estado=ok]{--cor-selo:#067647;--fundo-selo:#DCFAE6}
+.selo-dados[data-estado=aviso]{--cor-selo:#93370D;--fundo-selo:#FEF0C7}
+.selo-dados[data-estado=atraso]{--cor-selo:#B42318;--fundo-selo:#FEE4E2}
+.selo-dados[data-estado]{background:var(--fundo-selo);border-color:color-mix(in srgb,var(--cor-selo) 35%,transparent);color:var(--cor-selo)}
+.selo-dados[data-estado] .selo-ponto{background:var(--cor-selo)}
+.selo-dados[data-estado=ok] .selo-ponto{box-shadow:0 0 0 3px color-mix(in srgb,var(--cor-selo) 22%,transparent)}
+@media (prefers-color-scheme:dark){
+  .selo-dados[data-estado=ok]{--cor-selo:#47CD89;--fundo-selo:#0E2E20}
+  .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;--fundo-selo:#33240A}
+  .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;--fundo-selo:#3A1714}
+  .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+}
+.heroi .selo-dados,.faixa .selo-dados{background:rgba(8,14,28,.55);border-color:rgba(255,255,255,.22);color:#DCE3EE;backdrop-filter:blur(4px)}
+.heroi .selo-dados[data-estado=ok],.faixa .selo-dados[data-estado=ok]{--cor-selo:#47CD89;color:#C9F5DC}
+.heroi .selo-dados[data-estado=aviso],.faixa .selo-dados[data-estado=aviso]{--cor-selo:#F5B544;color:#FCE3B0}
+.heroi .selo-dados[data-estado=atraso],.faixa .selo-dados[data-estado=atraso]{--cor-selo:#FF8A80;color:#FFD3CE}
+.heroi .selo-dados[data-estado],.faixa .selo-dados[data-estado]{border-color:color-mix(in srgb,var(--cor-selo) 55%,transparent)}
+.heroi .selo-dados[data-estado] .selo-ponto,.faixa .selo-dados[data-estado] .selo-ponto{color:#0B1220}
+.heroi .selo-dados{align-self:flex-start;margin-bottom:.9rem}
+.preco .selo-dados{margin-top:.7rem}
+.selo-dados.selo-g{font-size:.92rem;padding:.4rem .9rem .4rem .6rem;margin-top:1rem}
+.selo-dados.selo-g .selo-ponto{width:1.35rem;height:1.35rem;line-height:1.35rem;font-size:.82rem}
+.selo-dados.selo-mini{font-size:.74rem;padding:.12rem .55rem .12rem .35rem;gap:.35rem}
+.selo-dados.selo-mini .selo-ponto{width:1rem;height:1rem;line-height:1rem;font-size:.64rem}
+@media (max-width:420px){.selo-dados{font-size:.74rem}}
+.legenda-selo{list-style:none;padding:0}
+.legenda-selo li{margin-bottom:.7rem;line-height:1.5}
+.legenda-selo .selo-dados{margin-right:.35rem;vertical-align:.05em}
+.tabela-status td{vertical-align:middle}
+.tabela-status tr.atrasado td{background:color-mix(in srgb,var(--ouro) 12%,transparent)}
+.tabela-status tr.atrasado td:first-child{box-shadow:inset 4px 0 0 var(--ouro)}
+.marca-atraso{display:block;font-size:.78rem;color:var(--suave);margin-top:.2rem}
+.marca-atraso::before{content:"⚠ ";color:var(--ouro)}
+.lista-prox{list-style:none;padding:0}
+.lista-prox li{padding:.4rem 0;border-top:1px solid var(--linha);margin:0}
+.lista-prox li:first-child{border-top:0}
+.lista-prox li.devido{color:var(--baixa);font-weight:600}
+.selo-actions{display:inline-block;line-height:0}
+.selo-actions img{height:20px;width:auto}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/fundo/paulista-dia-640.webp 640w, assets/img/fundo/paulista-dia-1280.webp 1280w, assets/img/fundo/paulista-dia-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
@@ -372,7 +416,7 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
 <p>Uma única coisa, e ela não sai do seu aparelho: quando você responde à faixa de cookies, a escolha fica no armazenamento local do navegador, sob a chave <code>ml-consentimento</code>. Serve só para não perguntar de novo a cada página. Não é cookie, não é enviada a servidor nenhum e some quando você limpa os dados do site ou clica em “Rever escolha de cookies”.</p>
 
 <h2>5. Conteúdo de terceiros</h2>
-<p>Um único serviço externo participa da exibição destas páginas: o Google AdSense. Se você recusar na faixa, o script de anúncios é retirado e deixa de ser carregado. Fontes tipográficas, gráficos e imagens vêm deste mesmo domínio. Os links para a B3, a CVM, o Planalto e a Receita Federal só levam você a esses sites se você clicar.</p>
+<p>Um único serviço externo participa da exibição destas páginas: o Google AdSense. Se você recusar na faixa, o script de anúncios é retirado e deixa de ser carregado. Fontes tipográficas, gráficos e imagens vêm deste mesmo domínio, com uma exceção: a página técnica <a href="status.html">Status dos dados</a> mostra uma pequena imagem do GitHub com a situação da rotina de atualização, e ao abri-la seu navegador pede essa imagem ao GitHub, sem informar de qual página veio. Os links para a B3, a CVM, o Planalto e a Receita Federal só levam você a esses sites se você clicar.</p>
 
 <h2>6. Seus direitos sob a LGPD</h2>
 <p>A Lei nº 13.709/2018 garante o direito de confirmar se há tratamento de dados seus, de acessá-los, corrigi-los, pedir anonimização ou eliminação, solicitar portabilidade, saber com quem foram compartilhados e revogar consentimento. Aqui a base de dados que poderíamos entregar é praticamente vazia, mas qualquer pedido feito pelo e-mail acima será respondido. Para os dados que o Google coleta através dos anúncios, o pedido deve ser feito ao próprio Google.</p>
@@ -415,7 +459,7 @@ td .nome{color:var(--suave);font-size:.86rem;white-space:normal}
       </ul>
     </div>
     <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
-    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br</p>
+    <p class="assinatura">© 2026 Mercado na Lupa · mercadonalupa.com.br · <a href="status.html">Status dos dados</a></p>
   </div>
 </footer>
 <div class="consentimento" id="consentimento" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>

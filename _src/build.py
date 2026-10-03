@@ -628,7 +628,7 @@ def rodape(base, ultimo=None):
       </ul>
     </div>
     <p class="fixo"><strong>Conteúdo educativo, não é recomendação de investimento.</strong> Dados com atraso. Nada aqui é oferta, análise ou indicação de compra ou venda de valores mobiliários. Decisões de investimento são de quem as toma.</p>
-    <p class="assinatura">© {dt.date.today().year} {NOME} · mercadonalupa.com.br</p>
+    <p class="assinatura">© {dt.date.today().year} {NOME} · mercadonalupa.com.br · <a href="{base}status.html">Status dos dados</a></p>
   </div>
 </footer>
 """
@@ -645,6 +645,93 @@ function pct(v,c){return fmt(v,c==null?2:c)+'%'}
 function duracao(m){var a=Math.floor(m/12),r=m%12,p=[];
  if(a)p.push(a+(a===1?' ano':' anos'));if(r)p.push(r+(r===1?' mês':' meses'));return p.join(' e ')||'0 meses'}
 """
+
+
+# --- selo de atualização ------------------------------------------------------------
+# O HTML leva a data do último pregão lido (data-pregao); um script pequeno compara
+# com o relógio do visitante, em Brasília (UTC−3 fixo: o Brasil não tem horário de
+# verão desde 2019), contando só dias úteis da B3 (_src/feriados-b3.json). Depois
+# das 19h de Brasília o dia corrente conta como encerrado.
+# Verde: nenhum pregão faltando. Âmbar: falta 1. Vermelho: faltam 2 ou mais.
+
+FERIADOS_ARQ = SRC / "feriados-b3.json"
+FERIADOS_INFO = {k: v for k, v in ler_json(FERIADOS_ARQ).items() if not k.startswith("_")}
+FERIADOS = {d: nome for ano in FERIADOS_INFO.values() for d, nome in ano["datas"].items()}
+HORA_FECHAMENTO = 19  # horário de Brasília a partir do qual o pregão do dia conta como encerrado
+BRASILIA = dt.timezone(dt.timedelta(hours=-3), "BRT")
+
+
+def dia_util(d):
+    return d.weekday() < 5 and d.isoformat() not in FERIADOS
+
+
+def proximos_uteis(depois_de, n):
+    d, saida = dt.date.fromisoformat(depois_de), []
+    while len(saida) < n:
+        d += dt.timedelta(days=1)
+        if dia_util(d):
+            saida.append(d)
+    return saida
+
+
+def conferir_feriados(pregoes):
+    """Avisa (não para: o selo não pode travar a publicação das cotações) se a lista
+    de feriados não cobre o ano, se é provisória, ou se bate mal com os pregões gravados."""
+    avisos = []
+    hoje = dt.date.today()
+    for ano in sorted({hoje.year, (hoje + dt.timedelta(days=45)).year}):
+        info = FERIADOS_INFO.get(str(ano))
+        if not info:
+            avisos.append(f"_src/feriados-b3.json não tem {ano}: o selo vai contar só fim de semana")
+        elif info.get("provisorio") and (ano == hoje.year or hoje.month >= 11):
+            avisos.append(f"feriados de {ano} em _src/feriados-b3.json são PROVISÓRIOS — confira o calendário da B3")
+    gravados = set(pregoes)
+    for d in sorted(FERIADOS):
+        if d in gravados:
+            avisos.append(f"{d} está em _src/feriados-b3.json, mas tem pregão gravado")
+    for ano, info in FERIADOS_INFO.items():
+        d = dt.date(int(ano), 1, 1)
+        while d.year == int(ano) and d.isoformat() <= pregoes[-1]:
+            if d.isoformat() >= pregoes[0] and dia_util(d) and d.isoformat() not in gravados:
+                avisos.append(f"{d.isoformat()} é dia útil pela lista, mas não tem pregão gravado")
+            d += dt.timedelta(days=1)
+    for a in avisos:
+        print("ATENÇÃO (selo):", a)
+
+
+def selo_dados(ultimo, extra_cls=""):
+    """Sem JS: só a data. Com JS: cor, ícone e a palavra do estado."""
+    cl = f" {extra_cls}" if extra_cls else ""
+    return (f'<p class="selo-dados{cl}" data-pregao="{ultimo}"><span class="selo-ponto" aria-hidden="true"></span>'
+            f'<span class="selo-txt">Pregão de {data_br(ultimo)}</span></p>')
+
+
+def selo_js(teste=False):
+    fer = json.dumps({d: 1 for d in sorted(FERIADOS)}, separators=(",", ":"))
+    # ?hoje=AAAA-MM-DD (ou AAAA-MM-DDTHH, hora de Brasília) só vale na status.html
+    return ("(function(){var F=" + fer + ",H=" + str(HORA_FECHAMENTO) + ",TESTE=" + ("true" if teste else "false") + ",D=864e5;"
+            r"""
+function iso(d){return d.toISOString().slice(0,10)}
+function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
+function util(d){var w=d.getUTCDay();return w>0&&w<6&&!F[iso(d)]}
+function agora(){var t=Date.now()-3*36e5;
+ if(TESTE){var m=/[?&]hoje=(\d{4}-\d{2}-\d{2})(?:T(\d{1,2}))?/.exec(location.search);
+  if(m){var b=Date.parse(m[1]+'T00:00:00Z');if(!isNaN(b))t=b+(m[2]?+m[2]:12)*36e5}}
+ return new Date(t)}
+function esperado(n){var d=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()));
+ if(!(util(d)&&n.getUTCHours()>=H)){do{d=new Date(+d-D)}while(!util(d))}return d}
+function faltam(p,e){var d=new Date(Date.parse(p+'T00:00:00Z')),c=0;
+ while(c<99){d=new Date(+d+D);if(d>e)break;if(util(d))c++}return c}
+var n=agora(),e=esperado(n),EST=[['ok','✓','Atualizado'],['aviso','!','Pode estar desatualizado'],['atraso','×','Desatualizado']];
+function estado(p){var f=faltam(p,e);return {f:f,s:EST[f>=2?2:f]}}
+window.MLselo={agora:n,esperado:iso(e),estado:estado};
+document.querySelectorAll('.selo-dados[data-pregao]').forEach(function(el){
+ var p=el.getAttribute('data-pregao'),r=estado(p);el.setAttribute('data-estado',r.s[0]);
+ el.querySelector('.selo-ponto').textContent=r.s[1];
+ el.querySelector('.selo-txt').textContent=el.classList.contains('selo-mini')?r.s[2]:r.s[2]+' · pregão de '+br(p);
+ if(r.f>=1)el.title=(r.f===1?'Falta 1 pregão':'Faltam '+r.f+' pregões')+' desde '+br(p)+' (último esperado: '+br(iso(e))+')';
+});
+})();""")
 
 
 def fim(extra=""):
@@ -910,6 +997,7 @@ def pagina_ativo(a, todos, ultimo, og_url):
     <div class="valor num"><small>R$</small>{br(u['fechamento'])}</div>
     <div style="margin-top:.5rem">{var_html(u['var'], selo=True)} <span class="quando">no dia</span></div>
     <p class="quando">Fechamento de {data_br(u['data'])}, comparado com {data_br(ant['data'])}</p>
+    {selo_dados(ultimo)}
   </div>
 </div>"""
     corpo = f"""<main id="conteudo" class="com-faixa">
@@ -947,7 +1035,7 @@ def pagina_ativo(a, todos, ultimo, og_url):
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "description": desc, "url": url,
            "inLanguage": "pt-BR", "dateModified": u["data"], "about": sobre, "publisher": ORG},
           migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", f"{DOMINIO}/ativos.html"), (c, url))]
-    return cabeca(titulo, desc, url, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim()
+    return cabeca(titulo, desc, url, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos") + corpo + rodape(base, ultimo) + consentimento(base) + fim(selo_js())
 
 
 def destaques(ativos, ultimo):
@@ -1000,6 +1088,7 @@ def home(ativos, ultimo, guias, calcs, og_url):
     corpo = f"""<main id="conteudo" class="com-faixa">
 <section class="heroi">{fundo_picture("hero-pregao", base)}{LINHA_FUNDO}
 <div class="casca abertura">
+  {selo_dados(ultimo)}
   <p class="rotulo">Dados públicos · B3 e CVM</p>
   <h1>O mercado brasileiro, com lupa e com fonte.</h1>
   <p class="lead">Cotação de fechamento, histórico e cadastro oficial de ações e fundos imobiliários, explicados sem palpite. Para quem quer entender antes de decidir qualquer coisa.</p>
@@ -1044,7 +1133,7 @@ if(M[c]){{location.href=M[c];return}}
 m.textContent=c+' ainda não está na lista acompanhada pelo site. Os disponíveis estão logo abaixo.';}});}})();"""
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": DOMINIO + "/", "inLanguage": "pt-BR",
            "description": DESC_HOME, "publisher": ORG}, {"@context": "https://schema.org", **ORG}]
-    return cabeca(TITULO_HOME, DESC_HOME, DOMINIO + "/", og_url, base, ld, extra=fundo_preload("hero-pregao", base)) + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js)
+    return cabeca(TITULO_HOME, DESC_HOME, DOMINIO + "/", og_url, base, ld, extra=fundo_preload("hero-pregao", base)) + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js + selo_js())
 
 
 TITULO_ATIVOS = f"Ações e fundos imobiliários acompanhados · {NOME}"
@@ -1258,7 +1347,7 @@ PRIVACIDADE = """<main id="conteudo" class="com-faixa">
 <p>Uma única coisa, e ela não sai do seu aparelho: quando você responde à faixa de cookies, a escolha fica no armazenamento local do navegador, sob a chave <code>{{CHAVE}}</code>. Serve só para não perguntar de novo a cada página. Não é cookie, não é enviada a servidor nenhum e some quando você limpa os dados do site ou clica em “Rever escolha de cookies”.</p>
 
 <h2>5. Conteúdo de terceiros</h2>
-<p>Um único serviço externo participa da exibição destas páginas: o Google AdSense. Se você recusar na faixa, o script de anúncios é retirado e deixa de ser carregado. Fontes tipográficas, gráficos e imagens vêm deste mesmo domínio. Os links para a B3, a CVM, o Planalto e a Receita Federal só levam você a esses sites se você clicar.</p>
+<p>Um único serviço externo participa da exibição destas páginas: o Google AdSense. Se você recusar na faixa, o script de anúncios é retirado e deixa de ser carregado. Fontes tipográficas, gráficos e imagens vêm deste mesmo domínio, com uma exceção: a página técnica <a href="status.html">Status dos dados</a> mostra uma pequena imagem do GitHub com a situação da rotina de atualização, e ao abri-la seu navegador pede essa imagem ao GitHub, sem informar de qual página veio. Os links para a B3, a CVM, o Planalto e a Receita Federal só levam você a esses sites se você clicar.</p>
 
 <h2>6. Seus direitos sob a LGPD</h2>
 <p>A Lei nº 13.709/2018 garante o direito de confirmar se há tratamento de dados seus, de acessá-los, corrigi-los, pedir anonimização ou eliminação, solicitar portabilidade, saber com quem foram compartilhados e revogar consentimento. Aqui a base de dados que poderíamos entregar é praticamente vazia, mas qualquer pedido feito pelo e-mail acima será respondido. Para os dados que o Google coleta através dos anúncios, o pedido deve ser feito ao próprio Google.</p>
@@ -1283,6 +1372,105 @@ def pagina_privacidade(og_url):
                    [{"@context": "https://schema.org", "@type": "WebPage", "name": TITULO_PRIV, "description": DESC_PRIV, "url": u, "inLanguage": "pt-BR"},
                     migalhas_ld((NOME, DOMINIO + "/"), ("Política de privacidade", u))])
             + topo(base) + corpo + rodape(base) + consentimento(base) + fim())
+
+
+TITULO_STATUS = f"Status dos dados · {NOME}"
+DESC_STATUS = (f"Quando o {NOME} foi gerado, qual o último pregão da B3 lido, a situação de cada ativo e a rotina "
+               "diária que atualiza as cotações.")
+ACTIONS_URL = "https://github.com/allangipa/Mercado-na-Lupa/actions/workflows/atualiza.yml"
+DIAS_SEMANA = ["seg", "ter", "qua", "qui", "sex", "sáb", "dom"]
+
+
+def pagina_status(ativos, pregoes, ultimo, gerado, og_url):
+    """Página técnica para o dono conferir se as cotações estão em dia. noindex, fora do sitemap."""
+    base = ""
+    br_t = gerado.astimezone(BRASILIA)
+    cab = f"""{migalhas_html(base, ("Status dos dados", ""))}
+<h1>Status dos dados</h1>
+<p class="lead">Se as cotações estão em dia, quando o site foi gerado pela última vez e como anda a rotina que busca os pregões na B3.</p>
+{selo_dados(ultimo, "selo-g")}
+"""
+    linhas = []
+    for a in ativos:
+        d = a["ult"]["data"]
+        atras = d != ultimo
+        cl_tr = ' class="atrasado"' if atras else ""
+        marca = (f' <span class="marca-atraso">atrás do último pregão lido ({data_br(ultimo)})</span>' if atras else "")
+        linhas.append(f'<tr{cl_tr}><td><a href="{base}ativos/{a["slug"]}.html">{a["codigo"]}</a></td>'
+                      f'<td class="n">{data_br(d)}</td><td class="n">{br(a["ult"]["fechamento"])}</td>'
+                      f'<td>{selo_dados(d, "selo-mini")}{marca}</td></tr>')
+    n_atras = sum(1 for a in ativos if a["ult"]["data"] != ultimo)
+    resumo_atras = ("Todos os ativos tiveram negócio no último pregão lido." if not n_atras else
+                    f"{n_atras} ativo(s) sem negócio no último pregão lido — destacado(s) na tabela.")
+    prox = proximos_uteis(ultimo, 5)
+    prox_html = "".join(f'<li data-dia="{d.isoformat()}"><span class="num">{DIAS_SEMANA[d.weekday()]} {data_br(d)}</span>'
+                        f'<span class="prox-estado"></span></li>' for d in prox)
+    fer_prox = [(d, n) for d, n in sorted(FERIADOS.items()) if d > ultimo][:4]
+    fer_html = "".join(f'<li><span class="num">{DIAS_SEMANA[dt.date.fromisoformat(d).weekday()]} {data_br(d)}</span> — {e(n)}'
+                       + (" <em>(provisório)</em>" if FERIADOS_INFO[d[:4]].get("provisorio") else "") + "</li>" for d, n in fer_prox)
+    fontes_fer = "".join(f'<li>{ano}: <a href="{e(i["fonte_url"])}" rel="noopener">{e(i["fonte"])}</a></li>'
+                         for ano, i in FERIADOS_INFO.items())
+    corpo = f"""<main id="conteudo" class="com-faixa">
+{faixa("paulista-dia", base, cab)}<div class="casca">
+
+<h2 id="cores">O que cada cor quer dizer</h2>
+<ul class="legenda-selo">
+ <li><span class="selo-dados selo-mini" data-estado="ok"><span class="selo-ponto" aria-hidden="true">✓</span><span class="selo-txt">Atualizado</span></span> o último pregão lido é o último dia útil já encerrado na B3 (depois das 19h de Brasília, o pregão do dia conta).</li>
+ <li><span class="selo-dados selo-mini" data-estado="aviso"><span class="selo-ponto" aria-hidden="true">!</span><span class="selo-txt">Pode estar desatualizado</span></span> falta 1 pregão — normal à noite, enquanto a B3 não publica o arquivo do dia.</li>
+ <li><span class="selo-dados selo-mini" data-estado="atraso"><span class="selo-ponto" aria-hidden="true">×</span><span class="selo-txt">Desatualizado</span></span> faltam 2 pregões ou mais: a rotina falhou ou parou numa trava. Veja o selo do GitHub abaixo.</li>
+</ul>
+<p class="data-regra" id="calculo">A conta é feita no seu navegador, com a data e a hora de Brasília, pulando fins de semana e feriados da B3.</p>
+
+<div class="grade grade-2">
+<section>
+<h2 id="geracao">Última geração do site</h2>
+<dl class="ficha">
+ <dt>Gerado em (Brasília)</dt><dd class="num">{br_t.strftime("%d/%m/%Y %H:%M")}</dd>
+ <dt>Gerado em (UTC)</dt><dd class="num">{gerado.strftime("%d/%m/%Y %H:%M")} UTC</dd>
+ <dt>Último pregão lido</dt><dd class="num">{data_br(ultimo)} ({DIAS_SEMANA[dt.date.fromisoformat(ultimo).weekday()]})</dd>
+ <dt>Pregões gravados</dt><dd class="num">{len(pregoes)}, de {data_br(pregoes[0])} a {data_br(ultimo)}</dd>
+</dl>
+</section>
+<section>
+<h2 id="rotina">Rotina diária</h2>
+<p><a class="selo-actions" href="{ACTIONS_URL}" rel="noopener"><img src="{ACTIONS_URL}/badge.svg" alt="Situação da rotina Atualiza cotações no GitHub Actions" height="20" loading="lazy" referrerpolicy="no-referrer"></a></p>
+<p class="data-regra">A rotina roda no GitHub Actions às 19h30 e à 1h30 (Brasília), de segunda a sexta: baixa o arquivo da B3, gera o site e publica. “passing” é a última execução sem erro; “failing” quer dizer que ela parou — nada errado é publicado, e o site fica como estava. <a href="{ACTIONS_URL}" rel="noopener">Ver as execuções</a>.</p>
+</section>
+</div>
+
+<h2 id="ativos">Ativos</h2>
+<p class="data-regra">{resumo_atras}</p>
+<div class="rolagem"><table class="tabela-status"><caption>Último pregão com negócio de cada ativo</caption><thead><tr><th>Código</th><th class="n">Último pregão</th><th class="n">Fechamento (R$)</th><th>Situação</th></tr></thead><tbody>
+{"".join(linhas)}
+</tbody></table></div>
+
+<div class="grade grade-2" style="margin-top:.6rem">
+<section>
+<h2 id="proximos">Próximos pregões esperados</h2>
+<p class="data-regra">Dias úteis depois de {data_br(ultimo)}. O arquivo de cada pregão costuma sair no começo da noite.</p>
+<ul class="lista-prox">{prox_html}</ul>
+</section>
+<section>
+<h2 id="feriados">Próximos feriados sem pregão</h2>
+<ul class="lista-prox">{fer_html}</ul>
+<p class="data-regra">Fontes da lista de feriados:</p>
+<ul class="fontes">{fontes_fer}</ul>
+</section>
+</div>
+</div></main>
+"""
+    js = selo_js(teste=True) + r"""
+(function(){var S=window.MLselo;if(!S)return;
+function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
+var a=S.agora,h=('0'+a.getUTCHours()).slice(-2)+':'+('0'+a.getUTCMinutes()).slice(-2),p=document.querySelector('.selo-g').getAttribute('data-pregao'),r=S.estado(p);
+document.getElementById('calculo').textContent='Agora em Brasília: '+br(a.toISOString())+' '+h+' · último pregão que já devia estar aqui: '+br(S.esperado)+' · pregões faltando: '+r.f+'. A conta pula fins de semana e feriados da B3.'+(/[?&]hoje=/.test(location.search)?' (data simulada pelo parâmetro hoje)':'');
+document.querySelectorAll('.lista-prox li[data-dia]').forEach(function(li){if(li.getAttribute('data-dia')<=S.esperado){li.className='devido';li.querySelector('.prox-estado').textContent=' — já devia ter chegado'}});
+})();"""
+    u = DOMINIO + "/status.html"
+    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": TITULO_STATUS, "description": DESC_STATUS, "url": u,
+           "inLanguage": "pt-BR"}, migalhas_ld((NOME, DOMINIO + "/"), ("Status dos dados", u))]
+    return (cabeca(TITULO_STATUS, DESC_STATUS, u, og_url, base, ld, indexar=False, extra=fundo_preload("paulista-dia", base))
+            + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js))
 
 
 # --- conferências ----------------------------------------------------------------
@@ -1358,7 +1546,8 @@ def main():
 
     seo = {"home": (TITULO_HOME, DESC_HOME), "ativos": (TITULO_ATIVOS, DESC_ATIVOS), "sobre": (TITULO_SOBRE, DESC_SOBRE),
            "contato": (TITULO_CONTATO, DESC_CONTATO), "privacidade": (TITULO_PRIV, DESC_PRIV),
-           "guias": (TITULO_GUIAS, DESC_GUIAS), "calculadoras": (TITULO_CALCS, DESC_CALCS)}
+           "guias": (TITULO_GUIAS, DESC_GUIAS), "calculadoras": (TITULO_CALCS, DESC_CALCS),
+           "status": (TITULO_STATUS, DESC_STATUS)}
     seo.update({f"ativos/{a['slug']}": (titulo_ativo(a), descricao_ativo(a)) for a in ativos})
     seo.update({f"guias/{g['slug']}": (g["titulo"], g["descricao"]) for g in guias})
     seo.update({f"calculadoras/{g['slug']}": (g["titulo"], g["descricao"]) for g in calcs})
@@ -1390,6 +1579,10 @@ def main():
     saidas["contato.html"] = pagina_contato(og_home)
     saidas["privacidade.html"] = pagina_privacidade(og_home)
     saidas["404.html"] = pagina_404(og_home)
+    # status.html: noindex e fora do sitemap. Leva a hora da geração, então muda a cada build.
+    gerado = dt.datetime.now(dt.timezone.utc).replace(second=0, microsecond=0)
+    saidas["status.html"] = pagina_status(ativos, pregoes, ultimo, gerado, og_home)
+    conferir_feriados(pregoes)
 
     for nome, txt in saidas.items():
         conferir_texto(nome, txt)

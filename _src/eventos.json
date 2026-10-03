@@ -1,14 +1,126 @@
 {
+ "A1MD34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 8, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 393,60 para R$ 48,12, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.125,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkExTUQiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "A1MT34": {
+  "2022-11-28": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 25/11/2022; último dia com direito em 25/11/2022. O fechamento passou de R$ 575,00 para R$ 55,22, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkExTVQiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "AAPL34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 2, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 81,17 para R$ 39,20, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFBUEwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
  "ALZR11": {
   "2025-05-06": {
    "evento": "Desdobramento de 1 para 10, aprovado em 29/04/2025; último dia com direito em 05/05/2025. O fechamento passou de R$ 99,58 para R$ 9,92, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkFMWlIiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "AMZO34": {
+  "2022-05-26": {
+   "evento": "Desdobramento de 1 para 20, aprovado em 25/05/2022; último dia com direito em 25/05/2022. O fechamento passou de R$ 65,28 para R$ 3,38, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.05,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFNWk8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2022-08-01": {
+   "evento": "Grupamento de 7,85 para 1, aprovado em 20/07/2022; último dia com direito em 29/07/2022. O fechamento passou de R$ 4,48 para R$ 34,88, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 7.85,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFNWk8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "ASAI3": {
+  "2021-08-12": {
+   "evento": "Desdobramento de 1 para 5, aprovado em 11/08/2021; último dia com direito em 11/08/2021. O fechamento passou de R$ 90,26 para R$ 17,75, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.2,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFTQUkiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "ASML34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 55, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 3160,92 para R$ 56,16, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.01818182,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFTTUwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "AURA33": {
+  "2024-07-11": {
+   "evento": "Desdobramento de 1 para 3, aprovado em 05/07/2024; último dia com direito em 10/07/2024. O fechamento passou de R$ 53,53 para R$ 18,38, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.33333333,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFVUkEiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "AVGO34": {
+  "2024-07-15": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 17/06/2024; último dia com direito em 12/07/2024. O fechamento passou de R$ 133,61 para R$ 13,20, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFWR08iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "B3SA3": {
+  "2021-05-17": {
+   "evento": "Desdobramento de 1 para 3, aprovado em 10/05/2021; último dia com direito em 14/05/2021. O fechamento passou de R$ 53,55 para R$ 17,58, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.33333333,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkIzU0EiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "BBAS3": {
+  "2024-04-16": {
+   "evento": "Desdobramento de 1 para 2, aprovado em 02/02/2024; último dia com direito em 15/04/2024. O fechamento passou de R$ 56,46 para R$ 27,91, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkJCQVMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "BERK34": {
+  "2021-01-27": {
+   "evento": "Desdobramento de 1 para 20, aprovado em 26/01/2021; último dia com direito em 26/01/2021. O fechamento passou de R$ 1200,00 para R$ 61,58, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.05,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkJFUksiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "BPAC11": {
+  "2021-07-01": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 09/04/2021; último dia com direito em 30/06/2021. O fechamento passou de R$ 122,06 para R$ 30,15, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkJQQUMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "BTCI11": {
+  "2023-01-19": {
+   "evento": "Desdobramento de 1 para 9, aprovado em 13/01/2023; último dia com direito em 18/01/2023. O fechamento passou de R$ 80,32 para R$ 8,83, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.11111111,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkJUQ0kiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "C2RW34": {
   "2026-07-02": {
    "evento": "Desdobramento de 1 para 4, aprovado em 01/07/2026; último dia com direito em 01/07/2026. O fechamento passou de R$ 181,26 para R$ 45,42, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkMyUlciLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -21,6 +133,62 @@
    "tipo": "mercado"
   }
  },
+ "CHVX34": {
+  "2021-02-09": {
+   "evento": "Desdobramento de 1 para 5, aprovado em 25/01/2021; último dia com direito em 08/02/2021. O fechamento passou de R$ 246,13 para R$ 49,05, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.2,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkNIVlgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "COCA34": {
+  "2021-02-09": {
+   "evento": "Desdobramento de 1 para 6, aprovado em 25/01/2021; último dia com direito em 08/02/2021. O fechamento passou de R$ 266,71 para R$ 44,79, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.16666667,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkNPQ0EiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "CPLE3": {
+  "2021-03-12": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 11/03/2021; último dia com direito em 11/03/2021. O fechamento passou de R$ 60,82 para R$ 6,29, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkNQTEUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "CPSH11": {
+  "2024-04-11": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 05/04/2024; último dia com direito em 10/04/2024. O fechamento passou de R$ 107,50 para R$ 10,82, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkNQU0giLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "CPTS11": {
+  "2023-09-26": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 04/09/2023; último dia com direito em 25/09/2023. O fechamento passou de R$ 85,59 para R$ 8,61, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkNQVFMiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "CSAN3": {
+  "2021-05-06": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 30/04/2021; último dia com direito em 05/05/2021. O fechamento passou de R$ 89,17 para R$ 21,54, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkNTQU4iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "CYCR11": {
+  "2022-10-19": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 10/10/2022; último dia com direito em 18/10/2022. O fechamento passou de R$ 84,50 para R$ 8,72, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkNZQ1IiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
  "D1DG34": {
   "2026-05-07": {
    "evento": "alta de 31,7% entre 06/05/2026 e 07/05/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 97,03, R$ 100,00, R$ 96,80).",
@@ -30,6 +198,11 @@
   }
  },
  "D1EL34": {
+  "2021-11-03": {
+   "evento": "Cisão com redução de capital, aprovada em 20/10/2021; último dia com direito em 01/11/2021. O fechamento passou de R$ 623,00 para R$ 306,28; o preço depois da cisão não é comparável com o de antes.",
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkQxRUwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
   "2026-05-29": {
    "evento": "alta de 31,1% entre 28/05/2026 e 29/05/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 2351,00, R$ 2165,00, R$ 2128,14).",
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkQxRUwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
@@ -38,6 +211,7 @@
   },
   "2026-08-24": {
    "evento": "Desdobramento de 1 para 25, aprovado em 21/08/2026; último dia com direito em 21/08/2026. O fechamento passou de R$ 2274,87 para R$ 88,50, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.04,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkQxRUwiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -45,27 +219,93 @@
  "DIRR3": {
   "2025-08-11": {
    "evento": "Desdobramento de 1 para 3, aprovado em 08/08/2025; último dia com direito em 08/08/2025. O fechamento passou de R$ 40,99 para R$ 13,63, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.33333333,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkRJUlIiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "DISB34": {
+  "2021-01-27": {
+   "evento": "Desdobramento de 1 para 15, aprovado em 26/01/2021; último dia com direito em 26/01/2021. O fechamento passou de R$ 907,01 para R$ 59,05, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.06666667,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkRJU0IiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "EGIE3": {
   "2025-11-27": {
    "evento": "Bonificação de 40% em novos papéis, aprovada em 05/11/2025; último dia com direito em 26/11/2025. O fechamento passou de R$ 44,37 para R$ 31,72, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.71428571,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkVHSUUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "ENEV3": {
+  "2021-03-12": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 11/03/2021; último dia com direito em 11/03/2021. O fechamento passou de R$ 66,70 para R$ 16,94, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkVORVYiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "EXXO34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 2, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 150,38 para R$ 73,21, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkVYWE8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "FCXO34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 3, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 195,78 para R$ 64,00, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.33333333,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkZDWE8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "GGRC11": {
+  "2024-03-06": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 27/02/2024; último dia com direito em 05/03/2024. O fechamento passou de R$ 114,05 para R$ 11,40, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkdHUkMiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "GOAU4": {
   "2025-12-19": {
    "evento": "Bonificação de 33,33% em novos papéis, aprovada em 15/12/2025; último dia com direito em 18/12/2025. O fechamento passou de R$ 11,99 para R$ 8,96, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.75001875,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkdPQVUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "GOGL34": {
+  "2022-07-18": {
+   "evento": "Desdobramento de 1 para 20, aprovado em 07/06/2022; último dia com direito em 15/07/2022. O fechamento passou de R$ 79,95 para R$ 3,92, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.05,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkdPR0wiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2022-08-29": {
+   "evento": "Grupamento de 12,50 para 1, aprovado em 19/08/2022; último dia com direito em 26/08/2022. O fechamento passou de R$ 3,80 para R$ 45,90, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 12.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkdPR0wiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "GSGI34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 3, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 203,50 para R$ 67,62, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.33333333,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkdTR0kiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "HAPV3": {
   "2025-06-06": {
    "evento": "Grupamento de 15 para 1, aprovado em 30/04/2025; último dia com direito em 05/06/2025. O fechamento passou de R$ 2,70 para R$ 39,91, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 15.0,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkhBUFYiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   },
@@ -85,6 +325,7 @@
  "HFOF11": {
   "2025-05-12": {
    "evento": "Desdobramento de 1 para 10, aprovado em 30/04/2025; último dia com direito em 09/05/2025. O fechamento passou de R$ 59,99 para R$ 5,96, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkhGT0YiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -92,11 +333,74 @@
  "HGBS11": {
   "2025-05-12": {
    "evento": "Desdobramento de 1 para 10, aprovado em 30/04/2025; último dia com direito em 09/05/2025. O fechamento passou de R$ 196,29 para R$ 19,55, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkhHQlMiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
+ "IGTI11": {
+  "2021-12-27": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 20/12/2021; último dia com direito em 23/12/2021. O fechamento passou de R$ 183,00 para R$ 18,27, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IklHVEkiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "IRBR3": {
+  "2023-01-25": {
+   "evento": "Grupamento de 30 para 1, aprovado em 22/12/2022; último dia com direito em 24/01/2023. O fechamento passou de R$ 0,93 para R$ 22,06, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 29.99999999,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IklSQlIiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "JSAF11": {
+  "2024-12-17": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 03/12/2024; último dia com direito em 16/12/2024. O fechamento passou de R$ 72,00 para R$ 7,38, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IkpTQUYiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "KCRE11": {
+  "2024-06-13": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 07/06/2024; último dia com direito em 12/06/2024. O fechamento passou de R$ 96,25 para R$ 9,68, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IktDUkUiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "KISU11": {
+  "2021-07-26": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 22/07/2021; último dia com direito em 23/07/2021. O fechamento passou de R$ 101,22 para R$ 10,10, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IktJU1UiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "KNSC11": {
+  "2023-11-06": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 30/10/2023; último dia com direito em 03/11/2023. O fechamento passou de R$ 88,48 para R$ 8,75, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IktOU0MiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "LILY34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 15, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 973,50 para R$ 64,48, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.06666667,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkxJTFkiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
  "M1RN34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 2, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 98,00 para R$ 46,51, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik0xUk4iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
   "2026-08-19": {
    "evento": "alta de 171,1% entre 18/08/2026 e 19/08/2026, pregões consecutivos com negócio no BDR. Sem desdobramento, grupamento ou provento compatível nos eventos do BDR na B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 34,29, R$ 36,50, R$ 36,20).",
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik0xUk4iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
@@ -112,6 +416,14 @@
    "tipo": "mercado"
   }
  },
+ "M2ST34": {
+  "2024-08-08": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 12/07/2024; último dia com direito em 07/08/2024. O fechamento passou de R$ 102,08 para R$ 10,79, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik0yU1QiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
  "MFII11": {
   "2026-08-03": {
    "evento": "queda de 41,5% no primeiro pregão depois do aviso ao mercado do fundo entregue à CVM em 31/07/2026. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 30,66, R$ 29,30, R$ 28,80).",
@@ -120,16 +432,58 @@
    "tipo": "mercado"
   }
  },
+ "MGLU3": {
+  "2024-05-27": {
+   "evento": "Grupamento de 10 para 1, aprovado em 24/04/2024; último dia com direito em 24/05/2024. O fechamento passou de R$ 1,32 para R$ 13,15, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 10.0,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik1HTFUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "MSCD34": {
+  "2021-02-09": {
+   "evento": "Desdobramento de 1 para 31, aprovado em 25/01/2021; último dia com direito em 08/02/2021. O fechamento passou de R$ 1800,00 para R$ 58,10, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.03225806,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik1TQ0QiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "MUTC34": {
+  "2022-11-21": {
+   "evento": "Desdobramento de 1 para 6, aprovado em 27/10/2022; último dia com direito em 18/11/2022. O fechamento passou de R$ 311,85 para R$ 50,27, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.16666667,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik1VVEMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
  "NFLX34": {
   "2025-11-17": {
    "evento": "Desdobramento de 1 para 10, aprovado em 04/11/2025; último dia com direito em 14/11/2025. O fechamento passou de R$ 117,00 para R$ 11,69, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik5GTFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "NVDC34": {
+  "2024-06-10": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 24/05/2024; último dia com direito em 07/06/2024. O fechamento passou de R$ 134,16 para R$ 13,56, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik5WREMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "ORCL34": {
+  "2021-02-09": {
+   "evento": "Desdobramento de 1 para 6, aprovado em 25/01/2021; último dia com direito em 08/02/2021. O fechamento passou de R$ 338,88 para R$ 57,30, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.16666667,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik9SQ0wiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "ORVR3": {
   "2026-08-11": {
    "evento": "Desdobramento de 1 para 4, aprovado em 10/08/2026; último dia com direito em 10/08/2026. O fechamento passou de R$ 67,60 para R$ 16,40, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik9SVlIiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -142,9 +496,42 @@
    "tipo": "mercado"
   }
  },
+ "PORD11": {
+  "2024-04-05": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 03/04/2024; último dia com direito em 04/04/2024. O fechamento passou de R$ 91,60 para R$ 9,27, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlBPUkQiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "PRIO3": {
+  "2021-05-06": {
+   "evento": "Desdobramento de 1 para 5, aprovado em 03/05/2021; último dia com direito em 05/05/2021. O fechamento passou de R$ 97,00 para R$ 19,20, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.2,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlBSSU8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "PSSA3": {
+  "2021-10-21": {
+   "evento": "Bonificação de 100% em novos papéis, aprovada em 20/10/2021; último dia com direito em 20/10/2021. O fechamento passou de R$ 47,36 para R$ 23,92, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlBTU0EiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "RBRX11": {
+  "2023-12-07": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 01/12/2023; último dia com direito em 06/12/2023. O fechamento passou de R$ 91,22 para R$ 9,11, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlJCUlgiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
  "RBVA11": {
   "2025-05-09": {
    "evento": "Desdobramento de 1 para 10, aprovado em 29/04/2025; último dia com direito em 08/05/2025. O fechamento passou de R$ 85,93 para R$ 8,68, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlJCVkEiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -158,6 +545,7 @@
   },
   "2026-08-24": {
    "evento": "Desdobramento de 1 para 55, aprovado em 15/07/2026; último dia com direito em 21/08/2026. O fechamento passou de R$ 4533,78 para R$ 75,00, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.01818182,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMxVFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -185,27 +573,101 @@
  "SBSP3": {
   "2026-04-29": {
    "evento": "Desdobramento de 1 para 5, aprovado em 28/04/2026; último dia com direito em 28/04/2026. O fechamento passou de R$ 167,00 para R$ 32,99, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.2,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNCU1AiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "SIMH3": {
+  "2021-08-11": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 10/08/2021; último dia com direito em 10/08/2021. O fechamento passou de R$ 66,20 para R$ 16,28, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNJTUgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  },
   "2026-02-18": {
    "evento": "Grupamento de 2 para 1, aprovado em 13/02/2026; último dia com direito em 13/02/2026. O fechamento passou de R$ 6,56 para R$ 13,15, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 2.0,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNJTUgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "SLCE3": {
+  "2023-12-14": {
+   "evento": "Desdobramento de 1 para 2, aprovado em 13/12/2023; último dia com direito em 13/12/2023. O fechamento passou de R$ 38,53 para R$ 18,56, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNMQ0UiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "SNEL11": {
+  "2024-06-28": {
+   "evento": "Desdobramento de 1 para 15, aprovado em 29/05/2024; último dia com direito em 27/06/2024. O fechamento passou de R$ 139,00 para R$ 9,17, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.06666667,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlNORUwiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "SPXS11": {
+  "2023-10-23": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 17/10/2023; último dia com direito em 20/10/2023. O fechamento passou de R$ 94,36 para R$ 9,61, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlNQWFMiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "TEPP11": {
   "2025-11-28": {
    "evento": "Desdobramento de 1 para 10, aprovado em 17/11/2025; último dia com direito em 27/11/2025. O fechamento passou de R$ 83,86 para R$ 8,50, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlRFUFAiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "TSLA34": {
+  "2022-08-25": {
+   "evento": "Desdobramento de 1 para 3, aprovado em 05/08/2022; último dia com direito em 24/08/2022. O fechamento passou de R$ 142,25 para R$ 47,03, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.33333333,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlRTTEEiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "VAMO3": {
+  "2021-08-16": {
+   "evento": "Desdobramento de 1 para 4, aprovado em 13/08/2021; último dia com direito em 13/08/2021. O fechamento passou de R$ 61,71 para R$ 14,10, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.25,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlZBTU8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "VGIR11": {
+  "2022-09-09": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 08/09/2022; último dia com direito em 08/09/2022. O fechamento passou de R$ 100,84 para R$ 10,05, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlZHSVIiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "VINO11": {
+  "2023-08-07": {
+   "evento": "Desdobramento de 1 para 5, aprovado em 02/08/2023; último dia com direito em 04/08/2023. O fechamento passou de R$ 46,15 para R$ 9,39, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.2,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlZJTk8iLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "VISA34": {
+  "2021-01-27": {
+   "evento": "Desdobramento de 1 para 20, aprovado em 26/01/2021; último dia com direito em 26/01/2021. O fechamento passou de R$ 1122,00 para R$ 53,60, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.05,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlZJU0EiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
  },
  "VIVT3": {
   "2025-04-15": {
    "evento": "Desdobramento de 1 para 80 e grupamento de 40 para 1 (no conjunto, 1 para 2), aprovados em 13/03/2025; último dia com direito em 14/04/2025. O fechamento passou de R$ 51,00 para R$ 25,46, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlZJVlQiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
   }
@@ -221,6 +683,22 @@
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlcxREMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do BDR (nenhum na data) e série histórica COTAHIST",
    "tipo": "mercado"
+  }
+ },
+ "WEGE3": {
+  "2021-04-28": {
+   "evento": "Desdobramento de 1 para 2, aprovado em 27/04/2021; último dia com direito em 27/04/2021. O fechamento passou de R$ 74,02 para R$ 36,50, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.5,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IldFR0UiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "XPSF11": {
+  "2022-05-06": {
+   "evento": "Desdobramento de 1 para 10, aprovado em 03/05/2022; último dia com direito em 05/05/2022. O fechamento passou de R$ 72,99 para R$ 7,20, e a diferença vem do evento, não de oscilação de mercado.",
+   "fator_preco": 0.1,
+   "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlhQU0YiLCJ0eXBlRnVuZCI6N30=",
+   "fonte_nome": "B3, eventos corporativos do emissor"
   }
  }
 }

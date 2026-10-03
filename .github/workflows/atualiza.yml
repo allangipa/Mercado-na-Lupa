@@ -37,7 +37,7 @@ concurrency:
 jobs:
   atualiza:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -67,6 +67,18 @@ jobs:
         env:
           TZ: America/Sao_Paulo
         run: python _src/comunicados.py
+
+      - name: CDI e IPCA (Banco Central)
+        continue-on-error: true
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/bcb.py
+
+      - name: Balanços da CVM (uma vez por semana)
+        continue-on-error: true
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/fundamentos.py --se-velho
 
       - name: Notícias de fontes oficiais
         continue-on-error: true

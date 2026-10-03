@@ -166,7 +166,13 @@ def abrir(caminho):
     return ler_bytes(caminho.read_bytes(), caminho.name)
 
 
-def cotacoes(caminho, codigos):
+# ETFs usados só como referência de comparação (BOVA11, SMAL11, XFIX11, DIVO11,
+# IVVB11): no COTAHIST vêm com BDI 14 (no PDF: "CERT.INVEST/TIT.DIV.PUBLICA"),
+# especificação CI e ISIN BRxxxxCTFnnn. Aceitos só para os códigos pedidos em etfs.
+BDI_ETF = "14"
+
+
+def cotacoes(caminho, codigos, etfs=()):
     """Linhas do mercado à vista (lote padrão ou FII) dos códigos pedidos.
     Devolve {codigo: [registro, ...]} em ordem de data. Só interpreta as
     linhas que interessam, mas a estrutura do arquivo inteiro é conferida."""
@@ -177,9 +183,13 @@ def cotacoes(caminho, codigos):
         cod = l[12:24].strip()
         if cod not in alvo:
             continue
-        if l[10:12] not in BDI_ACEITOS or l[24:27] != MERCADO_VISTA:
+        if l[24:27] != MERCADO_VISTA:
+            continue
+        if l[10:12] not in BDI_ACEITOS and not (cod in etfs and l[10:12] == BDI_ETF):
             continue
         r = interpretar(n, l)
+        if r["codbdi"] == BDI_ETF and (not r["especi"].startswith("CI") or r["codisi"][6:9] != "CTF"):
+            raise LayoutInvalido(f"linha {n} ({cod}): ETF com especificação {r['especi']!r} e ISIN {r['codisi']} fora do padrão")
         if r["codbdi"] in BDI_BDR:
             esp = (r["especi"].split() or [""])[0]
             if esp not in BDI_BDR[r["codbdi"]] or r["codisi"][6:9] != "BDR":

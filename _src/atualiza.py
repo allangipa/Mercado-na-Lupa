@@ -4,6 +4,9 @@
     python _src/atualiza.py diario               pregões que faltam, até hoje
     python _src/atualiza.py historico 2025 2026  carga inicial pelos arquivos anuais
     python _src/atualiza.py arquivo CAMINHO.ZIP  importa um arquivo já baixado
+    python _src/atualiza.py longo 2021 2022 2023 2024
+                                                 série longa (só data e fechamento) antes de
+                                                 2025, em dados/historico/, para o gráfico de 5 anos
 
 Grava:
     dados/cotacoes/<CODIGO>.csv  um pregão por linha, só os ativos de _src/ativos.json
@@ -38,6 +41,10 @@ COT = DADOS / "cotacoes"
 URL = "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/"
 COLUNAS = ["data", "abertura", "maxima", "minima", "media", "fechamento", "negocios", "quantidade", "volume"]
 INICIO_HISTORICO = dt.date(2025, 1, 1)
+HIST = DADOS / "historico"
+# ETFs da própria B3 usados como referência na "Comparação com índices" (o site
+# não republica a série dos índices; usa o ETF que acompanha cada um, do COTAHIST)
+REFERENCIAS = ["BOVA11", "SMAL11", "XFIX11", "DIVO11", "IVVB11"]
 MAX_DIAS_ATRAS = 15
 
 
@@ -94,13 +101,13 @@ def ler_pregoes():
 
 def importar(caminhos):
     """Lê todos os arquivos ANTES de gravar qualquer coisa: se um falhar, nada muda."""
-    cods = ativos()
+    cods = ativos() + REFERENCIAS
     novos = {c: {} for c in cods}
     pregoes = {}
     papeis = {}
     for cam in caminhos:
         try:
-            meta, por_cod = b3.cotacoes(cam, cods)
+            meta, por_cod = b3.cotacoes(cam, cods, etfs=REFERENCIAS)
             _, regs = b3.abrir(cam)
         except b3.LayoutInvalido as ex:
             falha(f"layout da B3 não bate — nada foi gravado.\n  {ex}\n"
@@ -200,6 +207,54 @@ def historico(anos):
     return importar(cams)
 
 
+def longo(anos):
+    """Fechamentos antes de 2025, só data e fechamento, para o gráfico longo. Mesmo
+    porteiro do leitor; grava só depois de ler todos os anos, e para se um número
+    já gravado vier diferente."""
+    cods = ativos() + REFERENCIAS
+    novos = {c: {} for c in cods}
+    pap = json.loads((DADOS / "papeis.json").read_text(encoding="utf-8"))
+    falta = [c for c in cods if c not in pap]
+    if falta:
+        falha(f"sem ISIN em dados/papeis.json para {falta}: rode antes o import de 2025 em diante")
+    for a in anos:
+        if a >= INICIO_HISTORICO.year:
+            falha(f"{a}: a série longa é só para antes de {INICIO_HISTORICO.year} (o resto fica em dados/cotacoes)")
+        cam = TMP / f"COTAHIST_A{a}.ZIP"
+        if not cam.exists():
+            print(f"  baixando {cam.name}…")
+            cam = baixar(cam.name) or falha(f"a B3 não tem {cam.name}")
+        try:
+            meta, por_cod = b3.cotacoes(cam, cods, etfs=REFERENCIAS)
+        except b3.LayoutInvalido as ex:
+            falha(f"layout da B3 não bate — nada foi gravado.\n  {ex}")
+        for c, rs in por_cod.items():
+            for r in rs:
+                # o mesmo código pode ter sido de outro papel no passado: só entra o ISIN de hoje
+                if c in pap and r["codisi"] != pap[c]["isin"]:
+                    continue
+                novos[c][r["data"].isoformat()] = f"{r['preult']:.2f}"
+        print(f"  lido {cam.name}")
+    HIST.mkdir(parents=True, exist_ok=True)
+    gravados = 0
+    for c in cods:
+        arq = HIST / f"{c}.csv"
+        velho = {}
+        if arq.exists():
+            with arq.open(encoding="utf-8") as f:
+                velho = {l["data"]: l["fechamento"] for l in csv.DictReader(f)}
+        for d, v in novos[c].items():
+            if d in velho and velho[d] != v:
+                falha(f"{c} {d}: fechamento {v} diferente do já gravado {velho[d]}")
+        velho.update(novos[c])
+        if not velho:
+            continue
+        with arq.open("w", encoding="utf-8", newline="") as f:
+            f.write("data,fechamento\n" + "".join(f"{d},{velho[d]}\n" for d in sorted(velho)))
+        gravados += 1
+    print(f"ok: série longa de {gravados} códigos em dados/historico/")
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -209,6 +264,8 @@ def main():
         diario()
     elif cmd == "historico" and len(sys.argv) > 2:
         historico([int(a) for a in sys.argv[2:]])
+    elif cmd == "longo" and len(sys.argv) > 2:
+        longo([int(a) for a in sys.argv[2:]])
     elif cmd == "arquivo" and len(sys.argv) > 2:
         importar([Path(p) for p in sys.argv[2:]])
     else:

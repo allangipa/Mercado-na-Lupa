@@ -383,6 +383,77 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
   table.lista-ativos th,table.lista-ativos td,.tabelas-home th,.tabelas-home td{padding:.5rem .45rem}
   table.lista-ativos th:nth-child(4),table.lista-ativos td:nth-child(4),.tabelas-home th:nth-child(4),.tabelas-home td:nth-child(4){display:none}
 }
+:root{--s0:var(--grafico);--s1:#B45309;--s2:#7C3AED;--s3:#0F766E;--s4:#BE185D;--s5:#475467;--s6:#8A5A12;--s7:#1E40AF}
+@media (prefers-color-scheme:dark){:root{--s1:#F5B44A;--s2:#B69CFF;--s3:#4FD1C5;--s4:#F78FB8;--s5:#C2CBD8;--s6:#E0A84A;--s7:#9DB8FF}}
+.indicadores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:1.2rem 0 .4rem}
+@media (min-width:700px){.indicadores{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1000px){.indicadores{grid-template-columns:repeat(6,minmax(0,1fr))}.indicadores.ind-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ind{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:.7rem .8rem .8rem;position:relative;min-width:0}
+.ind-topo{display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin-bottom:.35rem}
+.ind-rot{font:600 .74rem "Archivo",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--suave)}
+.ind-valor{display:inline-block;font:600 1.3rem/1.2 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--tinta)}
+.ind-valor small{font-size:.62em;font-weight:500;color:var(--suave)}
+.ind .selo-var{font-size:.8rem;margin-top:.3rem}
+.ajuda{position:static}
+.ajuda summary{list-style:none;cursor:pointer;width:1.5rem;height:1.5rem;border-radius:50%;border:1px solid var(--linha);display:grid;place-items:center;font:600 .8rem "Archivo",sans-serif;color:var(--suave);background:var(--superficie)}
+.ajuda summary::-webkit-details-marker{display:none}
+.ajuda[open] summary{background:var(--acao);color:#fff;border-color:var(--acao)}
+.ajuda-txt{position:absolute;left:0;right:0;top:100%;z-index:5;margin-top:.3rem;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio-s);box-shadow:var(--sombra-alta);padding:.7rem .8rem;font-size:.86rem;line-height:1.5;min-width:min(19rem,88vw)}
+.ajuda-txt p{margin:0}
+.pares-topo,.graf-ctl{position:relative}
+.icone-tipo{flex:none;width:3.4rem;height:3.4rem;border-radius:.9rem;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#F4F6F9}
+.icone-tipo .icone{width:1.9rem;height:1.9rem}
+.acoes-ativo{display:flex;flex-wrap:wrap;gap:.4rem;margin:.7rem 0 0}
+.acoes-ativo .botao{padding:.4rem .7rem;font-size:.86rem;background:rgba(255,255,255,.1);color:#F4F6F9;border:1px solid rgba(255,255,255,.3)}
+.acoes-ativo .botao .icone{width:1rem;height:1rem}
+.acoes-ativo .favoritar[aria-pressed=true]{background:#E0A84A;color:#0B1220;border-color:#E0A84A}
+.ancoras{margin-top:1rem;font-size:.92rem;color:#C9D3E1}
+.ancoras a{color:#F4F6F9}
+.botoes{display:flex;flex-wrap:wrap;gap:.3rem}
+.botoes button,.comp-legenda button{font:500 .84rem "IBM Plex Mono",monospace;padding:.35rem .65rem;border-radius:8px;border:1px solid var(--linha);background:var(--papel);color:var(--suave);cursor:pointer}
+.botoes button[aria-pressed=true]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.graf-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin-bottom:.6rem}
+.comparar{font-size:.86rem;color:var(--suave);display:flex;align-items:center;gap:.4rem;max-width:100%}
+.comparar select{max-width:min(16rem,60vw);font:inherit;padding:.3rem .4rem;border:1px solid var(--linha);border-radius:8px;background:var(--papel);color:var(--tinta)}
+.grafico2,.comp,.div-grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.grafico2 svg,.comp svg,.div-barras svg{display:block;width:100%;height:auto}
+.grafico2 text,.comp text,.div-barras text{font:500 18px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico2 text,.comp text,.div-barras text{font-size:14px}}
+.grafico2 .grade-y,.comp .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico2 .area{fill:var(--grafico-area)}
+.linha{fill:none;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.ponto{fill:var(--papel);stroke-width:2;vector-effect:non-scaling-stroke}
+.linha.s0,.ponto.s0{stroke:var(--s0)}.linha.s1,.ponto.s1{stroke:var(--s1)}.linha.s2,.ponto.s2{stroke:var(--s2)}.linha.s3,.ponto.s3{stroke:var(--s3)}
+.linha.s4,.ponto.s4{stroke:var(--s4)}.linha.s5,.ponto.s5{stroke:var(--s5)}.linha.s6,.ponto.s6{stroke:var(--s6)}.linha.s7,.ponto.s7{stroke:var(--s7)}
+.linha.s1{stroke-dasharray:7 4}.linha.s2{stroke-dasharray:2 4}.linha.s3{stroke-dasharray:12 4 3 4}.linha.s4{stroke-dasharray:5 5}.linha.s5{stroke-dasharray:1 3}.linha.s6{stroke-dasharray:9 3}.linha.s7{stroke-dasharray:3 3 9 3}
+text.rot-fim{font-weight:600}
+text.rot-fim.s0{fill:var(--s0)}text.rot-fim.s1{fill:var(--s1)}text.rot-fim.s2{fill:var(--s2)}text.rot-fim.s3{fill:var(--s3)}text.rot-fim.s4{fill:var(--s4)}text.rot-fim.s5{fill:var(--s5)}text.rot-fim.s6{fill:var(--s6)}text.rot-fim.s7{fill:var(--s7)}
+.comp-legenda{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .6rem}
+.comp-legenda button{display:inline-flex;align-items:center;gap:.4rem;font-family:"Archivo",sans-serif}
+.comp-legenda button[aria-pressed=false]{opacity:.55;text-decoration:line-through}
+.marca-serie{display:inline-block;width:1.4rem;height:.28rem;border-radius:2px;background:var(--s0);flex:none}
+.marca-serie.s1{background:repeating-linear-gradient(90deg,var(--s1) 0 7px,transparent 7px 11px)}
+.marca-serie.s2{background:repeating-linear-gradient(90deg,var(--s2) 0 2px,transparent 2px 6px)}
+.marca-serie.s3{background:var(--s3)}.marca-serie.s4{background:repeating-linear-gradient(90deg,var(--s4) 0 5px,transparent 5px 10px)}
+.marca-serie.s5{background:repeating-linear-gradient(90deg,var(--s5) 0 1px,transparent 1px 4px)}.marca-serie.s6{background:var(--s6)}.marca-serie.s7{background:var(--s7)}
+.simulador{margin-top:.8rem;border-top:1px solid var(--linha);padding-top:.8rem}
+.sim-linha{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
+.sim-linha input{font:500 1rem "IBM Plex Mono",monospace;width:8rem;padding:.35rem .5rem;border:1px solid var(--linha);border-radius:8px;background:var(--papel);color:var(--tinta)}
+.sim-res{list-style:none;padding:0;margin:.4rem 0 .8rem}
+.sim-res li{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:.3rem 0;border-bottom:1px solid var(--linha);margin:0}
+.sim-aviso{font-size:.86rem}
+.div-grafico .botoes{margin-bottom:.5rem}
+.div-barras rect.col-div{fill:var(--acao)}
+.div-barras rect.col-div.ult{fill:var(--ouro)}
+table.pares tr.este td{background:var(--acao-suave)}
+table.pares th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:.25em}
+table.pares th[aria-sort=ascending] button::after{content:" ▲"}
+table.pares th[aria-sort=descending] button::after{content:" ▼"}
+.ver-todas{margin-top:.6rem}
+.pares-topo{display:flex;align-items:flex-start;gap:.6rem}
+.pares-topo .data-regra{flex:1}
+@media (max-width:480px){.grafico2 text,.comp text,.div-barras text{font-size:25px}.comp text.rot-fim{font-size:22px}}
+.data-regra,.fontes li{overflow-wrap:anywhere}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/fundo/bovespa-arcos-640.webp 640w, ../assets/img/fundo/bovespa-arcos-1280.webp 1280w, ../assets/img/fundo/bovespa-arcos-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
@@ -416,11 +487,13 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
 <div class="faixa faixa-ativo"><picture class="fundo"><source type="image/webp" srcset="../assets/img/fundo/bovespa-arcos-640.webp 640w, ../assets/img/fundo/bovespa-arcos-1280.webp 1280w, ../assets/img/fundo/bovespa-arcos-1920.webp 1920w" sizes="(max-width: 700px) 200vw, 100vw"><img src="../assets/img/fundo/bovespa-arcos-1280.jpg" srcset="../assets/img/fundo/bovespa-arcos-640.jpg 640w, ../assets/img/fundo/bovespa-arcos-1280.jpg 1280w, ../assets/img/fundo/bovespa-arcos-1920.jpg 1920w" sizes="(max-width: 700px) 200vw, 100vw" width="1280" height="374" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg><div class="casca faixa-conteudo"><nav class="migalhas" aria-label="Você está em"><a href="../index.html">Início</a> › <a href="../ativos.html">Ativos</a> › <a href="../fundos-imobiliarios.html">Fundos imobiliários</a> › <span aria-current="page">KNUQ11</span></nav>
 <div class="cab-ativo">
   <div class="cab-id">
-    <span class="selo selo-fii selo-g" aria-hidden="true"><b>KNUQ</b><i>11</i></span>
+    <span class="icone-tipo" title="Fundo imobiliário"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 21V5l8-3v19"/><path d="M12 9h8v12"/><path d="M7 7h2M7 11h2M7 15h2M15 13h2M15 17h2"/><path d="M2 21h20"/></svg></span>
     <div>
     <p class="rotulo tipo">Fundo imobiliário · B3</p>
     <h1><span class="cod">KNUQ11</span> — Kinea Un FII</h1>
     <p class="razao">FII KINEA UN</p>
+    <p class="acoes-ativo"><button type="button" class="botao claro compartilhar" data-titulo="KNUQ11 — Kinea Un FII"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg><span>Compartilhar</span></button>
+    <button type="button" class="botao claro favoritar" data-cod="KNUQ11" aria-pressed="false" hidden><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z"/></svg><span>Favoritar</span></button></p>
     </div>
   </div>
   <div class="preco">
@@ -429,13 +502,46 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
     <p class="quando">Fechamento de 02/10/2026, comparado com 01/10/2026</p>
     <p class="selo-dados" data-pregao="2026-10-02"><span class="selo-ponto" aria-hidden="true"></span><span class="selo-txt">Pregão de 02/10/2026</span></p>
   </div>
-</div><p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
+</div>
+<nav class="ancoras" aria-label="Seções da página"><a href="#resumo">Resumo</a> · <a href="#dividendos">Dividendos</a> · <a href="#comparacao">Comparação</a> · <a href="#o-que-e">Sobre</a></nav><p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
 <div class="casca">
 
-<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 102,10</dd></div><div><dt>Mínima do dia</dt><dd>R$ 101,90</dd></div><div><dt>Máxima do dia</dt><dd>R$ 102,43</dd></div><div><dt>Preço médio</dt><dd>R$ 102,14</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 102,19</dd></div><div><dt>Volume financeiro</dt><dd>R$ 5,06 mi</dd></div><div><dt>Negócios</dt><dd>4.341</dd></div><div><dt>Quantidade negociada</dt><dd>49,54 mil</dd></div></dl>
+<section id="resumo" aria-label="Resumo">
+<div class="indicadores"><div class="ind" id="ind-cotacao"><div class="ind-topo"><span class="ind-rot">Cotação</span><details class="ajuda"><summary aria-label="O que é Cotação e de onde vem">?</summary><div class="ajuda-txt"><p>Preço do último negócio de KNUQ11 no pregão de 02/10/2026, no mercado à vista da B3 (série histórica COTAHIST). A pílula é a variação sobre o fechamento anterior com negócio (01/10/2026).</p></div></details></div><span class="ind-valor num">R$ 102,25</span> <span class="var alta selo-var">▲ +0,06%</span></div><div class="ind" id="ind-dy"><div class="ind-topo"><span class="ind-rot">DY (12M)</span><details class="ajuda"><summary aria-label="O que é DY (12M) e de onde vem">?</summary><div class="ajuda-txt"><p>Sem número: faltam informes mensais do fundo na CVM para fechar 12 meses seguidos. <a href="../guias/o-que-e-dividend-yield.html">Leia o guia</a>.</p></div></details></div><span class="ind-valor num">—</span></div><div class="ind" id="ind-pvp"><div class="ind-topo"><span class="ind-rot">P/VP</span><details class="ajuda"><summary aria-label="O que é P/VP e de onde vem">?</summary><div class="ajuda-txt"><p>Sem informe mensal do fundo identificado na CVM.</p></div></details></div><span class="ind-valor num">—</span></div><div class="ind" id="ind-liq"><div class="ind-topo"><span class="ind-rot">Liquidez diária</span><details class="ajuda"><summary aria-label="O que é Liquidez diária e de onde vem">?</summary><div class="ajuda-txt"><p>Média do volume financeiro negociado por pregão nos últimos 30 pregões da B3, de 21/08/2026 a 02/10/2026 (dia sem negócio conta como zero). Fonte: COTAHIST, B3.</p></div></details></div><span class="ind-valor num">R$ 5,17 mi</span></div><div class="ind" id="ind-var12"><div class="ind-topo"><span class="ind-rot">Variação (12M)</span><details class="ajuda"><summary aria-label="O que é Variação (12M) e de onde vem">?</summary><div class="ajuda-txt"><p>Fechamento de 02/10/2026 comparado com o de 02/10/2025, o último pregão até um ano antes (COTAHIST, B3). Preço bruto: não inclui proventos (dividendos, JCP, rendimentos).</p></div></details></div><span class="ind-valor num var baixa">▼ −1,05%</span></div></div>
 <h2 id="grafico">Histórico de fechamento</h2>
-<div class="grafico" data-cod="KNUQ11"><input type="radio" class="sr" name="per-knuq11" id="p-12m" checked><input type="radio" class="sr" name="per-knuq11" id="p-6m"><input type="radio" class="sr" name="per-knuq11" id="p-1m"><div class="periodos" role="group" aria-label="Período do gráfico"><label for="p-12m">12 meses</label><label for="p-6m">6 meses</label><label for="p-1m">1 mês</label></div><div class="paineis"><p class="sem-js">O gráfico é desenhado no navegador e precisa de JavaScript. Os números do período estão no texto logo abaixo e na tabela de pregões.</p></div><script type="application/json" id="serie">{"d0":"2025-01-02","s":[0,102.29,1,102.65,3,101.56,1,103.81,1,102.01,1,101.23,1,102.3,3,101.33,1,101.13,1,101.92,1,101.4,1,101.0,3,99.75,1,99.39,1,98.8,1,98.64,1,97.55,3,97.0,1,96.72,1,99.3,1,98.57,1,99.09,3,98.05,1,101.02,1,100.18,1,100.02,1,100.1,3,100.42,1,100.37,1,101.3,1,101.5,1,101.65,3,101.81,1,101.95,1,102.18,1,102.21,1,103.12,3,102.47,1,102.5,1,102.2,1,102.7,1,102.5,5,102.0,1,102.71,1,103.3,3,103.19,1,102.97,1,103.12,1,103.65,1,103.62,3,104.0,1,103.46,1,103.29,1,103.83,1,103.24,3,103.48,1,104.49,1,104.9,1,104.87,1,104.65,3,105.05,1,103.68,1,104.5,1,103.8,1,103.48,3,103.5,1,103.9,1,102.74,1,103.25,1,103.05,3,102.53,1,102.6,1,103.36,1,103.5,5,103.64,1,103.55,1,103.13,1,103.66,3,103.77,1,103.68,1,103.45,2,102.59,3,103.25,1,102.84,1,103.0,1,103.4,1,103.75,3,103.01,1,103.0,1,103.01,1,103.46,1,103.73,3,103.93,1,103.81,1,104.02,1,104.08,1,103.6,3,104.15,1,104.66,1,104.2,1,104.23,1,104.68,3,103.69,1,103.61,1,103.55,1,103.31,1,103.65,3,103.4,1,103.4,1,104.12,1,103.87,1,104.55,3,104.0,1,104.11,1,103.94,2,104.4,3,104.38,1,104.5,1,104.5,1,104.55,1,104.64,3,104.77,1,103.84,1,103.93,1,103.99,1,103.84,3,104.76,1,104.99,1,105.15,1,105.2,1,104.95,3,105.1,1,104.89,1,104.45,1,104.54,1,104.6,3,104.65,1,104.6,1,104.72,1,104.69,1,104.86,3,104.48,1,104.46,1,104.8,1,104.85,1,103.57,3,103.36,1,103.9,1,103.73,1,103.71,1,103.98,3,103.97,1,103.97,1,105.34,1,105.44,1,105.5,3,105.02,1,104.96,1,105.0,1,104.94,1,104.99,3,104.92,1,105.0,1,105.95,1,105.0,1,105.51,3,104.01,1,103.82,1,103.81,1,103.84,1,104.08,3,104.16,1,103.95,1,104.39,1,104.1,1,105.03,3,104.7,1,104.66,1,104.76,1,104.21,1,104.31,3,104.31,1,104.25,1,104.46,1,104.07,1,104.2,3,104.28,1,104.58,1,103.11,1,103.33,1,103.31,3,103.67,1,103.64,1,103.9,1,103.81,1,103.85,3,103.9,1,103.78,1,104.0,1,103.91,1,103.99,3,104.0,1,104.16,1,103.91,1,104.17,1,104.13,3,104.27,1,104.5,1,104.64,1,104.32,1,104.95,3,103.46,1,103.48,1,103.5,1,102.98,1,102.61,3,102.65,1,103.03,1,103.0,1,103.0,1,103.87,3,103.58,1,103.96,1,103.62,2,103.45,3,103.59,1,103.59,1,103.0,1,103.4,1,103.88,3,102.91,1,103.84,1,103.67,1,103.7,1,103.7,3,104.09,1,103.8,1,103.61,1,104.22,1,104.82,3,104.39,1,104.5,1,104.66,1,104.94,1,105.49,3,105.44,1,105.75,3,105.57,3,105.52,1,105.25,3,104.21,3,104.58,1,104.68,1,104.69,1,104.64,1,104.1,3,104.6,1,104.62,1,104.72,1,104.74,1,104.7,3,105.0,1,104.61,1,105.06,1,105.0,1,105.47,3,105.15,1,105.45,1,105.68,1,105.58,1,105.4,3,104.38,1,104.64,1,104.2,1,104.35,1,104.41,3,104.4,1,104.46,1,104.64,1,104.78,1,105.54,5,105.44,1,105.5,1,105.4,3,105.21,1,105.33,1,105.21,1,105.58,1,105.9,3,104.55,1,104.63,1,104.45,1,104.1,1,104.02,3,104.32,1,104.33,1,104.03,1,104.25,1,104.23,3,104.7,1,104.57,1,104.5,1,104.61,1,104.37,3,104.5,1,104.35,1,104.36,1,104.69,1,104.89,3,105.67,1,105.75,1,104.69,1,105.09,4,105.29,1,104.96,1,105.18,1,105.12,1,104.94,3,104.76,1,104.54,1,104.8,1,104.88,1,105.08,3,105.5,2,105.92,1,105.58,1,105.42,3,105.87,1,105.65,1,105.77,1,105.8,4,104.68,1,104.46,1,105.05,1,105.13,1,105.01,3,104.32,1,104.37,1,103.28,1,103.96,1,104.32,3,103.01,1,102.9,1,104.0,1,104.01,1,104.18,3,104.34,1,104.15,1,104.65,1,104.86,1,105.34,3,103.25,1,103.59,1,103.41,2,103.4,3,104.09,1,104.04,1,104.0,1,104.74,1,104.73,3,105.0,1,104.93,1,104.26,1,104.47,1,104.5,3,105.15,1,104.8,1,104.8,1,104.8,1,105.43,3,105.43,1,105.89,1,104.47,1,104.29,1,104.47,3,104.6,1,104.96,1,105.02,1,105.09,1,105.6,3,104.9,1,105.1,1,104.8,1,105.44,1,105.65,3,105.67,1,105.32,1,105.26,1,104.76,1,104.85,3,104.8,1,104.89,1,105.0,1,105.15,1,105.73,3,104.1,1,104.57,1,104.09,1,104.17,1,104.64,3,104.59,1,104.14,1,103.93,1,103.7,1,103.14,3,102.94,1,103.2,1,103.32,1,102.42,1,104.01,3,104.04,1,103.73,1,103.89,1,104.17,1,104.46,3,104.94,1,103.0,1,102.64,1,102.68,1,103.09,4,103.1,1,103.1,1,102.85,1,102.65,3,102.92,1,102.48,1,102.72,1,102.51,1,102.5,3,102.64,1,102.5,1,102.16,1,102.02,1,103.09,3,103.13,1,102.9,1,103.35,1,102.19,1,102.25]}</script><p class="legenda">Preço de fechamento diário, em reais, sem ajuste por proventos, desdobramentos ou grupamentos. Fonte: B3, série histórica de cotações.</p></div>
+<div class="grafico2" data-slug="knuq11" data-cod="KNUQ11">
+<div class="graf-ctl"><div class="botoes per" role="group" aria-label="Período do gráfico"></div>
+<div class="botoes aj" role="group" aria-label="Tipo de série" hidden><button type="button" data-aj="0" aria-pressed="true">Real</button><button type="button" data-aj="1" aria-pressed="false">Ajustada</button></div>
+<label class="comparar">Comparar com <select><option value="">—</option></select></label></div>
+<div class="graf-area"><p class="sem-js">O gráfico é desenhado no navegador e precisa de JavaScript. Os números do período estão logo abaixo e na tabela de pregões.</p></div>
+<p class="legenda">Preço de fechamento diário em reais, desde 26/10/2023. “Real” é o preço como foi negociado, sem ajuste por proventos, desdobramentos ou grupamentos. “Ajustada” desconta os rendimentos do preço anterior a cada pagamento, como se fossem reinvestidos; o rendimento vem do informe mensal da CVM e é aplicado no primeiro pregão do mês seguinte ao de referência (o informe não traz a data com), então é uma aproximação. Ao comparar, as duas séries começam em 100 no início do período. Fonte: B3, série histórica de cotações.</p>
+</div>
 <p class="data-regra" style="margin-top:.8rem">Em 12 meses, o preço oscilou entre <span class="num">R$ 101,10</span> (mínima intradiária) e <span class="num">R$ 106,34</span> (máxima intradiária).</p>
+<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 102,10</dd></div><div><dt>Mínima do dia</dt><dd>R$ 101,90</dd></div><div><dt>Máxima do dia</dt><dd>R$ 102,43</dd></div><div><dt>Preço médio</dt><dd>R$ 102,14</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 102,19</dd></div><div><dt>Volume financeiro</dt><dd>R$ 5,06 mi</dd></div><div><dt>Negócios</dt><dd>4.341</dd></div><div><dt>Quantidade negociada</dt><dd>49,54 mil</dd></div></dl>
+</section>
+<h2 id="dividendos">Histórico de dividendos</h2><p class="data-regra">Sem histórico de proventos com fonte oficial aberta para KNUQ11: o fundo não tem informes mensais identificados na CVM. O site não estima nem completa esse dado.</p>
+<h2 id="comparacao">Comparação com índices</h2>
+<div class="comp" data-slug="knuq11" data-cod="KNUQ11" data-tipo="fii">
+<div class="graf-ctl"><div class="botoes" role="group" aria-label="Período da comparação">
+<button type="button" data-p="1A" aria-pressed="true">1A</button><button type="button" data-p="2A" aria-pressed="false">2A</button><button type="button" data-p="5A" aria-pressed="false">5A</button></div>
+<details class="ajuda"><summary aria-label="De onde vêm as séries da comparação">?</summary><div class="ajuda-txt"><p>Rentabilidade acumulada no período, em %.
+<strong>KNUQ11</strong>: o preço do ativo com os rendimentos reinvestidos (aproximação pelo informe mensal da CVM), do COTAHIST (B3), com desdobramentos e grupamentos descontados.
+<strong>CDI</strong>: taxa DI diária do Banco Central (SGS, série 12), acumulada dia a dia.
+<strong>IPCA</strong>: variação mensal do Banco Central (SGS, série 433), acumulada mês a mês (o mês corrente entra quando o IBGE divulga).
+<strong>Índices da B3</strong>: o site não republica a série dos índices; usa o ETF negociado na própria B3 que acompanha cada um
+(BOVA11 para o Ibovespa, SMAL11 para o SMLL, XFIX11 para o IFIX, DIVO11 para o IDIV, IVVB11 para o S&amp;P 500 em reais), pelo preço de
+fechamento do COTAHIST. ETF cobra taxa de administração e pode se afastar do índice; distribuições do ETF, se houver, não estão incluídas.</p></div></details></div>
+<div class="comp-legenda" role="group" aria-label="Séries do gráfico"></div>
+<div class="comp-area"><p class="sem-js">A comparação é desenhada no navegador e precisa de JavaScript.</p></div>
+<form class="simulador" onsubmit="return false">
+<p class="sim-linha"><label for="sim-valor">Se você tivesse investido R$</label> <input id="sim-valor" inputmode="decimal" value="1.000" size="9">
+<span class="sim-per">há 1 ano</span>, hoje teria:</p>
+<ul class="sim-res" aria-live="polite"></ul>
+<p class="aviso sim-aviso"><strong>Simulação com dados passados.</strong> Valores brutos, sem impostos, taxas e custos de corretagem. Rentabilidade passada não garante resultado futuro. Isto não é recomendação de investimento.
+O valor do ativo inclui os rendimentos reinvestidos, pela aproximação do informe mensal da CVM; os ETFs entram só pelo preço.</p>
+</form>
+</div>
+
 <div class="grade grade-2" style="margin-top:1rem">
 <section><h2 id="o-que-e">O que é KNUQ11</h2><p><strong>KNUQ11</strong> é o código de negociação de cotas do fundo imobiliário na B3, com o nome de pregão “FII KINEA UN” e ISIN BRKNUQCTF004. O site não achou o cadastro deste fundo nos dados abertos da CVM (o ISIN da B3 não aparece no informe mensal dos fundos imobiliários), e por isso não mostra razão social, administrador nem patrimônio: é melhor não mostrar do que mostrar dado de outro fundo.</p></section>
 <section><h2 id="ficha">Ficha</h2><dl class="ficha"><dt>Cadastro na CVM</dt><dd>não identificado</dd><dt>Índice (carteira vigente)</dt><dd>IFIX</dd><dt>Código ISIN</dt><dd>BRKNUQCTF004</dd><dt>Nome no pregão (B3)</dt><dd>FII KINEA UN</dd></dl></section>
@@ -449,6 +555,7 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
  <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista como publicado pela B3.</li>
  <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um rendimento, a queda de preço aparece como variação.</li>
  <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
+ <li>Cada indicador tem um <strong>?</strong> com a fórmula, a fonte e a data-base. Sem fonte oficial, aparece “—”.</li>
  <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
 </ul>
 <h2 id="guias">Para entender os números</h2>
@@ -457,7 +564,7 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
 <ul class="outros-ativos"><li><a class="cartao" href="kncr11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>KNCR</b><i>11</i></span><span><b>KNCR11</b><small>Kinea Rendimentos Imobiliários FII</small></span></a></li><li><a class="cartao" href="btlg11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>BTLG</b><i>11</i></span><span><b>BTLG11</b><small>BTGP Logística FII</small></span></a></li><li><a class="cartao" href="trxf11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>TRXF</b><i>11</i></span><span><b>TRXF11</b><small>Liquidez Projetos GD FII</small></span></a></li><li><a class="cartao" href="mxrf11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>MXRF</b><i>11</i></span><span><b>MXRF11</b><small>FII Maxi Renda</small></span></a></li><li><a class="cartao" href="hglg11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>HGLG</b><i>11</i></span><span><b>HGLG11</b><small>Pátria Log FII</small></span></a></li><li><a class="cartao" href="knhf11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>KNHF</b><i>11</i></span><span><b>KNHF11</b><small>Kinea Hedge Fund FII</small></span></a></li><li><a class="cartao" href="hgbs11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>HGBS</b><i>11</i></span><span><b>HGBS11</b><small>Hedge Brasil Shopping FII</small></span></a></li><li><a class="cartao" href="knsc11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>KNSC</b><i>11</i></span><span><b>KNSC11</b><small>Kinea Securities FII</small></span></a></li><li><a class="cartao" href="rbrp11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>RBRP</b><i>11</i></span><span><b>RBRP11</b><small>Pátria Properties FII</small></span></a></li><li><a class="cartao" href="visc11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>VISC</b><i>11</i></span><span><b>VISC11</b><small>Vinci Shopping Centers FII</small></span></a></li><li><a class="cartao" href="xpml11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>XPML</b><i>11</i></span><span><b>XPML11</b><small>XP Malls FII</small></span></a></li><li><a class="cartao" href="xplg11.html"><span class="selo selo-fii selo-p" aria-hidden="true"><b>XPLG</b><i>11</i></span><span><b>XPLG11</b><small>XP Log FII</small></span></a></li></ul>
 <p><a href="../fundos-imobiliarios.html">Ver a lista completa de fundos imobiliários</a></p>
 <h2 id="fontes">Fontes</h2>
-<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/indice-de-fundos-de-investimentos-imobiliarios-ifix-composicao-da-carteira.htm" rel="noopener">B3 — composição da carteira do IFIX</a></li>
+<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://www3.bcb.gov.br/sgspub/" rel="noopener">Banco Central — SGS (CDI, série 12; IPCA, série 433)</a></li><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/indice-de-fundos-de-investimentos-imobiliarios-ifix-composicao-da-carteira.htm" rel="noopener">B3 — composição da carteira do IFIX</a></li>
 </ul>
 <div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Esta página reúne dados públicos sobre KNUQ11 e não é análise nem indicação de compra ou venda.</div>
 </div></main>
@@ -548,27 +655,8 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
   }
 })();
 </script>
-<script>
-(function(){var G=document.querySelector('.grafico[data-cod]');if(!G)return;
-var J=JSON.parse(document.getElementById('serie').textContent),M=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
-var rows=[],t=Date.parse(J.d0+'T00:00:00Z');for(var i=0;i<J.s.length;i+=2){t+=J.s[i]*864e5;rows.push([new Date(t),J.s[i+1]])}
-function br(v,c){return v.toLocaleString('pt-BR',{minimumFractionDigits:c,maximumFractionDigits:c})}
-function dt(d){return ('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)+'/'+d.getUTCFullYear()}
-function passo(a){if(a<=0)return 1;var b=a/4,m=Math.pow(10,Math.floor(Math.log10(b)));var k=[1,2,2.5,5,10];for(var i=0;i<k.length;i++)if(b<=k[i]*m)return k[i]*m;return 10*m}
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-function svg(rs,cl){var W=720,H=330,x0=82,x1=708,y0=16,y1=282,v=rs.map(function(r){return r[1]}),lo=Math.min.apply(0,v),hi=Math.max.apply(0,v),p=passo(hi-lo),
- a=Math.floor(lo/p)*p,b=Math.ceil(hi/p)*p;if(b===a)b=a+p;var n=rs.length,
- X=function(i){return x0+(x1-x0)*(n>1?i/(n-1):.5)},Y=function(y){return y1-(y1-y0)*(y-a)/(b-a)},
- pts=v.map(function(y,i){return X(i).toFixed(1)+','+Y(y).toFixed(1)}).join(' '),o=[],c=p<1?2:(p<10&&p!==Math.floor(p)?1:0);
- for(var y=a;y<=b+1e-9;y+=p){var yy=Y(y).toFixed(1);o.push('<line class="grade-y" x1="'+x0+'" x2="'+x1+'" y1="'+yy+'" y2="'+yy+'"/><text x="'+(x0-10)+'" y="'+(+yy+7).toFixed(1)+'" text-anchor="end">'+br(y,c)+'</text>')}
- var xs=[];if(cl==='g-1m'){for(var i=0;i<n;i+=Math.max(1,Math.floor(n/4))){var d=rs[i][0];xs.push([i,('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)])}}
- else{var ma=null,ps=cl==='g-6m'?1:2,ct=0;for(var i=0;i<n;i++){var d=rs[i][0],m=d.getUTCMonth();if(m!==ma){if(ma!==null&&ct%ps===0&&i>2)xs.push([i,M[m]+(m===0?'/'+String(d.getUTCFullYear()).slice(2):'')]);if(ma!==null)ct++;ma=m}}}
- var eixo=xs.map(function(q){return '<text x="'+X(q[0]).toFixed(1)+'" y="'+(H-14)+'" text-anchor="middle">'+q[1]+'</text>'}).join('');
- var il=v.indexOf(lo),ih=v.indexOf(hi),id='t-'+cl,tit=G.getAttribute('data-cod')+': fechamento diário de '+dt(rs[0][0])+' a '+dt(rs[n-1][0])+'. Mínimo de R$ '+br(lo,2)+' em '+dt(rs[il][0])+', máximo de R$ '+br(hi,2)+' em '+dt(rs[ih][0])+'.';
- return '<svg class="'+cl+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="'+id+'"><title id="'+id+'">'+esc(tit)+'</title>'+o.join('')+
-  '<path class="area" d="M'+X(0).toFixed(1)+','+y1+' L'+pts.split(' ').join(' L')+' L'+X(n-1).toFixed(1)+','+y1+' Z"/><polyline class="linha" points="'+pts+'"/><circle class="ponto" cx="'+X(n-1).toFixed(1)+'" cy="'+Y(v[n-1]).toFixed(1)+'" r="6"/>'+eixo+'</svg>'}
-var fim=rows[rows.length-1][0],h='';[['g-12m',366],['g-6m',183],['g-1m',31]].forEach(function(q){var ini=+fim-q[1]*864e5,rs=rows.filter(function(r){return +r[0]>ini});h+=svg(rs,q[0])});
-G.querySelector('.paineis').innerHTML=h;G.classList.add('pronto');})();(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
+<script src="../assets/ativo.js?v=203b60e34e" defer></script>
+<script>(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
 function iso(d){return d.toISOString().slice(0,10)}
 function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
 function util(d){var w=d.getUTCDay();return w>0&&w<6&&!F[iso(d)]}

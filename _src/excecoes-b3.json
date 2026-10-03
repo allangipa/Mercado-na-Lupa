@@ -6,7 +6,8 @@
  },
  "S1TX34": {
   "2025-04-04": "preço médio 390,32 fora da faixa 389,50–389,50 no COTAHIST_A2025",
-  "2025-07-09": "preço médio 788,82 fora da faixa 786,84–786,84 no COTAHIST_A2025"
+  "2025-07-09": "preço médio 788,82 fora da faixa 786,84–786,84 no COTAHIST_A2025",
+  "2022-06-03": "preço médio 397,45 fora da faixa 398,00–398,00 no COTAHIST_A2022"
  },
  "KCRE11": {
   "2025-09-30": "preço médio 8,64 fora da faixa 8,60–8,63 no COTAHIST_A2025",
@@ -22,12 +23,136 @@
   "2026-01-16": "preço médio 40,06 fora da faixa 40,11–42,11 no COTAHIST_A2026"
  },
  "D1EL34": {
-  "2026-03-11": "preço médio 759,80 fora da faixa 759,81–762,90 no COTAHIST_A2026"
+  "2026-03-11": "preço médio 759,80 fora da faixa 759,81–762,90 no COTAHIST_A2026",
+  "2021-10-18": "preço médio 606,79 fora da faixa 602,39–606,52 no COTAHIST_A2021",
+  "2022-10-18": "preço médio 182,19 fora da faixa 181,90–182,00 no COTAHIST_A2022"
  },
  "C2RW34": {
-  "2026-03-23": "preço médio 97,87 fora da faixa 97,89–99,00 no COTAHIST_A2026"
+  "2026-03-23": "preço médio 97,87 fora da faixa 97,89–99,00 no COTAHIST_A2026",
+  "2022-06-13": "preço médio 36,09 fora da faixa 36,32–37,20 no COTAHIST_A2022",
+  "2022-08-23": "preço médio 44,78 fora da faixa 44,01–44,70 no COTAHIST_A2022",
+  "2023-03-15": "preço médio 31,28 fora da faixa 31,07–31,10 no COTAHIST_A2023",
+  "2023-03-16": "preço médio 31,92 fora da faixa 31,97–32,08 no COTAHIST_A2023"
  },
  "URPR11": {
   "2026-09-30": "preço médio 19,79 fora da faixa 19,80–19,99 no COTAHIST_A2026"
+ },
+ "FATN11": {
+  "2021-06-24": "preço médio 100,99 fora da faixa 101,00–101,00 no COTAHIST_A2021",
+  "2021-08-05": "preço médio 100,45 fora da faixa 100,49–100,49 no COTAHIST_A2021",
+  "2021-08-30": "preço médio 103,38 fora da faixa 103,39–103,39 no COTAHIST_A2021",
+  "2021-09-13": "preço médio 100,96 fora da faixa 101,30–101,98 no COTAHIST_A2021",
+  "2022-08-30": "preço médio 97,98 fora da faixa 98,00–98,00 no COTAHIST_A2022",
+  "2023-03-23": "preço médio 93,75 fora da faixa 93,00–93,50 no COTAHIST_A2023"
+ },
+ "GSGI34": {
+  "2021-06-28": "preço médio 181,70 fora da faixa 180,66–181,68 no COTAHIST_A2021"
+ },
+ "ITUB4": {
+  "2021-11-19": "preço médio 23,06 fora da faixa 22,09–22,48 no COTAHIST_A2021",
+  "2022-05-20": "preço médio 24,80 fora da faixa 24,85–25,23 no COTAHIST_A2022"
+ },
+ "XPBR31": {
+  "2021-10-15": "preço médio 204,52 fora da faixa 190,00–203,73 no COTAHIST_A2021",
+  "2021-11-19": "preço médio 181,56 fora da faixa 160,01–169,66 no COTAHIST_A2021",
+  "2021-12-17": "preço médio 169,41 fora da faixa 161,44–167,80 no COTAHIST_A2021"
+ },
+ "BRAP4": {
+  "2022-01-21": "preço médio 26,41 fora da faixa 27,38–28,17 no COTAHIST_A2022"
+ },
+ "M2ST34": {
+  "2022-03-15": "preço médio 28,50 fora da faixa 28,20–28,40 no COTAHIST_A2022"
+ },
+ "CYCR11": {
+  "2022-03-31": "preço médio 99,91 fora da faixa 99,50–99,50 no COTAHIST_A2022",
+  "2022-04-04": "preço médio 99,31 fora da faixa 99,38–99,39 no COTAHIST_A2022"
+ },
+ "TEPP11": {
+  "2022-04-08": "preço médio 70,09 fora da faixa 69,50–70,01 no COTAHIST_A2022"
+ },
+ "CACR11": {
+  "2022-05-16": "preço médio 104,61 fora da faixa 104,95–105,47 no COTAHIST_A2022"
+ },
+ "HAPV3": {
+  "2022-06-17": "preço médio 6,22 fora da faixa 5,75–6,18 no COTAHIST_A2022"
+ },
+ "BCRI11": {
+  "2022-06-22": "preço médio 109,04 fora da faixa 108,00–109,00 no COTAHIST_A2022"
+ },
+ "M2RV34": {
+  "2022-05-31": "preço médio 28,01 fora da faixa 28,02–28,02 no COTAHIST_A2022",
+  "2022-09-01": "preço médio 23,90 fora da faixa 23,82–23,87 no COTAHIST_A2022",
+  "2023-08-24": "preço médio 27,90 fora da faixa 28,01–28,01 no COTAHIST_A2023",
+  "2024-07-24": "preço médio 36,57 fora da faixa 36,72–37,38 no COTAHIST_A2024"
+ },
+ "ASML34": {
+  "2022-09-21": "preço médio 2362,50 fora da faixa 2375,00–2375,00 no COTAHIST_A2022",
+  "2022-10-25": "preço médio 2585,16 fora da faixa 2595,98–2605,30 no COTAHIST_A2022"
+ },
+ "AVGO34": {
+  "2022-07-04": "preço médio 70,88 fora da faixa 71,43–71,54 no COTAHIST_A2022"
+ },
+ "XFIX11": {
+  "2022-10-24": "preço médio 10,46 fora da faixa 10,47–10,55 no COTAHIST_A2022"
+ },
+ "ORCL34": {
+  "2022-08-25": "preço médio 65,34 fora da faixa 65,16–65,25 no COTAHIST_A2022"
+ },
+ "RPRI11": {
+  "2022-08-23": "preço médio 99,57 fora da faixa 99,84–99,85 no COTAHIST_A2022",
+  "2022-09-15": "preço médio 98,30 fora da faixa 98,31–98,31 no COTAHIST_A2022",
+  "2022-09-16": "preço médio 98,22 fora da faixa 98,29–98,30 no COTAHIST_A2022",
+  "2023-08-23": "preço médio 98,16 fora da faixa 98,48–98,70 no COTAHIST_A2023"
+ },
+ "SPXS11": {
+  "2022-08-10": "preço médio 99,90 fora da faixa 99,97–102,00 no COTAHIST_A2022"
+ },
+ "LIFE11": {
+  "2023-03-15": "preço médio 10,12 fora da faixa 10,13–10,15 no COTAHIST_A2023"
+ },
+ "MANA11": {
+  "2023-06-13": "preço médio 9,63 fora da faixa 9,65–9,76 no COTAHIST_A2023",
+  "2024-04-25": "preço médio 9,34 fora da faixa 9,35–9,42 no COTAHIST_A2024",
+  "2024-08-23": "preço médio 9,31 fora da faixa 9,33–9,39 no COTAHIST_A2024"
+ },
+ "D1DG34": {
+  "2023-07-17": "preço médio 54,22 fora da faixa 54,27–54,44 no COTAHIST_A2023",
+  "2024-07-31": "preço médio 65,37 fora da faixa 65,76–66,29 no COTAHIST_A2024",
+  "2024-08-13": "preço médio 62,17 fora da faixa 62,44–63,02 no COTAHIST_A2024"
+ },
+ "A1MT34": {
+  "2023-07-17": "preço médio 70,34 fora da faixa 70,46–70,46 no COTAHIST_A2023",
+  "2024-03-20": "preço médio 102,20 fora da faixa 100,53–101,83 no COTAHIST_A2024"
+ },
+ "FCXO34": {
+  "2023-08-16": "preço médio 64,98 fora da faixa 65,00–65,20 no COTAHIST_A2023",
+  "2023-09-13": "preço médio 65,05 fora da faixa 65,43–65,43 no COTAHIST_A2023"
+ },
+ "CPSH11": {
+  "2023-09-01": "preço médio 115,35 fora da faixa 115,44–115,50 no COTAHIST_A2023"
+ },
+ "CPTS11": {
+  "2023-10-11": "preço médio 8,58 fora da faixa 8,59–8,66 no COTAHIST_A2023"
+ },
+ "P2LT34": {
+  "2023-10-19": "preço médio 28,77 fora da faixa 28,81–29,30 no COTAHIST_A2023"
+ },
+ "VGIP11": {
+  "2023-10-31": "preço médio 86,96 fora da faixa 87,07–87,97 no COTAHIST_A2023"
+ },
+ "IRIM11": {
+  "2024-03-15": "preço médio 78,61 fora da faixa 79,00–79,30 no COTAHIST_A2024",
+  "2024-05-10": "preço médio 78,31 fora da faixa 78,12–78,30 no COTAHIST_A2024"
+ },
+ "RZAK11": {
+  "2024-04-03": "preço médio 88,47 fora da faixa 88,50–89,09 no COTAHIST_A2024",
+  "2024-07-29": "preço médio 82,51 fora da faixa 82,71–83,06 no COTAHIST_A2024",
+  "2024-10-14": "preço médio 78,62 fora da faixa 78,82–79,50 no COTAHIST_A2024"
+ },
+ "TRXF11": {
+  "2024-07-10": "preço médio 105,36 fora da faixa 105,41–105,93 no COTAHIST_A2024"
+ },
+ "TOPP11": {
+  "2024-10-07": "preço médio 102,00 fora da faixa 102,01–102,01 no COTAHIST_A2024"
  }
 }

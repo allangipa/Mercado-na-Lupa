@@ -24,6 +24,9 @@ _src/
   excecoes-b3.json  linhas do COTAHIST com preço médio fora da faixa do dia, declaradas uma a uma
   comunicados.py    comunicados da CVM (IPE e documentos de FIIs) -> dados/comunicados.json
   noticias.py       manchetes de fontes oficiais -> dados/noticias.json
+  fundamentos.py    balanços (DFP/ITR) e informes de FII da CVM -> dados/fundamentos.json (semanal)
+  bcb.py            CDI (SGS 12) e IPCA (SGS 433) do Banco Central -> dados/bcb.json
+  ativo.js          JS das páginas de ativo (gráficos, comparação, simulador, tabelas), copiado para assets/
   feriados-b3.json  dias de semana sem pregão (2026 oficial da B3; 2027 PROVISÓRIO até a B3 publicar),
                     usados pelo selo de atualização e pela status.html; o build avisa se faltar o ano
   site.css          estilos (vão inline no <head> de cada página)
@@ -41,6 +44,10 @@ dados/
   cadastro.json          cadastro da CVM (e "sem_cadastro": ativos sem cadastro achado)
   comunicados.json       10 últimos por empresa/fundo + recentes gerais, e a situação de cada fonte
   noticias.json          até 12 manchetes por fonte, e a situação de cada fonte
+  historico/<CODIGO>.csv série longa 2021–2024, só data e fechamento (para o gráfico de 5 anos)
+  fundamentos.json       lucro, receita, PL, proventos (DMPL) e ações por companhia; rendimentos mensais de FII
+  bcb.json               CDI diário e IPCA mensal desde 2021
+assets/serie/<ativo>.json   série de fechamentos que a página carrega sob demanda (+ _ref.json: ETFs, CDI, IPCA, lista)
 .github/workflows/atualiza.yml   rotina diária (A ATIVAR, ver abaixo)
 _tmp/               downloads (fora do git)
 ```
@@ -198,6 +205,44 @@ fonte falhar, fica a última coleta boa dela, o erro é gravado no JSON e a
 status.html mostra a fonte como "Falhou"; no workflow os dois passos ainda têm
 `continue-on-error`.
 
+## Série longa (5 anos)
+
+`python _src/atualiza.py longo 2021 2022 2023 2024` lê os COTAHIST anuais e grava
+`dados/historico/` (3,5 MB para 245 ativos + 5 ETFs). Mesmo porteiro do leitor; só
+entra a linha cujo ISIN é o de hoje (código reaproveitado por outro papel fica de
+fora). Na parte antiga a trava de 25% não para o build: a série passa a começar
+depois da última variação >25% sem evento declarado (18 ativos em 03/10/2026, quase
+todos BDRs pouco líquidos), e a página diz isso. Em 2025 em diante a trava continua
+parando a publicação.
+
+## Indicadores (cartões, dividendos, setor)
+
+Tudo de `dados/fundamentos.json` (CVM) e do COTAHIST; fórmulas no "?" de cada cartão:
+
+- P/L = preço ÷ (lucro líquido 12M atribuído aos controladores ÷ ações); prejuízo → "n/a".
+- P/VP = preço ÷ (PL dos controladores ÷ ações). FII: preço ÷ valor patrimonial da cota do informe.
+- DY (ação) = proventos declarados em 12M na DMPL ÷ ações ÷ preço. DY (FII) = soma de 12
+  meses de (DY do mês × VP da cota) do informe mensal ÷ preço.
+- 12 meses = DFP do último exercício + acumulado do ano no último ITR − mesmo acumulado do ano anterior.
+- Ações = composição do capital (CVM) − tesouraria, conferida contra o total da B3 (×1 ou ×1000);
+  não conferiu → "—". Units: × número de ações da unit pelo FCA (CVM).
+- Variação 12M: preço bruto, sem proventos, com desdobramentos/grupamentos descontados
+  (`fator_preco` em eventos.json). Liquidez: média do volume dos últimos 30 pregões.
+- ROE = lucro 12M ÷ PL; margem = lucro 12M ÷ receita de venda 12M (bancos/seguradoras: "—").
+- Setor da comparação: setor de atividade da CVM; "Emp. Adm. Part. - X" junta com X.
+  FIIs não têm comparação por segmento (o segmento do informe foi descartado por não ser confiável).
+
+A DMPL de alguns bancos vem com valores em colunas trocadas nos dados abertos: nesses
+casos o provento fica "—" (BBAS3, BBDC3, BBDC4, SANB11, BRSR6, COGN3 em 03/10/2026).
+
+## Comparação com índices
+
+ETFs da B3 no lugar dos índices (BOVA11, SMAL11, XFIX11, DIVO11, IVVB11), do COTAHIST
+(BDI 14, conferido no leitor); CDI acumulado com a convenção da calculadora do BC
+(taxa do dia d rende de d ao dia útil seguinte; conferido: 01/10/2025 a 01/10/2026 =
+1,14474060 nos dois). A API JSON do SGS (api.bcb.gov.br) não resolve mais no DNS:
+`bcb.py` usa o serviço SOAP oficial do SGS (www3.bcb.gov.br/wssgs).
+
 ## Gráfico
 
 Desenhado no navegador a partir da série de fechamentos que vai em cada página
@@ -228,6 +273,16 @@ vermelho = 2 ou mais. `status.html` (noindex, fora do sitemap, link no rodapé) 
 geração, selo do GitHub Actions, última coleta de cada fonte de comunicados e notícias
 (com o erro, se houver), situação de cada ativo e próximos pregões. Para testar:
 `status.html?hoje=2026-10-07` ou `?hoje=2026-10-05T20` (só vale nessa página).
+
+## Termos de uso da B3 (decisão pendente do dono)
+
+Os termos de uso do site da B3 dizem que o conteúdo é para uso pessoal e que reprodução
+ou uso comercial dependem de autorização prévia e por escrito; a política de difusão de
+dados de mercado também restringe redistribuição. Não há exceção escrita para o COTAHIST.
+O site já usa o COTAHIST desde o início (decisão anterior); o que foi feito agora segue a
+mesma linha, mas: proventos por evento (data com, pagamento) **não** vêm da B3 — só de
+dados abertos da CVM; a B3 é usada para carteira dos índices, nome dos BDRs, fator de
+desdobramento/grupamento e conferência do número de ações. Ver o relatório da etapa.
 
 ## Publicação
 

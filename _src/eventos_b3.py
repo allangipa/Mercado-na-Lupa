@@ -63,6 +63,10 @@ def saltos(eventos):
         if not arq.exists():
             continue
         rs = list(csv.DictReader(arq.open(encoding="utf-8")))
+        longo = RAIZ / "dados" / "historico" / f"{a['codigo']}.csv"
+        if longo.exists():
+            antes = [l for l in csv.DictReader(longo.open(encoding="utf-8")) if l["data"] < rs[0]["data"]]
+            rs = antes + rs
         for ant, cur in zip(rs, rs[1:]):
             v = (float(cur["fechamento"]) / float(ant["fechamento"]) - 1) * 100
             if abs(v) > LIMITE and cur["data"] not in eventos.get(a["codigo"], {}):
@@ -130,7 +134,11 @@ def explicar(a, ant, cur, v):
             desc = (f"{texto[:1].upper() + texto[1:]}, {aprov} em {ev.get('approvedOn', '?')}; último dia com direito em "
                     f"{ev['lastDatePrior']}. O fechamento passou de R$ {ant['fechamento'].replace('.', ',')} para "
                     f"R$ {cur['fechamento'].replace('.', ',')}, e a diferença vem do evento, não de oscilação de mercado.")
-            return {"evento": desc, "fonte": u, "fonte_nome": "B3, eventos corporativos do emissor"}, None
+            ent = {"evento": desc, "fonte": u, "fonte_nome": "B3, eventos corporativos do emissor"}
+            if ev in na_janela:
+                # razão de preço do evento em ações (depois ÷ antes), para corrigir a variação de 12 meses
+                ent["fator_preco"] = round(esperado, 8)
+            return ent, None
     return None, f"nenhum evento da B3 compatível ({len(candidatos)} candidato(s) na janela)"
 
 

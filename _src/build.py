@@ -191,6 +191,10 @@ def carregar():
             falha(f"{c}: menos de dois pregões gravados")
         ev = eventos.get(c, {})
         datas = {r["data"] for r in rows}
+        longo = DADOS / "historico" / f"{c}.csv"
+        if longo.exists():
+            with longo.open(encoding="utf-8") as f:
+                datas |= {l["data"] for l in csv.DictReader(f)}
         for d in ev:
             if d not in datas:
                 falha(f"{c}: _src/eventos.json declara {d}, que não é pregão com negócio do papel — data errada?")
@@ -212,7 +216,8 @@ def carregar():
                        "ant": rows[-2], "papel": papeis[c], "cad": cad["ativos"].get(c), "info": a,
                        "sem_cadastro": cad.get("sem_cadastro", {}).get(c), "indices": a.get("indices", []),
                        "negociou_ultimo": u["data"] == ultimo, "evento": ev,
-                       "comunicados": por_chave.get(chave, [])[:10] if chave else []})
+                       "comunicados": [d for d in por_chave.get(chave, []) if not d.get("p")][:10] if chave else [],
+                       "comunicados_todos": por_chave.get(chave, []) if chave else []})
     if len({a["codigo"] for a in ativos}) != len(ativos):
         falha("código repetido em _src/ativos.json")
     return ativos, pregoes, ultimo, cad, com
@@ -525,6 +530,9 @@ def consentimento(base):
 </script>
 """
 
+
+ATIVO_JS_SRC = SRC / "ativo.js"
+ATIVO_JS_VER = __import__("hashlib").sha1(ATIVO_JS_SRC.read_bytes()).hexdigest()[:10] if ATIVO_JS_SRC.exists() else "0"
 
 CSS_INLINE = None
 
@@ -1046,7 +1054,543 @@ def outros_ativos(a, todos):
     return sorted(mesmo, key=chave)[:12]
 
 
-def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
+# --- indicadores, dividendos, comparação ---------------------------------------
+# Tudo calculado aqui sai de dado oficial com data: COTAHIST (B3) para preço e volume,
+# DFP/ITR e informe mensal (CVM) para balanço e rendimentos, SGS (Banco Central) para
+# CDI e IPCA. O que não tem fonte vira "—" com a explicação no "?".
+
+FUND = ler_json(DADOS / "fundamentos.json") if (DADOS / "fundamentos.json").exists() else {"empresas": {}, "fiis": {}, "units": {}, "fontes": {}}
+BCB = ler_json(DADOS / "bcb.json") if (DADOS / "bcb.json").exists() else {"series": {}}
+REFERENCIAS_ETF = {"BOVA11": "Ibovespa", "SMAL11": "Small Caps (SMLL)", "IVVB11": "S&P 500 em reais", "XFIX11": "IFIX",
+                   "DIVO11": "IDIV (dividendos)"}
+GUIA = {"pl": "o-que-e-p-l", "dy": "o-que-e-dividend-yield"}
+
+
+def setor_comparacao(a):
+    """Setor de atividade do cadastro da CVM. "Emp. Adm. Part. - X" é a holding do setor X
+    (convenção da própria CVM), então entra junto com X."""
+    s = (a["cad"] or {}).get("setor") or ""
+    return re.sub(r"^Emp\. Adm\. Part\. - ", "", s).strip() or None
+
+
+def serie_longa(a):
+    """Fechamentos desde 2021 (dados/historico, só data e fechamento) + 2025 em diante.
+    Na parte antiga, a série começa DEPOIS da última variação acima de 25% que não tenha
+    evento declarado: número sem explicação não vai para o gráfico."""
+    rows = [(r["data"], r["fechamento"]) for r in a["rows"]]
+    arq = DADOS / "historico" / f"{a['codigo']}.csv"
+    corte = None
+    if arq.exists():
+        with arq.open(encoding="utf-8") as f:
+            antes = [(l["data"], float(l["fechamento"])) for l in csv.DictReader(f) if l["data"] < rows[0][0]]
+        tudo = antes + rows
+        for i in range(1, len(antes) + 1):
+            (d0, p0), (d1, p1) = tudo[i - 1], tudo[i]
+            if abs(p1 / p0 - 1) * 100 > VARIACAO_MAX and d1 not in a["evento"]:
+                corte = d1
+        if corte:
+            tudo = [x for x in tudo if x[0] >= corte]
+        rows = tudo
+    return rows, corte
+
+
+def fatores_desdobramento(a):
+    """[(data, razão de preço)] dos eventos em ações declarados (desdobramento, grupamento,
+    bonificação), e as datas de cisão (sem razão: a comparação não vale)."""
+    sp, cis = [], []
+    for d, x in a["evento"].items():
+        if x["tipo"] != "evento":
+            continue
+        if x.get("fator_preco"):
+            sp.append((d, x["fator_preco"]))
+        elif "isão" in x["evento"]:
+            cis.append(d)
+    return sorted(sp), sorted(cis)
+
+
+def var_12m(a, serie):
+    fim = serie[-1]
+    alvo = (dt.date.fromisoformat(fim[0]) - dt.timedelta(days=365)).isoformat()
+    antes = [x for x in serie if x[0] <= alvo]
+    if not antes:
+        return None, "o histórico disponível do papel tem menos de 12 meses"
+    ini = antes[-1]
+    sp, cis = fatores_desdobramento(a)
+    if any(ini[0] < d <= fim[0] for d in cis):
+        return None, "houve cisão no período, e o preço de antes não é comparável com o de depois"
+    p0 = ini[1]
+    for d, f in sp:
+        if ini[0] < d <= fim[0]:
+            p0 *= f
+    return (fim[1] / p0 - 1) * 100, ini[0]
+
+
+def liquidez(a, pregoes):
+    ult30 = pregoes[-30:]
+    vol = {r["data"]: r["volume"] for r in a["rows"]}
+    return sum(vol.get(d, 0.0) for d in ult30) / len(ult30), ult30[0], ult30[-1]
+
+
+def unit_fator(a):
+    esp = a["papel"]["especificacao"].split()[0]
+    if esp != "UNT":
+        return 1, None
+    u = FUND.get("units", {}).get(a["codigo"])
+    return (u["acoes"], u["composicao"]) if u else (None, None)
+
+
+def fundamentos_acao(a):
+    """Por ação: lucro, PL, proventos, receita (12 meses) e ações, com as datas-base."""
+    e = FUND["empresas"].get(a["info"].get("cnpj") or "")
+    if not e:
+        return None
+    fu, comp = unit_fator(a)
+    return {"e": e, "ttm": e.get("ttm") or {}, "acoes": e.get("acoes"), "fu": fu, "comp": comp}
+
+
+def rendimentos_fii(a):
+    return FUND["fiis"].get(a["info"].get("cnpj") or "", [])
+
+
+def pct(v, casas=2):
+    return ("+" if v > 0 else "−" if v < 0 else "") + br(abs(v), casas) + "%"
+
+
+def indicadores(a, pregoes):
+    """Lista de cartões: (chave, rótulo, valor_html, ajuda_html)."""
+    u = a["ult"]
+    preco = u["fechamento"]
+    serie, corte = a["serie"], a["corte"]
+    cards = []
+    cot_aj = (f"Preço do último negócio de {a['codigo']} no pregão de {data_br(u['data'])}, no mercado à vista da B3 "
+              f"(série histórica COTAHIST). A pílula é a variação sobre o fechamento anterior com negócio ({data_br(a['ant']['data'])}).")
+    cards.append(("cotacao", "Cotação", f'<span class="ind-valor num">R$ {br(preco)}</span> {var_html(u["var"], selo=True)}', cot_aj))
+    v12, info = var_12m(a, serie)
+    if v12 is None:
+        val, aj = "—", f"Sem número: {info}."
+    else:
+        sp, _ = fatores_desdobramento(a)
+        seta = "▲" if v12 > 0 else "▼" if v12 < 0 else ""
+        cl = "alta" if v12 > 0 else "baixa" if v12 < 0 else "zero"
+        val = f'<span class="ind-valor num var {cl}">{seta} {pct(v12)}</span>'
+        corr = " Desdobramentos e grupamentos do período foram descontados, para a conta não mostrar um salto que não é ganho nem perda." if any(info < d <= u["data"] for d, _ in sp) else ""
+        aj = (f"Fechamento de {data_br(u['data'])} comparado com o de {data_br(info)}, o último pregão até um ano antes "
+              f"(COTAHIST, B3). Preço bruto: não inclui proventos (dividendos, JCP, rendimentos).{corr}")
+    cards.append(("var12", "Variação (12M)", val, aj))
+    liq, i30, f30 = liquidez(a, pregoes)
+    cards.append(("liq", "Liquidez diária", f'<span class="ind-valor num">{compacto(liq, True)}</span>',
+                  f"Média do volume financeiro negociado por pregão nos últimos 30 pregões da B3, de {data_br(i30)} a {data_br(f30)} "
+                  "(dia sem negócio conta como zero). Fonte: COTAHIST, B3."))
+    if a["tipo"] == "acao":
+        f = fundamentos_acao(a)
+        base = ""
+        if f and f["ttm"].get("fim"):
+            base = (f"Lucro dos 12 meses até {data_br(f['ttm']['fim'])} ({e(f['ttm']['doc'])}; {e(f['ttm'].get('lucro_fonte') or '')}), "
+                    f"patrimônio de {data_br(f['e']['pl_data'])} e ações da composição do capital de {data_br(f['e']['acoes_data'])}, menos as em tesouraria — "
+                    "dados abertos da CVM (DFP/ITR).")
+        motivo = None
+        if not f:
+            motivo = "a companhia não tem demonstrações nos dados abertos da CVM lidos pelo site."
+        elif not f["acoes"]:
+            motivo = (f["e"].get("acoes_motivo") or "sem número de ações") + "."
+        elif not f["fu"]:
+            motivo = "a composição desta unit (quantas ações ela reúne) não está no formulário cadastral da CVM."
+        unit_txt = f" Esta unit reúne {f['fu']} ações ({e(f['comp'])}, segundo o formulário cadastral da CVM), então o lucro e o patrimônio por ação são multiplicados por {f['fu']}." if f and f.get("comp") else ""
+        if motivo:
+            for k, rot, g in (("pl", "P/L", "pl"), ("pvp", "P/VP", None), ("dy", "DY (12M)", "dy")):
+                cards.append((k, rot, '<span class="ind-valor num">—</span>', f"Sem número: {motivo}"))
+        else:
+            n, fu, t, pl = f["acoes"], f["fu"], f["ttm"], f["e"]["pl"]
+            lpa = t["lucro"] / n * fu if t.get("lucro") is not None else None
+            if lpa is None:
+                cards.append(("pl", "P/L", '<span class="ind-valor num">—</span>', "Sem lucro de 12 meses nos dados da CVM."))
+            elif lpa <= 0:
+                cards.append(("pl", "P/L", '<span class="ind-valor num">n/a <small>(prejuízo)</small></span>',
+                              f"A companhia teve prejuízo nos 12 meses (R$ {compacto(t['lucro'])}), e P/L com lucro negativo não tem leitura. {base}{unit_txt}"))
+            else:
+                cards.append(("pl", "P/L", f'<span class="ind-valor num">{br(preco / lpa)}</span>',
+                              f"Preço ÷ lucro por ação. Lucro por ação = lucro líquido de 12 meses atribuído aos controladores ÷ número de ações "
+                              f"= R$ {br(lpa, 4)}. {base}{unit_txt}"))
+            if pl is None:
+                cards.append(("pvp", "P/VP", '<span class="ind-valor num">—</span>', "Sem patrimônio líquido nos dados da CVM."))
+            elif pl <= 0:
+                cards.append(("pvp", "P/VP", '<span class="ind-valor num">n/a <small>(PL negativo)</small></span>', f"Patrimônio líquido negativo. {base}"))
+            else:
+                vpa = pl / n * fu
+                cards.append(("pvp", "P/VP", f'<span class="ind-valor num">{br(preco / vpa)}</span>',
+                              f"Preço ÷ valor patrimonial por ação. Valor patrimonial por ação = patrimônio líquido atribuído aos controladores ÷ "
+                              f"número de ações = R$ {br(vpa, 4)}. {base}{unit_txt}"))
+            if t.get("prov") is None:
+                cards.append(("dy", "DY (12M)", '<span class="ind-valor num">—</span>',
+                              "Sem número: a demonstração das mutações do patrimônio líquido (DMPL) desta companhia na CVM não permite separar os proventos com segurança."))
+            else:
+                dps = t["prov"] / n * fu
+                cards.append(("dy", "DY (12M)", f'<span class="ind-valor num">{br(dps / preco * 100)}%</span>',
+                              f"Proventos de 12 meses por ação ÷ preço. Proventos = dividendos e juros sobre capital próprio declarados no período, "
+                              f"como aparecem na DMPL (CVM), R$ {br(dps, 4)} por {'unit' if fu > 1 else 'ação'}. É o valor declarado no período do balanço "
+                              f"(até {data_br(t['fim'])}), não o pago nos últimos 12 meses corridos; JCP entra bruto, antes do imposto. {base}"))
+    elif a["tipo"] == "fii":
+        ms = rendimentos_fii(a)
+        cad = a["cad"]
+        if cad and cad.get("vp_cota"):
+            cards.append(("pvp", "P/VP", f'<span class="ind-valor num">{br(preco / cad["vp_cota"])}</span>',
+                          f"Preço ÷ valor patrimonial da cota informado pelo fundo à CVM no informe mensal de {mes_ano(cad['referencia'])}: "
+                          f"R$ {br(cad['vp_cota'], 4)}."))
+        else:
+            cards.append(("pvp", "P/VP", '<span class="ind-valor num">—</span>', "Sem informe mensal do fundo identificado na CVM."))
+        ult12 = ms[-12:]
+        ok12 = len(ult12) == 12 and meses_seguidos([m[0] for m in ult12])
+        if ok12:
+            soma = sum(m[1] for m in ult12)
+            cards.insert(1, ("dy", "DY (12M)", f'<span class="ind-valor num">{br(soma / preco * 100)}%</span>',
+                             f"Rendimentos por cota dos 12 meses de {mes_curto(ult12[0][0])} a {mes_curto(ult12[-1][0])} ÷ preço. "
+                             f"Rendimento de cada mês = percentual de dividend yield do mês × valor patrimonial da cota, como o fundo informa à CVM "
+                             f"no informe mensal (o informe não traz o valor pago por cota nem a data com). Soma: R$ {br(soma, 4)} por cota."))
+        else:
+            cards.insert(1, ("dy", "DY (12M)", '<span class="ind-valor num">—</span>',
+                             "Sem número: faltam informes mensais do fundo na CVM para fechar 12 meses seguidos."))
+    ordem = {"acao": ["cotacao", "var12", "pl", "pvp", "dy", "liq"], "fii": ["cotacao", "dy", "pvp", "liq", "var12"],
+             "bdr": ["cotacao", "var12", "liq"]}[a["tipo"]]
+    por = {c[0]: c for c in cards}
+    return [por[k] for k in ordem if k in por]
+
+
+def meses_seguidos(ms):
+    for a, b in zip(ms, ms[1:]):
+        y, m = int(a[:4]), int(a[5:7])
+        y2, m2 = (y + 1, 1) if m == 12 else (y, m + 1)
+        if b != f"{y2}-{m2:02d}":
+            return False
+    return True
+
+
+def mes_curto(ym):
+    return f"{MESES[int(ym[5:7]) - 1]}/{ym[:4]}"
+
+
+def cartoes_indicadores(cards):
+    itens = []
+    for k, rot, val, aj in cards:
+        g = {"dy": "o-que-e-dividend-yield", "pl": "o-que-e-p-l"}.get(k)
+        guia = f' <a href="../guias/{g}.html">Leia o guia</a>.' if g else ""
+        itens.append(f'<div class="ind" id="ind-{k}"><div class="ind-topo"><span class="ind-rot">{e(rot)}</span>'
+                     f'<details class="ajuda"><summary aria-label="O que é {e(rot)} e de onde vem">?</summary>'
+                     f'<div class="ajuda-txt"><p>{aj}{guia}</p></div></details></div>{val}</div>')
+    return '<div class="indicadores">' + "".join(itens) + "</div>"
+
+
+# --- histórico de dividendos ------------------------------------------------------
+
+def preco_fim_ano(serie):
+    """Último fechamento de cada ano civil na série."""
+    out = {}
+    for d, p in serie:
+        out[d[:4]] = p
+    return out
+
+
+def dividendos(a):
+    """Anos (com o 'Últ. 12M'): valor por ação/cota e DY sobre o preço do fim do ano.
+    Devolve dict com 'anos' [(rótulo, valor, dy%)], cartões e linhas da tabela."""
+    pfa = preco_fim_ano(a["serie"])
+    ano_atual = a["ult"]["data"][:4]
+    preco = a["ult"]["fechamento"]
+    if a["tipo"] == "acao":
+        f = fundamentos_acao(a)
+        if not f or not f["acoes"] or not f["fu"]:
+            return None
+        e_, fu = f["e"], f["fu"]
+        anos = []
+        for y, v in sorted(e_["anos"].items()):
+            if v.get("prov") is None or not v.get("acoes"):
+                continue
+            dps = v["prov"] / v["acoes"] * fu
+            dy = dps / pfa[y] * 100 if y in pfa and y != ano_atual else None
+            payout = v["prov"] / v["lucro"] * 100 if v.get("lucro") and v["lucro"] > 0 else None
+            anos.append({"rot": y, "v": dps, "dy": dy, "payout": payout})
+        t = f["ttm"]
+        if t.get("prov") is not None:
+            dps = t["prov"] / f["acoes"] * fu
+            anos.append({"rot": "Últ. 12M", "v": dps, "dy": dps / preco * 100,
+                         "payout": t["prov"] / t["lucro"] * 100 if t.get("lucro") and t["lucro"] > 0 else None})
+        if not anos:
+            return None
+        fonte = ("Proventos (dividendos e JCP) declarados em cada exercício, da demonstração das mutações do patrimônio líquido "
+                 "(DFP), divididos pelas ações do fim do exercício; dados abertos da CVM. Só entram os anos em que o número de ações "
+                 "é o mesmo de hoje (sem desdobramento no meio), para o valor por ação ser comparável.")
+    else:
+        ms = rendimentos_fii(a)
+        if not ms:
+            return None
+        por = {}
+        for m, rend, vp, dy in ms:
+            por.setdefault(m[:4], []).append(rend)
+        anos = []
+        for y, vs in sorted(por.items()):
+            if y == ano_atual or len(vs) < 12:
+                continue
+            anos.append({"rot": y, "v": sum(vs), "dy": sum(vs) / pfa[y] * 100 if y in pfa else None, "payout": None})
+        ult12 = ms[-12:]
+        if len(ult12) == 12 and meses_seguidos([m[0] for m in ult12]):
+            s = sum(m[1] for m in ult12)
+            anos.append({"rot": "Últ. 12M", "v": s, "dy": s / preco * 100, "payout": None})
+        if not anos:
+            return None
+        fonte = ("Rendimento por cota de cada mês = percentual de dividend yield do mês × valor patrimonial da cota, do informe "
+                 "mensal do fundo na CVM; o ano soma os 12 meses (ano incompleto não entra). DY anual = soma do ano ÷ último "
+                 "fechamento do ano na B3.")
+    ult5 = [x for x in anos if x["rot"] != "Últ. 12M"][-5:]
+    dy5 = [x["dy"] for x in ult5 if x["dy"] is not None]
+    pay5 = [x["payout"] for x in ult5 if x["payout"] is not None]
+    atual = anos[-1] if anos[-1]["rot"] == "Últ. 12M" else None
+    return {"anos": anos, "fonte": fonte,
+            "dy_atual": atual["dy"] if atual else None,
+            "dy_medio5": sum(dy5) / len(dy5) if len(dy5) == 5 else None,
+            "payout_atual": atual["payout"] if atual else None,
+            "payout_medio5": sum(pay5) / len(pay5) if len(pay5) == 5 else None,
+            "anos5": [x["rot"] for x in ult5]}
+
+
+def secao_dividendos(a):
+    dv = dividendos(a)
+    if a["tipo"] == "bdr":
+        return ""
+    unid = "cota" if a["tipo"] == "fii" else ("unit" if a["papel"]["especificacao"].startswith("UNT") else "ação")
+    if not dv:
+        return (f'<h2 id="dividendos">Histórico de dividendos</h2><p class="data-regra">Sem histórico de proventos com fonte oficial aberta '
+                f'para {a["codigo"]}: {"o fundo não tem informes mensais identificados na CVM" if a["tipo"] == "fii" else "faltam na CVM o número de ações ou proventos separáveis na DMPL"}. '
+                'O site não estima nem completa esse dado.</p>')
+    fmt = lambda v, f=br: "—" if v is None else f(v) + "%"
+    anos5 = ", ".join(dv["anos5"])
+    cards = [("DY atual (12M)", fmt(dv["dy_atual"]), "Proventos dos últimos 12 meses ÷ preço de hoje. " + dv["fonte"]),
+             ("DY médio (5 anos)", fmt(dv["dy_medio5"]), f"Média simples do DY de cada um dos 5 últimos anos completos ({anos5}), "
+                                                           "cada um sobre o último fechamento do próprio ano. Sem os 5 anos com preço e proventos, fica “—”.")]
+    if a["tipo"] == "acao":
+        cards += [("Payout atual", fmt(dv["payout_atual"]), "Proventos declarados nos 12 meses ÷ lucro líquido dos 12 meses atribuído aos controladores (CVM). "
+                                                          "Com prejuízo no período, fica “—”."),
+                  ("Payout médio (5 anos)", fmt(dv["payout_medio5"]), f"Média simples do payout de cada um dos 5 últimos exercícios ({anos5}), da DFP (CVM).")]
+    cards_html = '<div class="indicadores ind-4">' + "".join(
+        f'<div class="ind"><div class="ind-topo"><span class="ind-rot">{e(r)}</span><details class="ajuda"><summary aria-label="Como é calculado: {e(r)}">?</summary>'
+        f'<div class="ajuda-txt"><p>{e(aj)}</p></div></details></div><span class="ind-valor num">{v}</span></div>' for r, v, aj in cards) + "</div>"
+    dados = json.dumps([[x["rot"], round(x["v"], 6), None if x["dy"] is None else round(x["dy"], 4)] for x in dv["anos"]], separators=(",", ":"))
+    tabela_anos = ("<div class=\"rolagem\"><table><caption>Proventos por ano, por " + unid + "</caption><thead><tr><th>Ano</th><th class=\"n\">Valor (R$)</th>"
+                   "<th class=\"n\">DY</th>" + ("<th class=\"n\">Payout</th>" if a["tipo"] == "acao" else "") + "</tr></thead><tbody>"
+                   + "".join(f"<tr><td>{x['rot']}</td><td class=\"n\">{br(x['v'], 4)}</td><td class=\"n\">{fmt(x['dy'])}</td>"
+                             + (f"<td class=\"n\">{fmt(x['payout'])}</td>" if a["tipo"] == "acao" else "") + "</tr>" for x in reversed(dv["anos"]))
+                   + "</tbody></table></div>")
+    if a["tipo"] == "fii":
+        ms = rendimentos_fii(a)[-24:]
+        eventos = ("<h3>Rendimentos mês a mês</h3><div class=\"rolagem\"><table class=\"ver-mais\" data-mostra=\"6\"><caption>Do informe mensal à CVM, mais recente primeiro</caption>"
+                   "<thead><tr><th>Tipo</th><th>Mês de referência</th><th class=\"n\">Valor por cota (R$)</th><th class=\"n\">DY do mês sobre o valor patrimonial</th></tr></thead><tbody>"
+                   + "".join(f"<tr><td>Rendimento</td><td>{mes_curto(m)}</td><td class=\"n\">{br(r, 4)}</td><td class=\"n\">{br(dy * 100, 4)}%</td></tr>" for m, r, vp, dy in reversed(ms))
+                   + "</tbody></table></div><p class=\"data-regra\">O informe mensal não traz data com nem data de pagamento, e o valor por cota é "
+                     "derivado (percentual informado × valor patrimonial da cota): pode diferir em centavos do anúncio do fundo. Os anúncios oficiais "
+                     "de rendimento ficam em <a href=\"#comunicados\">Últimos comunicados</a>.</p>")
+    else:
+        avisos = [d for d in a["comunicados_todos"] if d.get("p")][:12]
+        eventos = ("<h3>Avisos oficiais sobre proventos</h3>"
+                   + (lista_comunicados(avisos) if avisos else "<p class=\"data-regra\">Nenhum aviso sobre proventos no período coletado.</p>")
+                   + "<p class=\"data-regra\">Tipo, data com, data de pagamento e valor de cada provento estão nesses documentos, entregues pela companhia "
+                     "à CVM. O site não monta uma tabela com esses campos porque eles não existem como dado aberto estruturado na CVM, e a página "
+                     "de proventos da B3 é de uso pessoal pelos termos de uso dela.</p>")
+    return (f'<h2 id="dividendos">Histórico de dividendos</h2>{cards_html}'
+            f'<div class="div-grafico" data-unid="{unid}"><div class="botoes" role="group" aria-label="Medida">'
+            '<button type="button" data-med="dy" aria-pressed="true">Dividend yield (%)</button>'
+            f'<button type="button" data-med="v" aria-pressed="false">Valor por {unid} (R$)</button></div>'
+            '<div class="botoes" role="group" aria-label="Período"><button type="button" data-per="5" aria-pressed="true">5A</button>'
+            '<button type="button" data-per="10" aria-pressed="false">10A</button><button type="button" data-per="0" aria-pressed="false">MÁX</button></div>'
+            f'<div class="div-barras" role="img" aria-label="Proventos por ano"></div><script type="application/json" class="div-dados">{dados}</script></div>'
+            f'{tabela_anos}<p class="data-regra">Fonte: {e(dv["fonte"])}</p>{eventos}')
+
+
+# --- comparação com outras ações do setor ---------------------------------------------
+
+def linha_par(a, pregoes):
+    f = fundamentos_acao(a)
+    preco = a["ult"]["fechamento"]
+    v12, _ = var_12m(a, a["serie"])
+    d = {"dy": None, "pl": None, "pvp": None, "roe": None, "mg": None, "pl_neg": False}
+    if f and f["ttm"]:
+        t, e_ = f["ttm"], f["e"]
+        if t.get("lucro") is not None and e_.get("pl") and e_["pl"] > 0:
+            d["roe"] = t["lucro"] / e_["pl"] * 100
+        if t.get("lucro") is not None and t.get("receita"):
+            d["mg"] = t["lucro"] / t["receita"] * 100
+        if f["acoes"] and f["fu"]:
+            n, fu = f["acoes"], f["fu"]
+            if t.get("lucro") is not None:
+                if t["lucro"] > 0:
+                    d["pl"] = preco / (t["lucro"] / n * fu)
+                else:
+                    d["pl_neg"] = True
+            if e_.get("pl") and e_["pl"] > 0:
+                d["pvp"] = preco / (e_["pl"] / n * fu)
+            if t.get("prov") is not None:
+                d["dy"] = t["prov"] / n * fu / preco * 100
+    return {"a": a, "preco": preco, "v12": v12, **d}
+
+
+def secao_pares(a, todos, pregoes):
+    setor = setor_comparacao(a)
+    if a["tipo"] != "acao" or not setor:
+        return ""
+    pares = [x for x in todos if x["tipo"] == "acao" and setor_comparacao(x) == setor]
+    if len(pares) < 2:
+        return ""
+    pares.sort(key=lambda x: (x is not a, -x["ult"]["volume"]))
+    datas = sorted({(fundamentos_acao(x) or {}).get("ttm", {}).get("fim") for x in pares} - {None})
+    num = lambda v, suf="": "—" if v is None else br(v) + suf
+    linhas = []
+    for i, x in enumerate(pares):
+        p = linha_par(x, pregoes)
+        v12 = p["v12"]
+        pil = "—" if v12 is None else var_html(v12, selo=True)
+        pl_txt = "n/a" if p["pl_neg"] else num(p["pl"])
+        attr = lambda v: "" if v is None else round(v, 4)
+        linhas.append(f'<tr{" class=\"este\"" if x is a else ""} data-c="{x["codigo"]}" data-preco="{p["preco"]}" data-v12="{attr(v12)}" data-dy="{attr(p["dy"])}" '
+                      f'data-pl="{attr(p["pl"])}" data-pvp="{attr(p["pvp"])}" data-roe="{attr(p["roe"])}" data-mg="{attr(p["mg"])}">'
+                      f'<td><div class="ativo-cel">{selo(x, "p")}<div><a href="{x["slug"]}.html">{x["codigo"]}</a><br><span class="nome">{e(nome_curto(x))}</span></div></div></td>'
+                      f'<td class="n">{br(p["preco"])}</td><td class="n">{pil}</td><td class="n">{num(p["dy"], "%")}</td><td class="n">{pl_txt}</td>'
+                      f'<td class="n">{num(p["pvp"])}</td><td class="n">{num(p["roe"], "%")}</td><td class="n">{num(p["mg"], "%")}</td></tr>')
+    cols = [("c", "Ativo"), ("preco", "Cotação (R$)"), ("v12", "Variação 12M"), ("dy", "DY"), ("pl", "P/L"), ("pvp", "P/VP"),
+            ("roe", "ROE"), ("mg", "Margem líquida")]
+    cab = "".join(f'<th{"" if k == "c" else " class=\"n\""}><button type="button" data-ord="{k}">{r}</button></th>' for k, r in cols)
+    ajuda = (f"Ações acompanhadas pelo site com o mesmo setor de atividade no cadastro da CVM (“{e(setor)}”; holdings do setor, que a CVM marca como "
+             "“Emp. Adm. Part.”, entram junto). Preço e variação de 12 meses: COTAHIST (B3), variação sem proventos e descontados desdobramentos. "
+             "DY = proventos de 12 meses (DMPL) ÷ ações ÷ preço. P/L = preço ÷ (lucro de 12 meses ÷ ações); “n/a” quando houve prejuízo. "
+             "P/VP = preço ÷ (patrimônio líquido ÷ ações). ROE = lucro líquido de 12 meses ÷ patrimônio líquido. Margem líquida = lucro "
+             "líquido de 12 meses ÷ receita líquida de 12 meses (bancos e seguradoras não têm “receita de venda” e ficam sem margem). "
+             f"Lucro, patrimônio e proventos: dados abertos da CVM (DFP/ITR), data-base {', '.join(data_br(d) for d in datas)}. Sem fonte, “—”.")
+    return (f'<h2 id="pares">Comparando {a["codigo"]} com outras ações do setor</h2>'
+            f'<div class="pares-topo"><p class="data-regra">Setor: {e(setor)} (cadastro da CVM). A ordem inicial é pelo volume do último pregão; '
+            'toque no título de uma coluna para ordenar.</p><details class="ajuda"><summary aria-label="Fórmulas e data-base">?</summary>'
+            f'<div class="ajuda-txt"><p>{ajuda}</p></div></details></div>'
+            f'<div class="rolagem"><table class="pares ver-mais" data-mostra="5"><caption>{len(pares)} ações de {e(setor)} acompanhadas pelo site</caption>'
+            f'<thead><tr>{cab}</tr></thead><tbody>{"".join(linhas)}</tbody></table></div>')
+
+
+# --- arquivos de série (carregados sob demanda pelo navegador) -----------------------------
+
+def compacta(serie):
+    d0 = dt.date.fromisoformat(serie[0][0])
+    plano, ant = [], d0
+    for d, p in serie:
+        dd = dt.date.fromisoformat(d)
+        plano += [(dd - ant).days, p]
+        ant = dd
+    return {"d0": serie[0][0], "s": plano}
+
+
+def ajustes_fii(a):
+    """Fatores de ajuste por rendimento (FII): rendimento do mês de referência aplicado no
+    primeiro pregão do mês seguinte, fator = 1 − rendimento ÷ fechamento anterior.
+    Aproximação declarada: o informe da CVM não traz a data com."""
+    ms = rendimentos_fii(a)
+    if not ms:
+        return []
+    datas = [d for d, _ in a["serie"]]
+    precos = dict(a["serie"])
+    out = []
+    for m, rend, vp, dy in ms:
+        y, mm = int(m[:4]), int(m[5:7])
+        prox = f"{y + 1}-01" if mm == 12 else f"{y}-{mm + 1:02d}"
+        dia = next((d for d in datas if d[:7] == prox), None)
+        if not dia or rend <= 0:
+            continue
+        i = datas.index(dia)
+        if i == 0:
+            continue
+        ant = precos[datas[i - 1]]
+        if rend < ant:
+            out.append([dia, round(1 - rend / ant, 8)])
+    return out
+
+
+def escreve_series(ativos, pasta):
+    pasta.mkdir(parents=True, exist_ok=True)
+    escritos = set()
+    for a in ativos:
+        sp, _ = fatores_desdobramento(a)
+        dado = {"c": a["codigo"], "t": a["tipo"], **compacta(a["serie"]), "sp": [[d, f] for d, f in sp]}
+        if a["tipo"] == "fii":
+            aj = ajustes_fii(a)
+            if aj:
+                dado["aj"] = aj
+        txt = json.dumps(dado, separators=(",", ":"))
+        arq = pasta / f"{a['slug']}.json"
+        if not arq.exists() or arq.read_text(encoding="utf-8") != txt:
+            arq.write_text(txt, encoding="utf-8")
+        escritos.add(arq.name)
+    # referências: ETFs da B3 (COTAHIST), CDI e IPCA (Banco Central)
+    ref = {"etf": {}, "nomes": REFERENCIAS_ETF}
+    for c in REFERENCIAS_ETF:
+        rs = []
+        h = DADOS / "historico" / f"{c}.csv"
+        if h.exists():
+            with h.open(encoding="utf-8") as f:
+                rs += [(l["data"], float(l["fechamento"])) for l in csv.DictReader(f)]
+        cot = DADOS / "cotacoes" / f"{c}.csv"
+        if cot.exists():
+            with cot.open(encoding="utf-8") as f:
+                rs += [(l["data"], float(l["fechamento"])) for l in csv.DictReader(f) if not rs or l["data"] > rs[-1][0]]
+        if rs:
+            for (d0, p0), (d1, p1) in zip(rs, rs[1:]):
+                if abs(p1 / p0 - 1) * 100 > VARIACAO_MAX:
+                    falha(f"{c} (referência) {d1}: variação de {(p1 / p0 - 1) * 100:+.1f}% — confira antes de publicar")
+            ref["etf"][c] = compacta(rs)
+    cdi = BCB["series"].get("cdi", {}).get("pontos")
+    ipca = BCB["series"].get("ipca", {}).get("pontos")
+    if cdi:
+        ref["cdi"] = {"d": [p[0] for p in cdi], "v": [p[1] for p in cdi]}
+    if ipca:
+        ref["ipca"] = {"m": [p[0][:7] for p in ipca], "v": [p[1] for p in ipca]}
+    ref["lista"] = [[a["codigo"], a["slug"], nome_curto(a)] for a in sorted(ativos, key=lambda a: a["codigo"])]
+    txt = json.dumps(ref, ensure_ascii=False, separators=(",", ":"))
+    arq = pasta / "_ref.json"
+    if not arq.exists() or arq.read_text(encoding="utf-8") != txt:
+        arq.write_text(txt, encoding="utf-8")
+    escritos.add(arq.name)
+    for velho in pasta.glob("*.json"):
+        if velho.name not in escritos:
+            velho.unlink()
+
+
+ICONE_TIPO = {
+    # desenhos próprios, genéricos por tipo (nenhum logotipo de empresa)
+    "acao": _icone('<path d="M3 21h18"/><path d="M5 21V10l5 3V10l5 3V6l4 2v13"/><path d="M8 17h1M12 17h1M16 17h1"/>'),
+    "fii": _icone('<path d="M4 21V5l8-3v19"/><path d="M12 9h8v12"/><path d="M7 7h2M7 11h2M7 15h2M15 13h2M15 17h2"/><path d="M2 21h20"/>'),
+    "bdr": _icone('<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/>'),
+}
+ICONE_COMPARTILHAR = _icone('<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/>')
+ICONE_ESTRELA = _icone('<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z"/>')
+
+
+def secao_comparacao(a):
+    ser = "o preço do ativo com os rendimentos reinvestidos (aproximação pelo informe mensal da CVM)" if a["tipo"] == "fii" else "só a variação de preço do ativo (sem proventos)"
+    return f"""<h2 id="comparacao">Comparação com índices</h2>
+<div class="comp" data-slug="{a['slug']}" data-cod="{a['codigo']}" data-tipo="{a['tipo']}">
+<div class="graf-ctl"><div class="botoes" role="group" aria-label="Período da comparação">
+<button type="button" data-p="1A" aria-pressed="true">1A</button><button type="button" data-p="2A" aria-pressed="false">2A</button><button type="button" data-p="5A" aria-pressed="false">5A</button></div>
+<details class="ajuda"><summary aria-label="De onde vêm as séries da comparação">?</summary><div class="ajuda-txt"><p>Rentabilidade acumulada no período, em %.
+<strong>{a['codigo']}</strong>: {ser}, do COTAHIST (B3), com desdobramentos e grupamentos descontados.
+<strong>CDI</strong>: taxa DI diária do Banco Central (SGS, série 12), acumulada dia a dia.
+<strong>IPCA</strong>: variação mensal do Banco Central (SGS, série 433), acumulada mês a mês (o mês corrente entra quando o IBGE divulga).
+<strong>Índices da B3</strong>: o site não republica a série dos índices; usa o ETF negociado na própria B3 que acompanha cada um
+(BOVA11 para o Ibovespa, SMAL11 para o SMLL, XFIX11 para o IFIX, DIVO11 para o IDIV, IVVB11 para o S&amp;P 500 em reais), pelo preço de
+fechamento do COTAHIST. ETF cobra taxa de administração e pode se afastar do índice; distribuições do ETF, se houver, não estão incluídas.</p></div></details></div>
+<div class="comp-legenda" role="group" aria-label="Séries do gráfico"></div>
+<div class="comp-area"><p class="sem-js">A comparação é desenhada no navegador e precisa de JavaScript.</p></div>
+<form class="simulador" onsubmit="return false">
+<p class="sim-linha"><label for="sim-valor">Se você tivesse investido R$</label> <input id="sim-valor" inputmode="decimal" value="1.000" size="9">
+<span class="sim-per">há 1 ano</span>, hoje teria:</p>
+<ul class="sim-res" aria-live="polite"></ul>
+<p class="aviso sim-aviso"><strong>Simulação com dados passados.</strong> Valores brutos, sem impostos, taxas e custos de corretagem. Rentabilidade passada não garante resultado futuro. Isto não é recomendação de investimento.
+{"O valor do ativo inclui os rendimentos reinvestidos, pela aproximação do informe mensal da CVM; os ETFs entram só pelo preço." if a["tipo"] == "fii" else "O valor do ativo e o dos ETFs são só a variação de preço, sem proventos; o CDI é a taxa acumulada."}</p>
+</form>
+</div>"""
+
+
+def pagina_ativo(a, todos, ultimo, og_url, cad_gerado, pregoes):
     base = "../"
     c, u, ant = a["codigo"], a["ult"], a["ant"]
     url = f"{DOMINIO}/ativos/{a['slug']}.html"
@@ -1094,21 +1638,29 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
                "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/")]
     if cad:
         fontes.append((cad["fonte"], cad["fonte_url"]))
+    if a["tipo"] == "acao":
+        fontes.append(("CVM — demonstrações financeiras (DFP e ITR) de companhias abertas", "https://dados.cvm.gov.br/dataset/cia_aberta-doc-dfp"))
     if a["tipo"] == "bdr":
         fontes.append(("B3 — BDRs listados (nome da empresa e tipo do programa)",
                        "https://www.b3.com.br/pt_br/produtos-e-servicos/negociacao/renda-variavel/bdrs.htm"))
+    fontes.append(("Banco Central — SGS (CDI, série 12; IPCA, série 433)", "https://www3.bcb.gov.br/sgspub/"))
     for i in a["indices"]:
         fontes.append(({"IBOV": "B3 — composição da carteira do Ibovespa", "IFIX": "B3 — composição da carteira do IFIX"}[i],
                        CARTEIRAS[i]["fonte"]))
     razao = cad["razao_social"] if cad else (a["info"]["emissor"] if a["tipo"] == "bdr" else a["papel"]["nome_pregao"])
+    pares_html = secao_pares(a, todos, pregoes)
+    secoes = [("resumo", "Resumo")] + ([("dividendos", "Dividendos")] if a["tipo"] != "bdr" else []) \
+        + [("comparacao", "Comparação")] + ([("pares", "Setor")] if pares_html else []) + [("o-que-e", "Sobre")]
     cab = f"""{migalhas_html(base, ("Ativos", base + "ativos.html"), (tipo_pl, f"{base}{tipo_pg}.html"), (c, ""))}
 <div class="cab-ativo">
   <div class="cab-id">
-    {selo(a, "g")}
+    <span class="icone-tipo" title="{tipo_txt}">{ICONE_TIPO[a["tipo"]]}</span>
     <div>
     <p class="rotulo tipo">{tipo_txt} · B3</p>
     <h1><span class="cod">{c}</span> — {e(nc)}</h1>
     <p class="razao">{e(razao)}</p>
+    <p class="acoes-ativo"><button type="button" class="botao claro compartilhar" data-titulo="{e(c)} — {e(nc)}">{ICONE_COMPARTILHAR}<span>Compartilhar</span></button>
+    <button type="button" class="botao claro favoritar" data-cod="{c}" aria-pressed="false" hidden>{ICONE_ESTRELA}<span>Favoritar</span></button></p>
     </div>
   </div>
   <div class="preco">
@@ -1117,8 +1669,8 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
     <p class="quando">Fechamento de {data_br(u['data'])}, comparado com {data_br(ant['data'])}</p>
     {selo_dados(ultimo)}
   </div>
-</div>"""
-    # eventos declarados no período do gráfico, com a fonte de cada um
+</div>
+<nav class="ancoras" aria-label="Seções da página">{" · ".join(f'<a href="#{k}">{r}</a>' for k, r in secoes)}</nav>"""
     evs = [(d, x) for d, x in sorted(a["evento"].items(), reverse=True) if d >= a12[0]["data"]]
     ev_hist = ""
     if evs:
@@ -1126,7 +1678,7 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
                    + "".join(f'<li><strong>{data_br(d)}</strong> — {e(x["evento"])}'
                              + (f' Fonte: <a href="{e(x["fonte"])}" rel="noopener nofollow">{e(x["fonte_nome"] or "fonte")}</a>.' if x["fonte"] else "")
                              + "</li>" for d, x in evs) + "</ul>"
-                   + '<p class="data-regra">O gráfico e a tabela mostram o preço como foi negociado, sem ajuste: num desdobramento '
+                   + '<p class="data-regra">O gráfico “Real” e a tabela mostram o preço como foi negociado, sem ajuste: num desdobramento '
                      'ou grupamento, a linha dá um salto que não é ganho nem perda.</p>')
     quem = "pela companhia" if a["tipo"] != "fii" else "pelo administrador do fundo"
     if a["comunicados"]:
@@ -1142,13 +1694,31 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
                  if a["tipo"] == "bdr" else "")
     lote = ", em lote padrão," if a["tipo"] == "acao" else ""
     provento = "rendimento" if a["tipo"] == "fii" else "dividendo"
+    inicio = a["serie"][0][0]
+    corte_txt = (f" A série longa começa em {data_br(inicio)}: antes disso houve variação acima de 25% num pregão sem evento "
+                 "declarado nas fontes, e o site não mostra número sem explicação.") if a["corte"] else ""
+    aj_txt = (" “Ajustada” desconta os rendimentos do preço anterior a cada pagamento, como se fossem reinvestidos; o rendimento vem do "
+              "informe mensal da CVM e é aplicado no primeiro pregão do mês seguinte ao de referência (o informe não traz a data com), "
+              "então é uma aproximação.") if a["tipo"] == "fii" else ""
     corpo = f"""<main id="conteudo" class="com-faixa">
 {faixa("bovespa-arcos", base, cab, "faixa-ativo")}<div class="casca">
 {aviso_neg}{ev_txt}{aviso_bdr}
-{nums}
+<section id="resumo" aria-label="Resumo">
+{cartoes_indicadores(indicadores(a, pregoes))}
 <h2 id="grafico">Histórico de fechamento</h2>
-{bloco_grafico(a)}
+<div class="grafico2" data-slug="{a['slug']}" data-cod="{c}">
+<div class="graf-ctl"><div class="botoes per" role="group" aria-label="Período do gráfico"></div>
+<div class="botoes aj" role="group" aria-label="Tipo de série" hidden><button type="button" data-aj="0" aria-pressed="true">Real</button><button type="button" data-aj="1" aria-pressed="false">Ajustada</button></div>
+<label class="comparar">Comparar com <select><option value="">—</option></select></label></div>
+<div class="graf-area"><p class="sem-js">O gráfico é desenhado no navegador e precisa de JavaScript. Os números do período estão logo abaixo e na tabela de pregões.</p></div>
+<p class="legenda">Preço de fechamento diário em reais, desde {data_br(inicio)}. “Real” é o preço como foi negociado, sem ajuste por proventos, desdobramentos ou grupamentos.{aj_txt} Ao comparar, as duas séries começam em 100 no início do período. Fonte: B3, série histórica de cotações.{corte_txt}</p>
+</div>
 <p class="data-regra" style="margin-top:.8rem">Em 12 meses, o preço oscilou entre <span class="num">{brl(lo12)}</span> (mínima intradiária) e <span class="num">{brl(hi12)}</span> (máxima intradiária).</p>
+{nums}
+</section>
+{secao_dividendos(a)}
+{secao_comparacao(a)}
+{pares_html}
 <div class="grade grade-2" style="margin-top:1rem">
 <section><h2 id="o-que-e">O que é {c}</h2>{texto_ativo(a)}</section>
 <section><h2 id="ficha">Ficha</h2>{ficha_ativo(a)}</section>
@@ -1162,6 +1732,7 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
  <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista{lote} como publicado pela B3.</li>
  <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um {provento}, a queda de preço aparece como variação.</li>
  <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
+ <li>Cada indicador tem um <strong>?</strong> com a fórmula, a fonte e a data-base. Sem fonte oficial, aparece “—”.</li>
  <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
 </ul>
 <h2 id="guias">Para entender os números</h2>
@@ -1183,7 +1754,8 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado):
            "inLanguage": "pt-BR", "dateModified": u["data"], "about": sobre, "publisher": ORG},
           migalhas_ld((NOME, DOMINIO + "/"), ("Ativos", f"{DOMINIO}/ativos.html"), (tipo_pl, f"{DOMINIO}/{tipo_pg}.html"), (c, url))]
     return (cabeca(titulo, desc, url, og_url, base, ld, extra=fundo_preload("bovespa-arcos", base)) + topo(base, "ativos")
-            + corpo + rodape(base, ultimo) + consentimento(base) + fim(GRAFICO_JS + selo_js()))
+            + corpo + rodape(base, ultimo) + consentimento(base)
+            + f'<script src="{base}assets/ativo.js?v={ATIVO_JS_VER}" defer></script>\n' + fim(selo_js()))
 
 
 def destaques(ativos, ultimo):
@@ -1330,6 +1902,10 @@ def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias):
 </section>
 <div class="casca">
 
+<section class="favoritos" id="favoritos" hidden aria-label="Seus favoritos">
+<h2>Seus favoritos</h2><p class="data-regra">Guardados só neste navegador. Nada vai para o site.</p><ul class="chips"></ul>
+</section>
+
 <section class="painel textura">
 <h2 id="pregao">Destaques do pregão de {data_br(ultimo)}</h2>
 <p class="data-regra">Entre os {len(ativos)} ativos acompanhados pelo site. É uma fotografia do dia, não um sinal: o que subiu hoje pode cair amanhã.</p>
@@ -1362,7 +1938,9 @@ if(M[c]){{location.href=M[c];return}}
 var p=Object.keys(M).filter(function(k){{return k.indexOf(c)===0}});
 if(p.length===1){{location.href=M[p[0]];return}}
 if(p.length>1){{m.textContent='Mais de um código começa com '+c+': '+p.slice(0,8).join(', ')+'.';return}}
-m.textContent=c+' não está na lista acompanhada pelo site. Veja as listas de ações, fundos imobiliários e BDRs.';}});}})();"""
+m.textContent=c+' não está na lista acompanhada pelo site. Veja as listas de ações, fundos imobiliários e BDRs.';}});
+var F=[];try{{F=JSON.parse(localStorage.getItem('ml-favoritos')||'[]')}}catch(e){{}}
+var S=document.getElementById('favoritos');if(S&&F.length){{var u=S.querySelector('ul');F.forEach(function(c){{if(M[c]){{var li=document.createElement('li'),a=document.createElement('a');a.href=M[c];a.textContent=c;li.appendChild(a);u.appendChild(li)}}}});if(u.children.length)S.hidden=false}}}})();"""
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": DOMINIO + "/", "inLanguage": "pt-BR",
            "description": DESC_HOME, "publisher": ORG}, {"@context": "https://schema.org", **ORG}]
     return cabeca(TITULO_HOME, DESC_HOME, DOMINIO + "/", og_url, base, ld, extra=fundo_preload("hero-pregao", base)) + topo(base) + corpo + rodape(base, ultimo) + consentimento(base) + fim(js + selo_js())
@@ -1801,6 +2379,24 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
         extra = f'<br><span class="nome">arquivo da CVM de {e(data_hora_br(f["arquivo_cvm_em"]))}</span>' if f.get("arquivo_cvm_em") else ""
         linhas_fontes.append(f'<tr{"" if ok else " class=\"atrasado\""}><td>{tipo_f}</td><td style="white-space:normal">{e(f["nome"])}{erro}</td>'
                              f'<td class="n">{e(data_hora_br(f.get("coletado_em")))}{extra}</td><td class="n">{recente}</td><td>{estado}</td></tr>')
+    for k, sr in BCB.get("series", {}).items():
+        ok = sr.get("ok")
+        estado = ('<span class="selo-dados selo-mini" data-estado="ok"><span class="selo-ponto" aria-hidden="true">✓</span><span class="selo-txt">OK</span></span>'
+                  if ok else '<span class="selo-dados selo-mini" data-estado="atraso"><span class="selo-ponto" aria-hidden="true">×</span><span class="selo-txt">Falhou</span></span>')
+        pts = sr.get("pontos") or []
+        erro = f'<br><span class="nome">{e(sr.get("erro", ""))} (em {e(data_hora_br(sr.get("falhou_em")))})</span>' if not ok else ""
+        linhas_fontes.append(f'<tr{"" if ok else " class=\"atrasado\""}><td>Índices</td><td style="white-space:normal">Banco Central — {e(sr.get("nome", k))}{erro}</td>'
+                             f'<td class="n">{e(data_hora_br(sr.get("coletado_em")))}</td><td class="n">{data_br(pts[-1][0]) if pts else "—"}</td><td>{estado}</td></tr>')
+    fb = FUND.get("fontes", {})
+    bal = fb.get("cvm_balancos", {})
+    datas_bal = ", ".join(f"{data_br(d)} ({n} companhias)" for d, n in bal.get("datas_base", {}).items()) or "—"
+    fii_mes = fb.get("cvm_fii", {}).get("ultimo_mes")
+    fund_html = (f'<h2 id="balancos">Balanços e informes (indicadores)</h2><dl class="ficha">'
+                 f'<dt>Data-base dos balanços (ITR/DFP)</dt><dd class="num">{datas_bal}</dd>'
+                 f'<dt>Exercícios anuais lidos (DFP)</dt><dd class="num">{", ".join(str(x) for x in bal.get("anos_dfp", [])) or "—"}</dd>'
+                 f'<dt>Último informe mensal de FII</dt><dd class="num">{mes_curto(fii_mes) if fii_mes else "—"}</dd>'
+                 f'<dt>Coleta dos balanços</dt><dd class="num">{e(data_hora_br(FUND.get("gerado_em")))}</dd></dl>'
+                 '<p class="data-regra">P/L, P/VP, DY, ROE, margem e payout usam esses dados abertos da CVM; a rotina relê os balanços uma vez por semana.</p>')
     prox = proximos_uteis(ultimo, 5)
     prox_html = "".join(f'<li data-dia="{d.isoformat()}"><span class="num">{DIAS_SEMANA[d.weekday()]} {data_br(d)}</span>'
                         f'<span class="prox-estado"></span></li>' for d in prox)
@@ -1837,11 +2433,13 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
 </section>
 </div>
 
-<h2 id="fontes-extras">Comunicados e notícias</h2>
+<h2 id="fontes-extras">Comunicados, notícias e índices</h2>
 <p class="data-regra">Coletados pela mesma rotina, depois das cotações. Uma fonte que falha não para o resto: o site mantém a última coleta boa dela e a marca aqui.</p>
 <div class="rolagem"><table class="tabela-status"><caption>Última coleta de cada fonte (horário de Brasília)</caption><thead><tr><th>Tipo</th><th>Fonte</th><th class="n">Última coleta boa</th><th class="n">Item mais recente</th><th>Situação</th></tr></thead><tbody>
 {"".join(linhas_fontes)}
 </tbody></table></div>
+
+{fund_html}
 
 <h2 id="ativos">Ativos</h2>
 <p class="data-regra">{resumo_atras}</p>
@@ -1909,6 +2507,7 @@ def conferir_links(arquivos):
             if re.match(r"(https?:|mailto:|data:|#$)", ref) or ref.startswith("//"):
                 continue
             alvo, _, ancora = ref.partition("#")
+            alvo = alvo.split("?")[0]
             if not alvo:
                 destino = f.resolve()
             elif alvo.startswith("/"):
@@ -1986,7 +2585,14 @@ def main():
     saidas["comunicados.html"] = pagina_comunicados(com, por_chave, og_home, ultimo)
     saidas["noticias.html"] = pagina_noticias(noticias, og_home, ultimo)
     for a in ativos:
-        saidas[f"ativos/{a['slug']}.html"] = pagina_ativo(a, ativos, ultimo, og_a[a["codigo"]], cad["gerado_em"])
+        a["serie"], a["corte"] = serie_longa(a)
+    escreve_series(ativos, RAIZ / "assets" / "serie")
+    js = ATIVO_JS_SRC.read_text(encoding="utf-8")
+    alvo_js = RAIZ / "assets" / "ativo.js"
+    if not alvo_js.exists() or alvo_js.read_text(encoding="utf-8") != js:
+        alvo_js.write_text(js, encoding="utf-8")
+    for a in ativos:
+        saidas[f"ativos/{a['slug']}.html"] = pagina_ativo(a, ativos, ultimo, og_a[a["codigo"]], cad["gerado_em"], pregoes)
     for g in guias:
         saidas[f"guias/{g['slug']}.html"] = pagina_conteudo(g, "guias", "Guias", og_g[g["slug"]], True)
     for g in calcs:

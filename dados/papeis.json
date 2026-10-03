@@ -223,6 +223,14 @@
   "isin": "BRBOACBDR004",
   "nome_pregao": "BANK AMERICA"
  },
+ "BOVA11": {
+  "bdi": "14",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": false,
+  "isin": "BRBOVACTF003",
+  "nome_pregao": "ISHARES BOVA"
+ },
  "BPAC11": {
   "bdi": "02",
   "data": "2026-10-02",
@@ -526,6 +534,14 @@
   "fii": false,
   "isin": "BRDISBBDR006",
   "nome_pregao": "WALT DISNEY"
+ },
+ "DIVO11": {
+  "bdi": "14",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": false,
+  "isin": "BRDIVOCTF002",
+  "nome_pregao": "IT NOW IDIV"
  },
  "ECOR3": {
   "bdi": "02",
@@ -886,6 +902,14 @@
   "fii": false,
   "isin": "BRITUBACNPR1",
   "nome_pregao": "ITAUUNIBANCO"
+ },
+ "IVVB11": {
+  "bdi": "14",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": false,
+  "isin": "BRIVVBCTF001",
+  "nome_pregao": "ISHARE SP500"
  },
  "JBSS32": {
   "bdi": "35",
@@ -1575,6 +1599,14 @@
   "isin": "BRSLCEACNOR2",
   "nome_pregao": "SLC AGRICOLA"
  },
+ "SMAL11": {
+  "bdi": "14",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": false,
+  "isin": "BRSMALCTF002",
+  "nome_pregao": "ISHARES SMAL"
+ },
  "SMFT3": {
   "bdi": "02",
   "data": "2026-10-02",
@@ -1910,6 +1942,14 @@
   "fii": true,
   "isin": "BRWHGRCTF008",
   "nome_pregao": "FII WHG REAL"
+ },
+ "XFIX11": {
+  "bdi": "14",
+  "data": "2026-10-02",
+  "especificacao": "CI",
+  "fii": false,
+  "isin": "BRXFIXCTF004",
+  "nome_pregao": "TREND IFIX-L"
  },
  "XPBR31": {
   "bdi": "35",

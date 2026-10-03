@@ -383,6 +383,77 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
   table.lista-ativos th,table.lista-ativos td,.tabelas-home th,.tabelas-home td{padding:.5rem .45rem}
   table.lista-ativos th:nth-child(4),table.lista-ativos td:nth-child(4),.tabelas-home th:nth-child(4),.tabelas-home td:nth-child(4){display:none}
 }
+:root{--s0:var(--grafico);--s1:#B45309;--s2:#7C3AED;--s3:#0F766E;--s4:#BE185D;--s5:#475467;--s6:#8A5A12;--s7:#1E40AF}
+@media (prefers-color-scheme:dark){:root{--s1:#F5B44A;--s2:#B69CFF;--s3:#4FD1C5;--s4:#F78FB8;--s5:#C2CBD8;--s6:#E0A84A;--s7:#9DB8FF}}
+.indicadores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:1.2rem 0 .4rem}
+@media (min-width:700px){.indicadores{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1000px){.indicadores{grid-template-columns:repeat(6,minmax(0,1fr))}.indicadores.ind-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ind{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:.7rem .8rem .8rem;position:relative;min-width:0}
+.ind-topo{display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin-bottom:.35rem}
+.ind-rot{font:600 .74rem "Archivo",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--suave)}
+.ind-valor{display:inline-block;font:600 1.3rem/1.2 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--tinta)}
+.ind-valor small{font-size:.62em;font-weight:500;color:var(--suave)}
+.ind .selo-var{font-size:.8rem;margin-top:.3rem}
+.ajuda{position:static}
+.ajuda summary{list-style:none;cursor:pointer;width:1.5rem;height:1.5rem;border-radius:50%;border:1px solid var(--linha);display:grid;place-items:center;font:600 .8rem "Archivo",sans-serif;color:var(--suave);background:var(--superficie)}
+.ajuda summary::-webkit-details-marker{display:none}
+.ajuda[open] summary{background:var(--acao);color:#fff;border-color:var(--acao)}
+.ajuda-txt{position:absolute;left:0;right:0;top:100%;z-index:5;margin-top:.3rem;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio-s);box-shadow:var(--sombra-alta);padding:.7rem .8rem;font-size:.86rem;line-height:1.5;min-width:min(19rem,88vw)}
+.ajuda-txt p{margin:0}
+.pares-topo,.graf-ctl{position:relative}
+.icone-tipo{flex:none;width:3.4rem;height:3.4rem;border-radius:.9rem;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#F4F6F9}
+.icone-tipo .icone{width:1.9rem;height:1.9rem}
+.acoes-ativo{display:flex;flex-wrap:wrap;gap:.4rem;margin:.7rem 0 0}
+.acoes-ativo .botao{padding:.4rem .7rem;font-size:.86rem;background:rgba(255,255,255,.1);color:#F4F6F9;border:1px solid rgba(255,255,255,.3)}
+.acoes-ativo .botao .icone{width:1rem;height:1rem}
+.acoes-ativo .favoritar[aria-pressed=true]{background:#E0A84A;color:#0B1220;border-color:#E0A84A}
+.ancoras{margin-top:1rem;font-size:.92rem;color:#C9D3E1}
+.ancoras a{color:#F4F6F9}
+.botoes{display:flex;flex-wrap:wrap;gap:.3rem}
+.botoes button,.comp-legenda button{font:500 .84rem "IBM Plex Mono",monospace;padding:.35rem .65rem;border-radius:8px;border:1px solid var(--linha);background:var(--papel);color:var(--suave);cursor:pointer}
+.botoes button[aria-pressed=true]{background:var(--acao-suave);color:var(--tinta);border-color:var(--acao)}
+.graf-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin-bottom:.6rem}
+.comparar{font-size:.86rem;color:var(--suave);display:flex;align-items:center;gap:.4rem;max-width:100%}
+.comparar select{max-width:min(16rem,60vw);font:inherit;padding:.3rem .4rem;border:1px solid var(--linha);border-radius:8px;background:var(--papel);color:var(--tinta)}
+.grafico2,.comp,.div-grafico{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:1rem 1rem .6rem}
+.grafico2 svg,.comp svg,.div-barras svg{display:block;width:100%;height:auto}
+.grafico2 text,.comp text,.div-barras text{font:500 18px "IBM Plex Mono",monospace;fill:var(--suave)}
+@media (min-width:760px){.grafico2 text,.comp text,.div-barras text{font-size:14px}}
+.grafico2 .grade-y,.comp .grade-y{stroke:var(--linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.grafico2 .area{fill:var(--grafico-area)}
+.linha{fill:none;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.ponto{fill:var(--papel);stroke-width:2;vector-effect:non-scaling-stroke}
+.linha.s0,.ponto.s0{stroke:var(--s0)}.linha.s1,.ponto.s1{stroke:var(--s1)}.linha.s2,.ponto.s2{stroke:var(--s2)}.linha.s3,.ponto.s3{stroke:var(--s3)}
+.linha.s4,.ponto.s4{stroke:var(--s4)}.linha.s5,.ponto.s5{stroke:var(--s5)}.linha.s6,.ponto.s6{stroke:var(--s6)}.linha.s7,.ponto.s7{stroke:var(--s7)}
+.linha.s1{stroke-dasharray:7 4}.linha.s2{stroke-dasharray:2 4}.linha.s3{stroke-dasharray:12 4 3 4}.linha.s4{stroke-dasharray:5 5}.linha.s5{stroke-dasharray:1 3}.linha.s6{stroke-dasharray:9 3}.linha.s7{stroke-dasharray:3 3 9 3}
+text.rot-fim{font-weight:600}
+text.rot-fim.s0{fill:var(--s0)}text.rot-fim.s1{fill:var(--s1)}text.rot-fim.s2{fill:var(--s2)}text.rot-fim.s3{fill:var(--s3)}text.rot-fim.s4{fill:var(--s4)}text.rot-fim.s5{fill:var(--s5)}text.rot-fim.s6{fill:var(--s6)}text.rot-fim.s7{fill:var(--s7)}
+.comp-legenda{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .6rem}
+.comp-legenda button{display:inline-flex;align-items:center;gap:.4rem;font-family:"Archivo",sans-serif}
+.comp-legenda button[aria-pressed=false]{opacity:.55;text-decoration:line-through}
+.marca-serie{display:inline-block;width:1.4rem;height:.28rem;border-radius:2px;background:var(--s0);flex:none}
+.marca-serie.s1{background:repeating-linear-gradient(90deg,var(--s1) 0 7px,transparent 7px 11px)}
+.marca-serie.s2{background:repeating-linear-gradient(90deg,var(--s2) 0 2px,transparent 2px 6px)}
+.marca-serie.s3{background:var(--s3)}.marca-serie.s4{background:repeating-linear-gradient(90deg,var(--s4) 0 5px,transparent 5px 10px)}
+.marca-serie.s5{background:repeating-linear-gradient(90deg,var(--s5) 0 1px,transparent 1px 4px)}.marca-serie.s6{background:var(--s6)}.marca-serie.s7{background:var(--s7)}
+.simulador{margin-top:.8rem;border-top:1px solid var(--linha);padding-top:.8rem}
+.sim-linha{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
+.sim-linha input{font:500 1rem "IBM Plex Mono",monospace;width:8rem;padding:.35rem .5rem;border:1px solid var(--linha);border-radius:8px;background:var(--papel);color:var(--tinta)}
+.sim-res{list-style:none;padding:0;margin:.4rem 0 .8rem}
+.sim-res li{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:.3rem 0;border-bottom:1px solid var(--linha);margin:0}
+.sim-aviso{font-size:.86rem}
+.div-grafico .botoes{margin-bottom:.5rem}
+.div-barras rect.col-div{fill:var(--acao)}
+.div-barras rect.col-div.ult{fill:var(--ouro)}
+table.pares tr.este td{background:var(--acao-suave)}
+table.pares th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:.25em}
+table.pares th[aria-sort=ascending] button::after{content:" ▲"}
+table.pares th[aria-sort=descending] button::after{content:" ▼"}
+.ver-todas{margin-top:.6rem}
+.pares-topo{display:flex;align-items:flex-start;gap:.6rem}
+.pares-topo .data-regra{flex:1}
+@media (max-width:480px){.grafico2 text,.comp text,.div-barras text{font-size:25px}.comp text.rot-fim{font-size:22px}}
+.data-regra,.fontes li{overflow-wrap:anywhere}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/fundo/bovespa-arcos-640.webp 640w, ../assets/img/fundo/bovespa-arcos-1280.webp 1280w, ../assets/img/fundo/bovespa-arcos-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
@@ -416,11 +487,13 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
 <div class="faixa faixa-ativo"><picture class="fundo"><source type="image/webp" srcset="../assets/img/fundo/bovespa-arcos-640.webp 640w, ../assets/img/fundo/bovespa-arcos-1280.webp 1280w, ../assets/img/fundo/bovespa-arcos-1920.webp 1920w" sizes="(max-width: 700px) 200vw, 100vw"><img src="../assets/img/fundo/bovespa-arcos-1280.jpg" srcset="../assets/img/fundo/bovespa-arcos-640.jpg 640w, ../assets/img/fundo/bovespa-arcos-1280.jpg 1280w, ../assets/img/fundo/bovespa-arcos-1920.jpg 1920w" sizes="(max-width: 700px) 200vw, 100vw" width="1280" height="374" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,128 70,118 130,124 200,96 260,104 330,82 400,90 460,64 540,78 600,56 670,70 730,44 800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg><div class="casca faixa-conteudo"><nav class="migalhas" aria-label="Você está em"><a href="../index.html">Início</a> › <a href="../ativos.html">Ativos</a> › <a href="../bdrs.html">BDRs</a> › <span aria-current="page">S1TX34</span></nav>
 <div class="cab-ativo">
   <div class="cab-id">
-    <span class="selo selo-bdr selo-g" aria-hidden="true"><b>S1TX</b><i>34</i></span>
+    <span class="icone-tipo" title="BDR"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></span>
     <div>
     <p class="rotulo tipo">BDR · B3</p>
     <h1><span class="cod">S1TX34</span> — Seagate BDR</h1>
     <p class="razao">SEAGATE TECHNOLOGY HOLDINGS PLC</p>
+    <p class="acoes-ativo"><button type="button" class="botao claro compartilhar" data-titulo="S1TX34 — Seagate BDR"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg><span>Compartilhar</span></button>
+    <button type="button" class="botao claro favoritar" data-cod="S1TX34" aria-pressed="false" hidden><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z"/></svg><span>Favoritar</span></button></p>
     </div>
   </div>
   <div class="preco">
@@ -429,26 +502,60 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
     <p class="quando">Fechamento de 02/10/2026, comparado com 01/10/2026</p>
     <p class="selo-dados" data-pregao="2026-10-02"><span class="selo-ponto" aria-hidden="true"></span><span class="selo-txt">Pregão de 02/10/2026</span></p>
   </div>
-</div><p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
+</div>
+<nav class="ancoras" aria-label="Seções da página"><a href="#resumo">Resumo</a> · <a href="#comparacao">Comparação</a> · <a href="#o-que-e">Sobre</a></nav><p class="credito-foto">Foto: Arcos da fachada do edifício da bolsa na Rua XV de Novembro, centro de São Paulo, 2017 — <a href="https://commons.wikimedia.org/wiki/File:Bovespa,_S%C3%A3o_Paulo_city_downtown.jpg" rel="noopener">Wilfredor</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
 <div class="casca">
 <div class="aviso"><strong>Preço em reais, do BDR na B3.</strong> Não é a cotação da ação da empresa na bolsa de origem.</div>
-<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 79,70</dd></div><div><dt>Mínima do dia</dt><dd>R$ 75,46</dd></div><div><dt>Máxima do dia</dt><dd>R$ 80,90</dd></div><div><dt>Preço médio</dt><dd>R$ 77,99</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 89,59</dd></div><div><dt>Volume financeiro</dt><dd>R$ 9,91 mi</dd></div><div><dt>Negócios</dt><dd>644</dd></div><div><dt>Quantidade negociada</dt><dd>127,02 mil</dd></div></dl>
+<section id="resumo" aria-label="Resumo">
+<div class="indicadores"><div class="ind" id="ind-cotacao"><div class="ind-topo"><span class="ind-rot">Cotação</span><details class="ajuda"><summary aria-label="O que é Cotação e de onde vem">?</summary><div class="ajuda-txt"><p>Preço do último negócio de S1TX34 no pregão de 02/10/2026, no mercado à vista da B3 (série histórica COTAHIST). A pílula é a variação sobre o fechamento anterior com negócio (01/10/2026).</p></div></details></div><span class="ind-valor num">R$ 80,90</span> <span class="var baixa selo-var">▼ −9,70%</span></div><div class="ind" id="ind-var12"><div class="ind-topo"><span class="ind-rot">Variação (12M)</span><details class="ajuda"><summary aria-label="O que é Variação (12M) e de onde vem">?</summary><div class="ajuda-txt"><p>Fechamento de 02/10/2026 comparado com o de 02/10/2025, o último pregão até um ano antes (COTAHIST, B3). Preço bruto: não inclui proventos (dividendos, JCP, rendimentos). Desdobramentos e grupamentos do período foram descontados, para a conta não mostrar um salto que não é ganho nem perda.</p></div></details></div><span class="ind-valor num var alta">▲ +228,38%</span></div><div class="ind" id="ind-liq"><div class="ind-topo"><span class="ind-rot">Liquidez diária</span><details class="ajuda"><summary aria-label="O que é Liquidez diária e de onde vem">?</summary><div class="ajuda-txt"><p>Média do volume financeiro negociado por pregão nos últimos 30 pregões da B3, de 21/08/2026 a 02/10/2026 (dia sem negócio conta como zero). Fonte: COTAHIST, B3.</p></div></details></div><span class="ind-valor num">R$ 1,91 mi</span></div></div>
 <h2 id="grafico">Histórico de fechamento</h2>
-<div class="grafico" data-cod="S1TX34"><input type="radio" class="sr" name="per-s1tx34" id="p-12m" checked><input type="radio" class="sr" name="per-s1tx34" id="p-6m"><input type="radio" class="sr" name="per-s1tx34" id="p-1m"><div class="periodos" role="group" aria-label="Período do gráfico"><label for="p-12m">12 meses</label><label for="p-6m">6 meses</label><label for="p-1m">1 mês</label></div><div class="paineis"><p class="sem-js">O gráfico é desenhado no navegador e precisa de JavaScript. Os números do período estão no texto logo abaixo e na tabela de pregões.</p></div><script type="application/json" id="serie">{"d0":"2025-01-02","s":[0,542.15,4,557.4,1,546.5,1,545.04,12,596.09,1,596.77,1,635.0,2,644.44,4,603.29,7,541.31,2,556.92,1,553.09,3,568.14,3,586.44,1,583.2,12,576.66,1,601.46,1,587.96,5,534.09,2,507.55,3,501.34,1,509.49,1,502.58,2,501.68,3,513.54,1,502.32,1,502.32,1,502.6,1,502.5,3,509.38,1,495.72,2,503.5,1,494.49,3,486.38,1,478.77,2,409.1,1,389.5,3,397.92,23,502.27,5,531.68,10,604.75,1,614.88,10,627.83,9,718.5,6,713.33,13,727.77,2,768.0,2,774.44,4,784.68,1,823.0,1,817.54,4,814.86,1,790.56,1,786.84,1,807.38,1,821.6,3,838.86,1,830.0,1,815.89,1,819.1,1,835.92,3,831.66,2,834.47,1,847.56,1,842.52,3,843.18,1,852.6,1,821.5,1,875.76,1,856.24,3,852.26,1,838.1,1,812.28,1,802.4,1,816.8,3,838.86,1,843.28,1,846.0,1,844.05,1,838.32,3,863.19,1,857.42,1,865.65,2,867.0,3,895.26,1,895.55,1,910.8,1,937.3,1,913.26,4,933.16,1,953.97,1,1000.3,1,1025.99,3,1027.14,1,1039.34,1,1040.73,1,1067.04,1,1062.77,3,1122.45,1,1111.2,1,1133.44,1,1157.1,1,1174.15,3,1230.0,1,1206.56,1,1193.0,1,1174.91,1,1156.25,3,1226.0,1,1250.97,1,1367.15,1,1354.97,1,1358.95,3,1293.3,1,1204.77,1,1203.33,1,1191.98,1,1175.76,3,1194.83,1,1157.69,1,1195.16,1,1242.66,1,1230.2,3,1150.0,1,1157.88,1,1153.31,1,1220.0,1,1273.67,3,1233.3,1,1185.0,1,1431.56,1,1456.44,1,1401.29,3,1427.17,1,1363.9,1,1497.15,1,1493.25,1,1481.22,3,1552.61,1,1509.07,1,1500.27,1,1390.55,1,1361.77,3,1378.12,1,1351.21,1,1387.84,2,1278.0,3,1379.84,1,1408.41,1,1463.43,1,1470.0,1,1474.44,3,1459.64,1,1434.2,1,1395.98,1,1400.92,1,1513.92,3,1548.87,1,1567.55,1,1627.12,1,1662.96,1,1531.52,3,1555.31,1,1571.7,1,1546.32,1,1633.0,1,1680.0,4,1606.0,3,1580.99,3,1579.18,1,1548.5,3,1558.0,3,1552.21,1,1774.5,1,1660.0,1,1523.15,1,1633.04,3,1732.0,1,1728.76,1,1695.0,1,1739.35,1,1760.81,3,1790.48,1,1751.8,1,1831.91,1,1838.75,1,1823.9,3,1891.68,1,1937.86,1,2309.29,1,2325.92,1,2097.32,3,2256.42,1,2308.71,1,2189.31,1,2118.16,1,2243.05,3,2217.89,1,2070.83,1,2123.25,1,2318.29,1,2219.75,5,2214.72,1,2126.54,1,2135.14,3,2109.0,1,2041.05,1,2155.76,1,2099.99,1,2106.61,3,1954.43,1,1891.99,1,1970.0,1,1926.51,1,1858.29,3,1921.9,1,1999.0,1,1990.95,1,1957.8,1,2034.97,3,2080.43,1,2180.0,1,2146.8,1,2281.24,1,2266.19,3,2149.0,1,2244.43,1,2158.63,1,2003.18,1,1991.86,3,1883.32,1,2018.37,1,2176.39,1,2201.16,4,2328.1,1,2402.86,1,2532.29,1,2536.5,1,2574.97,3,2564.69,1,2645.19,1,2594.0,1,2642.49,1,2737.24,3,2676.99,2,2883.0,1,2954.0,1,2940.84,3,2940.47,1,2889.34,1,3189.91,1,3265.0,4,3604.0,1,3762.39,1,3880.26,1,3747.98,1,3811.74,3,4064.97,1,3972.81,1,4127.77,1,4013.92,1,4059.5,3,3709.01,1,3680.0,1,3766.27,1,4042.0,1,4086.07,3,4188.0,1,4260.01,1,4402.51,1,4454.42,1,4447.17,3,4608.95,1,4720.93,1,4812.13,2,4381.19,3,4530.48,1,4418.15,1,4208.0,1,4450.0,1,4771.18,3,5097.98,1,5242.56,1,5438.84,1,5695.02,1,5500.0,3,5780.0,1,5507.88,1,5119.2,1,5314.68,1,4590.0,3,5050.0,1,5050.0,1,4795.79,1,4254.02,1,4327.5,3,4443.12,1,4270.33,1,4323.91,1,4580.0,1,4706.52,3,4384.43,1,4458.01,1,4202.5,1,3795.96,1,4058.34,3,4077.17,1,4542.38,1,4625.0,1,4633.0,1,4294.86,3,4158.67,1,3813.21,1,3957.53,1,4304.0,1,4331.12,3,4200.84,1,4369.52,1,4280.0,1,4450.0,1,4155.75,3,4126.53,1,4253.75,1,4516.0,1,4755.06,1,5067.36,3,5185.23,1,4724.16,1,4200.0,1,4547.88,1,4533.78,3,75.0,1,76.93,1,79.51,1,79.43,1,78.02,3,76.06,1,75.92,1,75.04,1,73.6,1,77.5,4,84.99,1,83.41,1,78.56,1,78.5,3,75.45,1,71.78,1,74.89,1,75.0,1,80.77,3,81.53,1,86.0,1,89.0,1,85.23,1,86.36,3,87.83,1,87.98,1,87.25,1,89.59,1,80.9]}</script><p class="legenda">Preço de fechamento diário, em reais, sem ajuste por proventos, desdobramentos ou grupamentos. Fonte: B3, série histórica de cotações.</p></div>
+<div class="grafico2" data-slug="s1tx34" data-cod="S1TX34">
+<div class="graf-ctl"><div class="botoes per" role="group" aria-label="Período do gráfico"></div>
+<div class="botoes aj" role="group" aria-label="Tipo de série" hidden><button type="button" data-aj="0" aria-pressed="true">Real</button><button type="button" data-aj="1" aria-pressed="false">Ajustada</button></div>
+<label class="comparar">Comparar com <select><option value="">—</option></select></label></div>
+<div class="graf-area"><p class="sem-js">O gráfico é desenhado no navegador e precisa de JavaScript. Os números do período estão logo abaixo e na tabela de pregões.</p></div>
+<p class="legenda">Preço de fechamento diário em reais, desde 27/01/2023. “Real” é o preço como foi negociado, sem ajuste por proventos, desdobramentos ou grupamentos. Ao comparar, as duas séries começam em 100 no início do período. Fonte: B3, série histórica de cotações. A série longa começa em 27/01/2023: antes disso houve variação acima de 25% num pregão sem evento declarado nas fontes, e o site não mostra número sem explicação.</p>
+</div>
 <p class="data-regra" style="margin-top:.8rem">Em 12 meses, o preço oscilou entre <span class="num">R$ 71,00</span> (mínima intradiária) e <span class="num">R$ 5.907,72</span> (máxima intradiária).</p>
+<dl class="numeros"><div><dt>Abertura</dt><dd>R$ 79,70</dd></div><div><dt>Mínima do dia</dt><dd>R$ 75,46</dd></div><div><dt>Máxima do dia</dt><dd>R$ 80,90</dd></div><div><dt>Preço médio</dt><dd>R$ 77,99</dd></div><div><dt>Fechamento anterior</dt><dd>R$ 89,59</dd></div><div><dt>Volume financeiro</dt><dd>R$ 9,91 mi</dd></div><div><dt>Negócios</dt><dd>644</dd></div><div><dt>Quantidade negociada</dt><dd>127,02 mil</dd></div></dl>
+</section>
+
+<h2 id="comparacao">Comparação com índices</h2>
+<div class="comp" data-slug="s1tx34" data-cod="S1TX34" data-tipo="bdr">
+<div class="graf-ctl"><div class="botoes" role="group" aria-label="Período da comparação">
+<button type="button" data-p="1A" aria-pressed="true">1A</button><button type="button" data-p="2A" aria-pressed="false">2A</button><button type="button" data-p="5A" aria-pressed="false">5A</button></div>
+<details class="ajuda"><summary aria-label="De onde vêm as séries da comparação">?</summary><div class="ajuda-txt"><p>Rentabilidade acumulada no período, em %.
+<strong>S1TX34</strong>: só a variação de preço do ativo (sem proventos), do COTAHIST (B3), com desdobramentos e grupamentos descontados.
+<strong>CDI</strong>: taxa DI diária do Banco Central (SGS, série 12), acumulada dia a dia.
+<strong>IPCA</strong>: variação mensal do Banco Central (SGS, série 433), acumulada mês a mês (o mês corrente entra quando o IBGE divulga).
+<strong>Índices da B3</strong>: o site não republica a série dos índices; usa o ETF negociado na própria B3 que acompanha cada um
+(BOVA11 para o Ibovespa, SMAL11 para o SMLL, XFIX11 para o IFIX, DIVO11 para o IDIV, IVVB11 para o S&amp;P 500 em reais), pelo preço de
+fechamento do COTAHIST. ETF cobra taxa de administração e pode se afastar do índice; distribuições do ETF, se houver, não estão incluídas.</p></div></details></div>
+<div class="comp-legenda" role="group" aria-label="Séries do gráfico"></div>
+<div class="comp-area"><p class="sem-js">A comparação é desenhada no navegador e precisa de JavaScript.</p></div>
+<form class="simulador" onsubmit="return false">
+<p class="sim-linha"><label for="sim-valor">Se você tivesse investido R$</label> <input id="sim-valor" inputmode="decimal" value="1.000" size="9">
+<span class="sim-per">há 1 ano</span>, hoje teria:</p>
+<ul class="sim-res" aria-live="polite"></ul>
+<p class="aviso sim-aviso"><strong>Simulação com dados passados.</strong> Valores brutos, sem impostos, taxas e custos de corretagem. Rentabilidade passada não garante resultado futuro. Isto não é recomendação de investimento.
+O valor do ativo e o dos ETFs são só a variação de preço, sem proventos; o CDI é a taxa acumulada.</p>
+</form>
+</div>
+
 <div class="grade grade-2" style="margin-top:1rem">
 <section><h2 id="o-que-e">O que é S1TX34</h2><p>Um <strong>BDR</strong> (Brazilian Depositary Receipt, ou certificado de depósito de valores mobiliários) é um papel negociado na B3, em reais, que representa ações de uma empresa estrangeira guardadas no exterior por uma instituição depositária. Quem compra o BDR não compra a ação diretamente na bolsa de origem: compra o certificado emitido no Brasil, cujo preço acompanha o da ação lá fora, convertido pelo câmbio e pela proporção entre BDR e ação definida no programa.</p><p><strong>S1TX34</strong> é o código de negociação na B3 de um BDR não patrocinado (especificação DRN no arquivo da B3) que tem por trás a empresa estrangeira <strong>SEAGATE TECHNOLOGY HOLDINGS PLC</strong>, segundo o cadastro de BDRs da B3. O ISIN do papel é BRS1TXBDR005.</p><p>No BDR <strong>não patrocinado</strong>, o programa é aberto por uma instituição depositária no Brasil, sem participação da empresa estrangeira, que não presta informações à CVM por causa dele.</p><p><strong>O preço desta página é o do BDR na B3, em reais.</strong> Não é a cotação da ação na bolsa de origem, que é em outra moeda e por ação, e não por certificado.</p></section>
 <section><h2 id="ficha">Ficha</h2><dl class="ficha"><dt>Empresa estrangeira (B3)</dt><dd>SEAGATE TECHNOLOGY HOLDINGS PLC</dd><dt>Programa</dt><dd>BDR não patrocinado (DRN)</dd><dt>Moeda da cotação</dt><dd>Real (R$), na B3</dd><dt>Código ISIN</dt><dd>BRS1TXBDR005</dd><dt>Nome no pregão (B3)</dt><dd>SEAGATE HOLD</dd></dl></section>
 </div>
 <h2 id="pregoes">Últimos pregões</h2>
 <div class="rolagem"><table><caption>Últimos 10 pregões com negócio</caption><thead><tr><th>Data</th><th class="n">Fechamento</th><th class="n">Variação</th><th class="n">Mínima</th><th class="n">Máxima</th><th class="n">Volume</th></tr></thead><tbody><tr><td class="n">02/10/2026</td><td class="n">80,90</td><td class="n"><span class="var baixa">▼ −9,70%</span></td><td class="n">75,46</td><td class="n">80,90</td><td class="n">R$ 9,91 mi</td></tr><tr><td class="n">01/10/2026</td><td class="n">89,59</td><td class="n"><span class="var alta">▲ +2,68%</span></td><td class="n">83,09</td><td class="n">89,59</td><td class="n">R$ 2,73 mi</td></tr><tr><td class="n">30/09/2026</td><td class="n">87,25</td><td class="n"><span class="var baixa">▼ −0,83%</span></td><td class="n">86,30</td><td class="n">87,26</td><td class="n">R$ 543,41 mil</td></tr><tr><td class="n">29/09/2026</td><td class="n">87,98</td><td class="n"><span class="var alta">▲ +0,17%</span></td><td class="n">85,87</td><td class="n">89,16</td><td class="n">R$ 658,54 mil</td></tr><tr><td class="n">28/09/2026</td><td class="n">87,83</td><td class="n"><span class="var alta">▲ +1,70%</span></td><td class="n">82,71</td><td class="n">88,50</td><td class="n">R$ 1,77 mi</td></tr><tr><td class="n">25/09/2026</td><td class="n">86,36</td><td class="n"><span class="var alta">▲ +1,33%</span></td><td class="n">85,92</td><td class="n">87,30</td><td class="n">R$ 374,39 mil</td></tr><tr><td class="n">24/09/2026</td><td class="n">85,23</td><td class="n"><span class="var baixa">▼ −4,24%</span></td><td class="n">85,04</td><td class="n">86,74</td><td class="n">R$ 955,78 mil</td></tr><tr><td class="n">23/09/2026</td><td class="n">89,00</td><td class="n"><span class="var alta">▲ +3,49%</span></td><td class="n">82,78</td><td class="n">89,00</td><td class="n">R$ 896,47 mil</td></tr><tr><td class="n">22/09/2026</td><td class="n">86,00</td><td class="n"><span class="var alta">▲ +5,48%</span></td><td class="n">80,42</td><td class="n">87,00</td><td class="n">R$ 725,71 mil</td></tr><tr><td class="n">21/09/2026</td><td class="n">81,53</td><td class="n"><span class="var alta">▲ +0,94%</span></td><td class="n">80,01</td><td class="n">84,22</td><td class="n">R$ 3,59 mi</td></tr></tbody></table></div>
-<h2 id="eventos">Eventos e variações fora do comum no período</h2><ul class="fontes"><li><strong>24/08/2026</strong> — Desdobramento de 1 para 55, aprovado em 15/07/2026; último dia com direito em 21/08/2026. O fechamento passou de R$ 4533,78 para R$ 75,00, e a diferença vem do evento, não de oscilação de mercado. Fonte: <a href="https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMxVFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=" rel="noopener nofollow">B3, eventos corporativos do emissor</a>.</li></ul><p class="data-regra">O gráfico e a tabela mostram o preço como foi negociado, sem ajuste: num desdobramento ou grupamento, a linha dá um salto que não é ganho nem perda.</p>
+<h2 id="eventos">Eventos e variações fora do comum no período</h2><ul class="fontes"><li><strong>24/08/2026</strong> — Desdobramento de 1 para 55, aprovado em 15/07/2026; último dia com direito em 21/08/2026. O fechamento passou de R$ 4533,78 para R$ 75,00, e a diferença vem do evento, não de oscilação de mercado. Fonte: <a href="https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlMxVFgiLCJsYW5ndWFnZSI6InB0LWJyIn0=" rel="noopener nofollow">B3, eventos corporativos do emissor</a>.</li></ul><p class="data-regra">O gráfico “Real” e a tabela mostram o preço como foi negociado, sem ajuste: num desdobramento ou grupamento, a linha dá um salto que não é ganho nem perda.</p>
 
 <h2 id="como-ler">Como ler esta página</h2>
 <ul>
  <li><strong>Fechamento</strong> é o preço do último negócio do pregão no mercado à vista como publicado pela B3.</li>
  <li><strong>Variação do dia</strong> compara esse fechamento com o do pregão anterior em que houve negócio. Não há ajuste por proventos: no dia em que o papel fica “ex” um dividendo, a queda de preço aparece como variação.</li>
  <li><strong>Volume financeiro</strong> é a soma, em reais, de todos os negócios do dia com o papel.</li>
+ <li>Cada indicador tem um <strong>?</strong> com a fórmula, a fonte e a data-base. Sem fonte oficial, aparece “—”.</li>
  <li>Os dados chegam <strong>depois do fechamento</strong>, uma vez por dia. Para cotação em tempo real, use o site da B3 ou da sua corretora.</li>
 </ul>
 <h2 id="guias">Para entender os números</h2>
@@ -457,7 +564,7 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
 <ul class="outros-ativos"><li><a class="cartao" href="xpbr31.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>XPBR</b><i>31</i></span><span><b>XPBR31</b><small>XP Inc. BDR</small></span></a></li><li><a class="cartao" href="jbss32.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>JBSS</b><i>32</i></span><span><b>JBSS32</b><small>JBS N.V. BDR</small></span></a></li><li><a class="cartao" href="tsla34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>TSLA</b><i>34</i></span><span><b>TSLA34</b><small>Tesla BDR</small></span></a></li><li><a class="cartao" href="meli34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MELI</b><i>34</i></span><span><b>MELI34</b><small>MercadoLibre BDR</small></span></a></li><li><a class="cartao" href="roxo34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>ROXO</b><i>34</i></span><span><b>ROXO34</b><small>Nu Holdings BDR</small></span></a></li><li><a class="cartao" href="mutc34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MUTC</b><i>34</i></span><span><b>MUTC34</b><small>Micron Technology BDR</small></span></a></li><li><a class="cartao" href="aura33.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>AURA</b><i>33</i></span><span><b>AURA33</b><small>Aura Minerals BDR</small></span></a></li><li><a class="cartao" href="msft34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>MSFT</b><i>34</i></span><span><b>MSFT34</b><small>Microsoft BDR</small></span></a></li><li><a class="cartao" href="inbr32.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>INBR</b><i>32</i></span><span><b>INBR32</b><small>Inter&amp;Co BDR</small></span></a></li><li><a class="cartao" href="nvdc34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>NVDC</b><i>34</i></span><span><b>NVDC34</b><small>Nvidia BDR</small></span></a></li><li><a class="cartao" href="spcx34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>SPCX</b><i>34</i></span><span><b>SPCX34</b><small>SpaceX BDR</small></span></a></li><li><a class="cartao" href="m1ta34.html"><span class="selo selo-bdr selo-p" aria-hidden="true"><b>M1TA</b><i>34</i></span><span><b>M1TA34</b><small>Meta Platforms BDR</small></span></a></li></ul>
 <p><a href="../bdrs.html">Ver a lista completa de BDRs</a></p>
 <h2 id="fontes">Fontes</h2>
-<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://www.b3.com.br/pt_br/produtos-e-servicos/negociacao/renda-variavel/bdrs.htm" rel="noopener">B3 — BDRs listados (nome da empresa e tipo do programa)</a></li>
+<ul class="fontes"><li><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/" rel="noopener">B3 — Série histórica de cotações (arquivo COTAHIST do pregão)</a></li><li><a href="https://www.b3.com.br/pt_br/produtos-e-servicos/negociacao/renda-variavel/bdrs.htm" rel="noopener">B3 — BDRs listados (nome da empresa e tipo do programa)</a></li><li><a href="https://www3.bcb.gov.br/sgspub/" rel="noopener">Banco Central — SGS (CDI, série 12; IPCA, série 433)</a></li>
 </ul>
 <div class="aviso"><strong>Conteúdo educativo, não é recomendação de investimento. Dados com atraso.</strong> Esta página reúne dados públicos sobre S1TX34 e não é análise nem indicação de compra ou venda.</div>
 </div></main>
@@ -548,27 +655,8 @@ table.lista-ativos th[aria-sort=descending] button::after{content:" ▼"}
   }
 })();
 </script>
-<script>
-(function(){var G=document.querySelector('.grafico[data-cod]');if(!G)return;
-var J=JSON.parse(document.getElementById('serie').textContent),M=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
-var rows=[],t=Date.parse(J.d0+'T00:00:00Z');for(var i=0;i<J.s.length;i+=2){t+=J.s[i]*864e5;rows.push([new Date(t),J.s[i+1]])}
-function br(v,c){return v.toLocaleString('pt-BR',{minimumFractionDigits:c,maximumFractionDigits:c})}
-function dt(d){return ('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)+'/'+d.getUTCFullYear()}
-function passo(a){if(a<=0)return 1;var b=a/4,m=Math.pow(10,Math.floor(Math.log10(b)));var k=[1,2,2.5,5,10];for(var i=0;i<k.length;i++)if(b<=k[i]*m)return k[i]*m;return 10*m}
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-function svg(rs,cl){var W=720,H=330,x0=82,x1=708,y0=16,y1=282,v=rs.map(function(r){return r[1]}),lo=Math.min.apply(0,v),hi=Math.max.apply(0,v),p=passo(hi-lo),
- a=Math.floor(lo/p)*p,b=Math.ceil(hi/p)*p;if(b===a)b=a+p;var n=rs.length,
- X=function(i){return x0+(x1-x0)*(n>1?i/(n-1):.5)},Y=function(y){return y1-(y1-y0)*(y-a)/(b-a)},
- pts=v.map(function(y,i){return X(i).toFixed(1)+','+Y(y).toFixed(1)}).join(' '),o=[],c=p<1?2:(p<10&&p!==Math.floor(p)?1:0);
- for(var y=a;y<=b+1e-9;y+=p){var yy=Y(y).toFixed(1);o.push('<line class="grade-y" x1="'+x0+'" x2="'+x1+'" y1="'+yy+'" y2="'+yy+'"/><text x="'+(x0-10)+'" y="'+(+yy+7).toFixed(1)+'" text-anchor="end">'+br(y,c)+'</text>')}
- var xs=[];if(cl==='g-1m'){for(var i=0;i<n;i+=Math.max(1,Math.floor(n/4))){var d=rs[i][0];xs.push([i,('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)])}}
- else{var ma=null,ps=cl==='g-6m'?1:2,ct=0;for(var i=0;i<n;i++){var d=rs[i][0],m=d.getUTCMonth();if(m!==ma){if(ma!==null&&ct%ps===0&&i>2)xs.push([i,M[m]+(m===0?'/'+String(d.getUTCFullYear()).slice(2):'')]);if(ma!==null)ct++;ma=m}}}
- var eixo=xs.map(function(q){return '<text x="'+X(q[0]).toFixed(1)+'" y="'+(H-14)+'" text-anchor="middle">'+q[1]+'</text>'}).join('');
- var il=v.indexOf(lo),ih=v.indexOf(hi),id='t-'+cl,tit=G.getAttribute('data-cod')+': fechamento diário de '+dt(rs[0][0])+' a '+dt(rs[n-1][0])+'. Mínimo de R$ '+br(lo,2)+' em '+dt(rs[il][0])+', máximo de R$ '+br(hi,2)+' em '+dt(rs[ih][0])+'.';
- return '<svg class="'+cl+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="'+id+'"><title id="'+id+'">'+esc(tit)+'</title>'+o.join('')+
-  '<path class="area" d="M'+X(0).toFixed(1)+','+y1+' L'+pts.split(' ').join(' L')+' L'+X(n-1).toFixed(1)+','+y1+' Z"/><polyline class="linha" points="'+pts+'"/><circle class="ponto" cx="'+X(n-1).toFixed(1)+'" cy="'+Y(v[n-1]).toFixed(1)+'" r="6"/>'+eixo+'</svg>'}
-var fim=rows[rows.length-1][0],h='';[['g-12m',366],['g-6m',183],['g-1m',31]].forEach(function(q){var ini=+fim-q[1]*864e5,rs=rows.filter(function(r){return +r[0]>ini});h+=svg(rs,q[0])});
-G.querySelector('.paineis').innerHTML=h;G.classList.add('pronto');})();(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
+<script src="../assets/ativo.js?v=203b60e34e" defer></script>
+<script>(function(){var F={"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-04-03":1,"2026-04-21":1,"2026-05-01":1,"2026-06-04":1,"2026-09-07":1,"2026-10-12":1,"2026-11-02":1,"2026-11-20":1,"2026-12-24":1,"2026-12-25":1,"2026-12-31":1,"2027-01-01":1,"2027-02-08":1,"2027-02-09":1,"2027-03-26":1,"2027-04-21":1,"2027-05-27":1,"2027-09-07":1,"2027-10-12":1,"2027-11-02":1,"2027-11-15":1,"2027-12-24":1,"2027-12-31":1},H=19,TESTE=false,D=864e5;
 function iso(d){return d.toISOString().slice(0,10)}
 function br(s){return s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4)}
 function util(d){var w=d.getUTCDay();return w>0&&w<6&&!F[iso(d)]}

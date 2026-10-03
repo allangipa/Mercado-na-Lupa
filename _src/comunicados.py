@@ -42,6 +42,8 @@ CATEGORIAS_IPE = {"Fato Relevante": "Fato relevante", "Comunicado ao Mercado": "
                   "Aviso aos Acionistas": "Aviso aos acionistas"}
 TIPOS_FII = {"FATO RELEV": "Fato relevante", "AVISO MERCADO": "Aviso ao mercado", "RELAT GERENCIAL": "Relatório gerencial"}
 POR_ATIVO = 10
+POR_ATIVO_PROV = 12
+PROVENTO = re.compile(r"dividend|juros\s+sobre\s+(o\s+)?capital|\bjcp\b|provento|remunera[çc][ãa]o\s+aos\s+acionistas|rendimento", re.I)
 GERAL = 60
 LINK_OK = re.compile(r"^https://(www\.rad\.cvm\.gov\.br/ENET/|fnet\.bmfbovespa\.com\.br/fnet/publico/)")
 
@@ -84,8 +86,10 @@ def coleta_ipe(alvos_cnpj, alvos_cvm, ano):
             if prot in docs and docs[prot][0] >= ver:
                 continue
             assunto = limpa(l["Assunto"]) or limpa(l["Especie"]) or limpa(l["Tipo"]) or CATEGORIAS_IPE[l["Categoria"]]
-            docs[prot] = (ver, {"k": chave, "d": l["Data_Entrega"].strip(), "c": CATEGORIAS_IPE[l["Categoria"]],
-                                "a": assunto[:220], "u": link})
+            doc = {"k": chave, "d": l["Data_Entrega"].strip(), "c": CATEGORIAS_IPE[l["Categoria"]], "a": assunto[:220], "u": link}
+            if PROVENTO.search(assunto + " " + l["Tipo"] + " " + l["Especie"]):
+                doc["p"] = 1
+            docs[prot] = (ver, doc)
     return [d for _, d in docs.values()], atualizado
 
 
@@ -141,6 +145,14 @@ def main():
         if n < POR_ATIVO:
             por[d["k"]] = n + 1
             mantidos.append(d)
+    # avisos sobre proventos (seção Dividendos da página do ativo), além dos 10 gerais
+    por_p = {}
+    for d in docs:
+        if d.get("p") and d not in mantidos:
+            n = por_p.setdefault(d["k"], 0)
+            if n < POR_ATIVO_PROV:
+                por_p[d["k"]] = n + 1
+                mantidos.append(d)
     recentes = [d for f in ("ipe", "fii") for d in [x for x in docs if x["f"] == f][:GERAL // 2]]
     geral = {d["u"] for d in recentes}
     mantidos += [d for d in recentes if d not in mantidos]

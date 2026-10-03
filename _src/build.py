@@ -934,7 +934,7 @@ def pagina_ativo(a, todos, ultimo, og_url):
 </ul>
 <h2 id="guias">Para entender os números</h2>
 <ul>{''.join(f'<li><a href="{base}guias/{s}.html">{t}</a></li>' for s, t in guias)}</ul>
-<h2 id="outros">Outros {'ações' if a['tipo'] == 'acao' else 'fundos imobiliários'} acompanhados</h2>
+<h2 id="outros">{'Outras ações acompanhadas' if a['tipo'] == 'acao' else 'Outros fundos imobiliários acompanhados'}</h2>
 <ul class="outros-ativos">{''.join(f'<li><a class="cartao" href="{x["slug"]}.html">{selo(x, "p")}<span><b>{x["codigo"]}</b><small>{e(nome_curto(x))}</small></span></a></li>' for x in outros)}</ul>
 <h2 id="fontes">Fontes</h2>
 <ul class="fontes">{''.join(f'<li><a href="{e(uu)}" rel="noopener">{e(t)}</a></li>' for t, uu in fontes)}

@@ -1822,9 +1822,11 @@ def destaques(ativos, ultimo):
 </div>"""
 
 
-def tabela_ativos(ativos, base, caption, filtro=False):
+def tabela_ativos(ativos, base, caption, filtro=False, compacta=False):
     """Tabela de ativos. Com filtro=True, leva busca por código/nome e ordenação
-    (JS em LISTA_JS); sem JavaScript, a tabela continua inteira, em ordem de código."""
+    (JS em LISTA_JS); sem JavaScript, a tabela continua inteira, em ordem de código.
+    compacta=True (home, três tabelas lado a lado): só Ativo e Fechamento, com a
+    variação embaixo do preço, para caber na coluna sem rolar de lado."""
     linhas = []
     for a in ativos:
         u = a["ult"]
@@ -1833,13 +1835,16 @@ def tabela_ativos(ativos, base, caption, filtro=False):
         attrs = (f' data-b="{e(busca)}" data-c="{a["codigo"]}" data-f="{u["fechamento"]}" data-v="{"" if v is None else round(v, 4)}"'
                  f' data-vol="{round(u["volume"])}"') if filtro else ""
         linhas.append(f'<tr{attrs}><td><div class="ativo-cel">{selo(a, "p")}<div><a href="{base}ativos/{a["slug"]}.html">{a["codigo"]}</a><br><span class="nome">{e(nome_curto(a))}</span></div></div></td>'
-                      f'<td class="n">{br(u["fechamento"])}</td><td class="n">{var_html(v)}</td>'
-                      f'<td class="n">{compacto(u["volume"], True)}</td></tr>')
+                      + (f'<td class="n">{br(u["fechamento"])}<br>{var_html(v)}</td></tr>' if compacta else
+                         f'<td class="n">{br(u["fechamento"])}</td><td class="n">{var_html(v)}</td>'
+                         f'<td class="n">{compacto(u["volume"], True)}</td></tr>'))
     if filtro:
         cab = ('<th><button type="button" data-ord="c" aria-label="Ordenar por código">Ativo</button></th>'
                '<th class="n"><button type="button" data-ord="f">Fechamento (R$)</button></th>'
                '<th class="n"><button type="button" data-ord="v">Variação</button></th>'
                '<th class="n"><button type="button" data-ord="vol">Volume</button></th>')
+    elif compacta:
+        cab = '<th>Ativo</th><th class="n">Fechamento (R$)<br>e variação</th>'
     else:
         cab = '<th>Ativo</th><th class="n">Fechamento (R$)</th><th class="n">Variação</th><th class="n">Volume</th>'
     tabela = (f'<div class="rolagem"><table{" class=\"lista-ativos\"" if filtro else ""}><caption>{caption}</caption><thead><tr>{cab}</tr></thead><tbody>'
@@ -1924,7 +1929,7 @@ def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias, faixa_i
                   + [d for d in com["docs"] if d["u"] in geral and d["f"] == "fii"][:3], key=lambda d: d["d"], reverse=True)
     noti = manchetes(noticias)[:6]
     tabelas = "".join(
-        f'<section><h2>{TIPOS[t][1]}</h2>{tabela_ativos(por_volume(grupos[t], 8), base, f"Os 8 de maior volume em {data_br(ultimo)}")}'
+        f'<section><h2>{TIPOS[t][1]}</h2>{tabela_ativos(por_volume(grupos[t], 8), base, f"Os 8 de maior volume em {data_br(ultimo)}", compacta=True)}'
         f'<p><a href="{TIPOS[t][2]}.html">Ver {"os" if t == "bdr" else "as" if t == "acao" else "os"} {len(grupos[t])} {TIPOS[t][1] if t == "bdr" else TIPOS[t][1].lower()}</a></p></section>'
         for t in TIPOS)
     corpo = f"""<main id="conteudo" class="com-faixa">

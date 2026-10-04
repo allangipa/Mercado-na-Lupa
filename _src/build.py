@@ -35,6 +35,7 @@ import math
 import re
 import subprocess
 import sys
+import urllib.parse
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -1065,13 +1066,28 @@ def ficha_ativo(a):
     return '<dl class="ficha">' + "".join(f"<dt>{e(k)}</dt><dd>{e(v)}</dd>" for k, v in linhas) + "</dl>"
 
 
+def link_ver(u):
+    """Link que MOSTRA o documento, no lugar do que baixa o PDF (os dois sistemas mandam o
+    download como anexo, e o navegador pede para salvar). O link de download continua sendo
+    a chave do documento em dados/comunicados.json.
+      RAD da CVM:  frmDownloadDocumento?...numProtocolo=N  -> frmExibirArquivoIPEExterno.aspx?NumeroProtocoloEntrega=N
+      Fundos.NET:  downloadDocumento?id=N                  -> visualizarDocumento?id=N&cvm=true"""
+    q = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(u).query))
+    if "rad.cvm.gov.br" in u and "frmDownloadDocumento" in u and q.get("numProtocolo", "").isdigit():
+        return f"https://www.rad.cvm.gov.br/ENET/frmExibirArquivoIPEExterno.aspx?NumeroProtocoloEntrega={q['numProtocolo']}"
+    if "fnet.bmfbovespa.com.br" in u and "downloadDocumento" in u and q.get("id", "").isdigit():
+        return f"https://fnet.bmfbovespa.com.br/fnet/publico/visualizarDocumento?id={q['id']}&cvm=true"
+    return u
+
+
 def lista_comunicados(docs, mostrar_ativo=None):
     """Lista de documentos oficiais (CVM / Fundos.NET). mostrar_ativo: função doc -> HTML do(s) código(s)."""
     itens = []
     for d in docs:
         quem = f' · <span class="com-ativo">{mostrar_ativo(d)}</span>' if mostrar_ativo else ""
         itens.append(f'<li><span class="com-meta"><time datetime="{d["d"]}">{data_br(d["d"])}</time> · {e(d["c"])}{quem}</span>'
-                     f'<a href="{e(d["u"])}" rel="noopener nofollow">{e(d["a"])}</a></li>')
+                     f'<a href="{e(link_ver(d["u"]))}" target="_blank" rel="noopener nofollow">{e(d["a"])}'
+                     '<span class="so-leitor"> (abre em outra aba)</span></a></li>')
     return '<ul class="comunicados">' + "".join(itens) + "</ul>"
 
 
@@ -1705,7 +1721,7 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado, pregoes):
     if evs:
         ev_hist = ('<h2 id="eventos">Eventos e variações fora do comum no período</h2><ul class="fontes">'
                    + "".join(f'<li><strong>{data_br(d)}</strong> — {e(x["evento"])}'
-                             + (f' Fonte: <a href="{e(x["fonte"])}" rel="noopener nofollow">{e(x["fonte_nome"] or "fonte")}</a>.' if x["fonte"] else "")
+                             + (f' Fonte: <a href="{e(link_ver(x["fonte"]))}" target="_blank" rel="noopener nofollow">{e(x["fonte_nome"] or "fonte")}<span class="so-leitor"> (abre em outra aba)</span></a>.' if x["fonte"] else "")
                              + "</li>" for d, x in evs) + "</ul>"
                    + '<p class="data-regra">O gráfico “Real” e a tabela mostram o preço como foi negociado, sem ajuste: num desdobramento '
                      'ou grupamento, a linha dá um salto que não é ganho nem perda.</p>')

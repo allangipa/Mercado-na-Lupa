@@ -25,7 +25,6 @@ _src/
   comunicados.py    comunicados da CVM (IPE e documentos de FIIs) -> dados/comunicados.json
   noticias.py       manchetes de fontes oficiais -> dados/noticias.json
   fundamentos.py    balanços (DFP/ITR) e informes de FII da CVM -> dados/fundamentos.json (semanal)
-  bcb.py            CDI (SGS 12) e IPCA (SGS 433) do Banco Central -> dados/bcb.json
   ativo.js          JS das páginas de ativo (gráficos, comparação, simulador, tabelas), copiado para assets/
   feriados-b3.json  dias de semana sem pregão (2026 oficial da B3; 2027 PROVISÓRIO até a B3 publicar),
                     usados pelo selo de atualização e pela status.html; o build avisa se faltar o ano
@@ -50,7 +49,8 @@ dados/
   noticias.json          até 12 manchetes por fonte, e a situação de cada fonte
   historico/<CODIGO>.csv série longa 2021–2024, só data e fechamento (para o gráfico de 5 anos)
   fundamentos.json       lucro, receita, PL, proventos (DMPL) e ações por companhia; rendimentos mensais de FII
-  bcb.json               CDI diário e IPCA mensal desde 2021
+  bcb.json               séries do SGS (Selic, CDI, IPCA, poupança, TR) e PTAX; bcb-bom.json = último dado bom
+  tesouro.json           taxas e preços do Tesouro Direto; tesouro-bom.json = último dado bom
 assets/serie/<ativo>.json   série de fechamentos que a página carrega sob demanda (+ _ref.json: ETFs, CDI, IPCA, lista)
 .github/workflows/atualiza.yml   rotina diária (A ATIVAR, ver abaixo)
 _tmp/               downloads (fora do git)
@@ -275,7 +275,8 @@ navegador compara o `data-pregao` com a hora de Brasília (depois das 19h o dia 
 fim de semana e `_src/feriados-b3.json`: verde = nenhum pregão faltando, âmbar = falta 1,
 vermelho = 2 ou mais. `status.html` (noindex, fora do sitemap, link no rodapé) traz hora da
 geração, selo do GitHub Actions, última coleta de cada fonte de comunicados e notícias
-(com o erro, se houver), situação de cada ativo e próximos pregões. Para testar:
+(com o erro, se houver), balanços da CVM, séries do Banco Central e Tesouro Direto,
+situação de cada ativo e próximos pregões. Para testar:
 `status.html?hoje=2026-10-07` ou `?hoje=2026-10-05T20` (só vale nessa página).
 
 ## Termos de uso da B3 (decisão pendente do dono)
@@ -350,7 +351,7 @@ repositório existir no GitHub**. Ao criar:
 3. Rode uma vez à mão (aba Actions › Atualiza cotações › Run workflow).
 
 Ele roda às 19h30 e à 1h30 (Brasília) em dia útil, baixa o que faltar, coleta
-comunicados e notícias (falha isolada), roda o build e faz commit e push só se algo mudou. Falha = nada é commitado, e o
+comunicados, notícias, balanços, Banco Central e Tesouro (falha isolada), roda o build e faz commit e push só se algo mudou. Falha = nada é commitado, e o
 GitHub avisa por e-mail.
 
 ## AdSense

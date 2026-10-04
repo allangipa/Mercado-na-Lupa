@@ -122,6 +122,18 @@ def mes_ano(d):
     return f"{MESES_LONGO[d.month - 1]} de {d.year}"
 
 
+def passo_bonito(amp, n=4):
+    """Passo "redondo" para as linhas de grade dos gráficos em SVG (páginas de indicadores)."""
+    if amp <= 0:
+        return 1
+    bruto = amp / n
+    mag = 10 ** math.floor(math.log10(bruto))
+    for m in (1, 2, 2.5, 5, 10):
+        if bruto <= m * mag:
+            return m * mag
+    return 10 * mag
+
+
 def var_html(v, selo=False):
     if v is None:
         return '<span class="var zero">—</span>'
@@ -597,6 +609,7 @@ def topo(base, atual=""):
     <a class="marca" href="{base}index.html" aria-label="{NOME}, página inicial">{LUPA_SVG}<span>Mercado <i>na Lupa</i></span></a>
     <nav class="nav" aria-label="Principal">
       <a href="{base}ativos.html"{cur('ativos')}>Ativos</a>
+      <a href="{base}indicadores.html"{cur('indicadores')}>Indicadores</a>
       <a href="{base}comunicados.html"{cur('comunicados')}>Comunicados</a>
       <a href="{base}noticias.html"{cur('noticias')}>Notícias</a>
       <a href="{base}guias.html"{cur('guias')}>Guias</a>
@@ -623,8 +636,8 @@ def rodape(base, ultimo=None):
   <div class="casca">
     <div class="rodape-marca">
       <a class="marca" href="{base}index.html" aria-label="{NOME}, página inicial">{LUPA_SVG}<span>Mercado <i>na Lupa</i></span></a>
-      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
-      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
+      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM, indicadores do Banco Central e do Tesouro — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span><span>BC</span><span>Tesouro</span></p>
     </div>
     <div>
       <h2>Guias</h2>
@@ -639,6 +652,8 @@ def rodape(base, ultimo=None):
       <ul>
         <li><a href="{base}acoes.html">Ações</a> · <a href="{base}fundos-imobiliarios.html">Fundos imobiliários</a> · <a href="{base}bdrs.html">BDRs</a></li>
         <li><a href="{base}comunicados.html">Comunicados</a> · <a href="{base}noticias.html">Notícias</a></li>
+        <li><a href="{base}indicadores.html">Indicadores de hoje</a> · <a href="{base}tesouro-direto.html">Tesouro Direto</a></li>
+        <li><a href="{base}glossario.html">Glossário</a></li>
         <li><a href="{base}guias.html">Guias</a> · <a href="{base}calculadoras.html">Calculadoras</a></li>
         <li><a href="{base}sobre.html">Sobre</a> · <a href="{base}contato.html">Contato</a></li>
       </ul>
@@ -1737,7 +1752,7 @@ def pagina_ativo(a, todos, ultimo, og_url, cad_gerado, pregoes):
 </ul>
 <h2 id="guias">Para entender os números</h2>
 <ul>{''.join(f'<li><a href="{base}guias/{s}.html">{t}</a></li>' for s, t in guias)}</ul>
-<h2 id="outros">Outros {tipo_min} acompanhados</h2>
+<h2 id="outros">{'Outras ações acompanhadas' if a['tipo'] == 'acao' else f'Outros {tipo_min} acompanhados'}</h2>
 <ul class="outros-ativos">{''.join(f'<li><a class="cartao" href="{x["slug"]}.html">{selo(x, "p")}<span><b>{x["codigo"]}</b><small>{e(nome_curto(x))}</small></span></a></li>' for x in outros)}</ul>
 <p><a href="{base}{tipo_pg}.html">Ver a lista completa de {tipo_min}</a></p>
 <h2 id="fontes">Fontes</h2>
@@ -1869,7 +1884,7 @@ def manchetes(noticias):
     return itens
 
 
-def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias):
+def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias, faixa_ind=""):
     base = ""
     busca_dados = json.dumps({a["codigo"]: f"ativos/{a['slug']}.html" for a in ativos}, separators=(",", ":"))
     grupos = {t: [a for a in ativos if a["tipo"] == t] for t in TIPOS}
@@ -1921,6 +1936,7 @@ def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias):
 <section><h2 id="noticias">Notícias de fontes oficiais</h2><ul class="comunicados">{''.join(f'<li><span class="com-meta"><time datetime="{i["d"][:10]}">{data_br(i["d"][:10])}</time> · {e(i["fonte"])}</span><a href="{e(i["u"])}" rel="noopener nofollow">{e(i["t"])}</a></li>' for i in noti)}</ul><p><a href="noticias.html">Mais notícias</a></p></section>
 </div>
 
+{faixa_ind}
 {divisor()}
 <h2 id="guias">Guias para começar</h2>
 {cartoes(guias, base, "guias", "Guia")}
@@ -2198,11 +2214,11 @@ TITULO_PRIV = f"Política de privacidade · {NOME}"
 DESC_PRIV = (f"Como o {NOME} trata dados, cookies e publicidade do Google AdSense: o que coleta, o que não coleta e "
              "quais são os seus direitos sob a LGPD.")
 TITULO_GUIAS = f"Guias de investimento para iniciantes · {NOME}"
-DESC_GUIAS = ("Guias curtos e com fonte para entender a bolsa: dividend yield, P/L e o imposto de renda em ações e fundos "
-              "imobiliários, com as regras de 2026.")
+DESC_GUIAS = ("Guias com fonte para entender a bolsa e declarar investimentos no IR: ações, FIIs, BDRs, ETFs, renda fixa, "
+              "DARF e prejuízo, com as regras de 2026.")
 TITULO_CALCS = f"Calculadoras financeiras · {NOME}"
-DESC_CALCS = ("Calculadoras gratuitas de juros compostos, reserva de emergência e tempo até o primeiro milhão, com a "
-              "fórmula explicada. Simulações educativas.")
+DESC_CALCS = ("Simulador de renda fixa com IR e IOF, calculadora de DARF de ações, juros compostos, reserva de emergência "
+              "e primeiro milhão. Fórmulas explicadas.")
 
 
 def pagina_sobre(og_url):
@@ -2224,6 +2240,8 @@ def pagina_sobre(og_url):
  <li><strong>Lista de ativos:</strong> as carteiras do Ibovespa e do IFIX publicadas pela B3, as ações e units mais negociadas fora do índice e os 50 BDRs mais negociados no ano, pelo próprio arquivo da B3. Os critérios estão na página <a href="ativos.html">Ativos</a>.</li>
  <li><strong>Comunicados:</strong> fatos relevantes, comunicados e avisos entregues à CVM, dos dados abertos da CVM, sempre com link para o documento oficial.</li>
  <li><strong>Notícias:</strong> só título, data e link de manchetes do Banco Central, do Tesouro Nacional, da B3 e da Agência Brasil. O texto fica na fonte.</li>
+ <li><strong>Indicadores:</strong> dados abertos do Banco Central — Selic, CDI, IPCA (calculado pelo IBGE), poupança, TR (SGS) e PTAX (API Olinda) —, com a data de referência de cada número. A conta da poupança é refeita pela regra da lei a cada atualização, e o IPCA em 12 meses é conferido contra os doze índices mensais.</li>
+ <li><strong>Tesouro Direto:</strong> taxas e preços dos títulos do conjunto de dados abertos “Taxas dos Títulos Ofertados pelo Tesouro Direto”, do Tesouro Transparente (licença ODbL).</li>
  <li><strong>Regras de imposto e conceitos:</strong> o texto das leis no portal do Planalto, publicações da Receita Federal, da CVM, do Banco Central e da B3, sempre listados ao fim de cada guia.</li>
 </ul>
 
@@ -2343,7 +2361,7 @@ ACTIONS_URL = "https://github.com/allangipa/Mercado-na-Lupa/actions/workflows/at
 DIAS_SEMANA = ["seg", "ter", "qua", "qui", "sex", "sáb", "dom"]
 
 
-def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
+def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias, extra_html=""):
     """Página técnica para o dono conferir se as cotações estão em dia. noindex, fora do sitemap."""
     base = ""
     br_t = gerado.astimezone(BRASILIA)
@@ -2379,14 +2397,6 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
         extra = f'<br><span class="nome">arquivo da CVM de {e(data_hora_br(f["arquivo_cvm_em"]))}</span>' if f.get("arquivo_cvm_em") else ""
         linhas_fontes.append(f'<tr{"" if ok else " class=\"atrasado\""}><td>{tipo_f}</td><td style="white-space:normal">{e(f["nome"])}{erro}</td>'
                              f'<td class="n">{e(data_hora_br(f.get("coletado_em")))}{extra}</td><td class="n">{recente}</td><td>{estado}</td></tr>')
-    for k, sr in BCB.get("series", {}).items():
-        ok = sr.get("ok")
-        estado = ('<span class="selo-dados selo-mini" data-estado="ok"><span class="selo-ponto" aria-hidden="true">✓</span><span class="selo-txt">OK</span></span>'
-                  if ok else '<span class="selo-dados selo-mini" data-estado="atraso"><span class="selo-ponto" aria-hidden="true">×</span><span class="selo-txt">Falhou</span></span>')
-        pts = sr.get("pontos") or []
-        erro = f'<br><span class="nome">{e(sr.get("erro", ""))} (em {e(data_hora_br(sr.get("falhou_em")))})</span>' if not ok else ""
-        linhas_fontes.append(f'<tr{"" if ok else " class=\"atrasado\""}><td>Índices</td><td style="white-space:normal">Banco Central — {e(sr.get("nome", k))}{erro}</td>'
-                             f'<td class="n">{e(data_hora_br(sr.get("coletado_em")))}</td><td class="n">{data_br(pts[-1][0]) if pts else "—"}</td><td>{estado}</td></tr>')
     fb = FUND.get("fontes", {})
     bal = fb.get("cvm_balancos", {})
     datas_bal = ", ".join(f"{data_br(d)} ({n} companhias)" for d, n in bal.get("datas_base", {}).items()) or "—"
@@ -2433,7 +2443,7 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
 </section>
 </div>
 
-<h2 id="fontes-extras">Comunicados, notícias e índices</h2>
+<h2 id="fontes-extras">Comunicados e notícias</h2>
 <p class="data-regra">Coletados pela mesma rotina, depois das cotações. Uma fonte que falha não para o resto: o site mantém a última coleta boa dela e a marca aqui.</p>
 <div class="rolagem"><table class="tabela-status"><caption>Última coleta de cada fonte (horário de Brasília)</caption><thead><tr><th>Tipo</th><th>Fonte</th><th class="n">Última coleta boa</th><th class="n">Item mais recente</th><th>Situação</th></tr></thead><tbody>
 {"".join(linhas_fontes)}
@@ -2441,6 +2451,7 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias):
 
 {fund_html}
 
+{extra_html}
 <h2 id="ativos">Ativos</h2>
 <p class="data-regra">{resumo_atras}</p>
 <div class="rolagem"><table class="tabela-status"><caption>Último pregão com negócio de cada ativo</caption><thead><tr><th>Código</th><th class="n">Último pregão</th><th class="n">Fechamento (R$)</th><th>Situação</th></tr></thead><tbody>
@@ -2539,6 +2550,9 @@ def data_git(caminho):
 # --- main --------------------------------------------------------------------------
 
 def main():
+    sys.path.insert(0, str(SRC))
+    import paginas_dados as PD
+    PD.B = sys.modules[__name__]
     ativos, pregoes, ultimo, cad, com = carregar()
     noticias = ler_json(DADOS / "noticias.json") if (DADOS / "noticias.json").exists() else {"fontes": {}}
     if not CARTEIRAS:
@@ -2549,9 +2563,19 @@ def main():
         k = a["info"].get("cnpj") if a["tipo"] != "bdr" else ("cvm:" + a["info"]["codigo_cvm"].lstrip("0") if a["info"].get("codigo_cvm") else None)
         if k:
             por_chave.setdefault(k, []).append(a)
+    D = PD.carregar()
+    D["modificado"] = dt.date.today().isoformat()
+    vals = PD.valores_calc(D)
     guias = sorted((ler_pagina(f) for f in (SRC / "paginas" / "guias").glob("*.html")), key=lambda g: g["slug"])
     calcs = sorted((ler_pagina(f) for f in (SRC / "paginas" / "calculadoras").glob("*.html")), key=lambda g: g["slug"])
-    ordem_guias = ["o-que-e-dividend-yield", "o-que-e-p-l", "como-funciona-o-imposto-de-renda-na-bolsa"]
+    for g in calcs:
+        g["corpo"], g["script"] = PD.injetar(g["corpo"], vals), PD.injetar(g["script"], vals)
+    ordem_guias = ["o-que-e-dividend-yield", "o-que-e-p-l", "como-funciona-o-imposto-de-renda-na-bolsa",
+                   "darf-de-acoes", "prejuizo-na-bolsa-como-compensar", "como-declarar-acoes-no-imposto-de-renda",
+                   "como-declarar-fundos-imobiliarios-no-imposto-de-renda", "como-declarar-bdrs-e-etfs-no-imposto-de-renda",
+                   "como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda"]
+    ordem_calcs = ["simulador-renda-fixa", "calculadora-darf-acoes", "juros-compostos", "reserva-de-emergencia", "primeiro-milhao"]
+    calcs.sort(key=lambda g: ordem_calcs.index(g["slug"]) if g["slug"] in ordem_calcs else 99)
     guias.sort(key=lambda g: ordem_guias.index(g["slug"]) if g["slug"] in ordem_guias else 99)
     for g in guias:
         if not g["fontes"]:
@@ -2565,6 +2589,21 @@ def main():
     seo.update({f"ativos/{a['slug']}": (titulo_ativo(a), descricao_ativo(a)) for a in ativos})
     seo.update({f"guias/{g['slug']}": (g["titulo"], g["descricao"]) for g in guias})
     seo.update({f"calculadoras/{g['slug']}": (g["titulo"], g["descricao"]) for g in calcs})
+    og_ind = og("og-indicadores.jpg", "Dados abertos · Banco Central e Tesouro", "Indicadores de hoje, com fonte e data.", "mercadonalupa.com.br")
+    paginas_d = {
+        "indicadores.html": PD.p_hub(D, og_ind),
+        "indicadores/selic-hoje.html": PD.p_selic(D, og_ind),
+        "indicadores/cdi-hoje.html": PD.p_cdi(D, og_ind),
+        "indicadores/ipca-acumulado-12-meses.html": PD.p_ipca(D, og_ind),
+        "indicadores/rendimento-da-poupanca.html": PD.p_poupanca(D, og_ind),
+        "indicadores/dolar-ptax-hoje.html": PD.p_moeda(D, og_ind, "dolar"),
+        "indicadores/euro-ptax-hoje.html": PD.p_moeda(D, og_ind, "euro"),
+        "tesouro-direto.html": PD.p_tesouro(D, og_ind),
+    }
+    glo = PD.p_glossario(D, og("og-glossario.jpg", "Glossário", "Termos do mercado, explicados.", "mercadonalupa.com.br"))
+    if glo:
+        paginas_d["glossario.html"] = glo
+    seo.update({k[:-5]: (t, d) for k, (t, d, _) in paginas_d.items()})
     conferir_seo(seo)
     RODAPE_LINKS["guias"] = [(g["slug"], g["h1"]) for g in guias]
     RODAPE_LINKS["calculadoras"] = [(g["slug"], g["h1"]) for g in calcs]
@@ -2578,7 +2617,20 @@ def main():
     og_c = {g["slug"]: og(f"og-calc-{g['slug']}.jpg", "Calculadora", g["h1"], "Simulação educativa") for g in calcs}
 
     saidas = {}
-    saidas["index.html"] = home(ativos, ultimo, guias, calcs, og_home, com, por_chave, noticias)
+    I = D["I"]
+    faixa_ind = f"""{divisor()}
+<h2 id="indicadores">Indicadores de hoje</h2>
+<p class="data-regra">Dados abertos do Banco Central e do Tesouro Nacional, cada número com a sua data de referência.</p>
+<ul class="ind-grade">
+<li><a class="ind-cartao" href="indicadores/selic-hoje.html"><span class="rotulo">Meta Selic</span><span class="ind-valor num">{br(I['meta']['valor'])}%</span><span class="ind-ref">ao ano · desde {data_br(I['meta']['desde'])}</span></a></li>
+<li><a class="ind-cartao" href="indicadores/cdi-hoje.html"><span class="rotulo">CDI em 12 meses</span><span class="ind-valor num">{br(I['cdi']['acum12'])}%</span><span class="ind-ref">até {data_br(I['cdi']['data'])}</span></a></li>
+<li><a class="ind-cartao" href="indicadores/ipca-acumulado-12-meses.html"><span class="rotulo">IPCA em 12 meses</span><span class="ind-valor num">{br(I['ipca']['doze'])}%</span><span class="ind-ref">até {mes_ano(I['ipca']['ref'])}</span></a></li>
+<li><a class="ind-cartao" href="indicadores/dolar-ptax-hoje.html"><span class="rotulo">Dólar PTAX</span><span class="ind-valor num">R$ {br(I['dolar']['venda'], 4)}</span><span class="ind-ref">venda · {data_br(I['dolar']['data'])}</span></a></li>
+</ul>
+<p><a href="indicadores.html">Todos os indicadores</a> · <a href="tesouro-direto.html">Tesouro Direto hoje</a> · <a href="calculadoras/simulador-renda-fixa.html">Simulador de renda fixa</a> · <a href="glossario.html">Glossário</a></p>"""
+    saidas["index.html"] = home(ativos, ultimo, guias, calcs, og_home, com, por_chave, noticias, faixa_ind)
+    for k, (_, _, h) in paginas_d.items():
+        saidas[k] = h
     saidas["ativos.html"] = pagina_ativos(ativos, ultimo, og_home)
     for t in TIPOS:
         saidas[f"{TIPOS[t][2]}.html"] = pagina_lista(t, ativos, ultimo, og_home)
@@ -2607,14 +2659,14 @@ def main():
     saidas["404.html"] = pagina_404(og_home)
     # status.html: noindex e fora do sitemap. Leva a hora da geração, então muda a cada build.
     gerado = dt.datetime.now(dt.timezone.utc).replace(second=0, microsecond=0)
-    saidas["status.html"] = pagina_status(ativos, pregoes, ultimo, gerado, og_home, com, noticias)
+    saidas["status.html"] = pagina_status(ativos, pregoes, ultimo, gerado, og_home, com, noticias, PD.status_html(D))
     conferir_feriados(pregoes)
 
     for nome, txt in saidas.items():
         conferir_texto(nome, txt)
 
     # grava, e apaga páginas geradas que não existem mais
-    for pasta in ("ativos", "guias", "calculadoras"):
+    for pasta in ("ativos", "guias", "calculadoras", "indicadores"):
         (RAIZ / pasta).mkdir(exist_ok=True)
         for velho in (RAIZ / pasta).glob("*.html"):
             if f"{pasta}/{velho.name}" not in saidas:
@@ -2656,6 +2708,17 @@ def main():
         datas[f"{DOMINIO}/{pasta}.html"] = max(ds + [fixas])
     for pg in ("sobre", "contato", "privacidade"):
         datas[f"{DOMINIO}/{pg}.html"] = fixas
+    # dados abertos: a data de referência mais recente dos números da página
+    I = D["I"]
+    ref_ind = {"indicadores/selic-hoje.html": max(I["meta"]["data"], I["selic"]["data"]),
+               "indicadores/cdi-hoje.html": I["cdi"]["data"], "indicadores/ipca-acumulado-12-meses.html": I["ipca"]["ref"],
+               "indicadores/rendimento-da-poupanca.html": I["poup"]["ini"], "indicadores/dolar-ptax-hoje.html": I["dolar"]["data"],
+               "indicadores/euro-ptax-hoje.html": I["euro"]["data"], "tesouro-direto.html": D["td"]["data_base"]}
+    ref_ind["indicadores.html"] = max(ref_ind.values())
+    for k, d in ref_ind.items():
+        datas[f"{DOMINIO}/{k}"] = min(d, dt.date.today().isoformat())
+    if "glossario.html" in paginas_d:
+        datas[f"{DOMINIO}/glossario.html"] = data_git(SRC / "glossario.json")
     (RAIZ / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in datas.items()) + "</urlset>\n", encoding="utf-8")

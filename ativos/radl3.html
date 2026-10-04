@@ -454,6 +454,48 @@ table.pares th[aria-sort=descending] button::after{content:" ▼"}
 .pares-topo .data-regra{flex:1}
 @media (max-width:480px){.grafico2 text,.comp text,.div-barras text{font-size:25px}.comp text.rot-fim{font-size:22px}}
 .data-regra,.fontes li{overflow-wrap:anywhere}
+.selo-dados[data-estado=neutro]{--cor-selo:#1E3A8A;--fundo-selo:#E3EAFD;margin:0 0 1rem}
+@media (prefers-color-scheme:dark){.selo-dados[data-estado=neutro]{--cor-selo:#B9CEFF;--fundo-selo:#1A2C52}}
+.selo-dados[data-estado=neutro] .selo-ponto{font-style:italic}
+.grafico svg.unico{display:block}
+figure.grafico{margin:0 0 1.2rem}
+.grafico .linha-2{stroke:var(--ouro);stroke-dasharray:6 5}
+.chave{display:inline-block;width:1.4rem;height:0;border-top:2.5px solid var(--grafico);vertical-align:middle}
+.chave-2{border-top:2.5px dashed var(--ouro)}
+.ind-grade{list-style:none;padding:0;margin:0 0 1.4rem;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
+.ind-grade li{margin:0}
+.ind-cartao{display:flex;flex-direction:column;gap:.15rem;height:100%;padding:1rem 1.1rem;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:var(--sombra);text-decoration:none;color:var(--tinta)}
+.ind-cartao:hover{border-color:var(--acao);color:var(--tinta)}
+.ind-valor{font-size:clamp(1.5rem,1.2rem + 1.2vw,2rem);font-weight:600;letter-spacing:-.02em;color:var(--acao-forte)}
+@media (prefers-color-scheme:dark){.ind-valor{color:var(--acao)}}
+.ind-ref{font-size:.86rem;color:var(--suave)}
+.ind-fonte{font:500 .72rem "IBM Plex Mono",monospace;color:var(--apagado);margin-top:auto;padding-top:.4rem}
+.seletor{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font-weight:600;font-size:.92rem;margin-bottom:.7rem}
+.seletor select,.campos select{max-width:100%;min-width:0;font:500 .92rem "Archivo",sans-serif;padding:.5rem .6rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.td-graf{min-height:4rem}
+.grupos-glo{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}
+.indice-az{margin-bottom:1rem}
+.termo{border-top:1px solid var(--linha);padding:.6rem 0 .4rem;scroll-margin-top:84px}
+.termo h3{margin-top:.4rem}
+.termo:target{background:var(--acao-suave);border-radius:var(--raio-s);padding-left:.7rem;padding-right:.7rem}
+.sinonimos{font-size:.86rem;color:var(--suave);margin:.1rem 0 .5rem}
+.termo-links{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.92rem}
+.termo-fontes{font-size:.86rem;color:var(--suave);margin-bottom:.6rem}
+.termo-fontes summary{cursor:pointer}
+.tabela-sim td:first-child{text-align:left;font-family:"Archivo",sans-serif}
+.tabela-sim tr.melhor td{font-weight:600}
+.barras-sim{list-style:none;padding:0;margin:0 0 1rem}
+.barras-sim li{display:grid;grid-template-columns:minmax(0,9rem) 1fr;gap:.6rem;align-items:center;margin-bottom:.45rem;font-size:.88rem}
+.barras-sim .trilho{background:var(--superficie);border-radius:6px;overflow:hidden;min-width:0}
+.barras-sim .trilho i{display:block;height:1.35rem;background:var(--acao);border-radius:6px 0 0 6px;min-width:2px}
+.barras-sim .trilho span{display:block;font:500 .78rem "IBM Plex Mono",monospace;margin-top:.15rem;color:var(--suave)}
+.premissas{font-size:.9rem}
+.grade-campos{display:grid;gap:0 1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr))}
+.texto ol li,.texto ul li{overflow-wrap:anywhere}
+.calc>*{min-width:0}
+.entrada select{border:0;background:var(--superficie);color:var(--tinta);font:500 .92rem "IBM Plex Mono",monospace;padding:0 .5rem;align-self:stretch}
+.campos details{margin:.4rem 0 .8rem}.campos summary{cursor:pointer;margin-bottom:.8rem}
+@media (max-width:420px){.nav{gap:0}.nav a{font-size:.84rem;padding:.4rem .42rem}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
 <link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/fundo/bovespa-arcos-640.webp 640w, ../assets/img/fundo/bovespa-arcos-1280.webp 1280w, ../assets/img/fundo/bovespa-arcos-1920.webp 1920w" imagesizes="(max-width: 700px) 200vw, 100vw" fetchpriority="high"><meta property="og:type" content="website">
 <meta property="og:site_name" content="Mercado na Lupa">
@@ -475,6 +517,7 @@ table.pares th[aria-sort=descending] button::after{content:" ▼"}
     <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
     <nav class="nav" aria-label="Principal">
       <a href="../ativos.html" aria-current="page">Ativos</a>
+      <a href="../indicadores.html">Indicadores</a>
       <a href="../comunicados.html">Comunicados</a>
       <a href="../noticias.html">Notícias</a>
       <a href="../guias.html">Guias</a>
@@ -560,7 +603,7 @@ O valor do ativo e o dos ETFs são só a variação de preço, sem proventos; o 
 </ul>
 <h2 id="guias">Para entender os números</h2>
 <ul><li><a href="../guias/o-que-e-p-l.html">O que é P/L</a></li><li><a href="../guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="../guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
-<h2 id="outros">Outros ações acompanhados</h2>
+<h2 id="outros">Outras ações acompanhadas</h2>
 <ul class="outros-ativos"><li><a class="cartao" href="vbbr3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>VBBR</b><i>3</i></span><span><b>VBBR3</b><small>Vibra Energia ON</small></span></a></li><li><a class="cartao" href="lren3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>LREN</b><i>3</i></span><span><b>LREN3</b><small>Lojas Renner ON</small></span></a></li><li><a class="cartao" href="asai3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>ASAI</b><i>3</i></span><span><b>ASAI3</b><small>Assaí ON</small></span></a></li><li><a class="cartao" href="mglu3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>MGLU</b><i>3</i></span><span><b>MGLU3</b><small>Magazine Luiza ON</small></span></a></li><li><a class="cartao" href="viva3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>VIVA</b><i>3</i></span><span><b>VIVA3</b><small>Vivara ON</small></span></a></li><li><a class="cartao" href="petr4.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>PETR</b><i>4</i></span><span><b>PETR4</b><small>Petrobras PN</small></span></a></li><li><a class="cartao" href="vale3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>VALE</b><i>3</i></span><span><b>VALE3</b><small>Vale ON</small></span></a></li><li><a class="cartao" href="bbdc4.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BBDC</b><i>4</i></span><span><b>BBDC4</b><small>Bradesco PN</small></span></a></li><li><a class="cartao" href="itub4.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>ITUB</b><i>4</i></span><span><b>ITUB4</b><small>Itaú Unibanco PN</small></span></a></li><li><a class="cartao" href="axia3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>AXIA</b><i>3</i></span><span><b>AXIA3</b><small>Axia Energia ON</small></span></a></li><li><a class="cartao" href="bbas3.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BBAS</b><i>3</i></span><span><b>BBAS3</b><small>Banco do Brasil ON</small></span></a></li><li><a class="cartao" href="bpac11.html"><span class="selo selo-acao selo-p" aria-hidden="true"><b>BPAC</b><i>11</i></span><span><b>BPAC11</b><small>BTG Pactual UNT</small></span></a></li></ul>
 <p><a href="../acoes.html">Ver a lista completa de ações</a></p>
 <h2 id="fontes">Fontes</h2>
@@ -573,22 +616,24 @@ O valor do ativo e o dos ETFs são só a variação de preço, sem proventos; o 
   <div class="casca">
     <div class="rodape-marca">
       <a class="marca" href="../index.html" aria-label="Mercado na Lupa, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="19" fill="var(--papel)"/><path d="M14.5 33.5 L21.5 26.5 L27 30 L36.5 19.5" fill="none" stroke="var(--tinta)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36.5" cy="19.5" r="3.1" fill="var(--ouro)"/><circle cx="27" cy="27" r="19" fill="none" stroke="var(--acao)" stroke-width="5"/><path d="M41 41 L56 56" stroke="var(--tinta)" stroke-width="7.5" stroke-linecap="round"/></svg><span>Mercado <i>na Lupa</i></span></a>
-      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM — explicados para quem está começando. Com fonte, sem palpite.</p>
-      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span></p>
+      <p>Dados públicos do mercado brasileiro — cotações da B3, cadastros e comunicados da CVM, indicadores do Banco Central e do Tesouro — explicados para quem está começando. Com fonte, sem palpite.</p>
+      <p class="fontes-selos" aria-label="Fontes dos dados"><span>B3</span><span>CVM</span><span>BC</span><span>Tesouro</span></p>
     </div>
     <div>
       <h2>Guias</h2>
-      <ul><li><a href="../guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="../guias/o-que-e-p-l.html">O que é P/L, o preço sobre lucro</a></li><li><a href="../guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li></ul>
+      <ul><li><a href="../guias/o-que-e-dividend-yield.html">O que é dividend yield</a></li><li><a href="../guias/o-que-e-p-l.html">O que é P/L, o preço sobre lucro</a></li><li><a href="../guias/como-funciona-o-imposto-de-renda-na-bolsa.html">Como funciona o imposto de renda na bolsa</a></li><li><a href="../guias/darf-de-acoes.html">DARF de ações: como calcular e pagar o imposto</a></li><li><a href="../guias/prejuizo-na-bolsa-como-compensar.html">Prejuízo na bolsa: como compensar no imposto</a></li><li><a href="../guias/como-declarar-acoes-no-imposto-de-renda.html">Como declarar ações no imposto de renda</a></li><li><a href="../guias/como-declarar-fundos-imobiliarios-no-imposto-de-renda.html">Como declarar fundos imobiliários no imposto de renda</a></li><li><a href="../guias/como-declarar-bdrs-e-etfs-no-imposto-de-renda.html">Como declarar BDRs e ETFs no imposto de renda</a></li><li><a href="../guias/como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda.html">Como declarar renda fixa e Tesouro Direto no imposto de renda</a></li></ul>
     </div>
     <div>
       <h2>Calculadoras</h2>
-      <ul><li><a href="../calculadoras/juros-compostos.html">Calculadora de juros compostos</a></li><li><a href="../calculadoras/primeiro-milhao.html">Quanto tempo até o primeiro milhão</a></li><li><a href="../calculadoras/reserva-de-emergencia.html">Calculadora de reserva de emergência</a></li></ul>
+      <ul><li><a href="../calculadoras/simulador-renda-fixa.html">Simulador de renda fixa</a></li><li><a href="../calculadoras/calculadora-darf-acoes.html">Calculadora de DARF de ações</a></li><li><a href="../calculadoras/juros-compostos.html">Calculadora de juros compostos</a></li><li><a href="../calculadoras/reserva-de-emergencia.html">Calculadora de reserva de emergência</a></li><li><a href="../calculadoras/primeiro-milhao.html">Quanto tempo até o primeiro milhão</a></li></ul>
     </div>
     <div>
       <h2>Navegue</h2>
       <ul>
         <li><a href="../acoes.html">Ações</a> · <a href="../fundos-imobiliarios.html">Fundos imobiliários</a> · <a href="../bdrs.html">BDRs</a></li>
         <li><a href="../comunicados.html">Comunicados</a> · <a href="../noticias.html">Notícias</a></li>
+        <li><a href="../indicadores.html">Indicadores de hoje</a> · <a href="../tesouro-direto.html">Tesouro Direto</a></li>
+        <li><a href="../glossario.html">Glossário</a></li>
         <li><a href="../guias.html">Guias</a> · <a href="../calculadoras.html">Calculadoras</a></li>
         <li><a href="../sobre.html">Sobre</a> · <a href="../contato.html">Contato</a></li>
       </ul>

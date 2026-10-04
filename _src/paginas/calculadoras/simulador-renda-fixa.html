@@ -1,0 +1,125 @@
+<!--{
+ "titulo": "Simulador de renda fixa: CDB, LCI, Tesouro e poupança",
+ "descricao": "Compare poupança, CDB, LCI/LCA e Tesouro Selic, Prefixado e IPCA+ no mesmo prazo, com IR regressivo, IOF e custódia. Taxas do dia já preenchidas.",
+ "h1": "Simulador de renda fixa",
+ "resumo": "Poupança, CDB, LCI/LCA e Tesouro Direto lado a lado, já com imposto de renda, IOF e taxa de custódia, e as taxas do dia preenchidas.",
+ "publicado": "2026-10-03",
+ "atualizado": "2026-10-03",
+ "fontes": [
+  {"nome": "Lei nº 11.033/2004, art. 1º — tabela regressiva do imposto de renda em aplicações financeiras", "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"},
+  {"nome": "Decreto nº 6.306/2007, art. 32 e anexo — IOF regressivo nos primeiros 30 dias (alíquota zero para LCA, art. 32, § 2º, V)", "url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/decreto/d6306.htm"},
+  {"nome": "Lei nº 11.033/2004, art. 3º, II e IV — isenção de IR de LCI e LCA para pessoa física", "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"},
+  {"nome": "Lei nº 8.177/1991, art. 12 (redação da Lei nº 12.703/2012) — remuneração da poupança", "url": "https://www.planalto.gov.br/ccivil_03/leis/l8177.htm"},
+  {"nome": "Resolução CMN nº 5.215/2025 — prazo mínimo de 6 meses para LCI e LCA não atualizadas por índice de preços", "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215"},
+  {"nome": "B3 — Tarifas do Tesouro Direto: taxa de custódia de 0,20% a.a., Tesouro Selic isento até R$ 10 mil", "url": "https://www.b3.com.br/pt_br/produtos-e-servicos/tarifas/tarifas-de-tesouro-direto/"},
+  {"nome": "Ato Declaratório do Congresso nº 67/2025 — fim da vigência da MP nº 1.303/2025", "url": "https://www.planalto.gov.br/ccivil_03/_Ato2023-2026/2025/Congresso/adc-67-mpv1.303.htm"},
+  {"nome": "Banco Central — SGS (CDI, Selic, IPCA, TR) e Tesouro Transparente — taxas do Tesouro Direto (valores iniciais do simulador)", "url": "https://www.tesourotransparente.gov.br/ckan/dataset/taxas-dos-titulos-ofertados-pelo-tesouro-direto"}
+ ]
+}-->
+<p class="data-regra"><strong>Regras conferidas em {{CONFERIDO_LONGO}}</strong> em fonte oficial (lista ao fim). Taxas iniciais: CDI e Selic de {{CDI_DATA}}, IPCA em 12 meses até {{IPCA12_REF}}, TR do período iniciado em {{TR_DATA}} e títulos do Tesouro na data-base de {{TD_DATA}}. Troque qualquer uma pelo número que você quiser testar.</p>
+
+<p class="lead">Quanto sobra, depois de imposto e taxas, se o mesmo dinheiro ficar o mesmo tempo em cada aplicação? A conta roda no seu navegador e muda a cada campo preenchido.</p>
+
+<div class="calc">
+ <form class="cartao campos" id="f" onsubmit="return false" novalidate>
+  <div class="campo"><label for="valor">Valor aplicado</label><div class="entrada"><span>R$</span><input id="valor" inputmode="decimal" value="10.000"></div></div>
+  <div class="campo"><label for="prazo">Prazo</label><div class="entrada"><input id="prazo" inputmode="numeric" value="2"><select id="unidade" aria-label="Unidade do prazo"><option value="d">dias</option><option value="m">meses</option><option value="a" selected>anos</option></select></div></div>
+  <p class="erro-calc" id="erro" role="alert"></p>
+  <details open>
+  <summary><strong>Taxas usadas na simulação</strong></summary>
+  <div class="campo"><label for="cdi">CDI esperado <span class="dica">hoje: {{CDI_ANO}}% ({{CDI_DATA}})</span></label><div class="entrada"><input id="cdi" inputmode="decimal" value="{{CDI_ANO}}"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="pcdb">CDB rende <span class="dica">percentual do CDI da oferta que você quer comparar</span></label><div class="entrada"><input id="pcdb" inputmode="decimal" value="100"><span>% do CDI</span></div></div>
+  <div class="campo"><label for="plci">LCI/LCA rende <span class="dica">exemplo; troque pela oferta real</span></label><div class="entrada"><input id="plci" inputmode="decimal" value="90"><span>% do CDI</span></div></div>
+  <div class="campo"><label for="selic">Selic over esperada <span class="dica">hoje: {{SELIC_ANO}}% ({{SELIC_DATA}})</span></label><div class="entrada"><input id="selic" inputmode="decimal" value="{{SELIC_ANO}}"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="tsel">Tesouro Selic: taxa do título <span class="dica" id="d-tsel">somada à Selic</span></label><div class="entrada"><input id="tsel" inputmode="decimal" value="0"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="tpre">Tesouro Prefixado: taxa <span class="dica" id="d-tpre"></span></label><div class="entrada"><input id="tpre" inputmode="decimal" value="0"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="tipca">Tesouro IPCA+: juro real <span class="dica" id="d-tipca"></span></label><div class="entrada"><input id="tipca" inputmode="decimal" value="0"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="ipca">IPCA esperado <span class="dica">últimos 12 meses: {{IPCA12}}% (até {{IPCA12_REF}})</span></label><div class="entrada"><input id="ipca" inputmode="decimal" value="{{IPCA12}}"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="meta">Meta Selic, para a regra da poupança <span class="dica">hoje: {{SELIC_META}}%</span></label><div class="entrada"><input id="meta" inputmode="decimal" value="{{SELIC_META}}"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="tr">TR <span class="dica">período iniciado em {{TR_DATA}}: {{TR_MES}}%</span></label><div class="entrada"><input id="tr" inputmode="decimal" value="{{TR_MES}}"><span>% a.m.</span></div></div>
+  </details>
+ </form>
+ <div class="cartao resultado" aria-live="polite">
+  <span class="rotulo">Valor líquido simulado, do maior para o menor</span>
+  <p class="data-regra" id="r-periodo">—</p>
+  <ul class="barras-sim" id="barras"></ul>
+  <div class="rolagem"><table class="tabela-sim"><caption>Resultado no resgate</caption><thead><tr><th>Aplicação</th><th class="n">Bruto</th><th class="n">IR + IOF</th><th class="n">Custódia</th><th class="n">Líquido</th><th class="n">Rend. líquido</th><th class="n">Ao ano</th></tr></thead><tbody id="tab"></tbody></table></div>
+  <p class="data-regra" id="r-notas"></p>
+ </div>
+</div>
+
+<div class="aviso"><strong>É uma simulação, não uma recomendação.</strong> A conta supõe que CDI, Selic e IPCA fiquem constantes no nível digitado, o que não acontece. As aplicações não são equivalentes: CDB, LCI e LCA dependem do banco emissor e têm garantia do FGC dentro dos limites dele; títulos do Tesouro são dívida do governo federal; a liquidez e o risco de cada uma são diferentes. Ordenar pelo valor líquido não diz qual serve para você.</div>
+
+<h2 id="como-calcula">Como cada linha é calculada</h2>
+<ul>
+ <li><strong>Prazo:</strong> conta os dias corridos entre hoje e a data do resgate (para o imposto, o IOF e a custódia) e os dias úteis, sem fins de semana e feriados nacionais (para os juros, que no Brasil rendem por dia útil, base 252).</li>
+ <li><strong>CDB e LCI/LCA:</strong> a taxa do dia é <span class="num">(1 + CDI)<sup>1/252</sup> − 1</span>; o percentual do CDI multiplica essa taxa, e o resultado se acumula pelos dias úteis: <span class="num">valor × (1 + p × taxa do dia)<sup>du</sup></span>.</li>
+ <li><strong>Tesouro Selic:</strong> <span class="num">valor × [(1 + Selic) × (1 + taxa do título)]<sup>du/252</sup></span>.</li>
+ <li><strong>Tesouro Prefixado:</strong> <span class="num">valor × (1 + taxa)<sup>du/252</sup></span>. É a mesma fórmula que gera o preço publicado pelo Tesouro: conferida em {{CONFERIDO}}, reproduz o preço do arquivo oficial para quatro títulos prefixados.</li>
+ <li><strong>Tesouro IPCA+:</strong> <span class="num">valor × [(1 + IPCA) × (1 + juro real)]<sup>du/252</sup></span>, sem cupom semestral.</li>
+ <li><strong>Poupança:</strong> só meses completos rendem. Com a meta Selic acima de 8,5%, cada mês rende <span class="num">(1 + 0,5%) × (1 + TR) − 1</span>; com a meta em 8,5% ou menos, 70% da meta mensalizada mais a TR. Conferido em {{CONFERIDO}}: aplicada aos períodos reais, a regra reproduz o rendimento publicado pelo Banco Central e a Calculadora do Cidadão.</li>
+</ul>
+
+<h2 id="impostos">Imposto, IOF e custódia</h2>
+<ul>
+ <li><strong>IR</strong> (CDB e Tesouro), sobre o rendimento: 22,5% até 180 dias; 20% de 181 a 360; 17,5% de 361 a 720; 15% acima de 720 dias.</li>
+ <li><strong>IOF</strong> se o resgate for antes de 30 dias, de 96% (1 dia) a 3% (29 dias) do rendimento, conforme o anexo do Decreto nº 6.306/2007. O IR incide sobre o rendimento já sem o IOF. LCA tem IOF zero.</li>
+ <li><strong>LCI e LCA</strong> são isentas de IR para pessoa física e, se não forem atualizadas por índice de preços, têm prazo mínimo de 6 meses: com prazo menor, o simulador não as mostra.</li>
+ <li><strong>Poupança</strong>: isenta de IR para pessoa física.</li>
+ <li><strong>Taxa de custódia da B3</strong> nos títulos do Tesouro: 0,20% ao ano sobre o valor, proporcional ao tempo. No Tesouro Selic, só sobre o que passar de R$ 10 mil (a conta considera que este é todo o seu Tesouro Selic). Aproximação: 0,20% ao ano sobre a média entre o valor aplicado e o valor final.</li>
+</ul>
+<p>O simulador não desconta a custódia da base do imposto de renda e calcula o IR sobre o rendimento bruto — a forma mais conservadora. Também supõe que o título do Tesouro seja vendido pela taxa contratada: na vida real, quem resgata antes do vencimento recebe o preço do dia, que pode ser maior ou menor (<a href="../glossario.html#marcacao-a-mercado">marcação a mercado</a>). As taxas do dia de cada título estão na página do <a href="../tesouro-direto.html">Tesouro Direto</a>.</p>
+<p>Em 2025, a Medida Provisória nº 1.303 propôs mudar a tributação de aplicações financeiras, inclusive tributar LCI e LCA. Ela perdeu a vigência em 8 de outubro de 2025 sem ser votada; as regras acima continuam valendo na data da conferência.</p>
+
+<script>
+var TD={{TD_TITULOS}};
+var IOF=[96,93,90,86,83,80,76,73,70,66,63,60,56,53,50,46,43,40,36,33,30,26,23,20,16,13,10,6,3];
+function pascoa(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return Date.UTC(y,mo-1,da)}
+var FER={};function feriados(y){if(FER[y])return FER[y];var s={},D=864e5,p=pascoa(y);
+ [[1,1],[4,21],[5,1],[9,7],[10,12],[11,2],[11,15],[12,25]].concat(y>=2024?[[11,20]]:[]).forEach(function(x){s[Date.UTC(y,x[0]-1,x[1])]=1});
+ [-48,-47,-2,60].forEach(function(n){s[p+n*D]=1});return FER[y]=s}
+function util(t){var d=new Date(t),w=d.getUTCDay();return w>0&&w<6&&!feriados(d.getUTCFullYear())[t]}
+function diasUteis(a,b){var n=0,D=864e5;for(var t=a;t<b;t+=D)if(util(t))n++;return n}
+function somaMeses(t,m){var d=new Date(t),y=d.getUTCFullYear(),mo=d.getUTCMonth()+m,dia=d.getUTCDate(),u=new Date(Date.UTC(y,mo+1,0)).getUTCDate();return Date.UTC(y,mo,Math.min(dia,u))}
+function br(t){var d=new Date(t);return ('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)+'/'+d.getUTCFullYear()}
+function aliqIR(dc){return dc<=180?22.5:dc<=360?20:dc<=720?17.5:15}
+function proximo(tipo,fimIso){var c=TD.filter(function(t){return t.t===tipo});if(!c.length)return null;
+ var depois=c.filter(function(t){return t.v>=fimIso}).sort(function(a,b){return a.v<b.v?-1:1});return depois[0]||c.sort(function(a,b){return a.v<b.v?1:-1})[0]}
+var mexido={};['tsel','tpre','tipca'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){mexido[id]=1})});
+function campo(id){return lerNum(document.getElementById(id).value)}
+function calc(){var er=document.getElementById('erro');er.textContent='';
+ var V=campo('valor'),P=campo('prazo'),u=document.getElementById('unidade').value;
+ if(!(V>0)||!(P>0)){er.textContent='Preencha valor e prazo maiores que zero.';return}
+ var h=new Date(),hoje=Date.UTC(h.getFullYear(),h.getMonth(),h.getDate()),fim=u==='d'?hoje+Math.round(P)*864e5:somaMeses(hoje,Math.round(u==='a'?P*12:P));
+ var dc=Math.round((fim-hoje)/864e5);if(dc<1||dc>365*40){er.textContent='Use um prazo entre 1 dia e 40 anos.';return}
+ var du=diasUteis(hoje,fim),fimIso=new Date(fim).toISOString().slice(0,10);
+ [['tsel','Tesouro Selic'],['tpre','Tesouro Prefixado'],['tipca','Tesouro IPCA+']].forEach(function(x){var t=proximo(x[1],fimIso),d=document.getElementById('d-'+x[0]);
+  if(!t){d.textContent='';return}if(!mexido[x[0]])document.getElementById(x[0]).value=fmt(t.c,2);
+  d.textContent=(mexido[x[0]]?'valor digitado; ':'')+x[1]+' '+t.v.slice(0,4)+' em {{TD_DATA}}: '+fmt(t.c,2)+'%'+(t.v<fimIso?' (o vencimento mais longo; vence antes do prazo)':'')});
+ var cdi=campo('cdi')/100,selic=campo('selic')/100,ipca=campo('ipca')/100,meta=campo('meta'),tr=campo('tr')/100,
+  pc=campo('pcdb')/100,pl=campo('plci')/100,ts=campo('tsel')/100,tp=campo('tpre')/100,ti=campo('tipca')/100;
+ if([cdi,selic,ipca,meta,tr,pc,pl,ts,tp,ti].some(isNaN)){er.textContent='Confira as taxas: algum campo não é um número.';return}
+ var dia=Math.pow(1+cdi,1/252)-1,ir=aliqIR(dc),iofp=dc<30?IOF[dc-1]:0,R=[];
+ function trib(nome,bruto,isento,iofZero,cust){var rend=bruto-V,iof=0,irv=0;if(rend>0&&!isento){iof=iofZero?0:rend*iofp/100;irv=(rend-iof)*ir/100}
+  else if(rend>0&&!iofZero){iof=rend*iofp/100}
+  var liq=bruto-iof-irv-(cust||0);R.push({n:nome,b:bruto,t:iof+irv,c:cust||0,l:liq})}
+ function cust(fin,isencao){var media=(V+fin)/2-(isencao||0);return Math.max(0,media)*0.002*dc/365}
+ // poupança
+ var meses=0;while(somaMeses(hoje,meses+1)<=fim)meses++;
+ var rp=meta>8.5?(1.005*(1+tr)-1):((1+0.7*(Math.pow(1+meta/100,1/12)-1))*(1+tr)-1);
+ R.push({n:'Poupança',b:V*Math.pow(1+rp,meses),t:0,c:0,l:V*Math.pow(1+rp,meses)});
+ trib('CDB a '+fmt(pc*100,0)+'% do CDI',V*Math.pow(1+pc*dia,du),false,false);
+ var lciOk=fim>=somaMeses(hoje,6);
+ if(lciOk){trib('LCI a '+fmt(pl*100,0)+'% do CDI',V*Math.pow(1+pl*dia,du),true,false);trib('LCA a '+fmt(pl*100,0)+'% do CDI',V*Math.pow(1+pl*dia,du),true,true)}
+ var fs=V*Math.pow((1+selic)*(1+ts),du/252);trib('Tesouro Selic',fs,false,false,cust(fs,10000));
+ var fp=V*Math.pow(1+tp,du/252);trib('Tesouro Prefixado',fp,false,false,cust(fp));
+ var fi=V*Math.pow((1+ipca)*(1+ti),du/252);trib('Tesouro IPCA+',fi,false,false,cust(fi));
+ R.sort(function(a,b){return b.l-a.l});var mx=R[0].l,mn=Math.min.apply(null,R.map(function(r){return r.l}).concat([V]));
+ document.getElementById('r-periodo').textContent='De '+br(hoje)+' a '+br(fim)+': '+dc+' dias corridos, '+du+' dias úteis, '+meses+(meses===1?' mês completo':' meses completos')+' para a poupança. IR de '+fmt(ir,1)+'%'+(iofp?' e IOF de '+iofp+'% do rendimento':'')+'.';
+ document.getElementById('barras').innerHTML=R.map(function(r){var w=mx>mn?Math.max(2,(r.l-mn*0.98)/(mx-mn*0.98)*100):100;
+  return '<li><span>'+r.n+'</span><span class="trilho"><i style="width:'+w.toFixed(1)+'%"></i><span>'+brl(r.l)+'</span></span></li>'}).join('');
+ document.getElementById('tab').innerHTML=R.map(function(r){var g=r.l/V-1,aa=Math.pow(r.l/V,365/dc)-1;
+  return '<tr><td>'+r.n+'</td><td class="n">'+brl(r.b)+'</td><td class="n">'+brl(r.t)+'</td><td class="n">'+(r.c?brl(r.c):'—')+'</td><td class="n"><b>'+brl(r.l)+'</b></td><td class="n">'+pct(g*100)+'</td><td class="n">'+pct(aa*100)+'</td></tr>'}).join('');
+ document.getElementById('r-notas').textContent=(lciOk?'':'LCI e LCA não aparecem: o prazo é menor que o mínimo de 6 meses. ')+'“Ao ano” é a taxa equivalente do resultado líquido em dias corridos.'}
+document.getElementById('f').addEventListener('input',calc);document.getElementById('unidade').addEventListener('change',calc);calc();
+</script>

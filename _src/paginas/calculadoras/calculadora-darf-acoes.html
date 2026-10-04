@@ -1,0 +1,100 @@
+<!--{
+ "titulo": "Calculadora de DARF de ações e FIIs · Mercado na Lupa",
+ "descricao": "Calcule o imposto do mês na bolsa: isenção de R$ 20 mil em ações, 15% e 20% no day trade, FII, prejuízo a compensar, IRRF e vencimento do DARF 6015.",
+ "h1": "Calculadora de DARF de ações",
+ "resumo": "Imposto do mês sobre ações, BDRs, ETFs e FIIs: isenção de R$ 20 mil, day trade, prejuízo acumulado, imposto retido e data de vencimento.",
+ "publicado": "2026-10-03",
+ "atualizado": "2026-10-03",
+ "fontes": [
+  {"nome": "Lei nº 11.033/2004, arts. 2º e 3º, I — alíquotas de 15% e 20%, IR na fonte de 0,005% e isenção de R$ 20 mil", "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"},
+  {"nome": "Lei nº 8.668/1993, art. 18 — 20% sobre o ganho na venda de cotas de FII", "url": "https://www.planalto.gov.br/ccivil_03/leis/l8668.htm"},
+  {"nome": "Lei nº 9.430/1996, art. 68 — DARF abaixo de R$ 10 não é recolhido e se soma ao do período seguinte", "url": "https://www.planalto.gov.br/ccivil_03/leis/l9430.htm"},
+  {"nome": "Receita Federal — Perguntas e Respostas IRPF 2026, perguntas 705 a 715 e 730 (day trade, isenção, compensação de perdas, IR na fonte, DARF 6015)", "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"}
+ ]
+}-->
+<p class="data-regra"><strong>Regras conferidas em {{CONFERIDO_LONGO}}</strong> na lei e no Perguntas e Respostas IRPF 2026 da Receita Federal. Vale para pessoa física residente no Brasil, no mercado à vista da bolsa.</p>
+
+<p class="lead">Preencha o resultado do mês por tipo de operação. O resultado é a diferença entre o valor de venda e o custo médio de compra do que foi vendido, já com corretagem e emolumentos — lucro positivo, prejuízo negativo. Nada sai do seu navegador.</p>
+
+<div class="calc">
+ <form class="cartao campos" id="f" onsubmit="return false" novalidate>
+  <div class="campo"><label for="mes">Mês das vendas</label><div class="entrada"><input id="mes" type="month" value=""></div></div>
+  <div class="campo"><label for="vendas">Total vendido em ações no mês <span class="dica">operações comuns no mercado à vista; decide a isenção de R$ 20 mil</span></label><div class="entrada"><span>R$</span><input id="vendas" inputmode="decimal" value="30.000"></div></div>
+  <div class="campo"><label for="racoes">Resultado das ações (operações comuns)</label><div class="entrada"><span>R$</span><input id="racoes" inputmode="decimal" value="3.000"></div></div>
+  <div class="campo"><label for="routros">Resultado de BDRs e ETFs de ações (operações comuns) <span class="dica">sem a isenção de R$ 20 mil</span></label><div class="entrada"><span>R$</span><input id="routros" inputmode="decimal" value="0"></div></div>
+  <div class="campo"><label for="rdt">Resultado do day trade (ações, BDRs, ETFs)</label><div class="entrada"><span>R$</span><input id="rdt" inputmode="decimal" value="0"></div></div>
+  <div class="campo"><label for="rfii">Resultado na venda de cotas de FII</label><div class="entrada"><span>R$</span><input id="rfii" inputmode="decimal" value="0"></div></div>
+  <details>
+  <summary><strong>Prejuízos de meses anteriores e imposto retido</strong></summary>
+  <div class="campo"><label for="pcom">Prejuízo acumulado — operações comuns <span class="dica">valor positivo</span></label><div class="entrada"><span>R$</span><input id="pcom" inputmode="decimal" value="0"></div></div>
+  <div class="campo"><label for="pdt">Prejuízo acumulado — day trade</label><div class="entrada"><span>R$</span><input id="pdt" inputmode="decimal" value="0"></div></div>
+  <div class="campo"><label for="pfii">Prejuízo acumulado — FII</label><div class="entrada"><span>R$</span><input id="pfii" inputmode="decimal" value="0"></div></div>
+  <div class="campo"><label for="irrf">IR retido nas vendas comuns (0,005%) <span class="dica">em branco: estimado como 0,005% do total vendido em ações</span></label><div class="entrada"><span>R$</span><input id="irrf" inputmode="decimal" value=""></div></div>
+  <div class="campo"><label for="irrfdt">IR retido no day trade (1%) <span class="dica">em branco: 1% do resultado positivo do day trade</span></label><div class="entrada"><span>R$</span><input id="irrfdt" inputmode="decimal" value=""></div></div>
+  <div class="campo"><label for="acum">Imposto de meses anteriores abaixo de R$ 10, ainda não pago</label><div class="entrada"><span>R$</span><input id="acum" inputmode="decimal" value="0"></div></div>
+  </details>
+  <p class="erro-calc" id="erro" role="alert"></p>
+ </form>
+ <div class="cartao resultado" aria-live="polite">
+  <span class="rotulo">DARF do mês (código 6015)</span>
+  <div class="grande" id="r-darf">—</div>
+  <p class="data-regra" id="r-venc"></p>
+  <div class="rolagem"><table class="tabela-sim"><caption>Apuração por tipo de operação</caption><thead><tr><th>Operação</th><th class="n">Resultado</th><th class="n">Prejuízo usado</th><th class="n">Base</th><th class="n">Alíquota</th><th class="n">Imposto</th></tr></thead><tbody id="tab"></tbody></table></div>
+  <div class="linha-res"><span>Imposto bruto do mês</span><b id="r-bruto">—</b></div>
+  <div class="linha-res"><span>IR retido na fonte descontado</span><b id="r-ret">—</b></div>
+  <div class="linha-res"><span>Prejuízo para o próximo mês: comum · day trade · FII</span><b id="r-prej">—</b></div>
+  <p class="data-regra" id="r-notas"></p>
+ </div>
+</div>
+
+<div class="aviso"><strong>É uma simulação educativa, não orientação tributária.</strong> Ela não cobre opções, termo, futuros, aluguel de ações, ouro, ações fora de bolsa nem investidor não residente. Confira o resultado com as notas de corretagem e, na dúvida, com a Receita Federal ou um contador.</div>
+
+<h2 id="regras">As regras que a calculadora aplica</h2>
+<ul>
+ <li><strong>Isenção de R$ 20 mil:</strong> se o total de <em>vendas</em> de ações no mercado à vista no mês for de até R$ 20.000, o lucro das operações comuns com ações é isento. Não vale para day trade, FII, BDR nem ETF.</li>
+ <li><strong>Alíquotas:</strong> 15% nas operações comuns (ações, BDRs, ETFs de ações), 20% no day trade e 20% na venda de cotas de FII.</li>
+ <li><strong>Prejuízo:</strong> compensa lucro do mesmo mês e dos meses seguintes, sem prazo, mas só dentro do mesmo tipo: comum com comum, day trade com day trade, FII com FII. Prejuízo com ações num mês isento entra aqui no prejuízo acumulado das operações comuns — ponto em que há leituras diferentes; veja o guia de <a href="../guias/prejuizo-na-bolsa-como-compensar.html">prejuízo na bolsa</a>.</li>
+ <li><strong>IR na fonte:</strong> 0,005% sobre as vendas comuns (o “dedo-duro”, dispensado quando dá até R$ 1) e 1% sobre o resultado positivo do day trade. Os dois são descontados do imposto do mês; o que sobrar pode ser usado nos meses seguintes (o do day trade, só até dezembro do mesmo ano).</li>
+ <li><strong>DARF mínimo:</strong> imposto abaixo de R$ 10 não é pago: soma-se ao do mês seguinte até chegar a R$ 10.</li>
+ <li><strong>Vencimento:</strong> último dia útil do mês seguinte ao das vendas, código 6015. A data é calculada com os feriados nacionais; feriado local pode antecipar o dia útil.</li>
+</ul>
+<p>O passo a passo, com exemplos, está no guia <a href="../guias/darf-de-acoes.html">DARF de ações: como calcular e pagar</a>.</p>
+
+<script>
+function pascoa(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return Date.UTC(y,mo-1,da)}
+function feriados(y){var s={},D=864e5,p=pascoa(y);
+ [[1,1],[4,21],[5,1],[9,7],[10,12],[11,2],[11,15],[12,25]].concat(y>=2024?[[11,20]]:[]).forEach(function(x){s[Date.UTC(y,x[0]-1,x[1])]=1});
+ [-48,-47,-2,60].forEach(function(n){s[p+n*D]=1});return s}
+function ultimoUtil(y,m){var F=feriados(y),t=Date.UTC(y,m+1,0);while(true){var w=new Date(t).getUTCDay();if(w>0&&w<6&&!F[t])return t;t-=864e5}}
+var MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+(function(){var h=new Date(),y=h.getFullYear(),m=h.getMonth()-1;if(m<0){m=11;y--}document.getElementById('mes').value=y+'-'+('0'+(m+1)).slice(-2)})();
+function v(id){var s=document.getElementById(id).value;if(!String(s).trim())return null;return lerNum(s)}
+function calc(){var er=document.getElementById('erro');er.textContent='';
+ var vendas=v('vendas')||0,ra=v('racoes')||0,ro=v('routros')||0,rdt=v('rdt')||0,rf=v('rfii')||0,
+  pc=Math.abs(v('pcom')||0),pd=Math.abs(v('pdt')||0),pf=Math.abs(v('pfii')||0),acum=v('acum')||0,irrf=v('irrf'),irrfdt=v('irrfdt');
+ if([vendas,ra,ro,rdt,rf,pc,pd,pf,acum].some(isNaN)||(irrf!=null&&isNaN(irrf))||(irrfdt!=null&&isNaN(irrfdt))){er.textContent='Algum campo não é um número.';return}
+ var isento=vendas<=20000,notas=[];
+ if(irrf==null){irrf=vendas*0.00005;if(irrf<=1)irrf=0}
+ if(irrfdt==null)irrfdt=rdt>0?rdt*0.01:0;
+ // operações comuns
+ var baseCom=ro+(isento?0:ra),prejNovo=0;
+ if(isento&&ra<0){pc+=-ra;notas.push('Prejuízo com ações num mês com vendas até R$ 20 mil somado ao acumulado (há leituras diferentes; veja o guia).')}
+ if(isento&&ra>0)notas.push('Lucro de '+brl(ra)+' com ações isento: vendas de ações no mês de '+brl(vendas)+', até R$ 20 mil. Ele vai para a declaração anual como rendimento isento.');
+ function apura(res,prej,aliq){var usado=0,base=0,imp=0,sobra=prej;if(res>0){usado=Math.min(res,prej);base=res-usado;sobra=prej-usado;imp=base*aliq}else{sobra=prej-res}return {usado:usado,base:base,imp:imp,sobra:sobra}}
+ var C=apura(baseCom,pc,0.15),T=apura(rdt,pd,0.20),F=apura(rf,pf,0.20);
+ var linhas=[['Comuns (ações'+(isento?' — isentas no mês':'')+', BDRs, ETFs)',baseCom,C,'15%'],['Day trade',rdt,T,'20%'],['FII',rf,F,'20%']];
+ document.getElementById('tab').innerHTML=linhas.map(function(l){return '<tr><td>'+l[0]+'</td><td class="n">'+brl(l[1])+'</td><td class="n">'+brl(l[2].usado)+'</td><td class="n">'+brl(l[2].base)+'</td><td class="n">'+l[3]+'</td><td class="n">'+brl(l[2].imp)+'</td></tr>'}).join('');
+ var bruto=C.imp+T.imp+F.imp,ret=Math.min(bruto,irrf+irrfdt),sobraRet=irrf+irrfdt-ret,devido=bruto-ret+acum;
+ var mv=document.getElementById('mes').value.split('-'),y=+mv[0],m=+mv[1]-1,venc='';
+ if(y&&m>=0){var ny=m===11?y+1:y,nm=(m+1)%12,t=ultimoUtil(ny,nm),d=new Date(t);venc=('0'+d.getUTCDate()).slice(-2)+'/'+('0'+(d.getUTCMonth()+1)).slice(-2)+'/'+d.getUTCFullYear()}
+ var g=document.getElementById('r-darf'),vt=document.getElementById('r-venc');
+ if(devido<0.005){g.textContent='R$ 0,00';vt.textContent='Nenhum imposto a pagar neste mês.'}
+ else if(devido<10){g.textContent=brl(devido);vt.textContent='Abaixo de R$ 10: não gere DARF. Some este valor ao imposto do mês seguinte.'}
+ else{g.textContent=brl(devido);vt.textContent=(venc?'Vencimento: '+venc+' (último dia útil de '+MES[(m+1)%12]+'). ':'')+'Código 6015. Gere o DARF no Sicalc, no site da Receita Federal.'}
+ document.getElementById('r-bruto').textContent=brl(bruto);
+ document.getElementById('r-ret').textContent=brl(ret)+(acum?' · mais '+brl(acum)+' de meses anteriores':'');
+ document.getElementById('r-prej').textContent=brl(C.sobra)+' · '+brl(T.sobra)+' · '+brl(F.sobra);
+ if(sobraRet>0.004)notas.push('Sobrou '+brl(sobraRet)+' de IR retido para descontar nos próximos meses (o do day trade, só até dezembro).');
+ document.getElementById('r-notas').textContent=notas.join(' ')}
+document.getElementById('f').addEventListener('input',calc);calc();
+</script>

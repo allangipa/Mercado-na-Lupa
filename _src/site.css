@@ -506,3 +506,50 @@ table.pares th[aria-sort=descending] button::after{content:" ▼"}
 .pares-topo .data-regra{flex:1}
 @media (max-width:480px){.grafico2 text,.comp text,.div-barras text{font-size:25px}.comp text.rot-fim{font-size:22px}}
 .data-regra,.fontes li{overflow-wrap:anywhere}
+
+/* ============================================================
+   Dados abertos (03/10/2026): indicadores do BC, Tesouro Direto, glossário,
+   simuladores de renda fixa e DARF.
+   ============================================================ */
+.selo-dados[data-estado=neutro]{--cor-selo:#1E3A8A;--fundo-selo:#E3EAFD;margin:0 0 1rem}
+@media (prefers-color-scheme:dark){.selo-dados[data-estado=neutro]{--cor-selo:#B9CEFF;--fundo-selo:#1A2C52}}
+.selo-dados[data-estado=neutro] .selo-ponto{font-style:italic}
+.grafico svg.unico{display:block}
+figure.grafico{margin:0 0 1.2rem}
+.grafico .linha-2{stroke:var(--ouro);stroke-dasharray:6 5}
+.chave{display:inline-block;width:1.4rem;height:0;border-top:2.5px solid var(--grafico);vertical-align:middle}
+.chave-2{border-top:2.5px dashed var(--ouro)}
+.ind-grade{list-style:none;padding:0;margin:0 0 1.4rem;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
+.ind-grade li{margin:0}
+.ind-cartao{display:flex;flex-direction:column;gap:.15rem;height:100%;padding:1rem 1.1rem;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:var(--sombra);text-decoration:none;color:var(--tinta)}
+.ind-cartao:hover{border-color:var(--acao);color:var(--tinta)}
+.ind-valor{font-size:clamp(1.5rem,1.2rem + 1.2vw,2rem);font-weight:600;letter-spacing:-.02em;color:var(--acao-forte)}
+@media (prefers-color-scheme:dark){.ind-valor{color:var(--acao)}}
+.ind-ref{font-size:.86rem;color:var(--suave)}
+.ind-fonte{font:500 .72rem "IBM Plex Mono",monospace;color:var(--apagado);margin-top:auto;padding-top:.4rem}
+.seletor{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font-weight:600;font-size:.92rem;margin-bottom:.7rem}
+.seletor select,.campos select{max-width:100%;min-width:0;font:500 .92rem "Archivo",sans-serif;padding:.5rem .6rem;border:1.5px solid var(--linha);border-radius:10px;background:var(--papel);color:var(--tinta)}
+.td-graf{min-height:4rem}
+.grupos-glo{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}
+.indice-az{margin-bottom:1rem}
+.termo{border-top:1px solid var(--linha);padding:.6rem 0 .4rem;scroll-margin-top:84px}
+.termo h3{margin-top:.4rem}
+.termo:target{background:var(--acao-suave);border-radius:var(--raio-s);padding-left:.7rem;padding-right:.7rem}
+.sinonimos{font-size:.86rem;color:var(--suave);margin:.1rem 0 .5rem}
+.termo-links{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.92rem}
+.termo-fontes{font-size:.86rem;color:var(--suave);margin-bottom:.6rem}
+.termo-fontes summary{cursor:pointer}
+.tabela-sim td:first-child{text-align:left;font-family:"Archivo",sans-serif}
+.tabela-sim tr.melhor td{font-weight:600}
+.barras-sim{list-style:none;padding:0;margin:0 0 1rem}
+.barras-sim li{display:grid;grid-template-columns:minmax(0,9rem) 1fr;gap:.6rem;align-items:center;margin-bottom:.45rem;font-size:.88rem}
+.barras-sim .trilho{background:var(--superficie);border-radius:6px;overflow:hidden;min-width:0}
+.barras-sim .trilho i{display:block;height:1.35rem;background:var(--acao);border-radius:6px 0 0 6px;min-width:2px}
+.barras-sim .trilho span{display:block;font:500 .78rem "IBM Plex Mono",monospace;margin-top:.15rem;color:var(--suave)}
+.premissas{font-size:.9rem}
+.grade-campos{display:grid;gap:0 1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr))}
+.texto ol li,.texto ul li{overflow-wrap:anywhere}
+.calc>*{min-width:0}
+.entrada select{border:0;background:var(--superficie);color:var(--tinta);font:500 .92rem "IBM Plex Mono",monospace;padding:0 .5rem;align-self:stretch}
+.campos details{margin:.4rem 0 .8rem}.campos summary{cursor:pointer;margin-bottom:.8rem}
+@media (max-width:420px){.nav{gap:0}.nav a{font-size:.84rem;padding:.4rem .42rem}}

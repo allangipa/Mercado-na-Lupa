@@ -9,8 +9,9 @@
 #      arquivo ainda não publicado = pula, sem erro);
 #   2. uma vez por mês (a partir do dia 16, quando os informes mensais dos
 #      fundos do mês anterior já foram entregues), atualiza o cadastro da CVM;
-#   3. coleta comunicados (CVM) e notícias (fontes oficiais) — se falharem,
-#      fica a coleta anterior e o erro aparece na status.html;
+#   3. coleta comunicados (CVM), notícias (fontes oficiais), indicadores do
+#      Banco Central, balanços da CVM e taxas do Tesouro Direto (falha isolada:
+#      a fonte que cair fica com a última coleta boa, e a status.html mostra o erro);
 #   4. roda o build (que PARA se o layout da B3 não bater, se uma variação
 #      passar de 25% sem evento declarado, ou se SEO/links falharem);
 #   5. faz commit e push — e o push é o que publica na Hostinger.
@@ -68,7 +69,7 @@ jobs:
           TZ: America/Sao_Paulo
         run: python _src/comunicados.py
 
-      - name: CDI e IPCA (Banco Central)
+      - name: Indicadores do Banco Central (falha isolada)
         continue-on-error: true
         env:
           TZ: America/Sao_Paulo
@@ -86,6 +87,12 @@ jobs:
           TZ: America/Sao_Paulo
         run: python _src/noticias.py
 
+      - name: Tesouro Direto, Tesouro Transparente (falha isolada)
+        continue-on-error: true
+        env:
+          TZ: America/Sao_Paulo
+        run: python _src/tesouro.py
+
       - name: Build
         env:
           TZ: America/Sao_Paulo
@@ -95,7 +102,7 @@ jobs:
         run: |
           git config user.name "mercadonalupa-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A dados ativos guias calculadoras assets *.html sitemap.xml robots.txt ads.txt
+          git add -A dados ativos guias calculadoras indicadores assets *.html sitemap.xml robots.txt ads.txt
           if git diff --cached --quiet; then
             echo "sem mudança"
           else

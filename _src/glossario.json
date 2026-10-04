@@ -1,0 +1,1941 @@
+{
+ "_leia": "Glossário do Mercado na Lupa. Lido por _src/build.py, que gera glossario.html. Conferido em 03/10/2026.",
+ "conferido_em": "2026-10-03",
+ "grupos": [
+  {
+   "id": "juros-e-indicadores",
+   "nome": "Juros e indicadores",
+   "termos": [
+    {
+     "id": "selic",
+     "termo": "Selic",
+     "sinonimos": [
+      "taxa Selic",
+      "Selic meta",
+      "Selic over",
+      "taxa básica de juros"
+     ],
+     "definicao": "<p>A <strong>Selic</strong> é a taxa básica de juros da economia brasileira. Existem duas: a <strong>Selic meta</strong>, decidida pelo <a href=\"#copom\">Copom</a> em cada reunião, e a <strong>Selic over</strong>, a taxa média efetivamente praticada nas operações de um dia entre instituições financeiras lastreadas em títulos públicos, calculada e divulgada diariamente pelo Banco Central. A over costuma ficar ligeiramente abaixo da meta.</p><p>A Selic serve de referência para quase todos os juros do país: corrige o <a href=\"#tesouro-selic\">Tesouro Selic</a>, influencia o <a href=\"#cdi\">CDI</a> e define a regra de rendimento da <a href=\"#poupanca\">poupança</a>.</p>",
+     "links": [
+      {
+       "href": "indicadores/selic-hoje.html",
+       "texto": "Selic hoje"
+      },
+      {
+       "href": "indicadores.html",
+       "texto": "Todos os indicadores"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Banco Central — Copom",
+       "url": "https://www.bcb.gov.br/controleinflacao/copom"
+      }
+     ]
+    },
+    {
+     "id": "copom",
+     "termo": "Copom",
+     "sinonimos": [
+      "Comitê de Política Monetária"
+     ],
+     "definicao": "<p>O <strong>Copom</strong>, Comitê de Política Monetária, é o órgão do Banco Central formado pela diretoria colegiada que define a <a href=\"#selic\">Selic meta</a>. Ele se reúne <span class=\"num\">8</span> vezes por ano, em datas divulgadas com antecedência, e cada reunião termina com um comunicado; a ata sai alguns dias depois.</p><p>O objetivo da decisão é levar a inflação para a meta definida pelo Conselho Monetário Nacional (CMN). Juros mais altos tendem a frear o consumo e o crédito; juros mais baixos, a estimulá-los.</p>",
+     "links": [
+      {
+       "href": "indicadores/selic-hoje.html",
+       "texto": "Selic hoje"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Banco Central — Copom",
+       "url": "https://www.bcb.gov.br/controleinflacao/copom"
+      }
+     ]
+    },
+    {
+     "id": "cdi",
+     "termo": "CDI",
+     "sinonimos": [
+      "taxa DI",
+      "DI",
+      "Certificado de Depósito Interbancário"
+     ],
+     "definicao": "<p>O <strong>CDI</strong> é a taxa média dos empréstimos de um dia entre instituições financeiras, feitos por meio de depósitos interfinanceiros. O nome oficial do indicador é <strong>taxa DI</strong>, calculada e divulgada pela <a href=\"#b3\">B3</a> a cada dia útil. Na prática ela anda colada à <a href=\"#selic\">Selic</a>, um pouco abaixo.</p><p>É a principal referência da renda fixa privada: quando um <a href=\"#cdb\">CDB</a> promete “<span class=\"num\">100%</span> do CDI”, o rendimento acompanha essa taxa dia a dia (ver <a href=\"#percentual-do-cdi\">percentual do CDI</a>).</p>",
+     "links": [
+      {
+       "href": "indicadores/cdi-hoje.html",
+       "texto": "CDI hoje"
+      },
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "percentual-do-cdi",
+     "termo": "Percentual do CDI",
+     "sinonimos": [
+      "% do CDI",
+      "pós-fixado atrelado ao CDI"
+     ],
+     "definicao": "<p>Forma de expressar a rentabilidade de um título <strong>pós-fixado</strong>: o investimento rende uma fração da taxa <a href=\"#cdi\">CDI</a> de cada dia. Um CDB a <span class=\"num\">110%</span> do CDI, com o CDI a <span class=\"num\">10%</span> ao ano, rende cerca de <span class=\"num\">11%</span> ao ano antes do imposto.</p><p>Para comparar um título isento (como <a href=\"#lci-lca\">LCI e LCA</a>) com um tributado, é preciso descontar o imposto do tributado pela <a href=\"#tabela-regressiva\">tabela regressiva</a>, que depende do prazo. Um percentual maior não diz nada sobre o risco do emissor.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      },
+      {
+       "href": "indicadores/cdi-hoje.html",
+       "texto": "CDI hoje"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "ipca",
+     "termo": "IPCA",
+     "sinonimos": [
+      "inflação oficial",
+      "Índice Nacional de Preços ao Consumidor Amplo"
+     ],
+     "definicao": "<p>O <strong>IPCA</strong> é o índice oficial de inflação do Brasil, calculado e divulgado mensalmente pelo IBGE. Ele mede a variação de preços de uma cesta de bens e serviços consumidos pelas famílias nas principais áreas urbanas do país.</p><p>É o índice usado na meta de inflação definida pelo Conselho Monetário Nacional e perseguida pelo Banco Central, e é o indexador do <a href=\"#tesouro-ipca\">Tesouro IPCA+</a> e de muitos títulos privados. O número mais citado é o acumulado em <span class=\"num\">12</span> meses.</p>",
+     "links": [
+      {
+       "href": "indicadores/ipca-acumulado-12-meses.html",
+       "texto": "IPCA acumulado em 12 meses"
+      },
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro Direto"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "IBGE — IPCA",
+       "url": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidor-amplo.html"
+      }
+     ]
+    },
+    {
+     "id": "igp-m",
+     "termo": "IGP-M",
+     "sinonimos": [
+      "Índice Geral de Preços do Mercado",
+      "inflação do aluguel"
+     ],
+     "definicao": "<p>O <strong>IGP-M</strong> é um índice de inflação calculado pela Fundação Getulio Vargas (FGV). Combina preços ao produtor (o maior peso), ao consumidor e da construção civil, e por isso reage mais a câmbio e a matérias-primas do que o <a href=\"#ipca\">IPCA</a>.</p><p>É tradicionalmente usado para reajustar contratos de aluguel e algumas tarifas. Este site não publica o IGP-M porque ele não é oferecido como dado aberto no portal do Banco Central, de onde vêm os indicadores daqui; a fonte original é a FGV.</p>",
+     "links": [
+      {
+       "href": "indicadores.html",
+       "texto": "Indicadores publicados no site"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "FGV IBRE — Índices gerais de preços",
+       "url": "https://portalibre.fgv.br/"
+      }
+     ]
+    },
+    {
+     "id": "tr",
+     "termo": "TR",
+     "sinonimos": [
+      "Taxa Referencial"
+     ],
+     "definicao": "<p>A <strong>TR</strong>, Taxa Referencial, foi criada pela Lei nº 8.177/1991 e é calculada e divulgada pelo Banco Central. Hoje serve sobretudo de componente da remuneração da <a href=\"#poupanca\">poupança</a> e da correção do FGTS e de alguns financiamentos imobiliários.</p><p>Pela metodologia atual, a TR fica em zero ou muito perto de zero quando os juros estão baixos, e passou longos períodos zerada. Por isso a parte que realmente pesa no rendimento da poupança costuma ser a parcela fixa ou a ligada à Selic.</p>",
+     "links": [
+      {
+       "href": "indicadores/rendimento-da-poupanca.html",
+       "texto": "Rendimento da poupança"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 8.177/1991, art. 12 (remuneração da poupança e TR)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l8177.htm"
+      }
+     ]
+    },
+    {
+     "id": "ptax",
+     "termo": "PTAX",
+     "sinonimos": [
+      "dólar PTAX",
+      "taxa PTAX",
+      "euro PTAX"
+     ],
+     "definicao": "<p>A <strong>PTAX</strong> é a taxa de câmbio de referência calculada pelo Banco Central. Pela metodologia da Circular BCB nº 3.506/2010, o BC consulta as instituições que atuam no mercado de câmbio em <span class=\"num\">4</span> janelas ao longo do dia, e a PTAX é a média dessas cotações, divulgada com um valor de compra e um de venda.</p><p>Ela é usada para liquidar contratos, converter valores em declarações e calcular operações referenciadas em moeda estrangeira. Não é o preço que o turista paga numa casa de câmbio, que inclui spread e tarifas.</p>",
+     "links": [
+      {
+       "href": "indicadores/dolar-ptax-hoje.html",
+       "texto": "Dólar PTAX hoje"
+      },
+      {
+       "href": "indicadores/euro-ptax-hoje.html",
+       "texto": "Euro PTAX hoje"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Circular BCB nº 3.506/2010 (metodologia da PTAX)",
+       "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3506"
+      }
+     ]
+    },
+    {
+     "id": "indexador",
+     "termo": "Indexador",
+     "sinonimos": [
+      "índice de correção",
+      "referência de rentabilidade"
+     ],
+     "definicao": "<p><strong>Indexador</strong> é o índice que define como um investimento ou uma dívida é corrigido ao longo do tempo. Os mais comuns na renda fixa são o <a href=\"#cdi\">CDI</a>, a <a href=\"#selic\">Selic</a>, o <a href=\"#ipca\">IPCA</a> e, em contratos antigos ou de aluguel, o <a href=\"#igp-m\">IGP-M</a>.</p><p>Um título <strong>pós-fixado</strong> acompanha o indexador; um <strong>prefixado</strong> não tem indexador e fixa a taxa na compra; um <strong>híbrido</strong> soma uma taxa fixa a um índice de inflação, como no <a href=\"#ipca-mais\">IPCA+</a>.</p>",
+     "links": [
+      {
+       "href": "indicadores.html",
+       "texto": "Indicadores"
+      },
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro Direto"
+      }
+     ],
+     "fontes": []
+    }
+   ]
+  },
+  {
+   "id": "renda-fixa",
+   "nome": "Renda fixa",
+   "termos": [
+    {
+     "id": "renda-fixa",
+     "termo": "Renda fixa",
+     "sinonimos": [
+      "título de renda fixa",
+      "título de dívida"
+     ],
+     "definicao": "<p><strong>Renda fixa</strong> é o conjunto de investimentos em que a regra de remuneração é conhecida no momento da aplicação: uma taxa prefixada, um percentual de um índice ou uma combinação dos dois. Na prática, quem investe empresta dinheiro a um governo, banco ou empresa, que devolve com juros no <a href=\"#vencimento\">vencimento</a>.</p><p>“Fixa” não quer dizer sem risco nem sem oscilação: o emissor pode não pagar, e antes do vencimento o preço varia com a <a href=\"#marcacao-a-mercado\">marcação a mercado</a>. Exemplos: <a href=\"#tesouro-direto\">Tesouro Direto</a>, <a href=\"#cdb\">CDB</a>, <a href=\"#lci-lca\">LCI e LCA</a>, <a href=\"#debenture\">debêntures</a>.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      },
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro Direto"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "poupanca",
+     "termo": "Poupança",
+     "sinonimos": [
+      "caderneta de poupança",
+      "conta poupança"
+     ],
+     "definicao": "<p>A <strong>poupança</strong> rende, pela Lei nº 8.177/1991, art. 12: <a href=\"#tr\">TR</a> + <span class=\"num\">0,5%</span> ao mês enquanto a meta da <a href=\"#selic\">Selic</a> estiver acima de <span class=\"num\">8,5%</span> ao ano; quando estiver em 8,5% ou menos, rende <span class=\"num\">70%</span> da Selic meta mensalizada + TR. Essa regra, da Lei nº 12.703/2012, vale para depósitos feitos desde 04/05/2012.</p><p>O rendimento é creditado uma vez por mês, na <strong>data de aniversário</strong> de cada depósito; dinheiro sacado antes dela não rende naquele mês. Para pessoa física, o rendimento é isento de imposto de renda, e a poupança tem cobertura do <a href=\"#fgc\">FGC</a>.</p>",
+     "links": [
+      {
+       "href": "indicadores/rendimento-da-poupanca.html",
+       "texto": "Rendimento da poupança"
+      },
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 8.177/1991, art. 12 (remuneração da poupança e TR)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l8177.htm"
+      },
+      {
+       "nome": "Lei nº 8.981/1995, art. 68, III (isenção da poupança para pessoa física)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l8981.htm"
+      },
+      {
+       "nome": "FGC — Sobre a garantia",
+       "url": "https://www.fgc.org.br/sobre-garantia-fgc"
+      }
+     ]
+    },
+    {
+     "id": "cdb",
+     "termo": "CDB",
+     "sinonimos": [
+      "Certificado de Depósito Bancário"
+     ],
+     "definicao": "<p>O <strong>CDB</strong>, Certificado de Depósito Bancário, é um título emitido por bancos para captar dinheiro. Pode ser prefixado, atrelado ao <a href=\"#cdi\">CDI</a> (o mais comum) ou à inflação, e pode ter <a href=\"#liquidez-diaria\">liquidez diária</a> ou só no vencimento.</p><p>O rendimento paga imposto de renda pela <a href=\"#tabela-regressiva\">tabela regressiva</a>, retido na fonte, e <a href=\"#iof\">IOF</a> em resgates com menos de <span class=\"num\">30</span> dias. O CDB tem cobertura do <a href=\"#fgc\">FGC</a> até o limite por CPF e por instituição.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      },
+      {
+       "href": "guias/como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda.html",
+       "texto": "Como declarar renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "FGC — Sobre a garantia",
+       "url": "https://www.fgc.org.br/sobre-garantia-fgc"
+      }
+     ]
+    },
+    {
+     "id": "lci-lca",
+     "termo": "LCI e LCA",
+     "sinonimos": [
+      "Letra de Crédito Imobiliário",
+      "Letra de Crédito do Agronegócio"
+     ],
+     "definicao": "<p><strong>LCI</strong> (Letra de Crédito Imobiliário) e <strong>LCA</strong> (Letra de Crédito do Agronegócio) são títulos emitidos por bancos, com recursos destinados a financiar os setores imobiliário e do agronegócio. Para pessoa física, o rendimento é <strong>isento de imposto de renda</strong> (Lei nº 11.033/2004, art. 3º), e ambas têm cobertura do <a href=\"#fgc\">FGC</a>.</p><p>Pela Resolução CMN nº 5.215/2025, o prazo mínimo das LCI e LCA não atualizadas por índice de preços é de <span class=\"num\">6</span> meses: antes disso não há resgate. A Medida Provisória nº 1.303/2025, que propunha tributá-las, perdeu a vigência em 08/10/2025, e a isenção segue valendo.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      },
+      {
+       "href": "guias/como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda.html",
+       "texto": "Como declarar renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Resolução CMN nº 5.215/2025 (LCI e LCA)",
+       "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215"
+      },
+      {
+       "nome": "FGC — Sobre a garantia",
+       "url": "https://www.fgc.org.br/sobre-garantia-fgc"
+      }
+     ]
+    },
+    {
+     "id": "debenture",
+     "termo": "Debênture",
+     "sinonimos": [
+      "debêntures",
+      "debênture incentivada",
+      "título de dívida corporativa"
+     ],
+     "definicao": "<p><strong>Debênture</strong> é um título de dívida emitido por uma empresa (sociedade por ações) para captar recursos. Quem compra empresta à companhia e recebe juros, prefixados ou atrelados ao <a href=\"#cdi\">CDI</a> ou ao <a href=\"#ipca\">IPCA</a>, em <a href=\"#cupom\">cupons</a> ou no vencimento.</p><p>Debêntures <strong>não têm cobertura do <a href=\"#fgc\">FGC</a></strong>: o risco é o da empresa emissora. Em regra o rendimento segue a <a href=\"#tabela-regressiva\">tabela regressiva</a>; as <strong>incentivadas</strong>, que financiam projetos de infraestrutura enquadrados na Lei nº 12.431/2011, são isentas de IR para pessoa física.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 12.431/2011, art. 2º (debêntures incentivadas)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12431.htm"
+      },
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "FGC — Sobre a garantia",
+       "url": "https://www.fgc.org.br/sobre-garantia-fgc"
+      }
+     ]
+    },
+    {
+     "id": "cri-cra",
+     "termo": "CRI e CRA",
+     "sinonimos": [
+      "Certificado de Recebíveis Imobiliários",
+      "Certificado de Recebíveis do Agronegócio",
+      "securitização"
+     ],
+     "definicao": "<p><strong>CRI</strong> e <strong>CRA</strong> são títulos emitidos por companhias securitizadoras, lastreados em recebíveis: créditos imobiliários no CRI (aluguéis, financiamentos) e do agronegócio no CRA. Quem investe recebe o fluxo desses créditos, com a remuneração definida na emissão.</p><p>Para pessoa física, o rendimento é isento de imposto de renda (Lei nº 11.033/2004, art. 3º). Não há cobertura do <a href=\"#fgc\">FGC</a>: o risco depende da qualidade dos devedores e das garantias da operação, descritas nos documentos da oferta.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "FGC — Sobre a garantia",
+       "url": "https://www.fgc.org.br/sobre-garantia-fgc"
+      }
+     ]
+    },
+    {
+     "id": "fgc",
+     "termo": "FGC",
+     "sinonimos": [
+      "Fundo Garantidor de Créditos",
+      "garantia do FGC"
+     ],
+     "definicao": "<p>O <strong>FGC</strong>, Fundo Garantidor de Créditos, é uma entidade privada mantida pelas instituições financeiras que devolve ao investidor o dinheiro aplicado em certos produtos se a instituição quebrar. A garantia é de até R$ <span class=\"num\">250 mil</span> por CPF por instituição ou conglomerado, com teto global de R$ <span class=\"num\">1 milhão</span> a cada <span class=\"num\">4</span> anos.</p><p>Estão cobertos, entre outros, <a href=\"#cdb\">CDB</a>, <a href=\"#lci-lca\">LCI, LCA</a> e <a href=\"#poupanca\">poupança</a>. Não estão: títulos do <a href=\"#tesouro-direto\">Tesouro Direto</a> (dívida do governo federal, com outro tipo de risco), <a href=\"#cri-cra\">CRI, CRA</a>, <a href=\"#debenture\">debêntures</a>, ações e fundos.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "FGC — Sobre a garantia",
+       "url": "https://www.fgc.org.br/sobre-garantia-fgc"
+      }
+     ]
+    },
+    {
+     "id": "liquidez-diaria",
+     "termo": "Liquidez diária",
+     "sinonimos": [
+      "resgate a qualquer momento",
+      "D+0"
+     ],
+     "definicao": "<p>Um investimento tem <strong>liquidez diária</strong> quando pode ser resgatado em qualquer dia útil, total ou parcialmente, sem esperar o <a href=\"#vencimento\">vencimento</a>. Muitos <a href=\"#cdb\">CDBs</a>, a <a href=\"#poupanca\">poupança</a> e o <a href=\"#tesouro-selic\">Tesouro Selic</a> oferecem isso.</p><p>Liquidez diária não garante ausência de custo: em resgates com menos de <span class=\"num\">30</span> dias pode haver <a href=\"#iof\">IOF</a>, o imposto segue a <a href=\"#tabela-regressiva\">tabela regressiva</a>, e títulos com <a href=\"#marcacao-a-mercado\">marcação a mercado</a> podem ser vendidos por valor menor que o da compra. É uma característica central na <strong>reserva de emergência</strong>.</p>",
+     "links": [
+      {
+       "href": "calculadoras/reserva-de-emergencia.html",
+       "texto": "Calculadora de reserva de emergência"
+      },
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "vencimento",
+     "termo": "Vencimento",
+     "sinonimos": [
+      "data de vencimento",
+      "prazo do título"
+     ],
+     "definicao": "<p><strong>Vencimento</strong> é a data em que um título de renda fixa termina e o emissor devolve o valor combinado, com os juros. Quem fica com o título até essa data recebe exatamente a rentabilidade contratada, descontados impostos e taxas.</p><p>Vender antes do vencimento é possível em muitos títulos, mas o valor recebido é o preço de mercado daquele dia (ver <a href=\"#marcacao-a-mercado\">marcação a mercado</a>), que pode ser maior ou menor que o previsto. Títulos sem <a href=\"#liquidez-diaria\">liquidez diária</a> podem não ter saída antes do prazo.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Títulos do Tesouro e vencimentos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "cupom",
+     "termo": "Cupom",
+     "sinonimos": [
+      "juros semestrais",
+      "pagamento de juros periódicos"
+     ],
+     "definicao": "<p><strong>Cupom</strong> é o pagamento periódico de juros de um título de renda fixa antes do <a href=\"#vencimento\">vencimento</a>. Nos títulos do <a href=\"#tesouro-direto\">Tesouro</a> “com juros semestrais”, por exemplo, os juros caem na conta a cada seis meses, e o valor principal é devolvido no fim.</p><p>O cupom antecipa fluxo de caixa, mas cada pagamento é tributado na data em que acontece, pela <a href=\"#tabela-regressiva\">tabela regressiva</a> contada desde a compra. Títulos sem cupom pagam tudo de uma vez no vencimento. Debêntures, CRI e CRA também costumam ter cupom.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro Direto"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "pu",
+     "termo": "PU (preço unitário)",
+     "sinonimos": [
+      "preço unitário",
+      "preço do título"
+     ],
+     "definicao": "<p><strong>PU</strong>, ou preço unitário, é o preço de uma unidade de um título de renda fixa num dado dia. No <a href=\"#tesouro-direto\">Tesouro Direto</a>, cada título tem um PU de compra e um de venda divulgados diariamente.</p><p>O PU é o valor presente do que o título vai pagar, descontado pela taxa do dia. Por isso, quando a taxa sobe, o PU cai, e quando a taxa cai, o PU sobe. É essa relação que produz a <a href=\"#marcacao-a-mercado\">marcação a mercado</a>.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Preços e taxas do Tesouro Direto"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "marcacao-a-mercado",
+     "termo": "Marcação a mercado",
+     "sinonimos": [
+      "MaM",
+      "preço de mercado do título"
+     ],
+     "definicao": "<p><strong>Marcação a mercado</strong> é a atualização diária do preço de um título de renda fixa conforme as taxas negociadas no mercado naquele dia. Se as taxas sobem depois da compra, o <a href=\"#pu\">PU</a> cai; se as taxas caem, o PU sobe.</p><p>Quem mantém o título até o <a href=\"#vencimento\">vencimento</a> recebe a taxa contratada, e a oscilação no caminho não muda o resultado final. Quem vende antes recebe o preço marcado a mercado, que pode ser maior ou menor que o esperado. Títulos prefixados e atrelados à inflação de prazo longo são os mais sensíveis.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro Direto"
+      },
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "spread",
+     "termo": "Spread",
+     "sinonimos": [
+      "diferença entre compra e venda",
+      "spread de crédito"
+     ],
+     "definicao": "<p><strong>Spread</strong> é uma diferença entre duas taxas ou dois preços. No mercado, o sentido mais comum é a diferença entre o preço de compra e o de venda de um ativo ou de uma moeda: quanto maior o spread, mais caro é entrar e sair.</p><p>Em renda fixa, fala-se também em <strong>spread de crédito</strong>: a taxa adicional que um emissor privado paga acima de um título público de prazo parecido, para compensar o risco de não pagamento. Nos bancos, spread é a diferença entre o juro cobrado no empréstimo e o pago na captação.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Taxas de compra e venda do Tesouro"
+      }
+     ],
+     "fontes": []
+    }
+   ]
+  },
+  {
+   "id": "tesouro-direto",
+   "nome": "Tesouro Direto",
+   "termos": [
+    {
+     "id": "tesouro-direto",
+     "termo": "Tesouro Direto",
+     "sinonimos": [
+      "títulos públicos",
+      "TD"
+     ],
+     "definicao": "<p>O <strong>Tesouro Direto</strong> é o programa do Tesouro Nacional, operado com a <a href=\"#b3\">B3</a>, que permite a pessoas físicas comprar títulos da dívida pública federal pela internet, por meio de uma instituição financeira habilitada. Ao investir, a pessoa empresta dinheiro ao governo federal.</p><p>Os títulos principais são o <a href=\"#tesouro-selic\">Tesouro Selic</a>, o <a href=\"#tesouro-prefixado\">Tesouro Prefixado</a> e o <a href=\"#tesouro-ipca\">Tesouro IPCA+</a>. O Tesouro recompra os títulos em dias úteis, pelo preço de mercado. Há <a href=\"#taxa-de-custodia\">taxa de custódia</a> da B3, IR pela <a href=\"#tabela-regressiva\">tabela regressiva</a> e não há cobertura do <a href=\"#fgc\">FGC</a>.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Preços e taxas do Tesouro Direto"
+      },
+      {
+       "href": "guias/como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda.html",
+       "texto": "Como declarar Tesouro Direto"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "tesouro-selic",
+     "termo": "Tesouro Selic",
+     "sinonimos": [
+      "LFT",
+      "Letra Financeira do Tesouro"
+     ],
+     "definicao": "<p>O <strong>Tesouro Selic</strong> (tecnicamente, LFT) é o título público pós-fixado que acompanha a taxa <a href=\"#selic\">Selic</a> diária. É o título do Tesouro que menos oscila de preço com a <a href=\"#marcacao-a-mercado\">marcação a mercado</a>, porque a rentabilidade se ajusta sozinha quando os juros mudam.</p><p>O preço pode ter pequenas variações conforme o ágio ou deságio negociado sobre a Selic. Pela tabela de tarifas da B3, o Tesouro Selic é isento de <a href=\"#taxa-de-custodia\">taxa de custódia</a> para saldos até R$ <span class=\"num\">10 mil</span> por CPF. O IR segue a <a href=\"#tabela-regressiva\">tabela regressiva</a>.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Preço do Tesouro Selic"
+      },
+      {
+       "href": "indicadores/selic-hoje.html",
+       "texto": "Selic hoje"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "B3 — Tarifas do Tesouro Direto",
+       "url": "https://www.b3.com.br/pt_br/produtos-e-servicos/tarifas/tarifas-de-tesouro-direto/"
+      }
+     ]
+    },
+    {
+     "id": "tesouro-prefixado",
+     "termo": "Tesouro Prefixado",
+     "sinonimos": [
+      "LTN",
+      "NTN-F",
+      "Tesouro Prefixado com Juros Semestrais"
+     ],
+     "definicao": "<p>O <strong>Tesouro Prefixado</strong> é o título público com taxa fixa definida na compra: quem leva até o <a href=\"#vencimento\">vencimento</a> sabe exatamente quanto vai receber por título antes do imposto. Existe na versão sem <a href=\"#cupom\">cupom</a> (LTN), que paga tudo no fim, e na versão com juros semestrais (NTN-F).</p><p>Antes do vencimento o preço varia bastante com a <a href=\"#marcacao-a-mercado\">marcação a mercado</a>. Se a <a href=\"#inflacao\">inflação</a> ficar acima do esperado, a <a href=\"#rentabilidade-real\">rentabilidade real</a> diminui, porque a taxa não se ajusta.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Taxas do Tesouro Prefixado"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "tesouro-ipca",
+     "termo": "Tesouro IPCA+",
+     "sinonimos": [
+      "NTN-B",
+      "NTN-B Principal",
+      "Tesouro IPCA+ com Juros Semestrais"
+     ],
+     "definicao": "<p>O <strong>Tesouro IPCA+</strong> é o título público que paga a variação do <a href=\"#ipca\">IPCA</a> mais uma taxa fixa definida na compra (ver <a href=\"#ipca-mais\">IPCA+</a>). Tem a versão sem <a href=\"#cupom\">cupom</a> (NTN-B Principal) e a com juros semestrais (NTN-B).</p><p>Levado até o <a href=\"#vencimento\">vencimento</a>, entrega a inflação do período mais a taxa contratada. Antes disso, por ter prazos longos, é um dos títulos que mais oscilam com a <a href=\"#marcacao-a-mercado\">marcação a mercado</a>.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Taxas do Tesouro IPCA+"
+      },
+      {
+       "href": "indicadores/ipca-acumulado-12-meses.html",
+       "texto": "IPCA acumulado em 12 meses"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "ipca-mais",
+     "termo": "IPCA+ (taxa real)",
+     "sinonimos": [
+      "IPCA mais",
+      "IPCA + X%",
+      "juro real"
+     ],
+     "definicao": "<p><strong>IPCA+</strong> é a forma de expressar uma remuneração híbrida: a variação do <a href=\"#ipca\">IPCA</a> no período mais uma taxa fixa ao ano, chamada de taxa real. “IPCA + <span class=\"num\">6%</span>” significa que, além de repor a inflação medida pelo IBGE, o título rende 6% ao ano.</p><p>As duas partes se combinam multiplicando, não somando: (1 + IPCA) × (1 + taxa real) − 1. Esse formato aparece no <a href=\"#tesouro-ipca\">Tesouro IPCA+</a>, em <a href=\"#debenture\">debêntures</a>, <a href=\"#cri-cra\">CRI e CRA</a> e em alguns CDBs.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro IPCA+"
+      },
+      {
+       "href": "indicadores/ipca-acumulado-12-meses.html",
+       "texto": "IPCA acumulado em 12 meses"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "taxa-de-custodia",
+     "termo": "Taxa de custódia",
+     "sinonimos": [
+      "custódia da B3",
+      "taxa de custódia do Tesouro Direto"
+     ],
+     "definicao": "<p><strong>Taxa de custódia</strong> é o valor cobrado para guardar e registrar os ativos em nome do investidor. No <a href=\"#tesouro-direto\">Tesouro Direto</a>, a <a href=\"#b3\">B3</a> cobra <span class=\"num\">0,20%</span> ao ano sobre o valor dos títulos, calculada proporcionalmente ao tempo.</p><p>Pela tabela de tarifas da B3, o <a href=\"#tesouro-selic\">Tesouro Selic</a> é isento dessa taxa para saldos até R$ <span class=\"num\">10 mil</span> por CPF. A instituição financeira também pode cobrar uma taxa própria; muitas não cobram. As taxas reduzem a rentabilidade líquida e entram na comparação com outros investimentos.</p>",
+     "links": [
+      {
+       "href": "tesouro-direto.html",
+       "texto": "Tesouro Direto"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "B3 — Tarifas do Tesouro Direto",
+       "url": "https://www.b3.com.br/pt_br/produtos-e-servicos/tarifas/tarifas-de-tesouro-direto/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acoes-e-bolsa",
+   "nome": "Ações e bolsa",
+   "termos": [
+    {
+     "id": "renda-variavel",
+     "termo": "Renda variável",
+     "sinonimos": [
+      "ativos de risco",
+      "mercado de ações"
+     ],
+     "definicao": "<p><strong>Renda variável</strong> é o grupo de investimentos cujo retorno não é conhecido na compra, porque depende do preço de mercado e dos resultados do ativo. Inclui ações, <a href=\"#fii\">fundos imobiliários</a>, <a href=\"#etf\">ETFs</a>, <a href=\"#bdr\">BDRs</a> e derivativos.</p><p>Os preços oscilam todos os dias (ver <a href=\"#volatilidade\">volatilidade</a>), e o investimento pode ter perda. A tributação também é diferente da <a href=\"#renda-fixa\">renda fixa</a>: na bolsa, o próprio investidor apura o imposto do mês e paga por <a href=\"#darf\">DARF</a>.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações e ativos acompanhados"
+      },
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "b3",
+     "termo": "B3",
+     "sinonimos": [
+      "Brasil, Bolsa, Balcão",
+      "bolsa de valores brasileira",
+      "BM&FBovespa"
+     ],
+     "definicao": "<p>A <strong>B3</strong> (Brasil, Bolsa, Balcão) é a bolsa de valores do Brasil. Nasceu em 2017 da união da BM&amp;FBovespa com a Cetip e reúne a negociação de ações, fundos listados, derivativos e títulos, além de serviços de registro, compensação e custódia.</p><p>É a B3 que calcula a taxa DI (o <a href=\"#cdi\">CDI</a>), índices como o <a href=\"#ibovespa\">Ibovespa</a> e o <a href=\"#ifix\">IFIX</a>, e que opera a custódia do <a href=\"#tesouro-direto\">Tesouro Direto</a>. O investidor acessa a bolsa sempre por meio de uma <a href=\"#corretora\">corretora</a>.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ativos negociados na B3"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "B3 — Brasil, Bolsa, Balcão",
+       "url": "https://www.b3.com.br/"
+      }
+     ]
+    },
+    {
+     "id": "cvm",
+     "termo": "CVM",
+     "sinonimos": [
+      "Comissão de Valores Mobiliários"
+     ],
+     "definicao": "<p>A <strong>CVM</strong>, Comissão de Valores Mobiliários, é a autarquia federal criada pela Lei nº 6.385/1976 para regular e fiscalizar o mercado de valores mobiliários: companhias abertas, fundos de investimento, ofertas públicas, analistas, consultores e intermediários.</p><p>As companhias abertas entregam à CVM suas demonstrações financeiras e fatos relevantes, que ficam disponíveis como dados abertos. É também à CVM que se pode consultar se uma pessoa ou empresa tem autorização para oferecer investimentos.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ativos e dados de companhias"
+      },
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "O que é P/L"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 6.385/1976 (cria a CVM)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l6385original.htm"
+      }
+     ]
+    },
+    {
+     "id": "corretora",
+     "termo": "Corretora",
+     "sinonimos": [
+      "corretora de valores",
+      "distribuidora",
+      "intermediário"
+     ],
+     "definicao": "<p><strong>Corretora</strong> é a instituição financeira autorizada a intermediar a compra e a venda de ativos na <a href=\"#b3\">B3</a> e a distribuir produtos como títulos do <a href=\"#tesouro-direto\">Tesouro Direto</a>, CDBs e fundos. Ela executa as ordens do cliente e mantém os ativos registrados em nome dele.</p><p>Os ativos ficam em custódia no nome do investidor, separados do patrimônio da corretora. Antes de abrir conta, é possível conferir se a instituição tem autorização no Banco Central e na <a href=\"#cvm\">CVM</a>. Corretagem e outras tarifas variam de uma para outra.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ativos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "home-broker",
+     "termo": "Home broker",
+     "sinonimos": [
+      "plataforma de negociação",
+      "HB"
+     ],
+     "definicao": "<p><strong>Home broker</strong> é o sistema da <a href=\"#corretora\">corretora</a>, no site ou no aplicativo, por onde o investidor envia ordens de compra e de venda de ativos negociados na <a href=\"#b3\">B3</a>. A ordem pode ser a mercado (executada pelo melhor preço disponível) ou limitada (só executa no preço definido ou melhor).</p><p>O home broker mostra cotações, livro de ofertas e extrato de operações. As notas de corretagem geradas pelas operações são a base para calcular o <a href=\"#preco-medio\">preço médio</a> e o imposto.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Cotações de ativos"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "pregao",
+     "termo": "Pregão",
+     "sinonimos": [
+      "sessão de negociação",
+      "horário de negociação"
+     ],
+     "definicao": "<p><strong>Pregão</strong> é a sessão diária de negociação da bolsa, em que as ordens de compra e venda se encontram e viram negócios. Hoje é totalmente eletrônico. Antes da abertura e no fim há fases de leilão, em que ordens são acumuladas para formar o preço de abertura e o de fechamento.</p><p>O preço de <strong>fechamento</strong> de cada pregão é o usado na maioria das séries históricas, inclusive nas cotações deste site. Não há pregão em fins de semana e nos feriados da bolsa.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Cotações de fechamento"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "ticker",
+     "termo": "Ticker (código de negociação)",
+     "sinonimos": [
+      "código do ativo",
+      "código de negociação",
+      "símbolo"
+     ],
+     "definicao": "<p><strong>Ticker</strong> é o código com que um ativo é negociado na bolsa. Na <a href=\"#b3\">B3</a>, ele tem quatro letras que identificam o emissor e um número que identifica o tipo: em geral <span class=\"num\">3</span> para ação ordinária, <span class=\"num\">4</span> para preferencial, <span class=\"num\">5</span> e <span class=\"num\">6</span> para classes de preferenciais e <span class=\"num\">11</span> para units, <a href=\"#fii\">FIIs</a> e <a href=\"#etf\">ETFs</a>. <a href=\"#bdr\">BDRs</a> costumam terminar em 32 a 35 ou 39.</p><p>No <a href=\"#mercado-fracionario\">mercado fracionário</a> o código ganha um F no fim. O ticker pode mudar com reestruturações; o identificador estável é o <a href=\"#isin\">ISIN</a>.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Lista de ativos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "isin",
+     "termo": "ISIN",
+     "sinonimos": [
+      "código ISIN",
+      "International Securities Identification Number"
+     ],
+     "definicao": "<p><strong>ISIN</strong> é o código internacional de identificação de um valor mobiliário, padronizado pela norma ISO 6166. Tem <span class=\"num\">12</span> caracteres: duas letras do país (BR no Brasil), nove caracteres que identificam o emissor e o ativo, e um dígito verificador.</p><p>Diferentemente do <a href=\"#ticker\">ticker</a>, que é o apelido de negociação e pode mudar, o ISIN identifica o papel de forma única. Ele aparece em extratos de custódia, informes e é útil para conferir se dois códigos se referem ao mesmo ativo.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ativos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "acoes-on-pn",
+     "termo": "Ações ordinárias e preferenciais (ON e PN)",
+     "sinonimos": [
+      "ON",
+      "PN",
+      "ação ordinária",
+      "ação preferencial",
+      "units"
+     ],
+     "definicao": "<p>A Lei das S.A. divide as ações em espécies. A <strong>ordinária (ON)</strong> dá direito a voto nas assembleias. A <strong>preferencial (PN)</strong> em geral não vota ou vota de forma restrita, e em troca tem alguma vantagem prevista no estatuto, como prioridade no recebimento de dividendos ou dividendo maior.</p><p>Na <a href=\"#b3\">B3</a>, ON costuma terminar em 3 e PN em 4 (ver <a href=\"#ticker\">ticker</a>). <strong>Units</strong> são pacotes de ações de espécies diferentes da mesma empresa, negociados como um só ativo, com final 11.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 6.404/1976 (Lei das S.A.)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l6404consol.htm"
+      }
+     ]
+    },
+    {
+     "id": "mercado-fracionario",
+     "termo": "Mercado fracionário e lote padrão",
+     "sinonimos": [
+      "lote padrão",
+      "fracionário",
+      "lote de 100 ações"
+     ],
+     "definicao": "<p>Na <a href=\"#b3\">B3</a>, as ações são negociadas no mercado à vista em <strong>lote padrão</strong>, em geral de <span class=\"num\">100</span> ações. Quantidades menores, de <span class=\"num\">1</span> a <span class=\"num\">99</span>, vão para o <strong>mercado fracionário</strong>, identificado por um F no fim do <a href=\"#ticker\">ticker</a>.</p><p>O fracionário permite investir valores pequenos. O preço costuma ser próximo ao do lote padrão, mas pode ter <a href=\"#liquidez\">liquidez</a> menor e <a href=\"#spread\">spread</a> maior. Para efeito de imposto e <a href=\"#preco-medio\">preço médio</a>, é a mesma ação.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "ipo",
+     "termo": "IPO",
+     "sinonimos": [
+      "oferta pública inicial",
+      "abertura de capital",
+      "estreia na bolsa"
+     ],
+     "definicao": "<p><strong>IPO</strong> (do inglês <em>initial public offering</em>) é a oferta pública inicial: o momento em que uma empresa vende ações ao público pela primeira vez e passa a ser negociada na bolsa. A operação é registrada na <a href=\"#cvm\">CVM</a> e acompanhada de um prospecto com informações sobre o negócio, os riscos e o uso dos recursos.</p><p>O IPO pode ser <strong>primário</strong>, quando o dinheiro vai para a empresa, ou <strong>secundário</strong>, quando acionistas atuais vendem parte de suas ações. Ofertas posteriores de quem já está listado são chamadas de follow-on.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações listadas"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "free-float",
+     "termo": "Free float",
+     "sinonimos": [
+      "ações em circulação",
+      "ações em livre circulação"
+     ],
+     "definicao": "<p><strong>Free float</strong> é a parcela das ações de uma empresa que está em livre circulação no mercado, excluindo as que pertencem ao controlador, a administradores e as mantidas em tesouraria. Costuma ser expresso em percentual do total de ações.</p><p>Um free float maior tende a dar mais <a href=\"#liquidez\">liquidez</a> ao papel e reduz o peso de poucos acionistas na formação do preço. Índices como o <a href=\"#ibovespa\">Ibovespa</a> ponderam as empresas pelo valor das ações em circulação, não pelo <a href=\"#valor-de-mercado\">valor de mercado</a> total.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "valor-de-mercado",
+     "termo": "Valor de mercado",
+     "sinonimos": [
+      "capitalização de mercado",
+      "market cap"
+     ],
+     "definicao": "<p><strong>Valor de mercado</strong> é quanto a bolsa atribui a uma empresa num dado momento: o preço da ação multiplicado pelo número total de ações. Quando há mais de uma espécie (ON e PN), soma-se cada uma pelo seu preço.</p><p>É diferente do <a href=\"#valor-patrimonial\">valor patrimonial</a>, que vem do balanço. A relação entre os dois é o <a href=\"#p-vp\">P/VP</a>; a relação entre o valor de mercado e o lucro anual é o <a href=\"#p-l\">P/L</a>.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "O que é P/L"
+      },
+      {
+       "href": "ativos.html",
+       "texto": "Ações"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "ibovespa",
+     "termo": "Ibovespa",
+     "sinonimos": [
+      "Índice Bovespa",
+      "IBOV"
+     ],
+     "definicao": "<p>O <strong>Ibovespa</strong> é o principal índice de ações da <a href=\"#b3\">B3</a>. Ele mede o desempenho de uma carteira teórica formada pelas ações mais negociadas da bolsa, ponderadas pelo valor das ações em circulação (<a href=\"#free-float\">free float</a>), com limites de peso.</p><p>A carteira é revista a cada quatro meses, quando entram e saem empresas conforme critérios de negociação definidos pela B3. O índice é usado como <a href=\"#benchmark\">benchmark</a> de fundos de ações e de <a href=\"#etf\">ETFs</a> que buscam replicá-lo.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações e índices"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "B3 — Brasil, Bolsa, Balcão",
+       "url": "https://www.b3.com.br/"
+      }
+     ]
+    },
+    {
+     "id": "ifix",
+     "termo": "IFIX",
+     "sinonimos": [
+      "Índice de Fundos de Investimentos Imobiliários"
+     ],
+     "definicao": "<p>O <strong>IFIX</strong> é o índice da <a href=\"#b3\">B3</a> que acompanha o desempenho de uma carteira teórica de <a href=\"#fii\">fundos imobiliários</a> negociados na bolsa, selecionados por critérios de negociação e ponderados pelo valor de mercado.</p><p>É um índice de retorno total: considera tanto a variação das cotas quanto os rendimentos distribuídos, como se fossem reinvestidos. Serve de <a href=\"#benchmark\">benchmark</a> para fundos e carteiras de FIIs.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Fundos imobiliários"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "B3 — Brasil, Bolsa, Balcão",
+       "url": "https://www.b3.com.br/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "proventos-e-eventos",
+   "nome": "Proventos e eventos corporativos",
+   "termos": [
+    {
+     "id": "dividendos",
+     "termo": "Dividendos",
+     "sinonimos": [
+      "proventos",
+      "distribuição de lucros"
+     ],
+     "definicao": "<p><strong>Dividendos</strong> são a parte do lucro que uma empresa distribui aos acionistas em dinheiro, proporcionalmente às ações de cada um. A Lei das S.A. prevê um dividendo mínimo obrigatório, fixado no estatuto (ver <a href=\"#payout\">payout</a>).</p><p>Para pessoa física, dividendos são isentos até R$ <span class=\"num\">50 mil</span> por mês pagos por uma mesma empresa. Desde janeiro de 2026, quando uma mesma empresa paga mais que isso à mesma pessoa no mês, há retenção de <span class=\"num\">10%</span> sobre o total do mês (Lei nº 15.270/2025). Quem tem direito é quem tinha a ação na <a href=\"#data-com\">data com</a>.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-dividend-yield.html",
+       "texto": "O que é dividend yield"
+      },
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 15.270/2025 (art. 6º-A da Lei nº 9.250/1995: dividendos acima de R$ 50 mil por mês)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+      },
+      {
+       "nome": "Lei nº 6.404/1976 (Lei das S.A.)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l6404consol.htm"
+      }
+     ]
+    },
+    {
+     "id": "jcp",
+     "termo": "JCP (juros sobre capital próprio)",
+     "sinonimos": [
+      "juros sobre capital próprio",
+      "JSCP"
+     ],
+     "definicao": "<p><strong>JCP</strong>, juros sobre capital próprio, é uma forma de a empresa remunerar os acionistas que, diferentemente dos <a href=\"#dividendos\">dividendos</a>, é considerada despesa para a companhia e reduz o imposto que ela paga. Para o acionista, o efeito é parecido: dinheiro na conta, proporcional às ações.</p><p>Desde 01/01/2026, o JCP tem <span class=\"num\">17,5%</span> de imposto retido na fonte (eram 15%), pela Lei Complementar nº 224/2025. A tributação é exclusiva: o valor anunciado como bruto chega líquido, e não há mais nada a pagar sobre ele.</p>",
+     "links": [
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      },
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei Complementar nº 224/2025 (JCP a 17,5%)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/Lcp224.htm"
+      }
+     ]
+    },
+    {
+     "id": "data-com",
+     "termo": "Data com",
+     "sinonimos": [
+      "data de corte",
+      "último dia com direito"
+     ],
+     "definicao": "<p><strong>Data com</strong> é o último dia em que quem compra a ação ainda tem direito a um provento já anunciado, como <a href=\"#dividendos\">dividendos</a>, <a href=\"#jcp\">JCP</a> ou <a href=\"#bonificacao\">bonificação</a>. Vale a posição ao fim do pregão dessa data.</p><p>Comprar na data com garante o direito mesmo que a liquidação financeira da compra só aconteça dias depois. O pagamento em si vem mais tarde, na <strong>data de pagamento</strong> anunciada pela empresa, que pode estar semanas ou meses à frente. O dia seguinte é a <a href=\"#data-ex\">data ex</a>.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-dividend-yield.html",
+       "texto": "O que é dividend yield"
+      },
+      {
+       "href": "ativos.html",
+       "texto": "Ativos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "data-ex",
+     "termo": "Data ex",
+     "sinonimos": [
+      "ex-dividendos",
+      "ex-direito"
+     ],
+     "definicao": "<p><strong>Data ex</strong> é o primeiro pregão depois da <a href=\"#data-com\">data com</a>. A partir dela, a ação é negociada sem o direito ao provento anunciado: quem compra na data ex não recebe aquele pagamento.</p><p>Na data ex, a cotação costuma ser ajustada para baixo em valor próximo ao do provento, porque esse dinheiro sairá do caixa da empresa. Por isso comprar na data com e vender na data ex, por si só, não gera ganho garantido. Nos <a href=\"#fii\">FIIs</a> a mesma lógica vale para os rendimentos mensais.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-dividend-yield.html",
+       "texto": "O que é dividend yield"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "desdobramento",
+     "termo": "Desdobramento (split)",
+     "sinonimos": [
+      "split",
+      "desdobro"
+     ],
+     "definicao": "<p><strong>Desdobramento</strong> é a divisão de cada ação em mais ações, sem mudar o valor total da empresa nem o investimento de ninguém. Num desdobramento de 1 para 2, quem tinha <span class=\"num\">100</span> ações a R$ <span class=\"num\">40</span> passa a ter 200 a cerca de R$ 20.</p><p>Para o imposto de renda, as ações recebidas têm custo zero: aumenta só a quantidade e o custo total fica igual, de modo que o <a href=\"#preco-medio\">preço médio</a> por ação cai na mesma proporção (Receita Federal, pergunta 722). O inverso é o <a href=\"#grupamento\">grupamento</a>.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "grupamento",
+     "termo": "Grupamento (inplit)",
+     "sinonimos": [
+      "inplit",
+      "reverse split",
+      "agrupamento de ações"
+     ],
+     "definicao": "<p><strong>Grupamento</strong> é a junção de várias ações em uma só, o oposto do <a href=\"#desdobramento\">desdobramento</a>. Num grupamento de 10 para 1, quem tinha <span class=\"num\">1.000</span> ações a R$ <span class=\"num\">0,50</span> passa a ter 100 a cerca de R$ 5,00. O valor total da posição não muda.</p><p>Empresas costumam grupar quando a cotação fica muito baixa. Para o imposto, o custo total se mantém e o <a href=\"#preco-medio\">preço médio</a> por ação sobe na mesma proporção. Frações que sobram são em geral vendidas em leilão e o valor repassado ao acionista.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "bonificacao",
+     "termo": "Bonificação",
+     "sinonimos": [
+      "ações bonificadas",
+      "bonificação em ações"
+     ],
+     "definicao": "<p><strong>Bonificação</strong> é a distribuição gratuita de novas ações aos acionistas quando a empresa incorpora lucros ou reservas ao capital social. Quem tinha ações na <a href=\"#data-com\">data com</a> recebe ações novas na proporção anunciada.</p><p>Diferente do <a href=\"#desdobramento\">desdobramento</a>, a bonificação tem custo para o imposto: o custo de aquisição das ações recebidas é o valor do lucro ou da reserva capitalizado que corresponde ao acionista, informado pela empresa (Receita Federal, pergunta 721). Esse valor entra no <a href=\"#preco-medio\">preço médio</a>.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "subscricao",
+     "termo": "Subscrição",
+     "sinonimos": [
+      "direito de subscrição",
+      "aumento de capital",
+      "direito de preferência"
+     ],
+     "definicao": "<p><strong>Subscrição</strong> é a emissão de novas ações por uma empresa que já está na bolsa para levantar dinheiro, num aumento de capital. Os acionistas atuais têm, em regra, <strong>direito de preferência</strong> para comprar as novas ações na proporção do que já têm, pelo preço definido na emissão.</p><p>Esse direito pode ser exercido (pagando pelas ações), vendido na bolsa durante o prazo ou simplesmente não usado, caso em que expira. Quem não acompanha pode ter a participação diluída. As regras estão na Lei das S.A.; os prazos, no aviso da empresa.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 6.404/1976 (Lei das S.A.)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l6404consol.htm"
+      }
+     ]
+    },
+    {
+     "id": "payout",
+     "termo": "Payout",
+     "sinonimos": [
+      "índice de distribuição",
+      "taxa de distribuição de lucros"
+     ],
+     "definicao": "<p><strong>Payout</strong> é a fração do lucro líquido que a empresa distribui aos acionistas como <a href=\"#dividendos\">dividendos</a> e <a href=\"#jcp\">JCP</a>. Fórmula: <strong>payout = proventos distribuídos ÷ lucro líquido</strong>. Um payout de <span class=\"num\">40%</span> significa que 40% do lucro foi pago e 60% ficou na empresa.</p><p>Pela Lei das S.A. (art. 202), o estatuto fixa um dividendo mínimo obrigatório; se for omisso, é de <span class=\"num\">25%</span> do lucro líquido ajustado. Payout alto não é bom nem ruim por si: depende de quanto a empresa precisa reinvestir.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-dividend-yield.html",
+       "texto": "O que é dividend yield"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 6.404/1976 (Lei das S.A.)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l6404consol.htm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fundos-e-fiis",
+   "nome": "Fundos, FIIs, ETFs e BDRs",
+   "termos": [
+    {
+     "id": "fundo-de-investimento",
+     "termo": "Fundo de investimento",
+     "sinonimos": [
+      "fundo",
+      "condomínio de investimento"
+     ],
+     "definicao": "<p>Um <strong>fundo de investimento</strong> reúne o dinheiro de muitos investidores numa carteira única, administrada por profissionais e regulada pela <a href=\"#cvm\">CVM</a>. Cada investidor tem <a href=\"#cota\">cotas</a>, e o valor da cota acompanha o resultado da carteira.</p><p>Há fundos de renda fixa, de ações, multimercado, cambiais, imobiliários (<a href=\"#fii\">FII</a>) e de índice (<a href=\"#etf\">ETF</a>), cada um com tributação própria. Os custos principais são a <a href=\"#taxa-de-administracao\">taxa de administração</a> e, em alguns, a <a href=\"#taxa-de-performance\">taxa de performance</a>. Fundos não têm cobertura do <a href=\"#fgc\">FGC</a>.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Ativos e fundos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "cota",
+     "termo": "Cota",
+     "sinonimos": [
+      "cota de fundo",
+      "valor da cota"
+     ],
+     "definicao": "<p><strong>Cota</strong> é a fração em que o patrimônio de um <a href=\"#fundo-de-investimento\">fundo</a> é dividido. Quem aplica compra cotas pelo valor do dia; o valor da cota é o patrimônio líquido do fundo dividido pelo número de cotas.</p><p>Em fundos abertos, cotas são emitidas e resgatadas diretamente com o fundo. Em fundos fechados listados, como a maioria dos <a href=\"#fii\">FIIs</a> e os <a href=\"#etf\">ETFs</a>, as cotas são compradas e vendidas na bolsa entre investidores, e o preço de mercado pode ficar acima ou abaixo do valor patrimonial da cota.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Fundos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "taxa-de-administracao",
+     "termo": "Taxa de administração",
+     "sinonimos": [
+      "taxa de gestão",
+      "taxa global"
+     ],
+     "definicao": "<p><strong>Taxa de administração</strong> é o percentual anual cobrado por um <a href=\"#fundo-de-investimento\">fundo</a> para remunerar a administração e a gestão da carteira. É expressa ao ano, mas descontada diariamente do patrimônio, já embutida no valor da <a href=\"#cota\">cota</a> divulgado.</p><p>Por ser cobrada sobre o patrimônio, ela incide mesmo quando o fundo não rende. Numa carteira de renda fixa, uma taxa de <span class=\"num\">1%</span> ao ano consome uma parte relevante do rendimento; por isso a comparação entre fundos deve usar a rentabilidade líquida de taxas.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "taxa-de-performance",
+     "termo": "Taxa de performance",
+     "sinonimos": [
+      "taxa de desempenho",
+      "performance fee"
+     ],
+     "definicao": "<p><strong>Taxa de performance</strong> é uma cobrança adicional de alguns <a href=\"#fundo-de-investimento\">fundos</a> sobre o rendimento que ultrapassar um <a href=\"#benchmark\">benchmark</a> definido no regulamento, como o <a href=\"#cdi\">CDI</a> ou o <a href=\"#ibovespa\">Ibovespa</a>. Um formato comum é cobrar <span class=\"num\">20%</span> do que exceder o índice.</p><p>Em geral há uma <strong>linha d'água</strong>: se o fundo perdeu num período, precisa recuperar a perda antes de voltar a cobrar. As regras exatas estão no regulamento e na lâmina de cada fundo.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Fundos"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "come-cotas",
+     "termo": "Come-cotas",
+     "sinonimos": [
+      "tributação semestral de fundos",
+      "IR antecipado de fundos"
+     ],
+     "definicao": "<p><strong>Come-cotas</strong> é a antecipação do imposto de renda de fundos sujeitos à tributação periódica: no último dia útil de <strong>maio</strong> e de <strong>novembro</strong>, o imposto sobre o rendimento do período é cobrado reduzindo o número de <a href=\"#cota\">cotas</a> do investidor. A alíquota é de <span class=\"num\">15%</span> nos fundos de longo prazo e <span class=\"num\">20%</span> nos de curto prazo; no resgate se cobra a diferença até a alíquota da <a href=\"#tabela-regressiva\">tabela</a>.</p><p>Desde 2024, a Lei nº 14.754/2023 estendeu o come-cotas a fundos fechados. Fundos de ações e <a href=\"#fii\">FIIs</a> não têm come-cotas.</p>",
+     "links": [
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR nos investimentos"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Lei nº 14.754/2023 (tributação de fundos, inclusive come-cotas em fundos fechados)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm"
+      }
+     ]
+    },
+    {
+     "id": "fii",
+     "termo": "FII (fundo imobiliário)",
+     "sinonimos": [
+      "fundo de investimento imobiliário",
+      "fundo imobiliário"
+     ],
+     "definicao": "<p>Um <strong>FII</strong> é um fundo que investe em imóveis (lajes, galpões, shoppings) ou em títulos ligados ao setor, como <a href=\"#cri-cra\">CRI</a>. As <a href=\"#cota\">cotas</a> são negociadas na bolsa, e o fundo distribui ao menos <span class=\"num\">95%</span> dos lucros apurados em cada semestre (Lei nº 8.668/1993), em geral mensalmente.</p><p>Os rendimentos são isentos de IR para pessoa física se as cotas forem negociadas só em bolsa ou balcão organizado, o fundo tiver no mínimo <span class=\"num\">100</span> cotistas, o investidor tiver menos de <span class=\"num\">10%</span> das cotas e o grupo ligado menos de <span class=\"num\">30%</span>. O lucro na venda de cotas paga <span class=\"num\">20%</span>, sem a <a href=\"#isencao-20-mil\">isenção de R$ 20 mil</a>.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-fundos-imobiliarios-no-imposto-de-renda.html",
+       "texto": "Como declarar FIIs"
+      },
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 8.668/1993 (fundos de investimento imobiliário)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l8668.htm"
+      },
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Lei nº 14.754/2023 (tributação de fundos, inclusive come-cotas em fundos fechados)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm"
+      }
+     ]
+    },
+    {
+     "id": "vacancia",
+     "termo": "Vacância",
+     "sinonimos": [
+      "vacância física",
+      "vacância financeira",
+      "taxa de ocupação"
+     ],
+     "definicao": "<p><strong>Vacância</strong> é a parte dos imóveis de um <a href=\"#fii\">fundo imobiliário</a> que está sem inquilino. A <strong>vacância física</strong> mede a área vaga sobre a área total; a <strong>vacância financeira</strong> mede a receita de aluguel que deixa de entrar, considerando também inadimplência e carências.</p><p>Vacância maior significa menos receita e, em geral, menos rendimento distribuído, além dos custos de condomínio e IPTU que o fundo passa a arcar. Os números aparecem nos relatórios gerenciais e informes mensais publicados pelos fundos.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-fundos-imobiliarios-no-imposto-de-renda.html",
+       "texto": "Fundos imobiliários no IR"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "etf",
+     "termo": "ETF (fundo de índice)",
+     "sinonimos": [
+      "fundo de índice",
+      "exchange traded fund"
+     ],
+     "definicao": "<p>Um <strong>ETF</strong> é um fundo de índice negociado na bolsa como uma ação. Ele busca replicar o desempenho de um índice, como o <a href=\"#ibovespa\">Ibovespa</a>, um índice internacional ou um índice de renda fixa. Com uma única <a href=\"#cota\">cota</a>, o investidor fica exposto a toda a carteira do índice.</p><p>A <a href=\"#isencao-20-mil\">isenção de R$ 20 mil</a> nas vendas mensais <strong>não vale</strong> para ETFs, e cada tipo de ETF (ações ou renda fixa) tem regra de tributação própria. Os custos são a <a href=\"#taxa-de-administracao\">taxa de administração</a> e a corretagem.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-bdrs-e-etfs-no-imposto-de-renda.html",
+       "texto": "Como declarar ETFs"
+      },
+      {
+       "href": "ativos.html",
+       "texto": "ETFs"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "bdr",
+     "termo": "BDR",
+     "sinonimos": [
+      "Brazilian Depositary Receipt",
+      "recibo de ações estrangeiras"
+     ],
+     "definicao": "<p>Um <strong>BDR</strong> (Brazilian Depositary Receipt) é um certificado negociado na <a href=\"#b3\">B3</a> que representa ações ou outros valores mobiliários emitidos fora do Brasil. Permite investir, em reais, em empresas estrangeiras sem abrir conta no exterior.</p><p>O preço acompanha a cotação do papel lá fora convertida pelo câmbio, então oscila também com o dólar (ver <a href=\"#ptax\">PTAX</a>). A <a href=\"#isencao-20-mil\">isenção de R$ 20 mil</a> das ações não vale para BDRs, e os proventos têm regras próprias de declaração.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-bdrs-e-etfs-no-imposto-de-renda.html",
+       "texto": "Como declarar BDRs"
+      },
+      {
+       "href": "indicadores/dolar-ptax-hoje.html",
+       "texto": "Dólar PTAX hoje"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "previdencia-privada",
+     "termo": "Previdência privada (PGBL e VGBL)",
+     "sinonimos": [
+      "PGBL",
+      "VGBL",
+      "previdência complementar"
+     ],
+     "definicao": "<p>A <strong>previdência privada</strong> é uma aplicação de longo prazo feita em planos de seguradoras ou entidades de previdência. No <strong>PGBL</strong>, as contribuições podem ser deduzidas da base do IR até <span class=\"num\">12%</span> da renda bruta tributável, para quem faz a declaração completa, e o imposto incide sobre o valor total resgatado. No <strong>VGBL</strong> não há dedução, e o imposto incide só sobre o rendimento.</p><p>Na tributação, o participante escolhe a tabela progressiva ou a regressiva, que vai de <span class=\"num\">35%</span> até <span class=\"num\">10%</span> para recursos acumulados há mais de <span class=\"num\">10</span> anos (Lei nº 11.053/2004).</p>",
+     "links": [
+      {
+       "href": "calculadoras/primeiro-milhao.html",
+       "texto": "Primeiro milhão"
+      },
+      {
+       "href": "calculadoras/juros-compostos.html",
+       "texto": "Juros compostos"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 9.532/1997, art. 11 (dedução de contribuições a previdência privada até 12%)",
+       "url": "https://www.planalto.gov.br/ccivil_03/leis/l9532.htm"
+      },
+      {
+       "nome": "Lei nº 11.053/2004 (tabela regressiva da previdência complementar)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11053.htm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "indicadores-de-analise",
+   "nome": "Indicadores de análise",
+   "termos": [
+    {
+     "id": "p-l",
+     "termo": "P/L (preço sobre lucro)",
+     "sinonimos": [
+      "preço/lucro",
+      "múltiplo P/L",
+      "P/E"
+     ],
+     "definicao": "<p><strong>P/L</strong> é a divisão do preço de uma ação pelo <a href=\"#lpa\">lucro por ação</a> dos últimos <span class=\"num\">12</span> meses: <strong>P/L = preço ÷ LPA</strong>. A mesma conta pode ser feita com a empresa inteira, <a href=\"#valor-de-mercado\">valor de mercado</a> ÷ lucro líquido.</p><p>Leitura literal: quantos anos do lucro atual o preço representa, se o lucro ficasse constante. Com prejuízo o P/L fica negativo e perde sentido, e lucros não recorrentes o distorcem. Compara melhor empresas do mesmo setor.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "O que é P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "p-vp",
+     "termo": "P/VP (preço sobre valor patrimonial)",
+     "sinonimos": [
+      "preço/valor patrimonial",
+      "P/BV",
+      "preço sobre valor contábil"
+     ],
+     "definicao": "<p><strong>P/VP</strong> compara o preço da ação com o <a href=\"#valor-patrimonial\">valor patrimonial por ação</a>: <strong>P/VP = preço ÷ (patrimônio líquido ÷ número de ações)</strong>. Um P/VP de <span class=\"num\">1</span> significa que a bolsa precifica a empresa pelo mesmo valor que aparece no balanço.</p><p>É muito usado em bancos e em <a href=\"#fii\">FIIs</a>, onde o patrimônio é próximo do valor dos ativos. Em empresas cujo valor está em marcas, tecnologia ou pessoas, o balanço capta pouco disso, e o P/VP diz menos.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "Múltiplos: o P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "valor-patrimonial",
+     "termo": "Valor patrimonial (VPA)",
+     "sinonimos": [
+      "VPA",
+      "valor patrimonial por ação",
+      "patrimônio líquido"
+     ],
+     "definicao": "<p><strong>Valor patrimonial</strong> é o patrimônio líquido da empresa: tudo o que ela tem (ativos) menos tudo o que deve (passivos), conforme o balanço. Dividido pelo número de ações, vira o <strong>VPA</strong>, valor patrimonial por ação.</p><p>É um valor contábil, registrado pelas regras de contabilidade, e não o preço pelo qual a empresa seria vendida. Ele é a base do <a href=\"#p-vp\">P/VP</a> e do <a href=\"#roe\">ROE</a>. Nos <a href=\"#fii\">FIIs</a>, o valor patrimonial da cota é divulgado mensalmente pelo fundo.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "O que é P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "lpa",
+     "termo": "LPA (lucro por ação)",
+     "sinonimos": [
+      "lucro por ação",
+      "EPS"
+     ],
+     "definicao": "<p><strong>LPA</strong> é o lucro líquido da empresa dividido pelo número de ações: <strong>LPA = lucro líquido ÷ número de ações</strong>. Em geral se usa o lucro dos últimos <span class=\"num\">12</span> meses, somando os quatro trimestres mais recentes publicados.</p><p>Exemplo com números inventados: lucro de R$ <span class=\"num\">1 bilhão</span> e <span class=\"num\">500 milhões</span> de ações dão LPA de R$ 2,00. O LPA é o denominador do <a href=\"#p-l\">P/L</a>. Emissão de novas ações reduz o LPA mesmo com o lucro igual.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "O que é P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "roe",
+     "termo": "ROE (retorno sobre o patrimônio)",
+     "sinonimos": [
+      "retorno sobre patrimônio líquido",
+      "return on equity"
+     ],
+     "definicao": "<p><strong>ROE</strong> mede quanto lucro a empresa gerou para cada real de capital dos acionistas: <strong>ROE = lucro líquido ÷ patrimônio líquido</strong>, em geral em <span class=\"num\">12</span> meses e expresso em percentual. Um ROE de <span class=\"num\">15%</span> significa R$ 15 de lucro para cada R$ 100 de patrimônio.</p><p>Endividamento alto pode inflar o ROE, porque reduz o patrimônio em relação ao tamanho do negócio; prejuízos acumulados também distorcem a conta. Por isso ele costuma ser lido junto com a dívida e comparado dentro do mesmo setor.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "Indicadores: o P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "margem-liquida",
+     "termo": "Margem líquida",
+     "sinonimos": [
+      "margem de lucro líquido"
+     ],
+     "definicao": "<p><strong>Margem líquida</strong> é a fração da receita que sobra como lucro depois de todos os custos, despesas, juros e impostos: <strong>margem líquida = lucro líquido ÷ receita líquida</strong>. Uma margem de <span class=\"num\">10%</span> significa R$ 10 de lucro para cada R$ 100 vendidos.</p><p>Margens variam muito entre setores: supermercados costumam operar com margens baixas e alto giro, enquanto empresas de software ou com marcas fortes tendem a margens maiores. A comparação faz mais sentido dentro do mesmo setor e ao longo do tempo.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "O que é P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "ebitda",
+     "termo": "EBITDA",
+     "sinonimos": [
+      "LAJIDA",
+      "lucro antes de juros, impostos, depreciação e amortização"
+     ],
+     "definicao": "<p><strong>EBITDA</strong> (em português, LAJIDA) é o lucro antes de juros, impostos sobre o lucro, depreciação e amortização. Na prática, parte do lucro operacional e soma de volta a depreciação e a amortização, que são despesas contábeis sem saída de caixa no período.</p><p>É usado como aproximação da geração de caixa operacional e para comparar empresas com estruturas de dívida diferentes, por exemplo na relação dívida líquida ÷ EBITDA. Não é uma medida contábil padronizada nem considera investimentos e juros: não é sinônimo de lucro nem de caixa livre.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-p-l.html",
+       "texto": "Indicadores: o P/L"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "dividend-yield",
+     "termo": "Dividend yield",
+     "sinonimos": [
+      "DY",
+      "rendimento de dividendos"
+     ],
+     "definicao": "<p><strong>Dividend yield</strong> (DY) é a relação entre os proventos pagos por ação em <span class=\"num\">12</span> meses e o preço da ação: <strong>DY = proventos por ação ÷ preço</strong>. Ação a R$ <span class=\"num\">20</span> que pagou R$ <span class=\"num\">1,40</span> em 12 meses tem DY de <span class=\"num\">7%</span>.</p><p>O DY olha para trás: mostra o que foi pago, não o que será. Pode subir só porque o preço caiu, ou por um pagamento extraordinário que não se repete. Nos <a href=\"#fii\">FIIs</a> o mesmo cálculo usa os rendimentos mensais.</p>",
+     "links": [
+      {
+       "href": "guias/o-que-e-dividend-yield.html",
+       "texto": "O que é dividend yield"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "volatilidade",
+     "termo": "Volatilidade",
+     "sinonimos": [
+      "oscilação de preço",
+      "desvio-padrão dos retornos"
+     ],
+     "definicao": "<p><strong>Volatilidade</strong> mede o quanto o preço de um ativo oscila ao longo do tempo. A medida mais comum é o desvio-padrão dos retornos diários, em geral anualizado (multiplicado pela raiz quadrada do número de pregões no ano, cerca de <span class=\"num\">252</span>).</p><p>Volatilidade alta significa variações maiores, para cima e para baixo, e mais incerteza sobre o valor no momento de vender. Ela descreve o comportamento passado e não indica direção: um ativo pode ser volátil e subir, cair ou ficar estável no período.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Histórico de cotações"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "liquidez",
+     "termo": "Liquidez",
+     "sinonimos": [
+      "facilidade de negociação",
+      "volume negociado"
+     ],
+     "definicao": "<p><strong>Liquidez</strong> é a facilidade de transformar um investimento em dinheiro, rapidamente e sem perder valor por isso. Na bolsa, é medida pelo volume financeiro negociado e pelo número de negócios por dia; ativos com pouca liquidez têm <a href=\"#spread\">spread</a> maior e podem demorar para encontrar comprador.</p><p>Na renda fixa, o termo descreve quando o dinheiro pode ser resgatado: com <a href=\"#liquidez-diaria\">liquidez diária</a>, só no <a href=\"#vencimento\">vencimento</a> ou após uma carência. Liquidez, risco e retorno costumam andar juntos na escolha de um investimento.</p>",
+     "links": [
+      {
+       "href": "ativos.html",
+       "texto": "Volume dos ativos"
+      },
+      {
+       "href": "calculadoras/reserva-de-emergencia.html",
+       "texto": "Reserva de emergência"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "benchmark",
+     "termo": "Benchmark",
+     "sinonimos": [
+      "índice de referência",
+      "referência de desempenho"
+     ],
+     "definicao": "<p><strong>Benchmark</strong> é o índice usado como referência para avaliar o desempenho de um investimento. Fundos de renda fixa costumam se comparar ao <a href=\"#cdi\">CDI</a>; fundos de ações, ao <a href=\"#ibovespa\">Ibovespa</a>; fundos imobiliários, ao <a href=\"#ifix\">IFIX</a>; e planos de longo prazo, ao <a href=\"#ipca\">IPCA</a> mais uma taxa.</p><p>A comparação só faz sentido com o benchmark adequado ao tipo de ativo e no mesmo período. É o benchmark que define a cobrança da <a href=\"#taxa-de-performance\">taxa de performance</a>.</p>",
+     "links": [
+      {
+       "href": "indicadores.html",
+       "texto": "Indicadores"
+      }
+     ],
+     "fontes": []
+    }
+   ]
+  },
+  {
+   "id": "impostos-e-declaracao",
+   "nome": "Impostos e declaração",
+   "termos": [
+    {
+     "id": "tabela-regressiva",
+     "termo": "Tabela regressiva do IR",
+     "sinonimos": [
+      "IR regressivo",
+      "alíquota regressiva",
+      "imposto de renda na renda fixa"
+     ],
+     "definicao": "<p>A <strong>tabela regressiva</strong> define o imposto de renda sobre o rendimento da renda fixa e de muitos fundos, conforme o tempo da aplicação (Lei nº 11.033/2004, art. 1º): <span class=\"num\">22,5%</span> até 180 dias; <span class=\"num\">20%</span> de 181 a 360 dias; <span class=\"num\">17,5%</span> de 361 a 720 dias; e <span class=\"num\">15%</span> acima de 720 dias.</p><p>O imposto incide só sobre o rendimento, não sobre o valor aplicado, e é retido na fonte no resgate ou no pagamento de <a href=\"#cupom\">cupom</a>. Vale para <a href=\"#cdb\">CDB</a>, <a href=\"#tesouro-direto\">Tesouro Direto</a> e <a href=\"#debenture\">debêntures</a> comuns; <a href=\"#lci-lca\">LCI, LCA</a>, <a href=\"#cri-cra\">CRI e CRA</a> são isentos para pessoa física.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      },
+      {
+       "href": "guias/como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda.html",
+       "texto": "Como declarar renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      }
+     ]
+    },
+    {
+     "id": "iof",
+     "termo": "IOF",
+     "sinonimos": [
+      "Imposto sobre Operações Financeiras",
+      "IOF regressivo"
+     ],
+     "definicao": "<p>O <strong>IOF</strong> é o Imposto sobre Operações Financeiras. Em aplicações de renda fixa resgatadas com menos de <span class=\"num\">30</span> dias, ele incide sobre o rendimento por uma tabela regressiva: <span class=\"num\">96%</span> do rendimento no 1º dia, caindo dia a dia até <span class=\"num\">0%</span> no 30º (Decreto nº 6.306/2007, art. 32 e Anexo).</p><p>Depois de 30 dias, não há IOF nessas aplicações. A LCA tem alíquota zero de IOF (art. 32, § 2º, V). O IOF é cobrado antes do imposto de renda, que incide sobre o que sobrar do rendimento.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Decreto nº 6.306/2007, art. 32 e Anexo (IOF sobre aplicações financeiras)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/decreto/d6306.htm"
+      }
+     ]
+    },
+    {
+     "id": "darf",
+     "termo": "DARF",
+     "sinonimos": [
+      "Documento de Arrecadação de Receitas Federais",
+      "DARF 6015"
+     ],
+     "definicao": "<p>O <strong>DARF</strong> é a guia usada para pagar tributos federais. Na bolsa, o imposto sobre o lucro de vendas de ações é apurado mês a mês pelo próprio investidor e pago com o DARF de código <span class=\"num\">6015</span>, até o último dia útil do mês seguinte ao da venda (Receita Federal, pergunta 730).</p><p>A guia pode ser gerada no Sicalc, no site da Receita. Valores abaixo de R$ <span class=\"num\">10</span> não são pagos naquele mês: acumulam para o seguinte. Pagar depois do prazo gera multa e juros.</p>",
+     "links": [
+      {
+       "href": "guias/darf-de-acoes.html",
+       "texto": "DARF de ações"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF de ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      },
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      }
+     ]
+    },
+    {
+     "id": "dedo-duro",
+     "termo": "IR retido na fonte (dedo-duro)",
+     "sinonimos": [
+      "dedo-duro",
+      "IRRF na bolsa",
+      "0,005%"
+     ],
+     "definicao": "<p>Nas vendas em bolsa, a corretora retém imposto de renda na fonte como antecipação, apelidado de <strong>dedo-duro</strong> porque informa a operação à Receita. Nas operações comuns, a retenção é de <span class=\"num\">0,005%</span> sobre o valor da venda, dispensada quando o valor fica em até R$ <span class=\"num\">1</span>; no <a href=\"#day-trade\">day trade</a>, é de <span class=\"num\">1%</span> sobre o resultado positivo.</p><p>O valor retido não é imposto adicional: é descontado do imposto devido no mês, na apuração que gera o <a href=\"#darf\">DARF</a>.</p>",
+     "links": [
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ganho-de-capital",
+     "termo": "Ganho de capital",
+     "sinonimos": [
+      "ganho líquido",
+      "lucro na venda"
+     ],
+     "definicao": "<p><strong>Ganho de capital</strong> é o lucro obtido na venda de um bem ou direito: a diferença positiva entre o valor de venda e o custo de aquisição. Em bolsa, a Receita chama esse resultado de <strong>ganho líquido</strong>, apurado mês a mês, descontando as despesas da operação (corretagem e emolumentos).</p><p>Em ações, o ganho líquido paga <span class=\"num\">15%</span> nas operações comuns e <span class=\"num\">20%</span> no <a href=\"#day-trade\">day trade</a>; o custo é o <a href=\"#preco-medio\">preço médio</a>. Vendas fora de bolsa, como as de imóveis, seguem outras regras de ganho de capital.</p>",
+     "links": [
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "day-trade",
+     "termo": "Day trade",
+     "sinonimos": [
+      "operação no mesmo dia",
+      "operação intradiária"
+     ],
+     "definicao": "<p><strong>Day trade</strong> é a compra e a venda do mesmo ativo, no mesmo dia, pelo mesmo investidor. Para o imposto de renda é uma modalidade separada das operações comuns: o lucro do mês paga <span class=\"num\">20%</span>, com retenção na fonte de <span class=\"num\">1%</span> sobre o resultado positivo.</p><p>No day trade não há <a href=\"#isencao-20-mil\">isenção de R$ 20 mil</a>, e o <a href=\"#prejuizo-compensavel\">prejuízo</a> só compensa lucro de day trade. O pagamento é pelo mesmo <a href=\"#darf\">DARF</a> 6015, até o último dia útil do mês seguinte.</p>",
+     "links": [
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "preco-medio",
+     "termo": "Preço médio",
+     "sinonimos": [
+      "custo médio",
+      "custo de aquisição"
+     ],
+     "definicao": "<p><strong>Preço médio</strong> é o custo por ação usado para calcular o lucro na venda. Pela regra da Receita, o custo de aquisição é a média ponderada dos custos unitários (pergunta 719), incluindo corretagem e emolumentos, mesmo que as ações estejam em corretoras diferentes.</p><p>Exemplo com números inventados: 100 ações a R$ <span class=\"num\">10</span> e depois 100 a R$ <span class=\"num\">14</span> dão preço médio de R$ <span class=\"num\">12</span>. Vendas não alteram o preço médio das ações restantes; <a href=\"#desdobramento\">desdobramento</a>, <a href=\"#grupamento\">grupamento</a> e <a href=\"#bonificacao\">bonificação</a> alteram.</p>",
+     "links": [
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      },
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "isencao-20-mil",
+     "termo": "Isenção de R$ 20 mil",
+     "sinonimos": [
+      "isenção de 20 mil",
+      "vendas até 20 mil por mês"
+     ],
+     "definicao": "<p>Pessoa física não paga imposto sobre o lucro de vendas de ações no mercado à vista quando o <strong>total vendido</strong> no mês é de até R$ <span class=\"num\">20.000</span> (Lei nº 11.033/2004, art. 3º, I). O limite é sobre o valor das vendas, não sobre o lucro.</p><p>A isenção não vale para <a href=\"#day-trade\">day trade</a>, cotas de <a href=\"#fii\">FIIs</a>, <a href=\"#etf\">ETFs</a> nem <a href=\"#bdr\">BDRs</a>. O lucro isento não gera <a href=\"#darf\">DARF</a>, mas deve ser informado na declaração anual. Se as vendas passarem do limite, todo o lucro do mês é tributado.</p>",
+     "links": [
+      {
+       "href": "guias/como-funciona-o-imposto-de-renda-na-bolsa.html",
+       "texto": "IR na bolsa"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Lei nº 11.033/2004 (alíquotas, tabela regressiva e isenções)",
+       "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm"
+      },
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "prejuizo-compensavel",
+     "termo": "Prejuízo compensável",
+     "sinonimos": [
+      "compensação de prejuízo",
+      "prejuízo acumulado"
+     ],
+     "definicao": "<p>Prejuízo em vendas na bolsa pode ser descontado de lucros do mesmo mês ou de meses seguintes, <strong>sem prazo</strong> para acabar, desde que dentro da mesma modalidade: prejuízo de operação comum com lucro de operação comum, de <a href=\"#day-trade\">day trade</a> com day trade (Receita Federal, perguntas 709 a 711).</p><p>Prejuízo na venda de cotas de <a href=\"#fii\">FII</a> só compensa lucro com FII. Para não perder o direito, o prejuízo precisa ser registrado na apuração mensal e informado na declaração anual.</p>",
+     "links": [
+      {
+       "href": "guias/prejuizo-na-bolsa-como-compensar.html",
+       "texto": "Prejuízo na bolsa: como compensar"
+      },
+      {
+       "href": "calculadoras/calculadora-darf-acoes.html",
+       "texto": "Calculadora de DARF"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    },
+    {
+     "id": "informe-de-rendimentos",
+     "termo": "Informe de rendimentos",
+     "sinonimos": [
+      "informe de rendimentos financeiros",
+      "comprovante de rendimentos"
+     ],
+     "definicao": "<p>O <strong>informe de rendimentos</strong> é o documento que bancos, corretoras e empresas enviam aos clientes no início de cada ano com os valores do ano anterior: saldos em 31 de dezembro, rendimentos isentos e tributáveis, imposto retido na fonte, <a href=\"#dividendos\">dividendos</a> e <a href=\"#jcp\">JCP</a>.</p><p>Ele é a base para preencher a declaração anual. Não traz, porém, o resultado das vendas em bolsa: lucros, prejuízos e o <a href=\"#preco-medio\">preço médio</a> dependem do controle do próprio investidor, a partir das notas de corretagem.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      },
+      {
+       "href": "guias/como-declarar-renda-fixa-e-tesouro-direto-no-imposto-de-renda.html",
+       "texto": "Como declarar renda fixa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "bens-e-direitos",
+     "termo": "Bens e direitos",
+     "sinonimos": [
+      "ficha de bens e direitos",
+      "patrimônio na declaração"
+     ],
+     "definicao": "<p><strong>Bens e direitos</strong> é a ficha da declaração anual do imposto de renda em que a pessoa física informa o que possui em 31 de dezembro: imóveis, veículos, contas, aplicações, ações, cotas de fundos e outros ativos, cada um com seu grupo e código.</p><p>Investimentos são informados pelo <strong>custo de aquisição</strong>, não pelo valor de mercado: ações e FIIs pela quantidade vezes o <a href=\"#preco-medio\">preço médio</a>; aplicações de renda fixa pelo valor aplicado ou pelo saldo informado pela instituição, conforme o caso.</p>",
+     "links": [
+      {
+       "href": "guias/como-declarar-acoes-no-imposto-de-renda.html",
+       "texto": "Como declarar ações"
+      },
+      {
+       "href": "guias/como-declarar-fundos-imobiliarios-no-imposto-de-renda.html",
+       "texto": "Como declarar FIIs"
+      }
+     ],
+     "fontes": [
+      {
+       "nome": "Receita Federal — Perguntas e respostas IRPF 2026 (renda variável)",
+       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "conceitos-gerais",
+   "nome": "Conceitos gerais",
+   "termos": [
+    {
+     "id": "inflacao",
+     "termo": "Inflação",
+     "sinonimos": [
+      "alta de preços",
+      "perda do poder de compra"
+     ],
+     "definicao": "<p><strong>Inflação</strong> é o aumento generalizado e contínuo dos preços. Com ela, o mesmo dinheiro compra menos com o passar do tempo. É medida por índices de preços: no Brasil, o oficial é o <a href=\"#ipca\">IPCA</a>; outro conhecido é o <a href=\"#igp-m\">IGP-M</a>.</p><p>Para quem investe, a inflação define o piso: um investimento que rende menos do que ela perde poder de compra, mesmo com saldo maior. Por isso se fala em <a href=\"#rentabilidade-real\">rentabilidade real</a>.</p>",
+     "links": [
+      {
+       "href": "indicadores/ipca-acumulado-12-meses.html",
+       "texto": "IPCA acumulado em 12 meses"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "juros-compostos",
+     "termo": "Juros compostos",
+     "sinonimos": [
+      "juros sobre juros",
+      "capitalização composta"
+     ],
+     "definicao": "<p>Nos <strong>juros compostos</strong>, os juros de cada período são somados ao capital e passam a render no período seguinte. A fórmula é <strong>M = C × (1 + i)<sup>n</sup></strong>, em que C é o capital inicial, i a taxa por período e n o número de períodos.</p><p>Exemplo com números inventados: R$ <span class=\"num\">1.000</span> a <span class=\"num\">1%</span> ao mês viram R$ <span class=\"num\">1.010</span> no primeiro mês e cerca de R$ <span class=\"num\">1.126,83</span> em <span class=\"num\">12</span> meses — acima dos R$ 1.120 dos juros simples. A diferença cresce com o prazo.</p>",
+     "links": [
+      {
+       "href": "calculadoras/juros-compostos.html",
+       "texto": "Calculadora de juros compostos"
+      },
+      {
+       "href": "calculadoras/primeiro-milhao.html",
+       "texto": "Primeiro milhão"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "rentabilidade-real",
+     "termo": "Rentabilidade real",
+     "sinonimos": [
+      "juro real",
+      "rendimento real",
+      "ganho real"
+     ],
+     "definicao": "<p><strong>Rentabilidade real</strong> é o rendimento descontada a <a href=\"#inflacao\">inflação</a> do mesmo período. A conta correta não é uma subtração simples, e sim uma divisão: <strong>(1 + rendimento nominal) ÷ (1 + inflação) − 1</strong>.</p><p>Exemplo com números inventados: um investimento que rendeu <span class=\"num\">10%</span> num ano com inflação de <span class=\"num\">4%</span> teve rentabilidade real de 1,10 ÷ 1,04 − 1 ≈ <span class=\"num\">5,77%</span>, e não 6%. Se o rendimento é tributado, o certo é fazer a conta com o valor líquido de imposto.</p>",
+     "links": [
+      {
+       "href": "indicadores/ipca-acumulado-12-meses.html",
+       "texto": "IPCA acumulado em 12 meses"
+      },
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "reserva-de-emergencia",
+     "termo": "Reserva de emergência",
+     "sinonimos": [
+      "fundo de emergência",
+      "colchão financeiro"
+     ],
+     "definicao": "<p><strong>Reserva de emergência</strong> é o dinheiro separado para imprevistos, como perda de renda, problema de saúde ou conserto urgente. Costuma ser dimensionada em meses de despesas fixas, de acordo com a estabilidade da renda de cada pessoa.</p><p>Por ter de estar disponível rápido e sem perda, a reserva é em geral mantida em aplicações de baixo risco e <a href=\"#liquidez-diaria\">liquidez diária</a>. Nesses casos importam o <a href=\"#iof\">IOF</a> em resgates curtos e a <a href=\"#marcacao-a-mercado\">marcação a mercado</a>, que pode reduzir o valor de alguns títulos se vendidos antes do vencimento.</p>",
+     "links": [
+      {
+       "href": "calculadoras/reserva-de-emergencia.html",
+       "texto": "Calculadora de reserva de emergência"
+      }
+     ],
+     "fontes": []
+    },
+    {
+     "id": "diversificacao",
+     "termo": "Diversificação",
+     "sinonimos": [
+      "distribuição de risco",
+      "não pôr todos os ovos na mesma cesta"
+     ],
+     "definicao": "<p><strong>Diversificação</strong> é distribuir o patrimônio entre ativos, emissores e classes diferentes, para que um problema isolado não comprometa tudo. Uma carteira com <a href=\"#renda-fixa\">renda fixa</a> de vários emissores e <a href=\"#renda-variavel\">renda variável</a> de vários setores sofre menos com a queda de um único ativo.</p><p>Diversificar reduz o risco específico de cada ativo, mas não elimina o risco do mercado como um todo. Também vale para a garantia do <a href=\"#fgc\">FGC</a>, que tem limite por instituição.</p>",
+     "links": [
+      {
+       "href": "calculadoras/simulador-renda-fixa.html",
+       "texto": "Simulador de renda fixa"
+      },
+      {
+       "href": "ativos.html",
+       "texto": "Ativos"
+      }
+     ],
+     "fontes": []
+    }
+   ]
+  }
+ ]
+}

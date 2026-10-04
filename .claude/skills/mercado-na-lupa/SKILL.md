@@ -150,6 +150,9 @@ Trabalho grande em paralelo já gerou dois caminhos divergentes (junção em 03/
 Antes de começar: `git fetch` e conferir se o `main` local está igual ao `origin/main`.
 Ao juntar, as páginas geradas não se resolvem à mão: resolva só `_src/`, README e workflow,
 e rode o build para regenerar o resto.
+Depois de juntar, procure classes CSS com o mesmo nome definidas pelos dois lados (já aconteceu
+com `.ind-valor`: a regra dos indicadores passou por cima dos cartões do ativo). Regra nova de
+uma página vai sob a classe do contêiner dela (`.ind-cartao .ind-valor`), não solta.
 
 ## Datas que pedem revisão
 

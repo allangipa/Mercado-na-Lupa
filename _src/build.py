@@ -433,14 +433,28 @@ LINHA_FUNDO = ('<svg class="linha-fundo" viewBox="0 0 1200 160" preserveAspectRa
                '800,58 870,36 930,48 1000,28 1070,40 1130,18 1200,26"/></svg>')
 
 
+PAISES = ler_json(SRC / "paises.json")["bdrs"] if (SRC / "paises.json").exists() else {}
+
+
+def pais(a):
+    """Bandeira do selo: Brasil para ações e FIIs (emissores do cadastro da CVM); para BDR,
+    o país de _src/paises.json (só os conferidos; os outros ficam sem bandeira)."""
+    if a["tipo"] in ("acao", "fii"):
+        return "br"
+    return PAISES.get(a["codigo"], {}).get("pais", "").lower() or None
+
+
 def selo(a, tam=""):
     """Selo do ativo: o código num quadrado (ação) ou círculo (fundo imobiliário),
-    em cor por tipo. Desenhado em CSS, sem logotipo de empresa nem imagem externa.
-    É decorativo: o código aparece em texto ao lado."""
+    em cor por tipo, com a bandeira do país da empresa no canto. Desenhado em CSS,
+    sem logotipo de empresa nem imagem externa. É decorativo: o código aparece em
+    texto ao lado."""
     m = re.match(r"(.+?)(\d{1,2})$", a["codigo"])
     letras, num = (m.group(1), m.group(2)) if m else (a["codigo"], "")
     cl = f" selo-{tam}" if tam else ""
-    return f'<span class="selo selo-{a["tipo"]}{cl}" aria-hidden="true"><b>{letras}</b><i>{num}</i></span>'
+    p = pais(a)
+    band = f' data-pais="{p}"' if p else ""
+    return f'<span class="selo selo-{a["tipo"]}{cl}"{band} aria-hidden="true"><b>{letras}</b><i>{num}</i></span>'
 
 
 def _icone(corpo):
@@ -1933,7 +1947,7 @@ def home(ativos, ultimo, guias, calcs, og_url, com, por_chave, noticias, faixa_i
 
 <div class="grade grade-2">
 <section><h2 id="comunicados">Comunicados recentes</h2>{lista_comunicados(docs, doc_ativos(por_chave, base))}<p><a href="comunicados.html">Todos os comunicados recentes</a></p></section>
-<section><h2 id="noticias">Notícias de fontes oficiais</h2><ul class="comunicados">{''.join(f'<li><span class="com-meta"><time datetime="{i["d"][:10]}">{data_br(i["d"][:10])}</time> · {e(i["fonte"])}</span><a href="{e(i["u"])}" rel="noopener nofollow">{e(i["t"])}</a></li>' for i in noti)}</ul><p><a href="noticias.html">Mais notícias</a></p></section>
+<section><h2 id="noticias">Notícias de fontes oficiais</h2><ul class="comunicados">{''.join(f'<li><span class="com-meta"><time datetime="{i["d"][:10]}">{data_br(i["d"][:10])}</time> · {e(i["fonte"])}</span><a href="{e(i["u"])}" target="_blank" rel="noopener nofollow">{e(i["t"])}<span class="so-leitor"> (abre em outra aba)</span></a></li>' for i in noti)}</ul><p><a href="noticias.html">Mais notícias</a></p></section>
 </div>
 
 {faixa_ind}
@@ -2114,7 +2128,7 @@ def pagina_noticias(noticias, og_url, ultimo):
         itens = [i for i in f.get("itens", []) if sem_recomendacao(i["t"])]
         estado = "" if f.get("ok") else f'<p class="aviso">A última coleta desta fonte falhou; abaixo, a anterior ({e(data_hora_br(f.get("coletado_em")))}).</p>'
         lista = "".join(f'<li><span class="com-meta"><time datetime="{i["d"][:10]}">{data_br(i["d"][:10])}</time></span>'
-                        f'<a href="{e(i["u"])}" rel="noopener nofollow">{e(i["t"])}</a></li>' for i in itens)
+                        f'<a href="{e(i["u"])}" target="_blank" rel="noopener nofollow">{e(i["t"])}<span class="so-leitor"> (abre em outra aba)</span></a></li>' for i in itens)
         secoes.append(f'<section><h2 id="{chave}">{e(f["nome"])}</h2>{estado}<ul class="comunicados">{lista or "<li>Nenhum item.</li>"}</ul>'
                       f'<p class="data-regra">Crédito: {e(f["orgao"])} — <a href="{e(f["site"])}" rel="noopener">{e(f["site"].split("//")[1].rstrip("/"))}</a>. '
                       f'Título e link, como publicados pela fonte; o texto está lá.</p></section>')

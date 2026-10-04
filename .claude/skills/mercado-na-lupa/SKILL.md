@@ -53,6 +53,7 @@ Em caso de dúvida sobre fórmula, fonte ou número conferido, o README manda.
 | Lista de ativos | `_src/carteiras.py` → grava `_src/ativos.json` e `_src/carteiras.json` (nome curto ruim: `NOMES` no `carteiras.py`) |
 | Desdobramento, grupamento, variação > 25% conferida | `_src/eventos.json` (com `fonte`; `"tipo": "mercado"` para variação real) |
 | Linha do COTAHIST com preço médio fora da faixa | `_src/excecoes-b3.json` |
+| Bandeira no selo do ativo (Brasil para ações e FIIs; BDR pelo país da empresa) | `_src/paises.json` + `pais()`/`selo()` no build; desenho em `site.css` |
 | Feriados sem pregão | `_src/feriados-b3.json` (2027 provisório até a B3 publicar) |
 | Termos do glossário | `_src/glossario.json` |
 | Fotos de fundo e créditos | `_src/fundos.json` + `python _src/fundos.py` |

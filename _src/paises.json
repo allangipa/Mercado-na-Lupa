@@ -1,0 +1,233 @@
+{
+ "_leia": "País da empresa de cada BDR, para a bandeira no selo. Ações e FIIs são de emissores brasileiros (cadastro da CVM) e levam a bandeira do Brasil sem precisar estar aqui. Só entra BDR cujo país da empresa (P17) e da sede (P159) no Wikidata são o mesmo; conferido em 03/10/2026. BDR fora desta lista fica sem bandeira.",
+ "bdrs": {
+  "A1MD34": {
+   "pais": "US",
+   "empresa": "AMD",
+   "sede": "Sunnyvale",
+   "fonte": "https://www.wikidata.org/wiki/Q128896"
+  },
+  "A1MT34": {
+   "pais": "US",
+   "empresa": "Applied Materials",
+   "sede": "Santa Clara",
+   "fonte": "https://www.wikidata.org/wiki/Q621610"
+  },
+  "AAPL34": {
+   "pais": "US",
+   "empresa": "Apple Inc.",
+   "sede": "Cupertino",
+   "fonte": "https://www.wikidata.org/wiki/Q312"
+  },
+  "AMZO34": {
+   "pais": "US",
+   "empresa": "Amazon",
+   "sede": "Seattle",
+   "fonte": "https://www.wikidata.org/wiki/Q3884"
+  },
+  "AVGO34": {
+   "pais": "US",
+   "empresa": "Broadcom",
+   "sede": "Irvine",
+   "fonte": "https://www.wikidata.org/wiki/Q555925"
+  },
+  "BERK34": {
+   "pais": "US",
+   "empresa": "Berkshire Hathaway",
+   "sede": "Omaha",
+   "fonte": "https://www.wikidata.org/wiki/Q217583"
+  },
+  "BOAC34": {
+   "pais": "US",
+   "empresa": "Bank of America",
+   "sede": "Charlotte",
+   "fonte": "https://www.wikidata.org/wiki/Q487907"
+  },
+  "C2OI34": {
+   "pais": "US",
+   "empresa": "Coinbase",
+   "sede": "San Francisco",
+   "fonte": "https://www.wikidata.org/wiki/Q16972754"
+  },
+  "C2RW34": {
+   "pais": "US",
+   "empresa": "CrowdStrike",
+   "sede": "Austin",
+   "fonte": "https://www.wikidata.org/wiki/Q24890758"
+  },
+  "CHVX34": {
+   "pais": "US",
+   "empresa": "Chevron Corporation",
+   "sede": "San Ramon",
+   "fonte": "https://www.wikidata.org/wiki/Q319642"
+  },
+  "COCA34": {
+   "pais": "US",
+   "empresa": "The Coca-Cola Company",
+   "sede": "Atlanta",
+   "fonte": "https://www.wikidata.org/wiki/Q3295867"
+  },
+  "D1DG34": {
+   "pais": "US",
+   "empresa": "Datadog",
+   "sede": "New York City",
+   "fonte": "https://www.wikidata.org/wiki/Q16248637"
+  },
+  "D1EL34": {
+   "pais": "US",
+   "empresa": "Dell Technologies",
+   "sede": "Round Rock",
+   "fonte": "https://www.wikidata.org/wiki/Q27500963"
+  },
+  "DISB34": {
+   "pais": "US",
+   "empresa": "The Walt Disney Company",
+   "sede": "Burbank",
+   "fonte": "https://www.wikidata.org/wiki/Q7414"
+  },
+  "EXXO34": {
+   "pais": "US",
+   "empresa": "ExxonMobil",
+   "sede": "Spring",
+   "fonte": "https://www.wikidata.org/wiki/Q156238"
+  },
+  "FCXO34": {
+   "pais": "US",
+   "empresa": "Freeport-McMoRan",
+   "sede": "Phoenix",
+   "fonte": "https://www.wikidata.org/wiki/Q1453620"
+  },
+  "GOGL34": {
+   "pais": "US",
+   "empresa": "Alphabet Inc.",
+   "sede": "Mountain View",
+   "fonte": "https://www.wikidata.org/wiki/Q20800404"
+  },
+  "GSGI34": {
+   "pais": "US",
+   "empresa": "Goldman Sachs",
+   "sede": "200 West Street",
+   "fonte": "https://www.wikidata.org/wiki/Q193326"
+  },
+  "ITLC34": {
+   "pais": "US",
+   "empresa": "Intel",
+   "sede": "Santa Clara",
+   "fonte": "https://www.wikidata.org/wiki/Q248"
+  },
+  "JPMC34": {
+   "pais": "US",
+   "empresa": "JPMorgan Chase",
+   "sede": "New York City",
+   "fonte": "https://www.wikidata.org/wiki/Q192314"
+  },
+  "LILY34": {
+   "pais": "US",
+   "empresa": "Eli Lilly and Company",
+   "sede": "Indianapolis",
+   "fonte": "https://www.wikidata.org/wiki/Q632240"
+  },
+  "M1RN34": {
+   "pais": "US",
+   "empresa": "Moderna",
+   "sede": "Cambridge",
+   "fonte": "https://www.wikidata.org/wiki/Q17081612"
+  },
+  "M1TA34": {
+   "pais": "US",
+   "empresa": "Meta Platforms",
+   "sede": "Menlo Park",
+   "fonte": "https://www.wikidata.org/wiki/Q380"
+  },
+  "M2RV34": {
+   "pais": "US",
+   "empresa": "Marvell Technology",
+   "sede": "Santa Clara",
+   "fonte": "https://www.wikidata.org/wiki/Q1347782"
+  },
+  "M2ST34": {
+   "pais": "US",
+   "empresa": "Strategy",
+   "sede": "Tysons",
+   "fonte": "https://www.wikidata.org/wiki/Q1192211"
+  },
+  "MSCD34": {
+   "pais": "US",
+   "empresa": "Mastercard",
+   "sede": "Purchase",
+   "fonte": "https://www.wikidata.org/wiki/Q489921"
+  },
+  "MSFT34": {
+   "pais": "US",
+   "empresa": "Microsoft",
+   "sede": "Redmond",
+   "fonte": "https://www.wikidata.org/wiki/Q2283"
+  },
+  "MUTC34": {
+   "pais": "US",
+   "empresa": "Micron Technology",
+   "sede": "Boise",
+   "fonte": "https://www.wikidata.org/wiki/Q1197548"
+  },
+  "NFLX34": {
+   "pais": "US",
+   "empresa": "Netflix, Inc.",
+   "sede": "Los Gatos",
+   "fonte": "https://www.wikidata.org/wiki/Q116452644"
+  },
+  "NVDC34": {
+   "pais": "US",
+   "empresa": "Nvidia",
+   "sede": "Santa Clara",
+   "fonte": "https://www.wikidata.org/wiki/Q182477"
+  },
+  "ORCL34": {
+   "pais": "US",
+   "empresa": "Oracle Corporation",
+   "sede": "Redwood Shores",
+   "fonte": "https://www.wikidata.org/wiki/Q19900"
+  },
+  "P2LT34": {
+   "pais": "US",
+   "empresa": "Palantir Technologies",
+   "sede": "Palo Alto",
+   "fonte": "https://www.wikidata.org/wiki/Q2047336"
+  },
+  "QCOM34": {
+   "pais": "US",
+   "empresa": "Qualcomm",
+   "sede": "San Diego",
+   "fonte": "https://www.wikidata.org/wiki/Q544847"
+  },
+  "S1TX34": {
+   "pais": "US",
+   "empresa": "Seagate Technology",
+   "sede": "Cupertino",
+   "fonte": "https://www.wikidata.org/wiki/Q705392"
+  },
+  "SPCX34": {
+   "pais": "US",
+   "empresa": "SpaceX",
+   "sede": "Hawthorne",
+   "fonte": "https://www.wikidata.org/wiki/Q193701"
+  },
+  "TSLA34": {
+   "pais": "US",
+   "empresa": "Tesla",
+   "sede": "Palo Alto",
+   "fonte": "https://www.wikidata.org/wiki/Q478214"
+  },
+  "VISA34": {
+   "pais": "US",
+   "empresa": "Visa Inc.",
+   "sede": "San Francisco",
+   "fonte": "https://www.wikidata.org/wiki/Q328840"
+  },
+  "W1DC34": {
+   "pais": "US",
+   "empresa": "Western Digital",
+   "sede": "San Jose",
+   "fonte": "https://www.wikidata.org/wiki/Q738770"
+  }
+ }
+}

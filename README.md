@@ -22,6 +22,7 @@ _src/
   eventos.json      desdobramentos/grupamentos e variações >25% conferidas, com fonte (ver "Variação anormal")
   eventos_b3.py     procura na B3 o evento de cada variação >25% ainda não declarada
   excecoes-b3.json  linhas do COTAHIST com preço médio fora da faixa do dia, declaradas uma a uma
+  paises.json       país da empresa de cada BDR (Wikidata), para a bandeira do selo; ações e FIIs = Brasil
   comunicados.py    comunicados da CVM (IPE e documentos de FIIs) -> dados/comunicados.json
   noticias.py       manchetes de fontes oficiais -> dados/noticias.json
   fundamentos.py    balanços (DFP/ITR) e informes de FII da CVM -> dados/fundamentos.json (semanal)

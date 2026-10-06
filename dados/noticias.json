@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-05T22:46+00:00",
+ "coletado_em": "2026-10-06T01:46+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,7 +9,7 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-05T22:46+00:00",
+   "coletado_em": "2026-10-06T01:46+00:00",
    "itens": [
     {
      "t": "Dólar cai a R$ 5, e bolsa sobe quase 8% após primeiro turno",
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-05T22:46+00:00",
+   "coletado_em": "2026-10-06T01:46+00:00",
    "itens": [
     {
      "t": "BC divulga Estatísticas Fiscais à imprensa",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-05T22:46+00:00",
+   "coletado_em": "2026-10-06T01:46+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,7 +192,7 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-05T22:46+00:00",
+   "coletado_em": "2026-10-06T01:46+00:00",
    "itens": [
     {
      "t": "MUB3 convida crianças e famílias a conversar sobre dinheiro de forma lúdica",
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-05T22:46+00:00",
+   "coletado_em": "2026-10-06T01:46+00:00",
    "itens": [
     {
      "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",

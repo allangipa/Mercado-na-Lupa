@@ -539,7 +539,7 @@ figure.grafico{margin:0 0 1.2rem}
 </div></div><p class="credito-foto">Foto: Avenida Paulista à noite, vista do alto, São Paulo, 2019 — <a href="https://commons.wikimedia.org/wiki/File:Paulista_Avenue_2019_at_night.jpg" rel="noopener">Boaventuravinicius</a>, Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a> · recortada, dessaturada e escurecida · esta versão também sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a></p></div></div>
 <div class="casca">
 <article class="">
-<p class="data-regra"><strong>Regras conferidas em 3 de outubro de 2026</strong> em fonte oficial (lista ao fim). Taxas iniciais: CDI e Selic de 05/10/2026, IPCA em 12 meses até agosto de 2026, TR do período iniciado em 02/10/2026 e títulos do Tesouro na data-base de 05/10/2026. Troque qualquer uma pelo número que você quiser testar.</p>
+<p class="data-regra"><strong>Regras conferidas em 3 de outubro de 2026</strong> em fonte oficial (lista ao fim). Taxas iniciais: CDI e Selic de 06/10/2026, IPCA em 12 meses até agosto de 2026, TR do período iniciado em 02/10/2026 e títulos do Tesouro na data-base de 06/10/2026. Troque qualquer uma pelo número que você quiser testar.</p>
 
 <p class="lead">Quanto sobra, depois de imposto e taxas, se o mesmo dinheiro ficar o mesmo tempo em cada aplicação? A conta roda no seu navegador e muda a cada campo preenchido.</p>
 
@@ -550,10 +550,10 @@ figure.grafico{margin:0 0 1.2rem}
   <p class="erro-calc" id="erro" role="alert"></p>
   <details open>
   <summary><strong>Taxas usadas na simulação</strong></summary>
-  <div class="campo"><label for="cdi">CDI esperado <span class="dica">hoje: 13,65% (05/10/2026)</span></label><div class="entrada"><input id="cdi" inputmode="decimal" value="13,65"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="cdi">CDI esperado <span class="dica">hoje: 13,65% (06/10/2026)</span></label><div class="entrada"><input id="cdi" inputmode="decimal" value="13,65"><span>% a.a.</span></div></div>
   <div class="campo"><label for="pcdb">CDB rende <span class="dica">percentual do CDI da oferta que você quer comparar</span></label><div class="entrada"><input id="pcdb" inputmode="decimal" value="100"><span>% do CDI</span></div></div>
   <div class="campo"><label for="plci">LCI/LCA rende <span class="dica">exemplo; troque pela oferta real</span></label><div class="entrada"><input id="plci" inputmode="decimal" value="90"><span>% do CDI</span></div></div>
-  <div class="campo"><label for="selic">Selic over esperada <span class="dica">hoje: 13,65% (06/10/2026)</span></label><div class="entrada"><input id="selic" inputmode="decimal" value="13,65"><span>% a.a.</span></div></div>
+  <div class="campo"><label for="selic">Selic over esperada <span class="dica">hoje: 13,65% (07/10/2026)</span></label><div class="entrada"><input id="selic" inputmode="decimal" value="13,65"><span>% a.a.</span></div></div>
   <div class="campo"><label for="tsel">Tesouro Selic: taxa do título <span class="dica" id="d-tsel">somada à Selic</span></label><div class="entrada"><input id="tsel" inputmode="decimal" value="0"><span>% a.a.</span></div></div>
   <div class="campo"><label for="tpre">Tesouro Prefixado: taxa <span class="dica" id="d-tpre"></span></label><div class="entrada"><input id="tpre" inputmode="decimal" value="0"><span>% a.a.</span></div></div>
   <div class="campo"><label for="tipca">Tesouro IPCA+: juro real <span class="dica" id="d-tipca"></span></label><div class="entrada"><input id="tipca" inputmode="decimal" value="0"><span>% a.a.</span></div></div>
@@ -698,7 +698,7 @@ function pct(v,c){return fmt(v,c==null?2:c)+'%'}
 function duracao(m){var a=Math.floor(m/12),r=m%12,p=[];
  if(a)p.push(a+(a===1?' ano':' anos'));if(r)p.push(r+(r===1?' mês':' meses'));return p.join(' e ')||'0 meses'}
 
-var TD=[{"t":"Tesouro IPCA+","v":"2029-05-15","c":6.84},{"t":"Tesouro IPCA+","v":"2032-08-15","c":6.91},{"t":"Tesouro IPCA+","v":"2035-05-15","c":6.86},{"t":"Tesouro IPCA+","v":"2040-08-15","c":6.5},{"t":"Tesouro IPCA+","v":"2045-05-15","c":6.45},{"t":"Tesouro IPCA+","v":"2050-08-15","c":6.32},{"t":"Tesouro Prefixado","v":"2027-01-01","c":13.22},{"t":"Tesouro Prefixado","v":"2028-01-01","c":12.66},{"t":"Tesouro Prefixado","v":"2029-01-01","c":12.74},{"t":"Tesouro Prefixado","v":"2031-01-01","c":12.87},{"t":"Tesouro Prefixado","v":"2032-01-01","c":12.95},{"t":"Tesouro Selic","v":"2027-03-01","c":0.0},{"t":"Tesouro Selic","v":"2028-03-01","c":0.03},{"t":"Tesouro Selic","v":"2029-03-01","c":0.05},{"t":"Tesouro Selic","v":"2031-03-01","c":0.09}];
+var TD=[{"t":"Tesouro IPCA+","v":"2029-05-15","c":6.91},{"t":"Tesouro IPCA+","v":"2032-08-15","c":6.95},{"t":"Tesouro IPCA+","v":"2035-05-15","c":6.92},{"t":"Tesouro IPCA+","v":"2040-08-15","c":6.64},{"t":"Tesouro IPCA+","v":"2045-05-15","c":6.55},{"t":"Tesouro IPCA+","v":"2050-08-15","c":6.51},{"t":"Tesouro Prefixado","v":"2027-01-01","c":13.23},{"t":"Tesouro Prefixado","v":"2028-01-01","c":12.56},{"t":"Tesouro Prefixado","v":"2029-01-01","c":12.55},{"t":"Tesouro Prefixado","v":"2031-01-01","c":12.64},{"t":"Tesouro Prefixado","v":"2032-01-01","c":12.71},{"t":"Tesouro Selic","v":"2027-03-01","c":0.01},{"t":"Tesouro Selic","v":"2028-03-01","c":0.03},{"t":"Tesouro Selic","v":"2029-03-01","c":0.05},{"t":"Tesouro Selic","v":"2031-03-01","c":0.09}];
 var IOF=[96,93,90,86,83,80,76,73,70,66,63,60,56,53,50,46,43,40,36,33,30,26,23,20,16,13,10,6,3];
 function pascoa(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return Date.UTC(y,mo-1,da)}
 var FER={};function feriados(y){if(FER[y])return FER[y];var s={},D=864e5,p=pascoa(y);
@@ -721,7 +721,7 @@ function calc(){var er=document.getElementById('erro');er.textContent='';
  var du=diasUteis(hoje,fim),fimIso=new Date(fim).toISOString().slice(0,10);
  [['tsel','Tesouro Selic'],['tpre','Tesouro Prefixado'],['tipca','Tesouro IPCA+']].forEach(function(x){var t=proximo(x[1],fimIso),d=document.getElementById('d-'+x[0]);
   if(!t){d.textContent='';return}if(!mexido[x[0]])document.getElementById(x[0]).value=fmt(t.c,2);
-  d.textContent=(mexido[x[0]]?'valor digitado; ':'')+x[1]+' '+t.v.slice(0,4)+' em 05/10/2026: '+fmt(t.c,2)+'%'+(t.v<fimIso?' (o vencimento mais longo; vence antes do prazo)':'')});
+  d.textContent=(mexido[x[0]]?'valor digitado; ':'')+x[1]+' '+t.v.slice(0,4)+' em 06/10/2026: '+fmt(t.c,2)+'%'+(t.v<fimIso?' (o vencimento mais longo; vence antes do prazo)':'')});
  var cdi=campo('cdi')/100,selic=campo('selic')/100,ipca=campo('ipca')/100,meta=campo('meta'),tr=campo('tr')/100,
   pc=campo('pcdb')/100,pl=campo('plci')/100,ts=campo('tsel')/100,tp=campo('tpre')/100,ti=campo('tipca')/100;
  if([cdi,selic,ipca,meta,tr,pc,pl,ts,tp,ti].some(isNaN)){er.textContent='Confira as taxas: algum campo não é um número.';return}

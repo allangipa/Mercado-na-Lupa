@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-07T01:48+00:00",
+ "coletado_em": "2026-10-07T22:46+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,48 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-07T01:48+00:00",
+   "coletado_em": "2026-10-07T22:46+00:00",
    "itens": [
+    {
+     "t": "Dólar volta a R$ 5 com ambiente externo e ajuste pós-eleitoral",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-volta-r-5-com-ambiente-externo-e-ajuste-pos-eleitoral",
+     "d": "2026-10-07T19:41-03:00"
+    },
+    {
+     "t": "Faturamento da indústria cai 3,5% em agosto, informa CNI",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/faturamento-da-industria-cai-35-em-agosto-informa-cni",
+     "d": "2026-10-07T19:39-03:00"
+    },
+    {
+     "t": "Produção de veículos tem melhor setembro desde 2014, diz Anfavea",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-de-veiculos-tem-melhor-setembro-desde-2014-diz-anfavea",
+     "d": "2026-10-07T17:42-03:00"
+    },
+    {
+     "t": "Bets começam a informar bancos sobre R$ 1,3 bilhão a devolver",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bets-comecam-informar-bancos-sobre-r-13-bilhao-devolver",
+     "d": "2026-10-07T15:04-03:00"
+    },
+    {
+     "t": "Receita envia cartas a 498 mil que estão na malha fina até o dia 20",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/receita-envia-cartas-498-mil-que-estao-na-malha-fina-ate-o-dia-20",
+     "d": "2026-10-07T15:01-03:00"
+    },
+    {
+     "t": "Maior leilão do pré-sal termina com sete dos 13 blocos arrematados",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/maior-leilao-do-pre-sal-termina-com-sete-dos-13-blocos-arrematados",
+     "d": "2026-10-07T13:11-03:00"
+    },
+    {
+     "t": "Aneel adia discussão sobre fim de contrato com a Enel em São Paulo",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-adia-discussao-sobre-fim-de-contrato-com-enel-em-sao-paulo",
+     "d": "2026-10-07T07:38-03:00"
+    },
+    {
+     "t": "ANP espera leiloar mais de 320 blocos de petróleo nesta quarta",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/anp-espera-leiloar-mais-de-320-blocos-de-petroleo-nesta-quarta",
+     "d": "2026-10-07T07:20-03:00"
+    },
     {
      "t": "Previsão de superávit comercial de 2026 cai para US$ 84,4 bilhões",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/previsao-de-superavit-comercial-de-2026-cai-para-us-844-bilhoes",
@@ -20,46 +60,6 @@
      "t": "Cerca de 13,2 mil sites de bets ilegais são bloqueados",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/cerca-de-132-mil-sites-de-bets-ilegais-sao-bloqueados",
      "d": "2026-10-06T19:37-03:00"
-    },
-    {
-     "t": "Dólar fecha abaixo de R$ 5 pela primeira vez desde maio",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-fecha-abaixo-de-r-5-pela-primeira-vez-desde-maio",
-     "d": "2026-10-06T19:13-03:00"
-    },
-    {
-     "t": "Balança comercial tem superávit de US$ 7,74 bilhões em setembro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/balanca-comercial-tem-superavit-de-us-774-bilhoes-em-setembro",
-     "d": "2026-10-06T16:25-03:00"
-    },
-    {
-     "t": "BC cria indicador para acompanhar reajustes salariais negociados",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bc-cria-indicador-para-acompanhar-reajustes-salariais-negociados",
-     "d": "2026-10-06T12:22-03:00"
-    },
-    {
-     "t": "Dólar cai a R$ 5, e bolsa sobe quase 8% após primeiro turno",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-cai-r-5-e-bolsa-sobe-quase-8-apos-primeiro-turno",
-     "d": "2026-10-05T18:24-03:00"
-    },
-    {
-     "t": "Prazo para sacar dinheiro das bets termina nesta segunda",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/prazo-para-sacar-dinheiro-das-bets-termina-nesta-segunda",
-     "d": "2026-10-05T15:48-03:00"
-    },
-    {
-     "t": "Fenabrave: emplacamentos passam de 500 mil e batem recorde em setembro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/fenabrave-emplacamentos-passam-de-500-mil-e-batem-recorde-em-setembro",
-     "d": "2026-10-05T13:47-03:00"
-    },
-    {
-     "t": "Focus: mercado eleva previsão da inflação para 5,01% em 2026",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/focus-mercado-eleva-previsao-da-inflacao-para-501-em-2026",
-     "d": "2026-10-05T09:25-03:00"
-    },
-    {
-     "t": "Petrobras atinge recorde de valor de mercado após descoberta no Amapá",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/petrobras-atinge-recorde-de-valor-de-mercado-apos-descoberta-no-amapa",
-     "d": "2026-10-03T13:03-03:00"
     }
    ]
   },
@@ -70,8 +70,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-07T01:48+00:00",
+   "coletado_em": "2026-10-07T22:46+00:00",
    "itens": [
+    {
+     "t": "BC divulga IC-Br de setembro",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21282/nota",
+     "d": "2026-10-07T14:31-03:00"
+    },
     {
      "t": "BC divulga Estatísticas Fiscais à imprensa",
      "u": "https://www.bcb.gov.br/detalhenoticia/21277/nota",
@@ -116,11 +121,6 @@
      "t": "BC divulga IBCR de julho",
      "u": "https://www.bcb.gov.br/detalhenoticia/21266/nota",
      "d": "2026-09-23T14:32-03:00"
-    },
-    {
-     "t": "BC divulga Ata da 281ª reunião do Copom",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21263/nota",
-     "d": "2026-09-22T08:00-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-07T01:48+00:00",
+   "coletado_em": "2026-10-07T22:46+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,8 +192,13 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-07T01:48+00:00",
+   "coletado_em": "2026-10-07T22:46+00:00",
    "itens": [
+    {
+     "t": "Títulos públicos atrelados à inflação lideram valorização dos índices de renda fixa da B3",
+     "u": "https://www.b3.com.br/pt_br/noticias/titulos-publicos-atrelados-a-inflacao-lideram-valorizacao-dos-indices-de-renda-fixa-da-b3-no-trimestre.htm",
+     "d": "2026-10-07"
+    },
     {
      "t": "MUB3 convida crianças e famílias a conversar sobre dinheiro de forma lúdica",
      "u": "https://www.b3.com.br/pt_br/noticias/entre-brincadeiras-e-oficinas-mub3-convida-criancas-e-familias-a-conversar-sobre-dinheiro-de-forma-ludica.htm",
@@ -233,11 +238,6 @@
      "t": "B3 e Invest RS unem esforços para ampliar o acesso de empresas gaúchas ao mercado de capitais",
      "u": "https://www.b3.com.br/pt_br/noticias/regime-facil-8AE490C9A0C34B6A01A0C57F1DA31FEB.htm",
      "d": "2026-09-21"
-    },
-    {
-     "t": "Centro de Convenções de Florianópolis é leiloado na B3",
-     "u": "https://www.b3.com.br/pt_br/noticias/centro-de-convencoes-de-florianopolis-e-leiloado-na-b3.htm",
-     "d": "2026-09-18"
     }
    ]
   },
@@ -247,7 +247,9 @@
    "site": "https://www.gov.br/tesouronacional/pt-br/noticias",
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
-   "ok": true,
+   "ok": false,
+   "erro": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+   "falhou_em": "2026-10-07T22:46+00:00",
    "coletado_em": "2026-10-07T01:48+00:00",
    "itens": [
     {

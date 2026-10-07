@@ -1,7 +1,7 @@
 {
  "A1MD34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRA1MDBDR002",
@@ -9,7 +9,7 @@
  },
  "A1MT34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRA1MTBDR008",
@@ -17,7 +17,7 @@
  },
  "AAPL34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRAAPLBDR004",
@@ -25,7 +25,7 @@
  },
  "ABEV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON",
   "fii": false,
   "isin": "BRABEVACNOR1",
@@ -33,7 +33,7 @@
  },
  "AFHI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRAFHICTF005",
@@ -41,7 +41,7 @@
  },
  "ALOS3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRALOSACNOR5",
@@ -49,7 +49,7 @@
  },
  "ALUP11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N2",
   "fii": false,
   "isin": "BRALUPCDAM15",
@@ -57,7 +57,7 @@
  },
  "ALZR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRALZRCTF006",
@@ -65,7 +65,7 @@
  },
  "AMZO34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRAMZOBDR002",
@@ -73,7 +73,7 @@
  },
  "ASAI3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRASAIACNOR0",
@@ -81,7 +81,7 @@
  },
  "ASML34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRASMLBDR003",
@@ -89,7 +89,7 @@
  },
  "AURA33": {
   "bdi": "35",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DR3",
   "fii": false,
   "isin": "BRAURABDR001",
@@ -97,7 +97,7 @@
  },
  "AURE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRAUREACNOR9",
@@ -105,7 +105,7 @@
  },
  "AVGO34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRAVGOBDR003",
@@ -113,7 +113,7 @@
  },
  "AXIA3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRAXIAACNOR0",
@@ -121,15 +121,15 @@
  },
  "AXIA7": {
   "bdi": "02",
-  "data": "2026-10-05",
-  "especificacao": "PNC ATZ NM",
+  "data": "2026-10-06",
+  "especificacao": "PNC     NM",
   "fii": false,
   "isin": "BRAXIAACNPC9",
   "nome_pregao": "AXIA ENERGIA"
  },
  "AZZA3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRAZZAACNOR9",
@@ -137,7 +137,7 @@
  },
  "B3SA3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRB3SAACNOR6",
@@ -145,7 +145,7 @@
  },
  "BABA34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRBABABDR005",
@@ -153,7 +153,7 @@
  },
  "BBAS3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRBBASACNOR3",
@@ -161,7 +161,7 @@
  },
  "BBDC3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ  N1",
   "fii": false,
   "isin": "BRBBDCACNOR1",
@@ -169,7 +169,7 @@
  },
  "BBDC4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN  EJ  N1",
   "fii": false,
   "isin": "BRBBDCACNPR8",
@@ -177,7 +177,7 @@
  },
  "BBIG11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRBBIGCTF004",
@@ -185,7 +185,7 @@
  },
  "BBSE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRBBSEACNOR5",
@@ -193,7 +193,7 @@
  },
  "BCRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRBCRICTF009",
@@ -201,7 +201,7 @@
  },
  "BEEF3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRBEEFACNOR6",
@@ -209,7 +209,7 @@
  },
  "BERK34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRBERKBDR002",
@@ -217,7 +217,7 @@
  },
  "BOAC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRBOACBDR004",
@@ -225,7 +225,7 @@
  },
  "BOVA11": {
   "bdi": "14",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": false,
   "isin": "BRBOVACTF003",
@@ -233,7 +233,7 @@
  },
  "BPAC11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N2",
   "fii": false,
   "isin": "BRBPACUNT006",
@@ -241,7 +241,7 @@
  },
  "BPML11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRBPMLCTF006",
@@ -249,7 +249,7 @@
  },
  "BRAP4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N1",
   "fii": false,
   "isin": "BRBRAPACNPR2",
@@ -257,7 +257,7 @@
  },
  "BRAV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRBRAVACNOR3",
@@ -265,7 +265,7 @@
  },
  "BRCO11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRBRCOCTF007",
@@ -273,7 +273,7 @@
  },
  "BRCR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRBRCRCTF000",
@@ -281,7 +281,7 @@
  },
  "BRSR6": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PNB     N1",
   "fii": false,
   "isin": "BRBRSRACNPB4",
@@ -289,7 +289,7 @@
  },
  "BTCI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRBTCICTF005",
@@ -297,7 +297,7 @@
  },
  "BTHF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRBTHFCTF000",
@@ -305,7 +305,7 @@
  },
  "BTLG11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRBTLGCTF000",
@@ -313,7 +313,7 @@
  },
  "C2OI34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRC2OIBDR003",
@@ -321,7 +321,7 @@
  },
  "C2RW34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRC2RWBDR007",
@@ -329,7 +329,7 @@
  },
  "CACR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRCACRCTF004",
@@ -337,7 +337,7 @@
  },
  "CBAV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCBAVACNOR5",
@@ -345,7 +345,7 @@
  },
  "CEAB3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCEABACNOR1",
@@ -353,7 +353,7 @@
  },
  "CHVX34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRCHVXBDR008",
@@ -361,7 +361,7 @@
  },
  "CLIN11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRCLINCTF007",
@@ -369,7 +369,7 @@
  },
  "CMIG4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N1",
   "fii": false,
   "isin": "BRCMIGACNPR3",
@@ -377,7 +377,7 @@
  },
  "CMIN3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      N2",
   "fii": false,
   "isin": "BRCMINACNOR2",
@@ -385,7 +385,7 @@
  },
  "COCA34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRCOCABDR002",
@@ -393,7 +393,7 @@
  },
  "COGN3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCOGNACNOR2",
@@ -401,7 +401,7 @@
  },
  "CPFE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCPFEACNOR0",
@@ -409,7 +409,7 @@
  },
  "CPLE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCPLEACNOR8",
@@ -417,7 +417,7 @@
  },
  "CPSH11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRCPSHCTF017",
@@ -425,7 +425,7 @@
  },
  "CPTS11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRCPTSCTF004",
@@ -433,7 +433,7 @@
  },
  "CSAN3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCSANACNOR6",
@@ -441,7 +441,7 @@
  },
  "CSMG3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCSMGACNOR5",
@@ -449,7 +449,7 @@
  },
  "CSNA3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON",
   "fii": false,
   "isin": "BRCSNAACNOR6",
@@ -457,7 +457,7 @@
  },
  "CURY3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCURYACNOR3",
@@ -465,7 +465,7 @@
  },
  "CVCB3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCVCBACNOR1",
@@ -473,7 +473,7 @@
  },
  "CXSE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCXSEACNOR7",
@@ -481,7 +481,7 @@
  },
  "CYCR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRCYCRCTF004",
@@ -489,7 +489,7 @@
  },
  "CYRE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRCYREACNOR7",
@@ -497,7 +497,7 @@
  },
  "D1DG34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRD1DGBDR001",
@@ -505,7 +505,7 @@
  },
  "D1EL34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRD1ELBDR009",
@@ -513,7 +513,7 @@
  },
  "DEVA11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRDEVACTF000",
@@ -521,7 +521,7 @@
  },
  "DIRR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRDIRRACNOR0",
@@ -529,7 +529,7 @@
  },
  "DISB34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRDISBBDR006",
@@ -537,7 +537,7 @@
  },
  "DIVO11": {
   "bdi": "14",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": false,
   "isin": "BRDIVOCTF002",
@@ -545,7 +545,7 @@
  },
  "ECOR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRECORACNOR8",
@@ -553,7 +553,7 @@
  },
  "EGIE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BREGIEACNOR9",
@@ -561,7 +561,7 @@
  },
  "EMBJ3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BREMBJACNOR1",
@@ -569,7 +569,7 @@
  },
  "ENEV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRENEVACNOR8",
@@ -577,7 +577,7 @@
  },
  "ENGI11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N2",
   "fii": false,
   "isin": "BRENGICDAM16",
@@ -585,7 +585,7 @@
  },
  "EQTL3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BREQTLACNOR0",
@@ -593,7 +593,7 @@
  },
  "EXXO34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BREXXOBDR006",
@@ -601,7 +601,7 @@
  },
  "FATN11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRFATNCTF000",
@@ -609,7 +609,7 @@
  },
  "FCXO34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRFCXOBDR007",
@@ -617,7 +617,7 @@
  },
  "FLRY3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRFLRYACNOR5",
@@ -625,7 +625,7 @@
  },
  "GARE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRGARECTF001",
@@ -633,7 +633,7 @@
  },
  "GGBR4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N1",
   "fii": false,
   "isin": "BRGGBRACNPR8",
@@ -641,7 +641,7 @@
  },
  "GGPS3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRGGPSACNOR9",
@@ -649,7 +649,7 @@
  },
  "GGRC11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRGGRCCTF002",
@@ -657,7 +657,7 @@
  },
  "GMAT3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRGMATACNOR7",
@@ -665,7 +665,7 @@
  },
  "GOAU4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N1",
   "fii": false,
   "isin": "BRGOAUACNPR8",
@@ -673,7 +673,7 @@
  },
  "GOGL34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRGOGLBDR001",
@@ -681,7 +681,7 @@
  },
  "GSGI34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRGSGIBDR008",
@@ -689,7 +689,7 @@
  },
  "GTWR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRGTWRCTF003",
@@ -697,15 +697,15 @@
  },
  "GZIT11": {
   "bdi": "12",
-  "data": "2026-10-05",
-  "especificacao": "CI  ER",
+  "data": "2026-10-06",
+  "especificacao": "CI",
   "fii": true,
   "isin": "BRGZITCTF005",
   "nome_pregao": "FII GAZIT"
  },
  "HABT11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHABTCTF001",
@@ -713,7 +713,7 @@
  },
  "HAPV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRHAPVACNOR4",
@@ -721,7 +721,7 @@
  },
  "HCTR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRHCTRCTF003",
@@ -729,7 +729,7 @@
  },
  "HFOF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHFOFCTF002",
@@ -737,7 +737,7 @@
  },
  "HGBS11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHGBSCTF000",
@@ -745,7 +745,7 @@
  },
  "HGCR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHGCRCTF000",
@@ -753,7 +753,7 @@
  },
  "HGLG11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHGLGCTF004",
@@ -761,7 +761,7 @@
  },
  "HGRE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHGRECTF006",
@@ -769,7 +769,7 @@
  },
  "HGRU11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHGRUCTF002",
@@ -777,7 +777,7 @@
  },
  "HSAF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHSAFCTF004",
@@ -785,7 +785,7 @@
  },
  "HSLG11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHSLGCTF009",
@@ -793,7 +793,7 @@
  },
  "HSML11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHSMLCTF007",
@@ -801,7 +801,7 @@
  },
  "HTMX11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRHTMXCTF000",
@@ -809,7 +809,7 @@
  },
  "HYPE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ  NM",
   "fii": false,
   "isin": "BRHYPEACNOR0",
@@ -817,7 +817,7 @@
  },
  "ICRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRICRICTF004",
@@ -825,7 +825,7 @@
  },
  "IGTI11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N1",
   "fii": false,
   "isin": "BRIGTICDAM16",
@@ -833,7 +833,7 @@
  },
  "INBR32": {
   "bdi": "35",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DR2",
   "fii": false,
   "isin": "BRINBRBDR007",
@@ -841,7 +841,7 @@
  },
  "IRBR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRIRBRACNOR4",
@@ -849,7 +849,7 @@
  },
  "IRIM11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRIRIMCTF003",
@@ -857,7 +857,7 @@
  },
  "ISAE4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N1",
   "fii": false,
   "isin": "BRISAEACNPR9",
@@ -865,7 +865,7 @@
  },
  "ITLC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRITLCBDR005",
@@ -873,7 +873,7 @@
  },
  "ITRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRITRICTF008",
@@ -881,7 +881,7 @@
  },
  "ITSA4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N1",
   "fii": false,
   "isin": "BRITSAACNPR7",
@@ -889,7 +889,7 @@
  },
  "ITUB3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ  N1",
   "fii": false,
   "isin": "BRITUBACNOR4",
@@ -897,7 +897,7 @@
  },
  "ITUB4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN  EJ  N1",
   "fii": false,
   "isin": "BRITUBACNPR1",
@@ -905,7 +905,7 @@
  },
  "IVVB11": {
   "bdi": "14",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": false,
   "isin": "BRIVVBCTF001",
@@ -913,7 +913,7 @@
  },
  "JBSS32": {
   "bdi": "35",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DR2",
   "fii": false,
   "isin": "BRJBSSBDR002",
@@ -921,7 +921,7 @@
  },
  "JHSF3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  ED  NM",
   "fii": false,
   "isin": "BRJHSFACNOR2",
@@ -929,7 +929,7 @@
  },
  "JPMC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN ED",
   "fii": false,
   "isin": "BRJPMCBDR009",
@@ -937,7 +937,7 @@
  },
  "JSAF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRJSAFCTF000",
@@ -945,7 +945,7 @@
  },
  "JSRE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRJSRECTF007",
@@ -953,7 +953,7 @@
  },
  "KCRE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKCRECTF009",
@@ -961,7 +961,7 @@
  },
  "KFOF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKFOFCTF006",
@@ -969,7 +969,7 @@
  },
  "KISU11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRKISUCTF000",
@@ -977,7 +977,7 @@
  },
  "KLBN11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N2",
   "fii": false,
   "isin": "BRKLBNCDAM18",
@@ -985,7 +985,7 @@
  },
  "KNCR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ERS",
   "fii": true,
   "isin": "BRKNCRCTF000",
@@ -993,7 +993,7 @@
  },
  "KNHF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNHFCTF004",
@@ -1001,7 +1001,7 @@
  },
  "KNHY11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNHYCTF005",
@@ -1009,7 +1009,7 @@
  },
  "KNIP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNIPCTF001",
@@ -1017,7 +1017,7 @@
  },
  "KNRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNRICTF007",
@@ -1025,7 +1025,7 @@
  },
  "KNSC11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNSCCTF008",
@@ -1033,7 +1033,7 @@
  },
  "KNUQ11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKNUQCTF004",
@@ -1041,7 +1041,7 @@
  },
  "KORE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRKORECTF012",
@@ -1049,7 +1049,7 @@
  },
  "LIFE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRLIFECTF017",
@@ -1057,7 +1057,7 @@
  },
  "LILY34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRLILYBDR006",
@@ -1065,7 +1065,7 @@
  },
  "LREN3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRLRENACNOR1",
@@ -1073,7 +1073,7 @@
  },
  "LVBI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRLVBICTF002",
@@ -1081,7 +1081,7 @@
  },
  "M1RN34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRM1RNBDR006",
@@ -1089,7 +1089,7 @@
  },
  "M1TA34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRM1TABDR009",
@@ -1097,7 +1097,7 @@
  },
  "M2RV34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRM2RVBDR007",
@@ -1105,7 +1105,7 @@
  },
  "M2ST34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRM2STBDR009",
@@ -1113,7 +1113,7 @@
  },
  "MANA11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRMANACTF006",
@@ -1121,7 +1121,7 @@
  },
  "MBRF3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRMBRFACNOR1",
@@ -1129,7 +1129,7 @@
  },
  "MCCI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRMCCICTF008",
@@ -1137,7 +1137,7 @@
  },
  "MCRE11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRMCRECTF013",
@@ -1145,7 +1145,7 @@
  },
  "MDNE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRMDNEACNOR9",
@@ -1153,7 +1153,7 @@
  },
  "MELI34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRMELIBDR006",
@@ -1161,7 +1161,7 @@
  },
  "MFII11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRMFIICTF008",
@@ -1169,7 +1169,7 @@
  },
  "MGLU3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRMGLUACNOR2",
@@ -1177,7 +1177,7 @@
  },
  "MOTV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRMOTVACNOR7",
@@ -1185,7 +1185,7 @@
  },
  "MOVI3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRMOVIACNOR0",
@@ -1193,7 +1193,7 @@
  },
  "MRVE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRMRVEACNOR2",
@@ -1201,7 +1201,7 @@
  },
  "MSCD34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRMSCDBDR006",
@@ -1209,7 +1209,7 @@
  },
  "MSFT34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRMSFTBDR005",
@@ -1217,7 +1217,7 @@
  },
  "MULT3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ  N2",
   "fii": false,
   "isin": "BRMULTACNOR5",
@@ -1225,7 +1225,7 @@
  },
  "MUTC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRMUTCBDR008",
@@ -1233,7 +1233,7 @@
  },
  "MXRF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRMXRFCTF008",
@@ -1241,7 +1241,7 @@
  },
  "NATU3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRNATUACNOR6",
@@ -1249,7 +1249,7 @@
  },
  "NFLX34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRNFLXBDR000",
@@ -1257,7 +1257,7 @@
  },
  "NVDC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRNVDCBDR008",
@@ -1265,7 +1265,7 @@
  },
  "ORCL34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRORCLBDR007",
@@ -1273,7 +1273,7 @@
  },
  "ORVR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRORVRACNOR0",
@@ -1281,7 +1281,7 @@
  },
  "OUJP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BROUJPCTF006",
@@ -1289,7 +1289,7 @@
  },
  "P2LT34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRP2LTBDR001",
@@ -1297,7 +1297,7 @@
  },
  "PAGS34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRPAGSBDR006",
@@ -1305,7 +1305,7 @@
  },
  "PCIP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRPCIPCTF003",
@@ -1313,7 +1313,7 @@
  },
  "PETR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      N2",
   "fii": false,
   "isin": "BRPETRACNOR9",
@@ -1321,7 +1321,7 @@
  },
  "PETR4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N2",
   "fii": false,
   "isin": "BRPETRACNPR6",
@@ -1329,7 +1329,7 @@
  },
  "PLPL3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRPLPLACNOR5",
@@ -1337,7 +1337,7 @@
  },
  "PMLL11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRPMLLCTF005",
@@ -1345,7 +1345,7 @@
  },
  "POMO4": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PN      N2",
   "fii": false,
   "isin": "BRPOMOACNPR7",
@@ -1353,7 +1353,7 @@
  },
  "PORD11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRPORDCTF005",
@@ -1361,7 +1361,7 @@
  },
  "PRIO3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRPRIOACNOR1",
@@ -1369,7 +1369,7 @@
  },
  "PSEC11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRPSECCTF006",
@@ -1377,15 +1377,15 @@
  },
  "PSSA3": {
   "bdi": "02",
-  "data": "2026-10-05",
-  "especificacao": "ON  EJ  NM",
+  "data": "2026-10-06",
+  "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRPSSAACNOR7",
   "nome_pregao": "PORTO SEGURO"
  },
  "PVBI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRPVBICTF003",
@@ -1393,7 +1393,7 @@
  },
  "QCOM34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRQCOMBDR007",
@@ -1401,7 +1401,7 @@
  },
  "RADL3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRRADLACNOR0",
@@ -1409,7 +1409,7 @@
  },
  "RAIL3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRRAILACNOR9",
@@ -1417,7 +1417,7 @@
  },
  "RBRL11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRRBRLCTF001",
@@ -1425,7 +1425,7 @@
  },
  "RBRP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRBRPCTF002",
@@ -1433,7 +1433,7 @@
  },
  "RBRR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRBRRCTF008",
@@ -1441,7 +1441,7 @@
  },
  "RBRX11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRBRXCTF006",
@@ -1449,7 +1449,7 @@
  },
  "RBRY11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRBRYCTF004",
@@ -1457,7 +1457,7 @@
  },
  "RBVA11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRRBVACTF006",
@@ -1465,7 +1465,7 @@
  },
  "RCRB11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRRCRBCTF000",
@@ -1473,7 +1473,7 @@
  },
  "RDOR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ  NM",
   "fii": false,
   "isin": "BRRDORACNOR8",
@@ -1481,7 +1481,7 @@
  },
  "RECR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRECRCTF004",
@@ -1489,7 +1489,7 @@
  },
  "RECV3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRRECVACNOR3",
@@ -1497,7 +1497,7 @@
  },
  "RENT3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ  NM",
   "fii": false,
   "isin": "BRRENTACNOR4",
@@ -1505,7 +1505,7 @@
  },
  "ROXO34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRROXOBDR007",
@@ -1513,7 +1513,7 @@
  },
  "RPRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRRPRICTF007",
@@ -1521,7 +1521,7 @@
  },
  "RZAK11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRZAKCTF008",
@@ -1529,7 +1529,7 @@
  },
  "RZAT11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRRZATCTF009",
@@ -1537,7 +1537,7 @@
  },
  "RZTR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRRZTRCTF003",
@@ -1545,7 +1545,7 @@
  },
  "S1TX34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRS1TXBDR005",
@@ -1553,7 +1553,7 @@
  },
  "S2GM34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRS2GMBDR003",
@@ -1561,7 +1561,7 @@
  },
  "SANB11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT",
   "fii": false,
   "isin": "BRSANBCDAM13",
@@ -1569,7 +1569,7 @@
  },
  "SAPR11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N2",
   "fii": false,
   "isin": "BRSAPRCDAM13",
@@ -1577,7 +1577,7 @@
  },
  "SBSP3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRSBSPACNOR5",
@@ -1585,7 +1585,7 @@
  },
  "SIMH3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRSIMHACNOR0",
@@ -1593,7 +1593,7 @@
  },
  "SLCE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRSLCEACNOR2",
@@ -1601,7 +1601,7 @@
  },
  "SMAL11": {
   "bdi": "14",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": false,
   "isin": "BRSMALCTF002",
@@ -1609,7 +1609,7 @@
  },
  "SMFT3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRSMFTACNOR1",
@@ -1617,7 +1617,7 @@
  },
  "SMTO3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRSMTOACNOR3",
@@ -1625,7 +1625,7 @@
  },
  "SNCI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRSNCICTF002",
@@ -1633,7 +1633,7 @@
  },
  "SNEL11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRSNELCTF010",
@@ -1641,7 +1641,7 @@
  },
  "SNFF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRSNFFCTF001",
@@ -1649,7 +1649,7 @@
  },
  "SPCX34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRSPCXBDR007",
@@ -1657,7 +1657,7 @@
  },
  "SPXS11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRSPXSCTF002",
@@ -1665,7 +1665,7 @@
  },
  "STOC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRSTOCBDR024",
@@ -1673,7 +1673,7 @@
  },
  "SUZB3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRSUZBACNOR0",
@@ -1681,7 +1681,7 @@
  },
  "TAEE11": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "UNT     N2",
   "fii": false,
   "isin": "BRTAEECDAM10",
@@ -1689,7 +1689,7 @@
  },
  "TEND3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRTENDACNOR4",
@@ -1697,7 +1697,7 @@
  },
  "TEPP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRTEPPCTF006",
@@ -1705,7 +1705,7 @@
  },
  "TGAR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRTGARCTF009",
@@ -1713,7 +1713,7 @@
  },
  "TIMS3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRTIMSACNOR5",
@@ -1721,7 +1721,7 @@
  },
  "TOPP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRTOPPCTF013",
@@ -1729,15 +1729,15 @@
  },
  "TOTS3": {
   "bdi": "02",
-  "data": "2026-10-05",
-  "especificacao": "ON  EJ  NM",
+  "data": "2026-10-06",
+  "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRTOTSACNOR8",
   "nome_pregao": "TOTVS"
  },
  "TRBL11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRTRBLCTF007",
@@ -1745,7 +1745,7 @@
  },
  "TRXF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRTRXFCTF003",
@@ -1753,7 +1753,7 @@
  },
  "TSLA34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRTSLABDR008",
@@ -1761,7 +1761,7 @@
  },
  "TSMC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRTSMCBDR002",
@@ -1769,7 +1769,7 @@
  },
  "TVRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRTVRICTF001",
@@ -1777,7 +1777,7 @@
  },
  "UGPA3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRUGPAACNOR8",
@@ -1785,7 +1785,7 @@
  },
  "URPR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRURPRCTF002",
@@ -1793,7 +1793,7 @@
  },
  "USIM5": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "PNA     N1",
   "fii": false,
   "isin": "BRUSIMACNPA6",
@@ -1801,7 +1801,7 @@
  },
  "VALE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRVALEACNOR0",
@@ -1809,7 +1809,7 @@
  },
  "VAMO3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRVAMOACNOR7",
@@ -1817,7 +1817,7 @@
  },
  "VBBR3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRVBBRACNOR1",
@@ -1825,7 +1825,7 @@
  },
  "VCJR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVCJRCTF005",
@@ -1833,7 +1833,7 @@
  },
  "VGHF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVGHFCTF005",
@@ -1841,7 +1841,7 @@
  },
  "VGIP11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRVGIPCTF002",
@@ -1849,7 +1849,7 @@
  },
  "VGIR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRVGIRCTF008",
@@ -1857,7 +1857,7 @@
  },
  "VGRI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVGRICTF008",
@@ -1865,7 +1865,7 @@
  },
  "VILG11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVILGCTF001",
@@ -1873,7 +1873,7 @@
  },
  "VINO11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVINOCTF001",
@@ -1881,7 +1881,7 @@
  },
  "VISA34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRVISABDR000",
@@ -1889,7 +1889,7 @@
  },
  "VISC11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVISCCTF005",
@@ -1897,7 +1897,7 @@
  },
  "VIVA3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRVIVAACNOR0",
@@ -1905,7 +1905,7 @@
  },
  "VIVT3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON  EJ",
   "fii": false,
   "isin": "BRVIVTACNOR0",
@@ -1913,7 +1913,7 @@
  },
  "VRTA11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRVRTACTF008",
@@ -1921,7 +1921,7 @@
  },
  "W1DC34": {
   "bdi": "34",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DRN",
   "fii": false,
   "isin": "BRW1DCBDR007",
@@ -1929,7 +1929,7 @@
  },
  "WEGE3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRWEGEACNOR0",
@@ -1937,7 +1937,7 @@
  },
  "WHGR11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRWHGRCTF008",
@@ -1945,7 +1945,7 @@
  },
  "XFIX11": {
   "bdi": "14",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": false,
   "isin": "BRXFIXCTF004",
@@ -1953,7 +1953,7 @@
  },
  "XPBR31": {
   "bdi": "35",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "DR1",
   "fii": false,
   "isin": "BRXPBRBDR001",
@@ -1961,7 +1961,7 @@
  },
  "XPCI11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRXPCICTF007",
@@ -1969,7 +1969,7 @@
  },
  "XPLG11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRXPLGCTF002",
@@ -1977,7 +1977,7 @@
  },
  "XPML11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI",
   "fii": true,
   "isin": "BRXPMLCTF000",
@@ -1985,7 +1985,7 @@
  },
  "XPSF11": {
   "bdi": "12",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "CI  ER",
   "fii": true,
   "isin": "BRXPSFCTF009",
@@ -1993,7 +1993,7 @@
  },
  "YDUQ3": {
   "bdi": "02",
-  "data": "2026-10-05",
+  "data": "2026-10-06",
   "especificacao": "ON      NM",
   "fii": false,
   "isin": "BRYDUQACNOR3",

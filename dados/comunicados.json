@@ -1,12 +1,12 @@
 {
  "_leia": "Gerado por _src/comunicados.py. 10 mais recentes por empresa/fundo + 30 mais recentes de empresas e 30 de fundos.",
- "coletado_em": "2026-10-09T01:49+00:00",
+ "coletado_em": "2026-10-09T22:47+00:00",
  "fontes": {
   "ipe": {
    "nome": "CVM — documentos IPE de companhias abertas",
    "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip",
    "ok": true,
-   "coletado_em": "2026-10-09T01:49+00:00",
+   "coletado_em": "2026-10-09T22:47+00:00",
    "arquivo_cvm_em": "2026-10-04T10:00+00:00",
    "ultimo_documento": "2026-10-02",
    "documentos": 6903
@@ -15,7 +15,7 @@
    "nome": "CVM — documentos eventuais de fundos (FIIs)",
    "url": "https://dados.cvm.gov.br/dados/FI/DOC/EVENTUAL/DADOS/eventual_fi_2026.csv",
    "ok": true,
-   "coletado_em": "2026-10-09T01:49+00:00",
+   "coletado_em": "2026-10-09T22:47+00:00",
    "arquivo_cvm_em": "2026-10-03T10:39+00:00",
    "ultimo_documento": "2026-10-02",
    "documentos": 1097

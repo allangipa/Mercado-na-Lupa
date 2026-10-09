@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-09T01:50+00:00",
+ "coletado_em": "2026-10-09T22:48+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-09T01:50+00:00",
+   "coletado_em": "2026-10-09T22:48+00:00",
    "itens": [
+    {
+     "t": "Dólar cai a R$ 4,98 e acumula perda de 4,44% na semana",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-cai-r-498-e-acumula-perda-de-444-na-semana",
+     "d": "2026-10-09T19:07-03:00"
+    },
+    {
+     "t": "Reforma Tributária: 86% das notas fiscais destacam a CBS",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/reforma-tributaria-86-das-notas-fiscais-destacam-cbs",
+     "d": "2026-10-09T17:59-03:00"
+    },
+    {
+     "t": "Bancos começam a devolver R$ 1,3 bilhão a apostadores de bets",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bancos-comecam-devolver-r-13-bilhao-apostadores-de-bets",
+     "d": "2026-10-09T15:48-03:00"
+    },
+    {
+     "t": "Pix ultrapassa 1 bilhão de chaves cadastradas no Brasil",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/pix-ultrapassa-1-bilhao-de-chaves-cadastradas-no-brasil",
+     "d": "2026-10-09T13:42-03:00"
+    },
+    {
+     "t": "Tributos da gasolina são zerados e subsídios a combustíveis, ampliados",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/tributos-da-gasolina-sao-zerados-e-subsidios-combustiveis-ampliados",
+     "d": "2026-10-09T13:40-03:00"
+    },
+    {
+     "t": "INPC, inflação que corrige salários, acumula 4,29% em 12 meses",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/inpc-inflacao-que-corrige-salarios-acumula-429-em-12-meses",
+     "d": "2026-10-09T10:48-03:00"
+    },
+    {
+     "t": "Inflação oficial de setembro fica em 0,82%, mostra IBGE",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/inflacao-oficial-de-setembro-fica-em-082-mostra-ibge",
+     "d": "2026-10-09T10:06-03:00"
+    },
+    {
+     "t": "Crédito extraordinário de R$ 7,5 bi reforça subsídios a combustíveis",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/credito-extraordinario-de-r-75-bi-reforca-subsidios-combustiveis",
+     "d": "2026-10-09T09:53-03:00"
+    },
+    {
+     "t": "Indústria aponta juros altos como principal barreira ao crédito",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/industria-aponta-juros-altos-como-principal-barreira-ao-credito",
+     "d": "2026-10-09T08:01-03:00"
+    },
     {
      "t": "Durigan prevê envio de MP do Imposto Seletivo após eleições",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/durigan-preve-envio-de-mp-do-imposto-seletivo-apos-eleicoes",
      "d": "2026-10-08T20:05-03:00"
-    },
-    {
-     "t": "AliExpress e Correios firmam acordo para acelerar entregas no Brasil",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aliexpress-e-correios-firmam-acordo-para-acelerar-entregas-no-brasil",
-     "d": "2026-10-08T16:27-03:00"
-    },
-    {
-     "t": "Saiba como ficam os serviços bancários no feriado do dia 12 de outubro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/saiba-como-ficam-os-servicos-bancarios-no-feriado-do-dia-12-de-outubro",
-     "d": "2026-10-08T09:28-03:00"
-    },
-    {
-     "t": "Nove contêineres com produtos da China são apreendidos no Porto do Rio",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/nove-conteineres-com-produtos-da-china-sao-apreendidos-no-porto-do-rio",
-     "d": "2026-10-08T07:28-03:00"
-    },
-    {
-     "t": "Leilão da ANP arrecada R$ 3 bilhões com a venda de 49 blocos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/leilao-da-anp-arrecada-r-3-bilhoes-com-venda-de-49-blocos",
-     "d": "2026-10-07T21:12-03:00"
-    },
-    {
-     "t": "Ceagesp constrói estrutura provisória para atingidos por incêndio",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/ceagesp-constroi-estrutura-provisoria-para-atingidos-por-incendio",
-     "d": "2026-10-07T19:47-03:00"
-    },
-    {
-     "t": "Dólar volta a R$ 5 com ambiente externo e ajuste pós-eleitoral",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-volta-r-5-com-ambiente-externo-e-ajuste-pos-eleitoral",
-     "d": "2026-10-07T19:41-03:00"
-    },
-    {
-     "t": "Faturamento da indústria cai 3,5% em agosto, informa CNI",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/faturamento-da-industria-cai-35-em-agosto-informa-cni",
-     "d": "2026-10-07T19:39-03:00"
-    },
-    {
-     "t": "Produção de veículos tem melhor setembro desde 2014, diz Anfavea",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-de-veiculos-tem-melhor-setembro-desde-2014-diz-anfavea",
-     "d": "2026-10-07T17:42-03:00"
-    },
-    {
-     "t": "Bets começam a informar bancos sobre R$ 1,3 bilhão a devolver",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bets-comecam-informar-bancos-sobre-r-13-bilhao-devolver",
-     "d": "2026-10-07T15:04-03:00"
     }
    ]
   },
@@ -70,8 +70,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-09T01:50+00:00",
+   "coletado_em": "2026-10-09T22:48+00:00",
    "itens": [
+    {
+     "t": "BC divulga Relatório de Poupança de setembro",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21283/nota",
+     "d": "2026-10-09T09:00-03:00"
+    },
     {
      "t": "BC divulga IC-Br de setembro",
      "u": "https://www.bcb.gov.br/detalhenoticia/21282/nota",
@@ -116,11 +121,6 @@
      "t": "BC anuncia leilões de swap cambial tradicional para fins de rolagem dos contratos vincendos em 3 de novembro de 2026",
      "u": "https://www.bcb.gov.br/detalhenoticia/21269/nota",
      "d": "2026-09-23T18:30-03:00"
-    },
-    {
-     "t": "BC divulga IBCR de julho",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21266/nota",
-     "d": "2026-09-23T14:32-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-09T01:50+00:00",
+   "coletado_em": "2026-10-09T22:48+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,8 +192,13 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-09T01:50+00:00",
+   "coletado_em": "2026-10-09T22:48+00:00",
    "itens": [
+    {
+     "t": "Crianças e adolescentes já acumulam R$ 3,5 bilhões na bolsa brasileira",
+     "u": "https://www.b3.com.br/pt_br/noticias/dia-das-criancas-criancas-e-adolescentes-ja-acumulam-r-3-5-bilhoes-na-bolsa-brasileira.htm",
+     "d": "2026-10-09"
+    },
     {
      "t": "Confira o funcionamento da B3 no feriado de Nossa Senhora Aparecida",
      "u": "https://www.b3.com.br/pt_br/noticias/confira-o-funcionamento-da-b3-no-feriado-de-nossa-senhora-aparecida.htm",
@@ -233,11 +238,6 @@
      "t": "Obras do MASP, Pinacoteca e mais museus revelam histórias pouco conhecidas em nova série de vídeos",
      "u": "https://www.b3.com.br/pt_br/noticias/obras-do-masp-pinacoteca-museu-do-ipiranga-e-instituto-ricardo-brennand-revelam-historias-pouco-conhecidas-em-nova-serie-de-videos.htm",
      "d": "2026-09-22"
-    },
-    {
-     "t": "Financiamento de veículos bate recorde para agosto e alcança maior volume em 15 anos",
-     "u": "https://www.b3.com.br/pt_br/noticias/financiamento-de-veiculos-bate-recorde-para-agosto-e-alcanca-maior-volume-em-15-anos-aponta-trillia.htm",
-     "d": "2026-09-22"
     }
    ]
   },
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-09T01:50+00:00",
+   "coletado_em": "2026-10-09T22:48+00:00",
    "itens": [
     {
      "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",

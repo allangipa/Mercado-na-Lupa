@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-08T22:48+00:00",
+ "coletado_em": "2026-10-09T01:50+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,13 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-08T22:48+00:00",
+   "coletado_em": "2026-10-09T01:50+00:00",
    "itens": [
+    {
+     "t": "Durigan prevê envio de MP do Imposto Seletivo após eleições",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/durigan-preve-envio-de-mp-do-imposto-seletivo-apos-eleicoes",
+     "d": "2026-10-08T20:05-03:00"
+    },
     {
      "t": "AliExpress e Correios firmam acordo para acelerar entregas no Brasil",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aliexpress-e-correios-firmam-acordo-para-acelerar-entregas-no-brasil",
@@ -55,11 +60,6 @@
      "t": "Bets começam a informar bancos sobre R$ 1,3 bilhão a devolver",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bets-comecam-informar-bancos-sobre-r-13-bilhao-devolver",
      "d": "2026-10-07T15:04-03:00"
-    },
-    {
-     "t": "Receita envia cartas a 498 mil que estão na malha fina até o dia 20",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/receita-envia-cartas-498-mil-que-estao-na-malha-fina-ate-o-dia-20",
-     "d": "2026-10-07T15:01-03:00"
     }
    ]
   },
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-08T22:48+00:00",
+   "coletado_em": "2026-10-09T01:50+00:00",
    "itens": [
     {
      "t": "BC divulga IC-Br de setembro",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-08T22:48+00:00",
+   "coletado_em": "2026-10-09T01:50+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,7 +192,7 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-08T22:48+00:00",
+   "coletado_em": "2026-10-09T01:50+00:00",
    "itens": [
     {
      "t": "Confira o funcionamento da B3 no feriado de Nossa Senhora Aparecida",
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-08T22:48+00:00",
+   "coletado_em": "2026-10-09T01:50+00:00",
    "itens": [
     {
      "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",

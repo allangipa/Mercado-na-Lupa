@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-13T08:21+00:00",
+ "coletado_em": "2026-10-14T01:22+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-13T08:21+00:00",
+   "coletado_em": "2026-10-14T01:22+00:00",
    "itens": [
     {
-     "t": "Bets: mais de R$ 1 bilhão foram devolvidos a apostadores",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bets-mais-de-r-1-bilhao-foram-devolvidos-apostadores",
-     "d": "2026-10-10T11:47-03:00"
+     "t": "Perdão de dívidas de MEIs terá impacto fiscal, mas redução de custos",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-de-meis-tera-impacto-de-r-3-bilhoes",
+     "d": "2026-10-13T22:09-03:00"
     },
     {
-     "t": "Dólar cai a R$ 4,98 e acumula perda de 4,44% na semana",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-cai-r-498-e-acumula-perda-de-444-na-semana",
-     "d": "2026-10-09T19:07-03:00"
+     "t": "Dólar sobe 0,74% e volta a fechar acima de R$ 5",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-sobe-074-e-volta-fechar-acima-de-r-5",
+     "d": "2026-10-13T18:57-03:00"
     },
     {
-     "t": "Reforma Tributária: 86% das notas fiscais destacam a CBS",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/reforma-tributaria-86-das-notas-fiscais-destacam-cbs",
-     "d": "2026-10-09T17:59-03:00"
+     "t": "Brasil abriu 700 mercados para agropecuária desde 2023",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-abriu-700-mercados-para-agropecuaria-desde-2023",
+     "d": "2026-10-13T18:18-03:00"
     },
     {
-     "t": "Bancos começam a devolver R$ 1,3 bilhão a apostadores de bets",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/bancos-comecam-devolver-r-13-bilhao-apostadores-de-bets",
-     "d": "2026-10-09T15:48-03:00"
+     "t": "Dinheiro esquecido em bancos sobe para R$ 5,8 bilhões em agosto",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dinheiro-esquecido-em-bancos-sobe-para-r-58-bilhoes-em-agosto",
+     "d": "2026-10-13T17:03-03:00"
     },
     {
-     "t": "Pix ultrapassa 1 bilhão de chaves cadastradas no Brasil",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/pix-ultrapassa-1-bilhao-de-chaves-cadastradas-no-brasil",
-     "d": "2026-10-09T13:42-03:00"
+     "t": "Produção de motos no Brasil cresce e tem melhor setembro desde 2011",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-de-motos-no-brasil-cresce-e-tem-melhor-setembro-desde-2011",
+     "d": "2026-10-13T15:50-03:00"
     },
     {
-     "t": "Tributos da gasolina são zerados e subsídios a combustíveis, ampliados",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/tributos-da-gasolina-sao-zerados-e-subsidios-combustiveis-ampliados",
-     "d": "2026-10-09T13:40-03:00"
+     "t": "FMI prevê crescimento de 2,2% do PIB do Brasil em 2026",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/fmi-preve-crescimento-de-22-do-pib-do-brasil-em-2026",
+     "d": "2026-10-13T15:11-03:00"
     },
     {
-     "t": "INPC, inflação que corrige salários, acumula 4,29% em 12 meses",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/inpc-inflacao-que-corrige-salarios-acumula-429-em-12-meses",
-     "d": "2026-10-09T10:48-03:00"
+     "t": "Governo anuncia perdão de dívidas e pacote de estímulo para MEIs",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-anuncia-perdao-de-dividas-e-pacote-de-estimulo-para-meis",
+     "d": "2026-10-13T12:46-03:00"
     },
     {
-     "t": "Inflação oficial de setembro fica em 0,82%, mostra IBGE",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/inflacao-oficial-de-setembro-fica-em-082-mostra-ibge",
-     "d": "2026-10-09T10:06-03:00"
+     "t": "Mercado eleva previsão da inflação para 5,22% em 2026",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/mercado-eleva-previsao-da-inflacao-para-522-em-2026",
+     "d": "2026-10-13T11:28-03:00"
     },
     {
-     "t": "Crédito extraordinário de R$ 7,5 bi reforça subsídios a combustíveis",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/credito-extraordinario-de-r-75-bi-reforca-subsidios-combustiveis",
-     "d": "2026-10-09T09:53-03:00"
+     "t": "Medida provisória quer coibir excesso de chamadas e golpes telefônicos",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/medida-provisoria-quer-coibir-excesso-de-chamadas-e-golpes-telefonicos",
+     "d": "2026-10-13T09:30-03:00"
     },
     {
-     "t": "Indústria aponta juros altos como principal barreira ao crédito",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/industria-aponta-juros-altos-como-principal-barreira-ao-credito",
-     "d": "2026-10-09T08:01-03:00"
+     "t": "Norma amplia exigências para atendimento ao consumidor; saiba quais",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/norma-amplia-exigencias-para-atendimento-ao-consumidor-saiba-quais",
+     "d": "2026-10-13T08:51-03:00"
     }
    ]
   },
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-13T08:21+00:00",
+   "coletado_em": "2026-10-14T01:22+00:00",
    "itens": [
     {
      "t": "BC divulga Relatório de Poupança de setembro",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-13T08:21+00:00",
+   "coletado_em": "2026-10-14T01:22+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -191,11 +191,19 @@
    "site": "https://www.b3.com.br/pt_br/noticias/",
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
-   "ok": false,
-   "erro": "TimeoutError: The read operation timed out",
-   "falhou_em": "2026-10-13T08:21+00:00",
-   "coletado_em": "2026-10-10T01:48+00:00",
+   "ok": true,
+   "coletado_em": "2026-10-14T01:22+00:00",
    "itens": [
+    {
+     "t": "B3 amplia acesso aos juros americanos com quatro novos contratos futuros de Treasuries",
+     "u": "https://www.b3.com.br/pt_br/noticias/b3-amplia-acesso-aos-juros-americanos-com-quatro-novos-contratos-futuros-de-treasuries.htm",
+     "d": "2026-10-13"
+    },
+    {
+     "t": "Empresas ligadas ao mercado infantil movimentam R$ 9,4 bilhões na B3 em 2026",
+     "u": "https://www.b3.com.br/pt_br/noticias/dia-das-criancas-empresas-ligadas-ao-mercado-infantil-movimentam-r-9-4-bilhoes-na-b3-em-2026.htm",
+     "d": "2026-10-09"
+    },
     {
      "t": "Crianças e adolescentes já acumulam R$ 3,5 bilhões na bolsa brasileira",
      "u": "https://www.b3.com.br/pt_br/noticias/dia-das-criancas-criancas-e-adolescentes-ja-acumulam-r-3-5-bilhoes-na-bolsa-brasileira.htm",
@@ -230,16 +238,6 @@
      "t": "Indicador da B3 que mede expectativa de volatilidade alcança máxima histórica",
      "u": "https://www.b3.com.br/pt_br/noticias/indicador-da-b3-que-mede-expectativa-de-volatilidade-alcanca-maxima-historica.htm",
      "d": "2026-09-29"
-    },
-    {
-     "t": "BTG Pactual alcança melhor posição do ano e Embraer estreia nas ações mais negociadas em 2026",
-     "u": "https://www.b3.com.br/pt_br/noticias/btg-pactual-alcanca-melhor-posicao-do-ano-e-embraer-estreia-no-top-10-das-acoes-mais-negociadas-em-2026-segundo-datawise.htm",
-     "d": "2026-09-28"
-    },
-    {
-     "t": "Obras do MASP, Pinacoteca e mais museus revelam histórias pouco conhecidas em nova série de vídeos",
-     "u": "https://www.b3.com.br/pt_br/noticias/obras-do-masp-pinacoteca-museu-do-ipiranga-e-instituto-ricardo-brennand-revelam-historias-pouco-conhecidas-em-nova-serie-de-videos.htm",
-     "d": "2026-09-22"
     }
    ]
   },
@@ -250,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-13T08:21+00:00",
+   "coletado_em": "2026-10-14T01:22+00:00",
    "itens": [
     {
      "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",

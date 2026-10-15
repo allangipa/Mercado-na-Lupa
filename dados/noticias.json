@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-14T06:39+00:00",
+ "coletado_em": "2026-10-15T00:47+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,38 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-14T06:39+00:00",
+   "coletado_em": "2026-10-15T00:47+00:00",
    "itens": [
+    {
+     "t": "Corte amplo de gastos públicos afetaria área social, dizem economistas",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/corte-amplo-de-gastos-publicos-afetaria-area-social-dizem-economistas",
+     "d": "2026-10-14T16:20-03:00"
+    },
+    {
+     "t": "Confiança da indústria sobe em outubro, mas setor segue pessimista",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/confianca-da-industria-sobe-em-outubro-mas-setor-segue-pessimista",
+     "d": "2026-10-14T15:59-03:00"
+    },
+    {
+     "t": "Governo federal regulamenta Marco Legal dos Jogos Eletrônicos",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-federal-regulamenta-marco-legal-dos-jogos-eletronicos",
+     "d": "2026-10-14T15:32-03:00"
+    },
+    {
+     "t": "Durigan defende Receita como plataforma de inteligência do Estado",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/durigan-defende-receita-como-plataforma-de-inteligencia-do-estado",
+     "d": "2026-10-14T11:50-03:00"
+    },
+    {
+     "t": "Setor de serviços cai 0,1% de julho para agosto, mostra IBGE",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/setor-de-servicos-cai-01-de-julho-para-agosto-mostra-ibge",
+     "d": "2026-10-14T10:02-03:00"
+    },
+    {
+     "t": "Prazo pra bancos devolverem R$ 1,3 bilhão de bets acaba nesta quarta",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/prazo-pra-bancos-devolverem-r-13-bilhao-de-bets-acaba-nesta-quarta",
+     "d": "2026-10-14T07:10-03:00"
+    },
     {
      "t": "Perdão de dívidas de MEIs terá impacto fiscal, mas redução de custos",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-de-meis-tera-impacto-de-r-3-bilhoes",
@@ -30,36 +60,6 @@
      "t": "Dinheiro esquecido em bancos sobe para R$ 5,8 bilhões em agosto",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dinheiro-esquecido-em-bancos-sobe-para-r-58-bilhoes-em-agosto",
      "d": "2026-10-13T17:03-03:00"
-    },
-    {
-     "t": "Produção de motos no Brasil cresce e tem melhor setembro desde 2011",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-de-motos-no-brasil-cresce-e-tem-melhor-setembro-desde-2011",
-     "d": "2026-10-13T15:50-03:00"
-    },
-    {
-     "t": "FMI prevê crescimento de 2,2% do PIB do Brasil em 2026",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/fmi-preve-crescimento-de-22-do-pib-do-brasil-em-2026",
-     "d": "2026-10-13T15:11-03:00"
-    },
-    {
-     "t": "Governo anuncia perdão de dívidas e pacote de estímulo para MEIs",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-anuncia-perdao-de-dividas-e-pacote-de-estimulo-para-meis",
-     "d": "2026-10-13T12:46-03:00"
-    },
-    {
-     "t": "Mercado eleva previsão da inflação para 5,22% em 2026",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/mercado-eleva-previsao-da-inflacao-para-522-em-2026",
-     "d": "2026-10-13T11:28-03:00"
-    },
-    {
-     "t": "Medida provisória quer coibir excesso de chamadas e golpes telefônicos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/medida-provisoria-quer-coibir-excesso-de-chamadas-e-golpes-telefonicos",
-     "d": "2026-10-13T09:30-03:00"
-    },
-    {
-     "t": "Norma amplia exigências para atendimento ao consumidor; saiba quais",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/norma-amplia-exigencias-para-atendimento-ao-consumidor-saiba-quais",
-     "d": "2026-10-13T08:51-03:00"
     }
    ]
   },
@@ -70,8 +70,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-14T06:39+00:00",
+   "coletado_em": "2026-10-15T00:47+00:00",
    "itens": [
+    {
+     "t": "BC retomará em 19 de outubro de 2026 os leilões de swap cambial tradicional para rolagem dos contratos com vencimento em 3 de novembro de 2026",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21284/nota",
+     "d": "2026-10-14T18:30-03:00"
+    },
     {
      "t": "BC divulga Relatório de Poupança de setembro",
      "u": "https://www.bcb.gov.br/detalhenoticia/21283/nota",
@@ -116,11 +121,6 @@
      "t": "BC aprimora regras relativas à prestação de serviços de ativos virtuais",
      "u": "https://www.bcb.gov.br/detalhenoticia/21267/nota",
      "d": "2026-09-23T18:30-03:00"
-    },
-    {
-     "t": "BC anuncia leilões de swap cambial tradicional para fins de rolagem dos contratos vincendos em 3 de novembro de 2026",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21269/nota",
-     "d": "2026-09-23T18:30-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-14T06:39+00:00",
+   "coletado_em": "2026-10-15T00:47+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,7 +192,7 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-14T06:39+00:00",
+   "coletado_em": "2026-10-15T00:47+00:00",
    "itens": [
     {
      "t": "B3 amplia acesso aos juros americanos com quatro novos contratos futuros de Treasuries",
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-14T06:39+00:00",
+   "coletado_em": "2026-10-15T00:47+00:00",
    "itens": [
     {
      "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",

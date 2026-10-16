@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-15T06:21+00:00",
+ "coletado_em": "2026-10-16T00:40+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-15T06:21+00:00",
+   "coletado_em": "2026-10-16T00:40+00:00",
    "itens": [
+    {
+     "t": "Dólar sobe 1,15% e fecha a R$ 5,09 em dia de cautela",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-sobe-115-e-fecha-r-509-em-dia-de-cautela",
+     "d": "2026-10-15T20:49-03:00"
+    },
+    {
+     "t": "Estaleiro no RS começa a construir navios encomendados pela Transpetro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/estaleiro-no-rs-comeca-construir-navios-encomendados-pela-transpetro",
+     "d": "2026-10-15T20:23-03:00"
+    },
+    {
+     "t": "União quitou R$ 244 milhões para estados e municípios em setembro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/uniao-quitou-r-244-milhoes-para-estados-e-municipios-em-setembro",
+     "d": "2026-10-15T14:56-03:00"
+    },
+    {
+     "t": "Fim da escala 6x1 traz esperança de mais tempo para família e saúde",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/fim-da-escala-6x1-traz-esperanca-de-mais-tempo-para-familia-e-saude",
+     "d": "2026-10-15T12:27-03:00"
+    },
+    {
+     "t": "Produção brasileira de grãos deve aumentar apesar do El Niño",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-brasileira-de-graos-deve-aumentar-apesar-do-el-nino",
+     "d": "2026-10-15T11:58-03:00"
+    },
+    {
+     "t": "Lote complementar do abono salarial começa a ser pago nesta quinta",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/lote-complementar-do-abono-salarial-comeca-a-ser-pago-nesta-quinta",
+     "d": "2026-10-15T11:38-03:00"
+    },
+    {
+     "t": "IBGE estima safra de grãos recorde em 2026: 354,5 milhões de toneladas",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/ibge-estima-safra-de-graos-recorde-em-2026-3545-milhoes-de-toneladas",
+     "d": "2026-10-15T10:18-03:00"
+    },
+    {
+     "t": "Vendas no comércio varejista têm variação de 0,1% em agosto",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/vendas-no-comercio-varejista-tem-variacao-de-01-em-agosto",
+     "d": "2026-10-15T10:09-03:00"
+    },
+    {
+     "t": "Prazo para empresas optarem por Simples acaba nesta quinta",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/prazo-para-empresas-optarem-por-simples-acaba-nesta-quinta",
+     "d": "2026-10-15T08:04-03:00"
+    },
     {
      "t": "Corte amplo de gastos públicos afetaria área social, dizem economistas",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/corte-amplo-de-gastos-publicos-afetaria-area-social-dizem-economistas",
      "d": "2026-10-14T16:20-03:00"
-    },
-    {
-     "t": "Confiança da indústria sobe em outubro, mas setor segue pessimista",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/confianca-da-industria-sobe-em-outubro-mas-setor-segue-pessimista",
-     "d": "2026-10-14T15:59-03:00"
-    },
-    {
-     "t": "Governo federal regulamenta Marco Legal dos Jogos Eletrônicos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-federal-regulamenta-marco-legal-dos-jogos-eletronicos",
-     "d": "2026-10-14T15:32-03:00"
-    },
-    {
-     "t": "Durigan defende Receita como plataforma de inteligência do Estado",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/durigan-defende-receita-como-plataforma-de-inteligencia-do-estado",
-     "d": "2026-10-14T11:50-03:00"
-    },
-    {
-     "t": "Setor de serviços cai 0,1% de julho para agosto, mostra IBGE",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/setor-de-servicos-cai-01-de-julho-para-agosto-mostra-ibge",
-     "d": "2026-10-14T10:02-03:00"
-    },
-    {
-     "t": "Prazo pra bancos devolverem R$ 1,3 bilhão de bets acaba nesta quarta",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/prazo-pra-bancos-devolverem-r-13-bilhao-de-bets-acaba-nesta-quarta",
-     "d": "2026-10-14T07:10-03:00"
-    },
-    {
-     "t": "Perdão de dívidas de MEIs terá impacto fiscal, mas redução de custos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-de-meis-tera-impacto-de-r-3-bilhoes",
-     "d": "2026-10-13T22:09-03:00"
-    },
-    {
-     "t": "Dólar sobe 0,74% e volta a fechar acima de R$ 5",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-sobe-074-e-volta-fechar-acima-de-r-5",
-     "d": "2026-10-13T18:57-03:00"
-    },
-    {
-     "t": "Brasil abriu 700 mercados para agropecuária desde 2023",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-abriu-700-mercados-para-agropecuaria-desde-2023",
-     "d": "2026-10-13T18:18-03:00"
-    },
-    {
-     "t": "Dinheiro esquecido em bancos sobe para R$ 5,8 bilhões em agosto",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dinheiro-esquecido-em-bancos-sobe-para-r-58-bilhoes-em-agosto",
-     "d": "2026-10-13T17:03-03:00"
     }
    ]
   },
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-15T06:21+00:00",
+   "coletado_em": "2026-10-16T00:40+00:00",
    "itens": [
     {
      "t": "BC retomará em 19 de outubro de 2026 os leilões de swap cambial tradicional para rolagem dos contratos com vencimento em 3 de novembro de 2026",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-15T06:21+00:00",
+   "coletado_em": "2026-10-16T00:40+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,8 +192,13 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-15T06:21+00:00",
+   "coletado_em": "2026-10-16T00:40+00:00",
    "itens": [
+    {
+     "t": "Mercado de Opções da B3 cresce 79% e movimenta valor recorde de R$ 2,9 bilhões em um dia em 2026",
+     "u": "https://www.b3.com.br/pt_br/noticias/mercado-de-opcoes-da-b3-cresce-79-e-movimenta-valor-recorde-de-r-2-9-bilhoes-em-um-dia-em-2026.htm",
+     "d": "2026-10-15"
+    },
     {
      "t": "B3 amplia acesso aos juros americanos com quatro novos contratos futuros de Treasuries",
      "u": "https://www.b3.com.br/pt_br/noticias/b3-amplia-acesso-aos-juros-americanos-com-quatro-novos-contratos-futuros-de-treasuries.htm",
@@ -233,11 +238,6 @@
      "t": "B3 reduz em 40% tempo de entrega de produtos com uso de inteligência artificial",
      "u": "https://www.b3.com.br/pt_br/noticias/tecnologia-8AE490C9A0EDAD8401A0F29BCBE02170.htm",
      "d": "2026-09-30"
-    },
-    {
-     "t": "Indicador da B3 que mede expectativa de volatilidade alcança máxima histórica",
-     "u": "https://www.b3.com.br/pt_br/noticias/indicador-da-b3-que-mede-expectativa-de-volatilidade-alcanca-maxima-historica.htm",
-     "d": "2026-09-29"
     }
    ]
   },
@@ -248,8 +248,13 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-15T06:21+00:00",
+   "coletado_em": "2026-10-16T00:40+00:00",
    "itens": [
+    {
+     "t": "Tesouro honra em setembro R$ 244,01 milhões em dívidas garantidas pela União",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-honra-em-setembro-r-244-01-milhoes-em-dividas-garantidas-pela-uniao",
+     "d": "2026-10-15T11:00-03:00"
+    },
     {
      "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/segundo-trimestre-de-2026-registra-necessidade-liquida-de-financiamento-do-governo-geral-de-9-2-do-pib",
@@ -304,11 +309,6 @@
      "t": "Impacto da alteração do CNPJ em soluções que utilizam dados do Tesouro",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/impacto-da-alteracao-do-cnpj-em-solucoes-que-utilizam-dados-do-tesouro",
      "d": "2026-07-29T11:02-03:00"
-    },
-    {
-     "t": "Balanço Tesouro Direto (Junho de 2026)",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/balanco-tesouro-direto-junho-de-2026",
-     "d": "2026-07-28T11:19-03:00"
     }
    ]
   }

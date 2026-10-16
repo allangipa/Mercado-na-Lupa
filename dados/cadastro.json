@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-03",
+ "gerado_em": "2026-10-16",
  "ativos": {
   "ALOS3": {
    "fonte": "CVM, cadastro de companhias abertas",
@@ -1448,10 +1448,10 @@
    "administrador": "BTG PACTUAL SERVICOS FINANCEIROS S.A. DISTRIBUIDOR",
    "referencia": "2026-08-01",
    "cotistas": 108857,
-   "patrimonio_liquido": 2151780421.99,
+   "patrimonio_liquido": 2149942607.02,
    "cotas_emitidas": 26638202.0,
-   "vp_cota": 80.77799,
-   "dy_mes": 0.005902
+   "vp_cota": 80.708999,
+   "dy_mes": 0.004698
   },
   "BCRI11": {
    "fonte": "CVM, informe mensal de fundos imobiliários",
@@ -1880,9 +1880,9 @@
    "administrador": "SANTANDER CACEIS BRASIL DTVM S.A.",
    "referencia": "2026-08-01",
    "cotistas": 186884,
-   "patrimonio_liquido": 2110218553.13,
+   "patrimonio_liquido": 2120498695.92,
    "cotas_emitidas": 21329976.0,
-   "vp_cota": 98.9320641115583,
+   "vp_cota": 99.4140216529076,
    "dy_mes": 0.007525
   },
   "HFOF11": {
@@ -2274,12 +2274,12 @@
    "mandato": "",
    "gestao": "Ativa",
    "administrador": "FINAXIS CORRETORA",
-   "referencia": "2026-08-01",
-   "cotistas": 22833,
-   "patrimonio_liquido": 315811058.49,
+   "referencia": "2026-09-01",
+   "cotistas": 22554,
+   "patrimonio_liquido": 327581393.6,
    "cotas_emitidas": 3252384.0,
-   "vp_cota": 97.1014057657398,
-   "dy_mes": 0.012235
+   "vp_cota": 100.72039267196,
+   "dy_mes": 0.012347
   },
   "PORD11": {
    "fonte": "CVM, informe mensal de fundos imobiliários",
@@ -2618,10 +2618,10 @@
    "administrador": "BTG PACTUAL SERVICOS FINANCEIROS S.A. DISTRIBUIDOR",
    "referencia": "2026-08-01",
    "cotistas": 45664,
-   "patrimonio_liquido": 504964580.05,
+   "patrimonio_liquido": 505150178.41,
    "cotas_emitidas": 53763691.0,
-   "vp_cota": 9.392297,
-   "dy_mes": 0.006666
+   "vp_cota": 9.39575,
+   "dy_mes": 0.007032
   },
   "TGAR11": {
    "fonte": "CVM, informe mensal de fundos imobiliários",

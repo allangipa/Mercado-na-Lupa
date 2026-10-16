@@ -2717,9 +2717,9 @@ def main():
 
     ads = RAIZ / "ads.txt"
     if ADSENSE_LIGADO:
-        ads.write_text("# Declaração de vendedor autorizado (IAB ads.txt)\n"
-                       "# Gerado por _src/build.py a partir de ADSENSE_PUB. Não editar à mão.\n"
-                       f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
+        # Só a linha do Google, em ASCII puro: sem comentário acentuado, que o
+        # servidor entrega sem charset (o AdSense acusava "Não encontrado").
+        ads.write_bytes(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n".encode("ascii"))
     elif ads.exists():
         ads.unlink()
 

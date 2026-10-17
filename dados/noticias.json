@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-16T06:17+00:00",
+ "coletado_em": "2026-10-17T00:44+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,48 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-16T06:17+00:00",
+   "coletado_em": "2026-10-17T00:44+00:00",
    "itens": [
+    {
+     "t": "Anac estabelece regras mais restritivas para aviação em Congonhas (SP)",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/anac-estabelece-regras-mais-restritivas-para-aviacao-em-congonhas-sp",
+     "d": "2026-10-16T21:03-03:00"
+    },
+    {
+     "t": "USP: estagnação de auxílios sociais pode gerar retração em municípios",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/usp-estagnacao-de-auxilios-sociais-pode-gerar-retracao-em-municipios",
+     "d": "2026-10-16T19:55-03:00"
+    },
+    {
+     "t": "Governo prevê crédito a empresas afetadas por fim da 6x1, diz Durigan",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-preve-credito-empresas-afetadas-por-fim-da-6x1-diz-durigan",
+     "d": "2026-10-16T18:36-03:00"
+    },
+    {
+     "t": "Do trabalho sem limite ao fim da 6x1: veja avanço da jornada no Brasil",
+     "u": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/do-trabalho-sem-limites-ao-fim-da-escala-6x1-veja-evolucao-da-jornada",
+     "d": "2026-10-16T13:31-03:00"
+    },
+    {
+     "t": "Brasil deve voltar a ser 8ª maior economia do mundo em 2027, prevê FMI",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-deve-voltar-ser-8a-maior-economia-do-mundo-em-2027-preve-fmi",
+     "d": "2026-10-16T12:47-03:00"
+    },
+    {
+     "t": "Atividade econômica tem alta de 0,3% em agosto, mostra IBC-Br",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/atividade-economica-tem-alta-de-03-em-agosto-mostra-ibc-br",
+     "d": "2026-10-16T10:29-03:00"
+    },
+    {
+     "t": "Economia: Lula e Flávio divergem sobre ajuste fiscal e papel do Estado",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economia-lula-e-flavio-divergem-sobre-ajuste-fiscal-e-papel-do-estado",
+     "d": "2026-10-16T08:20-03:00"
+    },
+    {
+     "t": "Segurança alimentar exige esforço coletivo e articulação",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/seguranca-alimentar-exige-esforco-coletivo-e-articulacao",
+     "d": "2026-10-16T08:01-03:00"
+    },
     {
      "t": "Dólar sobe 1,15% e fecha a R$ 5,09 em dia de cautela",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-sobe-115-e-fecha-r-509-em-dia-de-cautela",
@@ -20,46 +60,6 @@
      "t": "Estaleiro no RS começa a construir navios encomendados pela Transpetro",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/estaleiro-no-rs-comeca-construir-navios-encomendados-pela-transpetro",
      "d": "2026-10-15T20:23-03:00"
-    },
-    {
-     "t": "União quitou R$ 244 milhões para estados e municípios em setembro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/uniao-quitou-r-244-milhoes-para-estados-e-municipios-em-setembro",
-     "d": "2026-10-15T14:56-03:00"
-    },
-    {
-     "t": "Fim da escala 6x1 traz esperança de mais tempo para família e saúde",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/fim-da-escala-6x1-traz-esperanca-de-mais-tempo-para-familia-e-saude",
-     "d": "2026-10-15T12:27-03:00"
-    },
-    {
-     "t": "Produção brasileira de grãos deve aumentar apesar do El Niño",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/producao-brasileira-de-graos-deve-aumentar-apesar-do-el-nino",
-     "d": "2026-10-15T11:58-03:00"
-    },
-    {
-     "t": "Lote complementar do abono salarial começa a ser pago nesta quinta",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/lote-complementar-do-abono-salarial-comeca-a-ser-pago-nesta-quinta",
-     "d": "2026-10-15T11:38-03:00"
-    },
-    {
-     "t": "IBGE estima safra de grãos recorde em 2026: 354,5 milhões de toneladas",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/ibge-estima-safra-de-graos-recorde-em-2026-3545-milhoes-de-toneladas",
-     "d": "2026-10-15T10:18-03:00"
-    },
-    {
-     "t": "Vendas no comércio varejista têm variação de 0,1% em agosto",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/vendas-no-comercio-varejista-tem-variacao-de-01-em-agosto",
-     "d": "2026-10-15T10:09-03:00"
-    },
-    {
-     "t": "Prazo para empresas optarem por Simples acaba nesta quinta",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/prazo-para-empresas-optarem-por-simples-acaba-nesta-quinta",
-     "d": "2026-10-15T08:04-03:00"
-    },
-    {
-     "t": "Corte amplo de gastos públicos afetaria área social, dizem economistas",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/corte-amplo-de-gastos-publicos-afetaria-area-social-dizem-economistas",
-     "d": "2026-10-14T16:20-03:00"
     }
    ]
   },
@@ -70,8 +70,18 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-16T06:17+00:00",
+   "coletado_em": "2026-10-17T00:44+00:00",
    "itens": [
+    {
+     "t": "BC divulga o IBC-Br de agosto de 2026",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21285/nota",
+     "d": "2026-10-16T09:00-03:00"
+    },
+    {
+     "t": "Banco Central decreta liquidação extrajudicial da Cooperativa de Crédito Mútuo dos Empregados do Centro Universitário Newton Paiva Ltda. – Credipaiva",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21286/nota",
+     "d": "2026-10-16T07:44-03:00"
+    },
     {
      "t": "BC retomará em 19 de outubro de 2026 os leilões de swap cambial tradicional para rolagem dos contratos com vencimento em 3 de novembro de 2026",
      "u": "https://www.bcb.gov.br/detalhenoticia/21284/nota",
@@ -111,16 +121,6 @@
      "t": "Banco Central do Brasil e Banco Central Europeu iniciam fase de avaliação para interligação entre Pix e TIPS, sistema europeu de pagamentos instantâneos",
      "u": "https://www.bcb.gov.br/detalhenoticia/21271/nota",
      "d": "2026-09-24T09:31-03:00"
-    },
-    {
-     "t": "BC divulga o Relatório de Política Monetária",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21270/nota",
-     "d": "2026-09-24T08:02-03:00"
-    },
-    {
-     "t": "BC aprimora regras relativas à prestação de serviços de ativos virtuais",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21267/nota",
-     "d": "2026-09-23T18:30-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-16T06:17+00:00",
+   "coletado_em": "2026-10-17T00:44+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,7 +192,7 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-16T06:17+00:00",
+   "coletado_em": "2026-10-17T00:44+00:00",
    "itens": [
     {
      "t": "Mercado de Opções da B3 cresce 79% e movimenta valor recorde de R$ 2,9 bilhões em um dia em 2026",
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-16T06:17+00:00",
+   "coletado_em": "2026-10-17T00:44+00:00",
    "itens": [
     {
      "t": "Tesouro honra em setembro R$ 244,01 milhões em dívidas garantidas pela União",

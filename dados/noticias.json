@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-21T06:29+00:00",
+ "coletado_em": "2026-10-22T00:52+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,43 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-21T06:29+00:00",
+   "coletado_em": "2026-10-22T00:52+00:00",
    "itens": [
+    {
+     "t": "Ministro prevê renegociação de R$ 90 bi em 3ª fase do Desenrola",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/ministro-preve-renegociacao-de-r-90-bi-em-3a-fase-do-desenrola",
+     "d": "2026-10-21T20:07-03:00"
+    },
+    {
+     "t": "Perdão de dívidas e novo teto do MEI: entenda o que muda",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-e-novo-teto-do-mei-entenda-o-que-muda",
+     "d": "2026-10-21T18:17-03:00"
+    },
+    {
+     "t": "Importações para pesquisa pública terão imunidade tributária",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/importacoes-para-pesquisa-publica-terao-imunidade-tributaria",
+     "d": "2026-10-21T14:41-03:00"
+    },
+    {
+     "t": "Procon paulistano multa Enel por falhas no fornecimento de energia",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/procon-paulistano-multa-enel-por-falhas-no-fornecimento-de-energia",
+     "d": "2026-10-21T13:43-03:00"
+    },
+    {
+     "t": "Sancionada lei que perdoa dívida e aumenta limite de MEI",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/sancionada-lei-que-perdoa-divida-e-aumenta-limite-de-mei",
+     "d": "2026-10-21T13:33-03:00"
+    },
+    {
+     "t": "Governo destina R$ 6,49 bilhões a setor de exportação",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-destina-r-649-bilhoes-setor-de-exportacao",
+     "d": "2026-10-21T10:36-03:00"
+    },
+    {
+     "t": "Beneficiários com NIS de final 3 a 0 recebem Bolsa Família de outubro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/beneficiarios-com-nis-de-final-3-0-recebem-bolsa-familia-de-outubro",
+     "d": "2026-10-21T07:28-03:00"
+    },
     {
      "t": "Mega-Sena não tem acertador e prêmio vai a R$ 200 milhões",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/mega-sena-nao-tem-acertador-e-premio-vai-r-200-milhoes",
@@ -25,41 +60,6 @@
      "t": "Brasil define cotas para exportar com tarifas reduzidas para a Noruega",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-define-cotas-para-exportar-com-tarifas-reduzidas-para-noruega",
      "d": "2026-10-20T18:42-03:00"
-    },
-    {
-     "t": "TCU aprova contas do BC de 2025 após desvincular processo do Master",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/tcu-aprova-contas-do-bc-de-2025-apos-desvincular-processo-do-master",
-     "d": "2026-10-20T16:00-03:00"
-    },
-    {
-     "t": "Restituições do IR batem recorde e chegam a R$ 41 bilhões em 2026",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/restituicoes-do-ir-batem-recorde-e-chegam-r-41-bilhoes-em-2026",
-     "d": "2026-10-20T15:51-03:00"
-    },
-    {
-     "t": "IBGE é autorizado a abrir 325 vagas temporárias",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/ibge-e-autorizado-abrir-325-vagas-temporarias",
-     "d": "2026-10-20T15:29-03:00"
-    },
-    {
-     "t": "Beneficiários com NIS de final 2 recebem Bolsa Família de outubro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/beneficiarios-com-nis-de-final-2-recebem-bolsa-familia-de-outubro",
-     "d": "2026-10-20T07:30-03:00"
-    },
-    {
-     "t": "Justiça decreta fim da recuperação judicial da Americanas",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/justica-decreta-fim-da-recuperacao-judicial-da-americanas",
-     "d": "2026-10-19T22:26-03:00"
-    },
-    {
-     "t": "Governo pretende realocar R$ 20 bilhões no Orçamento de 2027",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-pretende-realocar-r-20-bilhoes-no-orcamento-de-2027",
-     "d": "2026-10-19T15:50-03:00"
-    },
-    {
-     "t": "Economia cresce 0,5% em agosto após dois meses de recuo, estima FGV",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economia-cresce-05-em-agosto-apos-dois-meses-de-recuo-estima-fgv",
-     "d": "2026-10-19T11:52-03:00"
     }
    ]
   },
@@ -70,8 +70,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-21T06:29+00:00",
+   "coletado_em": "2026-10-22T00:52+00:00",
    "itens": [
+    {
+     "t": "BC divulga Fluxo cambial mensal e IBCR de agosto",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21292/nota",
+     "d": "2026-10-21T15:06-03:00"
+    },
     {
      "t": "BC altera data de divulgação das Estatísticas do Setor Externo de setembro",
      "u": "https://www.bcb.gov.br/detalhenoticia/21289/nota",
@@ -116,11 +121,6 @@
      "t": "BC divulga Estatísticas Monetárias e de Crédito à imprensa",
      "u": "https://www.bcb.gov.br/detalhenoticia/21275/nota",
      "d": "2026-09-29T08:31-03:00"
-    },
-    {
-     "t": "BC divulga Estatísticas do Setor Externo à imprensa",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21274/nota",
-     "d": "2026-09-28T08:33-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-21T06:29+00:00",
+   "coletado_em": "2026-10-22T00:52+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,8 +192,18 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-21T06:29+00:00",
+   "coletado_em": "2026-10-22T00:52+00:00",
    "itens": [
+    {
+     "t": "Arbitragem avança no mercado de capitais e aponta novos caminhos para ampliar acesso e transparência",
+     "u": "https://www.b3.com.br/pt_br/noticias/arbitragem-avanca-no-mercado-de-capitais-e-aponta-novos-caminhos-para-ampliar-acesso-e-transparencia.htm",
+     "d": "2026-10-21"
+    },
+    {
+     "t": "Índices de empresas dos setores financeiro e bancário lideram valorização da renda variável da B3",
+     "u": "https://www.b3.com.br/pt_br/noticias/indices-de-empresas-dos-setores-financeiro-e-bancario-lideram-valorizacao-da-renda-variavel-da-b3-no-terceiro-trimestre.htm",
+     "d": "2026-10-21"
+    },
     {
      "t": "Arbitragem na Câmara do Mercado reúne R$ 24,9 bilhões em disputas",
      "u": "https://www.b3.com.br/pt_br/noticias/arbitragem-na-camara-do-mercado-reune-r-24-9-bilhoes-em-disputas.htm",
@@ -228,16 +238,6 @@
      "t": "Empresas ligadas ao mercado infantil movimentam R$ 9,4 bilhões na B3 em 2026",
      "u": "https://www.b3.com.br/pt_br/noticias/dia-das-criancas-empresas-ligadas-ao-mercado-infantil-movimentam-r-9-4-bilhoes-na-b3-em-2026.htm",
      "d": "2026-10-09"
-    },
-    {
-     "t": "Crianças e adolescentes já acumulam R$ 3,5 bilhões na bolsa brasileira",
-     "u": "https://www.b3.com.br/pt_br/noticias/dia-das-criancas-criancas-e-adolescentes-ja-acumulam-r-3-5-bilhoes-na-bolsa-brasileira.htm",
-     "d": "2026-10-09"
-    },
-    {
-     "t": "Confira o funcionamento da B3 no feriado de Nossa Senhora Aparecida",
-     "u": "https://www.b3.com.br/pt_br/noticias/confira-o-funcionamento-da-b3-no-feriado-de-nossa-senhora-aparecida.htm",
-     "d": "2026-10-08"
     }
    ]
   },
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-21T06:29+00:00",
+   "coletado_em": "2026-10-22T00:52+00:00",
    "itens": [
     {
      "t": "Tesouro honra em setembro R$ 244,01 milhões em dívidas garantidas pela União",

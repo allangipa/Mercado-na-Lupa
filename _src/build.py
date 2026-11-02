@@ -704,13 +704,14 @@ function duracao(m){var a=Math.floor(m/12),r=m%12,p=[];
 # O HTML leva a data do último pregão lido (data-pregao); um script pequeno compara
 # com o relógio do visitante, em Brasília (UTC−3 fixo: o Brasil não tem horário de
 # verão desde 2019), contando só dias úteis da B3 (_src/feriados-b3.json). Depois
-# das 19h de Brasília o dia corrente conta como encerrado.
+# das 22h de Brasília o dia corrente conta como encerrado: a B3 publica o arquivo do
+# dia à noite, e a rotina roda às 21h30 e às 23h30.
 # Verde: nenhum pregão faltando. Âmbar: falta 1. Vermelho: faltam 2 ou mais.
 
 FERIADOS_ARQ = SRC / "feriados-b3.json"
 FERIADOS_INFO = {k: v for k, v in ler_json(FERIADOS_ARQ).items() if not k.startswith("_")}
 FERIADOS = {d: nome for ano in FERIADOS_INFO.values() for d, nome in ano["datas"].items()}
-HORA_FECHAMENTO = 19  # horário de Brasília a partir do qual o pregão do dia conta como encerrado
+HORA_FECHAMENTO = 22  # horário de Brasília a partir do qual o pregão do dia conta como encerrado
 BRASILIA = dt.timezone(dt.timedelta(hours=-3), "BRT")
 
 
@@ -1568,6 +1569,8 @@ def escreve_series(ativos, pasta):
         escritos.add(arq.name)
     # referências: ETFs da B3 (COTAHIST), CDI e IPCA (Banco Central)
     ref = {"etf": {}, "nomes": REFERENCIAS_ETF}
+    # variação real de mercado num ETF de referência também se declara em eventos.json ("tipo": "mercado")
+    ev_ref = ler_json(SRC / "eventos.json") if (SRC / "eventos.json").exists() else {}
     for c in REFERENCIAS_ETF:
         rs = []
         h = DADOS / "historico" / f"{c}.csv"
@@ -1580,7 +1583,7 @@ def escreve_series(ativos, pasta):
                 rs += [(l["data"], float(l["fechamento"])) for l in csv.DictReader(f) if not rs or l["data"] > rs[-1][0]]
         if rs:
             for (d0, p0), (d1, p1) in zip(rs, rs[1:]):
-                if abs(p1 / p0 - 1) * 100 > VARIACAO_MAX:
+                if abs(p1 / p0 - 1) * 100 > VARIACAO_MAX and d1 not in ev_ref.get(c, {}):
                     falha(f"{c} (referência) {d1}: variação de {(p1 / p0 - 1) * 100:+.1f}% — confira antes de publicar")
             ref["etf"][c] = compacta(rs)
     cdi = BCB["series"].get("cdi", {}).get("pontos")
@@ -2455,7 +2458,7 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias, extra_
 
 <h2 id="cores">O que cada cor quer dizer</h2>
 <ul class="legenda-selo">
- <li><span class="selo-dados selo-mini" data-estado="ok"><span class="selo-ponto" aria-hidden="true">✓</span><span class="selo-txt">Atualizado</span></span> o último pregão lido é o último dia útil já encerrado na B3 (depois das 19h de Brasília, o pregão do dia conta).</li>
+ <li><span class="selo-dados selo-mini" data-estado="ok"><span class="selo-ponto" aria-hidden="true">✓</span><span class="selo-txt">Atualizado</span></span> o último pregão lido é o último dia útil já encerrado na B3 (depois das 22h de Brasília, o pregão do dia conta).</li>
  <li><span class="selo-dados selo-mini" data-estado="aviso"><span class="selo-ponto" aria-hidden="true">!</span><span class="selo-txt">Pode estar desatualizado</span></span> falta 1 pregão — normal à noite, enquanto a B3 não publica o arquivo do dia.</li>
  <li><span class="selo-dados selo-mini" data-estado="atraso"><span class="selo-ponto" aria-hidden="true">×</span><span class="selo-txt">Desatualizado</span></span> faltam 2 pregões ou mais: a rotina falhou ou parou numa trava. Veja o selo do GitHub abaixo.</li>
 </ul>
@@ -2474,7 +2477,7 @@ def pagina_status(ativos, pregoes, ultimo, gerado, og_url, com, noticias, extra_
 <section>
 <h2 id="rotina">Rotina diária</h2>
 <p><a class="selo-actions" href="{ACTIONS_URL}" rel="noopener"><img src="{ACTIONS_URL}/badge.svg" alt="Situação da rotina Atualiza cotações no GitHub Actions" height="20" loading="lazy" referrerpolicy="no-referrer"></a></p>
-<p class="data-regra">A rotina roda no GitHub Actions às 19h30 e à 1h30 (Brasília), de segunda a sexta: baixa o arquivo da B3, gera o site e publica. “passing” é a última execução sem erro; “failing” quer dizer que ela parou — nada errado é publicado, e o site fica como estava. <a href="{ACTIONS_URL}" rel="noopener">Ver as execuções</a>.</p>
+<p class="data-regra">A rotina roda no GitHub Actions às 21h30 e às 23h30 (Brasília), de segunda a sexta, depois que a B3 publica o arquivo do dia: baixa o arquivo da B3, gera o site e publica. “passing” é a última execução sem erro; “failing” quer dizer que ela parou — nada errado é publicado, e o site fica como estava. <a href="{ACTIONS_URL}" rel="noopener">Ver as execuções</a>.</p>
 </section>
 </div>
 

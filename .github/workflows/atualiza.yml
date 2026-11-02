@@ -21,11 +21,14 @@ name: Atualiza cotações
 
 on:
   schedule:
-    # 22h30 UTC = 19h30 em Brasília; segunda a sexta. A B3 costuma publicar o
-    # arquivo do dia no começo da noite. A segunda rodada (01h30 UTC, já no dia
-    # seguinte) pega o pregão se a primeira chegou cedo demais.
-    - cron: "30 22 * * 1-5"
-    - cron: "30 1 * * 2-6"
+    # O cron é em UTC; Brasília é UTC−3. Segunda a sexta em Brasília = terça a
+    # sábado em UTC, porque os dois horários já caem no dia seguinte lá.
+    #   00h30 UTC = 21h30 em Brasília: a B3 costuma publicar o arquivo do dia entre
+    #               20h e 22h (em 05/10/2026 não estava às 19h44 e estava às 22h17);
+    #   02h30 UTC = 23h30 em Brasília: segunda rodada, se a primeira chegou cedo.
+    # O selo do site só cobra o pregão do dia a partir das 22h (HORA_FECHAMENTO no build).
+    - cron: "30 0 * * 2-6"
+    - cron: "30 2 * * 2-6"
   workflow_dispatch: {}
 
 permissions:

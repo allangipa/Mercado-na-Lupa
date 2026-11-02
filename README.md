@@ -97,6 +97,11 @@ Uma diferença entre o PDF e os arquivos reais, conferida em 03/10/2026: o PDF
 diz que o total do trailer inclui header e trailer; os arquivos reais contam só
 os registros 01. O leitor aceita as duas leituras.
 
+Outra, de 22/10/2026: o arquivo é latin-1, mas a B3 mandou uma linha com o nome
+acentuado em UTF-8 ("FROTA OCEÂNICA", 246 bytes) no COTAHIST_D22102026. O leitor
+aceita uma linha assim só se ela for UTF-8 válido e tiver os 245 caracteres do
+layout; qualquer outro tamanho continua parando.
+
 Filtro: mercado à vista (TPMERC 010), lote padrão (CODBDI 02), fundo
 imobiliário (CODBDI 12) ou BDR (CODBDI 34 e 35). "Fechamento" é o PREULT (último negócio).
 
@@ -165,6 +170,9 @@ notícia) também é declarada, com `"tipo": "mercado"` e a fonte que a confirma
 (documento da CVM, ou a série da B3 com o preço mantido nos dias seguintes): a
 variação continua exibida, e a página lista o caso em "Eventos e variações fora
 do comum". Em 03/10/2026: 18 eventos da B3 e 14 variações de mercado conferidas.
+Em 26/10/2026, primeiro pregão depois do segundo turno (Ibovespa −13,9%, circuit
+breaker), mais 34 ativos e o SMAL11 passaram de 25% e foram declarados como mercado.
+Os ETFs de referência dos gráficos também passam pela trava e se declaram no mesmo arquivo.
 
 ## Adicionar um ativo
 
@@ -272,7 +280,7 @@ JavaScript, a página mostra o resumo de 12 meses e a tabela.
 ## Selo de atualização e status.html
 
 Topo da home e faixa de cada ativo: "Atualizado · pregão de DD/MM/AAAA". Um script no
-navegador compara o `data-pregao` com a hora de Brasília (depois das 19h o dia conta), pulando
+navegador compara o `data-pregao` com a hora de Brasília (depois das 22h o dia conta), pulando
 fim de semana e `_src/feriados-b3.json`: verde = nenhum pregão faltando, âmbar = falta 1,
 vermelho = 2 ou mais. `status.html` (noindex, fora do sitemap, link no rodapé) traz hora da
 geração, selo do GitHub Actions, última coleta de cada fonte de comunicados e notícias
@@ -351,7 +359,7 @@ repositório existir no GitHub**. Ao criar:
 2. Settings › Actions › General › Workflow permissions: **Read and write**.
 3. Rode uma vez à mão (aba Actions › Atualiza cotações › Run workflow).
 
-Ele roda às 19h30 e à 1h30 (Brasília) em dia útil, baixa o que faltar, coleta
+Ele roda às 21h30 e às 23h30 (Brasília) em dia útil (a B3 publica o arquivo do dia entre 20h e 22h), baixa o que faltar, coleta
 comunicados, notícias, balanços, Banco Central e Tesouro (falha isolada), roda o build e faz commit e push só se algo mudou. Falha = nada é commitado, e o
 GitHub avisa por e-mail.
 

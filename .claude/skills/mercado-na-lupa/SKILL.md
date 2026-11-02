@@ -86,7 +86,7 @@ python -m http.server 8765                    # ver em http://localhost:8765/
 
 Python 3.12+ e Pillow. Temporários sempre em `_tmp/` (o Python da Microsoft Store não
 enxerga `AppData\Local`). A rotina `.github/workflows/atualiza.yml` roda tudo isso em dia
-útil às 19h30 e 1h30 (Brasília) e faz commit e push só se algo mudou.
+útil às 21h30 e 23h30 (Brasília; o cron é em UTC: `30 0` e `30 2`, terça a sábado) e faz commit e push só se algo mudou.
 
 ## Guias e calculadoras: front matter
 
@@ -117,9 +117,11 @@ enxerga `AppData\Local`). A rotina `.github/workflows/atualiza.yml` roda tudo is
 - links internos e âncoras válidos; guia sem fontes; trava de linguagem de recomendação;
 - variação > 25% num pregão desde 2025 sem evento em `eventos.json` → rode
   `eventos_b3.py --gravar`; o que a B3 não explicar, confira à mão e declare com fonte
-  (na série antiga, 2021–2024, a série só passa a começar depois da variação);
+  (na série antiga, 2021–2024, a série só passa a começar depois da variação). Vale também
+  para os ETFs de referência (BOVA11, SMAL11…): declare o dia em `eventos.json` do mesmo jeito;
 - layout da B3 fora do padrão (o `b3.py` para e não grava nada); `atualiza.py` para se um
-  pregão já gravado vier diferente;
+  pregão já gravado vier diferente. Linha com nome acentuado em UTF-8 (246 bytes) é aceita
+  só se, lida em UTF-8, tiver os 245 caracteres;
 - `cvm.py` para se o ISIN da CVM divergir do da B3 ou se um ativo perder o cadastro;
 - falta `_src/carteiras.json`; placeholder desconhecido em calculadora;
 - série do BC/Tesouro com problema e sem dado bom anterior.

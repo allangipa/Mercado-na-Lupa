@@ -88,8 +88,20 @@ def _num(s, nome, n_linha):
 def ler_bytes(dados_txt, nome="(arquivo)"):
     """Lê o conteúdo de um COTAHIST.TXT. Devolve (meta, registros), onde
     registros é a lista de dicts de TODAS as linhas 01, com preços em reais."""
-    txt = dados_txt.decode("latin-1")
-    linhas = txt.replace("\r\n", "\n").split("\n")
+    linhas = []
+    for bruta in dados_txt.replace(b"\r\n", b"\n").split(b"\n"):
+        l = bruta.decode("latin-1")
+        # O arquivo é latin-1, mas a B3 já mandou nome acentuado em UTF-8 numa
+        # linha (COTAHIST_D22102026, "FROTA OCEÂNICA", 246 bytes). Só aceita se
+        # a linha inteira for UTF-8 válido e ficar com os 245 caracteres do layout.
+        if len(l) != TAM:
+            try:
+                u = bruta.decode("utf-8")
+            except UnicodeDecodeError:
+                u = None
+            if u is not None and len(u) == TAM:
+                l = u
+        linhas.append(l)
     while linhas and linhas[-1] == "":
         linhas.pop()
     if len(linhas) < 2:

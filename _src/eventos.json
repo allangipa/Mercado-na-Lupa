@@ -51,6 +51,12 @@
    "fator_preco": 0.2,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkFTQUkiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 43,0% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 8,00, R$ 7,88, R$ 7,81).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "ASML34": {
@@ -83,6 +89,12 @@
    "fator_preco": 0.33333333,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkIzU0EiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 36,3% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 15,40, R$ 14,69, R$ 14,20).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "BBAS3": {
@@ -91,6 +103,12 @@
    "fator_preco": 0.5,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkJCQVMiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 29,3% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 17,38, R$ 16,79, R$ 16,46).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "BERK34": {
@@ -179,6 +197,12 @@
    "fator_preco": 0.25,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IkNTQU4iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 46,7% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 2,68, R$ 2,35, R$ 2,25).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "CYCR11": {
@@ -320,6 +344,12 @@
    "fonte": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1556691&numSequencia=1081397&numVersao=1",
    "fonte_nome": "CVM, release de resultados 2T26 da Hapvida",
    "tipo": "mercado"
+  },
+  "2026-10-26": {
+   "evento": "queda de 54,9% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 4,18, R$ 4,25, R$ 4,23).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "HFOF11": {
@@ -438,6 +468,12 @@
    "fator_preco": 10.0,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6Ik1HTFUiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 58,2% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 5,75, R$ 5,22, R$ 5,13).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "MSCD34": {
@@ -590,6 +626,12 @@
    "fator_preco": 2.0,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlNJTUgiLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 64,9% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 5,89, R$ 5,24, R$ 4,83).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "SLCE3": {
@@ -638,6 +680,12 @@
    "fator_preco": 0.25,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/eyJpc3N1aW5nQ29tcGFueSI6IlZBTU8iLCJsYW5ndWFnZSI6InB0LWJyIn0=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  },
+  "2026-10-26": {
+   "evento": "queda de 56,8% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 2,91, R$ 2,58, R$ 2,46).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  },
  "VGIR11": {
@@ -699,6 +747,222 @@
    "fator_preco": 0.1,
    "fonte": "https://sistemaswebb3-listados.b3.com.br/fundsProxy/fundsCall/GetListedSupplementFunds/eyJpZGVudGlmaWVyRnVuZCI6IlhQU0YiLCJ0eXBlRnVuZCI6N30=",
    "fonte_nome": "B3, eventos corporativos do emissor"
+  }
+ },
+ "ALOS3": {
+  "2026-10-26": {
+   "evento": "queda de 25,5% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 25,85, R$ 24,51, R$ 23,55).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "AURE3": {
+  "2026-10-26": {
+   "evento": "queda de 29,4% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 11,09, R$ 11,03, R$ 10,97).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "AZZA3": {
+  "2026-10-26": {
+   "evento": "queda de 35,2% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 16,60, R$ 15,00, R$ 14,16).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "CEAB3": {
+  "2026-10-26": {
+   "evento": "queda de 47,5% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 7,44, R$ 6,82, R$ 6,64).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "COGN3": {
+  "2026-10-26": {
+   "evento": "queda de 38,4% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 1,90, R$ 1,71, R$ 1,61).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "CYRE3": {
+  "2026-10-26": {
+   "evento": "queda de 44,8% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 19,01, R$ 17,78, R$ 17,37).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "ENGI11": {
+  "2026-10-26": {
+   "evento": "queda de 28,9% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 47,64, R$ 45,71, R$ 44,50).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "EQTL3": {
+  "2026-10-26": {
+   "evento": "queda de 28,7% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 35,30, R$ 34,06, R$ 32,90).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "RENT3": {
+  "2026-10-26": {
+   "evento": "queda de 39,6% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 30,76, R$ 29,86, R$ 29,03).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "LREN3": {
+  "2026-10-26": {
+   "evento": "queda de 33,6% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 9,72, R$ 9,59, R$ 9,38).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "MOTV3": {
+  "2026-10-26": {
+   "evento": "queda de 26,9% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 14,90, R$ 14,45, R$ 14,22).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "MRVE3": {
+  "2026-10-26": {
+   "evento": "queda de 42,5% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 4,46, R$ 4,33, R$ 4,04).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "MULT3": {
+  "2026-10-26": {
+   "evento": "queda de 25,3% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 27,54, R$ 25,95, R$ 25,27).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "NATU3": {
+  "2026-10-26": {
+   "evento": "queda de 25,2% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 5,50, R$ 5,01, R$ 4,76).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "SMFT3": {
+  "2026-10-26": {
+   "evento": "queda de 32,7% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 16,99, R$ 16,03, R$ 15,55).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "TEND3": {
+  "2026-10-26": {
+   "evento": "queda de 26,4% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 23,01, R$ 21,38, R$ 20,34).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "VIVA3": {
+  "2026-10-26": {
+   "evento": "queda de 27,7% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 18,79, R$ 17,67, R$ 17,35).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "YDUQ3": {
+  "2026-10-26": {
+   "evento": "queda de 35,5% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 9,18, R$ 8,90, R$ 8,96).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "MOVI3": {
+  "2026-10-26": {
+   "evento": "queda de 58,5% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 7,88, R$ 6,60, R$ 5,87).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "ECOR3": {
+  "2026-10-26": {
+   "evento": "queda de 60,5% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 5,82, R$ 5,29, R$ 5,20).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "GGPS3": {
+  "2026-10-26": {
+   "evento": "queda de 27,0% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 11,41, R$ 10,95, R$ 10,51).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "MDNE3": {
+  "2026-10-26": {
+   "evento": "queda de 37,1% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 18,72, R$ 17,05, R$ 15,53).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "GMAT3": {
+  "2026-10-26": {
+   "evento": "queda de 30,9% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 3,83, R$ 3,55, R$ 3,55).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "CVCB3": {
+  "2026-10-26": {
+   "evento": "queda de 37,6% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 0,96, R$ 0,86, R$ 0,80).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "PLPL3": {
+  "2026-10-26": {
+   "evento": "queda de 37,6% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 5,34, R$ 4,79, R$ 4,51).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "XPBR31": {
+  "2026-10-26": {
+   "evento": "queda de 45,1% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 84,62, R$ 85,08, R$ 81,50).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
+  }
+ },
+ "SMAL11": {
+  "2026-10-26": {
+   "evento": "queda de 28,1% em 26/10/2026, primeiro pregão depois do segundo turno da eleição presidencial, dia em que o Ibovespa caiu perto de 14% e a B3 acionou o circuit breaker. Sem desdobramento, grupamento ou provento compatível nos eventos da B3; o preço seguiu no novo patamar nos pregões seguintes (R$ 99,10, R$ 95,06, R$ 92,50).",
+   "fonte": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D26102026.ZIP",
+   "fonte_nome": "B3, série histórica COTAHIST do pregão de 26/10/2026 e dos seguintes",
+   "tipo": "mercado"
   }
  }
 }

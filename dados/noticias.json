@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-10-22T06:32+00:00",
+ "coletado_em": "2026-11-02T23:54+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-22T06:32+00:00",
+   "coletado_em": "2026-11-02T23:54+00:00",
    "itens": [
     {
-     "t": "Ministro prevê renegociação de R$ 90 bi em 3ª fase do Desenrola",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/ministro-preve-renegociacao-de-r-90-bi-em-3a-fase-do-desenrola",
-     "d": "2026-10-21T20:07-03:00"
+     "t": "Economista de Plano Real acusa BC de causar rombo fiscal via juros",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/economista-de-plano-real-acusa-bc-de-causar-rombo-fiscal-juros",
+     "d": "2026-11-02T14:09-03:00"
     },
     {
-     "t": "Perdão de dívidas e novo teto do MEI: entenda o que muda",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-e-novo-teto-do-mei-entenda-o-que-muda",
-     "d": "2026-10-21T18:17-03:00"
+     "t": "Petrobras reajusta combustível de aviação em R$ 0,45 por litro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-reajusta-combustivel-de-aviacao-em-r-045-por-litro",
+     "d": "2026-11-01T15:41-03:00"
     },
     {
-     "t": "Importações para pesquisa pública terão imunidade tributária",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/importacoes-para-pesquisa-publica-terao-imunidade-tributaria",
-     "d": "2026-10-21T14:41-03:00"
+     "t": "Estudo mostra necessidade de proteger soja para evitar perdas",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/estudo-mostra-necessidade-de-proteger-soja-para-evitar-perdas",
+     "d": "2026-10-31T15:47-03:00"
     },
     {
-     "t": "Procon paulistano multa Enel por falhas no fornecimento de energia",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/procon-paulistano-multa-enel-por-falhas-no-fornecimento-de-energia",
-     "d": "2026-10-21T13:43-03:00"
+     "t": "Economistas propõem taxar ricos em vez de cortar gastos sociais",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economistas-propoem-taxar-ricos-em-vez-de-cortar-gastos-sociais",
+     "d": "2026-10-31T14:02-03:00"
     },
     {
-     "t": "Sancionada lei que perdoa dívida e aumenta limite de MEI",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/sancionada-lei-que-perdoa-divida-e-aumenta-limite-de-mei",
-     "d": "2026-10-21T13:33-03:00"
+     "t": "Acordo Mercosul-UE eleva exportações brasileiras em 21%",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/acordo-mercosul-ue-eleva-exportacoes-brasileiras-em-21",
+     "d": "2026-10-31T09:52-03:00"
     },
     {
-     "t": "Governo destina R$ 6,49 bilhões a setor de exportação",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-destina-r-649-bilhoes-setor-de-exportacao",
-     "d": "2026-10-21T10:36-03:00"
+     "t": "Dólar fecha a R$ 5,44 e registra maior alta semanal desde 2008",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-fecha-r-544-e-registra-maior-alta-semanal-desde-2008",
+     "d": "2026-10-30T19:40-03:00"
     },
     {
-     "t": "Beneficiários com NIS de final 3 a 0 recebem Bolsa Família de outubro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/beneficiarios-com-nis-de-final-3-0-recebem-bolsa-familia-de-outubro",
-     "d": "2026-10-21T07:28-03:00"
+     "t": "Aneel mantém bandeira tarifária verde em novembro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-mantem-bandeira-tarifaria-verde-em-novembro",
+     "d": "2026-10-30T17:50-03:00"
     },
     {
-     "t": "Mega-Sena não tem acertador e prêmio vai a R$ 200 milhões",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/mega-sena-nao-tem-acertador-e-premio-vai-r-200-milhoes",
-     "d": "2026-10-20T22:36-03:00"
+     "t": "Aneel prevê três leilões de transmissão de energia em 2027",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-preve-tres-leiloes-de-transmissao-de-energia-em-2027",
+     "d": "2026-10-30T15:35-03:00"
     },
     {
-     "t": "Dólar cai para R$ 5,01 com exterior e expectativa eleitoral no Brasil",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-cai-para-r-501-com-exterior-e-expectativa-eleitoral-no-brasil",
-     "d": "2026-10-20T19:34-03:00"
+     "t": "Com muita disputa, Aneel leiloou oito lotes de transmissão de energia",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/com-muita-disputa-aneel-leiloou-oito-lotes-de-transmissao-de-energia",
+     "d": "2026-10-30T13:35-03:00"
     },
     {
-     "t": "Brasil define cotas para exportar com tarifas reduzidas para a Noruega",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-define-cotas-para-exportar-com-tarifas-reduzidas-para-noruega",
-     "d": "2026-10-20T18:42-03:00"
+     "t": "Brasil abre mercado em Bangladesh e Colômbia para pecuária",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-abre-mercados-de-bangladesh-e-colombia",
+     "d": "2026-10-30T13:32-03:00"
     }
    ]
   },
@@ -70,57 +70,57 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-22T06:32+00:00",
+   "coletado_em": "2026-11-02T23:54+00:00",
    "itens": [
     {
-     "t": "BC divulga Fluxo cambial mensal e IBCR de agosto",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21292/nota",
-     "d": "2026-10-21T15:06-03:00"
-    },
-    {
-     "t": "BC altera data de divulgação das Estatísticas do Setor Externo de setembro",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21289/nota",
-     "d": "2026-10-20T11:08-03:00"
-    },
-    {
-     "t": "Relatório de Estabilidade Financeira do primeiro semestre de 2026 será divulgado no dia 27 de outubro",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21288/nota",
-     "d": "2026-10-20T11:00-03:00"
-    },
-    {
-     "t": "BC divulga o IBC-Br de agosto de 2026",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21285/nota",
-     "d": "2026-10-16T09:00-03:00"
-    },
-    {
-     "t": "Banco Central decreta liquidação extrajudicial da Cooperativa de Crédito Mútuo dos Empregados do Centro Universitário Newton Paiva Ltda. – Credipaiva",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21286/nota",
-     "d": "2026-10-16T07:44-03:00"
-    },
-    {
-     "t": "BC retomará em 19 de outubro de 2026 os leilões de swap cambial tradicional para rolagem dos contratos com vencimento em 3 de novembro de 2026",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21284/nota",
-     "d": "2026-10-14T18:30-03:00"
-    },
-    {
-     "t": "BC divulga Relatório de Poupança de setembro",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21283/nota",
-     "d": "2026-10-09T09:00-03:00"
-    },
-    {
-     "t": "BC divulga IC-Br de setembro",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21282/nota",
-     "d": "2026-10-07T14:31-03:00"
-    },
-    {
      "t": "BC divulga Estatísticas Fiscais à imprensa",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21277/nota",
-     "d": "2026-09-30T08:33-03:00"
+     "u": "https://www.bcb.gov.br/detalhenoticia/21306/nota",
+     "d": "2026-10-29T14:03-03:00"
     },
     {
      "t": "BC divulga Estatísticas Monetárias e de Crédito à imprensa",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21275/nota",
-     "d": "2026-09-29T08:31-03:00"
+     "u": "https://www.bcb.gov.br/detalhenoticia/21304/nota",
+     "d": "2026-10-29T08:32-03:00"
+    },
+    {
+     "t": "Banco Central decreta Liquidação Extrajudicial da MW Instituição de Pagamento Ltda.",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21305/nota",
+     "d": "2026-10-29T07:39-03:00"
+    },
+    {
+     "t": "Em caráter excepcional, a divulgação das Estatísticas Fiscais de setembro será antecipada para quinta-feira (29/10)",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21302/nota",
+     "d": "2026-10-28T09:00-03:00"
+    },
+    {
+     "t": "BC anuncia leilões de swap cambial tradicional para fins de rolagem dos contratos vincendos em 1º de dezembro de 2026",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21301/nota",
+     "d": "2026-10-27T18:30-03:00"
+    },
+    {
+     "t": "BC divulga Estatísticas de Pagamentos de Varejo e de Cartões do primeiro semestre de 2026",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21300/nota",
+     "d": "2026-10-27T16:25-03:00"
+    },
+    {
+     "t": "BC divulga o Relatório de Estabilidade Financeira do primeiro semestre de 2026",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21298/nota",
+     "d": "2026-10-27T08:02-03:00"
+    },
+    {
+     "t": "BC divulga Estatísticas do Setor Externo à imprensa",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21295/nota",
+     "d": "2026-10-26T08:32-03:00"
+    },
+    {
+     "t": "BC coloca em Consulta Pública proposta para reforçar a transparência e a priorização do interesse do cliente na distribuição de produtos de captação",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21296/nota",
+     "d": "2026-10-23T19:32-03:00"
+    },
+    {
+     "t": "BC aprova medidas para ampliar a proteção do consumidor financeiro nas relações de crédito",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21297/nota",
+     "d": "2026-10-23T18:23-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-22T06:32+00:00",
+   "coletado_em": "2026-11-02T23:54+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,52 +192,52 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-22T06:32+00:00",
+   "coletado_em": "2026-11-02T23:54+00:00",
    "itens": [
     {
-     "t": "Arbitragem avança no mercado de capitais e aponta novos caminhos para ampliar acesso e transparência",
-     "u": "https://www.b3.com.br/pt_br/noticias/arbitragem-avanca-no-mercado-de-capitais-e-aponta-novos-caminhos-para-ampliar-acesso-e-transparencia.htm",
-     "d": "2026-10-21"
+     "t": "Leilão da Aneel, realizado na B3, tem cinco vencedores e investimentos contratados de R$ 8,9 bilhões",
+     "u": "https://www.b3.com.br/pt_br/noticias/leilao-da-aneel-realizado-na-b3-tem-cinco-vencedores-e-investimentos-contratados-de-r-8-9-bilhoes.htm",
+     "d": "2026-10-30"
     },
     {
-     "t": "Índices de empresas dos setores financeiro e bancário lideram valorização da renda variável da B3",
-     "u": "https://www.b3.com.br/pt_br/noticias/indices-de-empresas-dos-setores-financeiro-e-bancario-lideram-valorizacao-da-renda-variavel-da-b3-no-terceiro-trimestre.htm",
-     "d": "2026-10-21"
+     "t": "Confira o funcionamento da B3 no Dia de Finados",
+     "u": "https://www.b3.com.br/pt_br/noticias/confira-o-funcionamento-da-b3-no-feriado-de-finados.htm",
+     "d": "2026-10-30"
     },
     {
-     "t": "Arbitragem na Câmara do Mercado reúne R$ 24,9 bilhões em disputas",
-     "u": "https://www.b3.com.br/pt_br/noticias/arbitragem-na-camara-do-mercado-reune-r-24-9-bilhoes-em-disputas.htm",
-     "d": "2026-10-20"
+     "t": "A uma semana do Copom, Opções da B3 indicam 63,1% de chance de manutenção da Selic",
+     "u": "https://www.b3.com.br/pt_br/noticias/opcoes-8AA8D0CDA188B88A01A188D561DB4E15.htm",
+     "d": "2026-10-29"
     },
     {
-     "t": "Financiamento de veículos bate recorde para setembro e alcança maior volume em 15 anos",
-     "u": "https://www.b3.com.br/pt_br/noticias/financiamento-de-veiculos-bate-recorde-para-setembro-e-alcanca-maior-volume-em-15-anos-aponta-trillia.htm",
-     "d": "2026-10-20"
+     "t": "B3 altera calendário de vigência das carteiras de índices de renda variável a partir de 2027",
+     "u": "https://www.b3.com.br/pt_br/noticias/b3-altera-calendario-de-vigencia-das-carteiras-de-indices-de-renda-variavel-a-partir-de-janeiro-de-2027.htm",
+     "d": "2026-10-29"
     },
     {
-     "t": "B3, Comunitas e GIFE reúnem lideranças empresariais em Toque de Campainha pela Filantropia",
-     "u": "https://www.b3.com.br/pt_br/noticias/b3-comunitas-e-gife-reunem-liderancas-empresariais-em-toque-de-campainha-pela-filantropia-em-incentivo-a-pratica.htm",
-     "d": "2026-10-20"
+     "t": "Consórcio Águas do Paraná vence leilão na B3 para ampliar abastecimento de água no norte do estado",
+     "u": "https://www.b3.com.br/pt_br/noticias/consorcio-aguas-do-parana-vence-leilao-na-b3-para-ampliar-abastecimento-de-agua-com-investimentos-de-r-2-bilhoes-no-norte-do-estado.htm",
+     "d": "2026-10-28"
     },
     {
-     "t": "Nova solução da B3 aumenta liquidez de títulos públicos e movimenta mais de R$ 10 bilhões",
-     "u": "https://www.b3.com.br/pt_br/noticias/nova-solucao-da-b3-aumenta-liquidez-de-titulos-publicos-e-movimenta-mais-de-r-10-bilhoes.htm",
-     "d": "2026-10-20"
+     "t": "B3 ajusta horários de negociação de ações e derivativos acompanhando fim do horário de verão nos EUA",
+     "u": "https://www.b3.com.br/pt_br/noticias/b3-ajusta-horarios-de-negociacao-de-acoes-e-derivativos-acompanhando-fim-do-horario-de-verao-nos-eua.htm",
+     "d": "2026-10-28"
     },
     {
-     "t": "Mercado de Opções da B3 cresce 79% e movimenta valor recorde de R$ 2,9 bilhões em um dia em 2026",
-     "u": "https://www.b3.com.br/pt_br/noticias/mercado-de-opcoes-da-b3-cresce-79-e-movimenta-valor-recorde-de-r-2-9-bilhoes-em-um-dia-em-2026.htm",
-     "d": "2026-10-15"
+     "t": "B3 aciona circuit breaker",
+     "u": "https://www.b3.com.br/pt_br/noticias/b3-informa.htm",
+     "d": "2026-10-26"
     },
     {
-     "t": "B3 amplia acesso aos juros americanos com quatro novos contratos futuros de Treasuries",
-     "u": "https://www.b3.com.br/pt_br/noticias/b3-amplia-acesso-aos-juros-americanos-com-quatro-novos-contratos-futuros-de-treasuries.htm",
-     "d": "2026-10-13"
+     "t": "Novos limites de oscilação para contratos futuros",
+     "u": "https://www.b3.com.br/pt_br/noticias/b3-informa-novos-limites-de-oscilacao-para-contratos-futuros.htm",
+     "d": "2026-10-26"
     },
     {
-     "t": "Empresas ligadas ao mercado infantil movimentam R$ 9,4 bilhões na B3 em 2026",
-     "u": "https://www.b3.com.br/pt_br/noticias/dia-das-criancas-empresas-ligadas-ao-mercado-infantil-movimentam-r-9-4-bilhoes-na-b3-em-2026.htm",
-     "d": "2026-10-09"
+     "t": "B3 altera limites de oscilação dos contratos futuros",
+     "u": "https://www.b3.com.br/pt_br/noticias/aviso-ao-mercado-8AE490C9A177FC5301A178036E172F9F.htm",
+     "d": "2026-10-26"
     }
    ]
   },
@@ -248,8 +248,23 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-10-22T06:32+00:00",
+   "coletado_em": "2026-11-02T23:54+00:00",
    "itens": [
+    {
+     "t": "Investimentos no Tesouro Direto somam R$ 8,77 bilhões em setembro",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-8-77-bilhoes-em-setembro",
+     "d": "2026-10-29T10:57-03:00"
+    },
+    {
+     "t": "Os estados da Paraíba, do Rio Grande do Norte e do Acre ultrapassam o limite da LRF de despesa com pessoal para o Poder Executivo no segundo quadrimestre de 2026",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/os-estados-da-paraiba-do-rio-grande-do-norte-e-do-acre-ultrapassam-o-limite-da-lrf-de-despesa-com-pessoal-para-o-poder-executivo-no-segundo-quadrimestre-de-2026",
+     "d": "2026-10-27T11:54-03:00"
+    },
+    {
+     "t": "Espírito Santo e Piauí apresentam os maiores crescimentos das receitas correntes no 4º bimestre de 2026",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/espirito-santo-e-piaui-apresentam-os-maiores-crescimentos-das-receitas-correntes-no-4o-bimestre-de-2026",
+     "d": "2026-10-26T16:05-03:00"
+    },
     {
      "t": "Tesouro honra em setembro R$ 244,01 milhões em dívidas garantidas pela União",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-honra-em-setembro-r-244-01-milhoes-em-dividas-garantidas-pela-uniao",
@@ -294,21 +309,6 @@
      "t": "Tesouro Nacional amplia orientação e capacitação sobre identificação contábil de emendas parlamentares",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-amplia-orientacao-e-capacitacao-sobre-identificacao-contabil-de-emendas-parlamentares",
      "d": "2026-08-25T14:13-03:00"
-    },
-    {
-     "t": "Tesouro honra em julho R$ 152,46 milhões em dívidas garantidas pela União",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-honra-em-julho-r-152-46-milhoes-em-dividas-garantidas-pela-uniao",
-     "d": "2026-08-17T10:56-03:00"
-    },
-    {
-     "t": "Tesouro e TCU tratam de nova abordagem para auditoria do Balanço Geral da União (BGU)",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-e-tcu-tratam-de-nova-abordagem-para-auditoria-do-balanco-geral-da-uniao-bgu",
-     "d": "2026-08-14T09:16-03:00"
-    },
-    {
-     "t": "Impacto da alteração do CNPJ em soluções que utilizam dados do Tesouro",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/impacto-da-alteracao-do-cnpj-em-solucoes-que-utilizam-dados-do-tesouro",
-     "d": "2026-07-29T11:02-03:00"
     }
    ]
   }

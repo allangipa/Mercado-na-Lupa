@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-03T09:51+00:00",
+ "coletado_em": "2026-11-04T06:44+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,38 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-03T09:51+00:00",
+   "coletado_em": "2026-11-04T06:44+00:00",
    "itens": [
+    {
+     "t": "Dólar sobe 0,74% e aproxima-se de R$ 5,50 em dia de cautela fiscal",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-074-e-aproxima-se-de-r-550-em-dia-de-cautela-fiscal",
+     "d": "2026-11-03T18:59-03:00"
+    },
+    {
+     "t": "Mega da Virada: Caixa anuncia que prêmio deve superar R$ 1 bilhão",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mega-da-virada-caixa-anuncia-que-premio-deve-superar-r-1-bilhao",
+     "d": "2026-11-03T15:58-03:00"
+    },
+    {
+     "t": "Acessos a site e aplicativo do Banco do Brasil são normalizados",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/acessos-site-e-aplicativo-do-banco-do-brasil-sao-normalizados",
+     "d": "2026-11-03T13:07-03:00"
+    },
+    {
+     "t": "Site e aplicativo do Banco do Brasil apresentam instabilidade",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/site-e-aplicativo-do-banco-do-brasil-apresentam-instabilidade",
+     "d": "2026-11-03T11:51-03:00"
+    },
+    {
+     "t": "Governo quer enviar MP do Imposto Seletivo ainda hoje ao Congresso",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-quer-enviar-mp-do-imposto-seletivo-ainda-hoje-ao-congresso",
+     "d": "2026-11-03T11:42-03:00"
+    },
+    {
+     "t": "Mercado eleva projeção para inflação, juros e dólar em 2026",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-para-inflacao-juros-e-dolar-em-2026",
+     "d": "2026-11-03T10:43-03:00"
+    },
     {
      "t": "Economista de Plano Real acusa BC de causar rombo fiscal via juros",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/economista-de-plano-real-acusa-bc-de-causar-rombo-fiscal-juros",
@@ -30,36 +60,6 @@
      "t": "Economistas propõem taxar ricos em vez de cortar gastos sociais",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economistas-propoem-taxar-ricos-em-vez-de-cortar-gastos-sociais",
      "d": "2026-10-31T14:02-03:00"
-    },
-    {
-     "t": "Acordo Mercosul-UE eleva exportações brasileiras em 21%",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/acordo-mercosul-ue-eleva-exportacoes-brasileiras-em-21",
-     "d": "2026-10-31T09:52-03:00"
-    },
-    {
-     "t": "Dólar fecha a R$ 5,44 e registra maior alta semanal desde 2008",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-fecha-r-544-e-registra-maior-alta-semanal-desde-2008",
-     "d": "2026-10-30T19:40-03:00"
-    },
-    {
-     "t": "Aneel mantém bandeira tarifária verde em novembro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-mantem-bandeira-tarifaria-verde-em-novembro",
-     "d": "2026-10-30T17:50-03:00"
-    },
-    {
-     "t": "Aneel prevê três leilões de transmissão de energia em 2027",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-preve-tres-leiloes-de-transmissao-de-energia-em-2027",
-     "d": "2026-10-30T15:35-03:00"
-    },
-    {
-     "t": "Com muita disputa, Aneel leiloou oito lotes de transmissão de energia",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/com-muita-disputa-aneel-leiloou-oito-lotes-de-transmissao-de-energia",
-     "d": "2026-10-30T13:35-03:00"
-    },
-    {
-     "t": "Brasil abre mercado em Bangladesh e Colômbia para pecuária",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/brasil-abre-mercados-de-bangladesh-e-colombia",
-     "d": "2026-10-30T13:32-03:00"
     }
    ]
   },
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-03T09:51+00:00",
+   "coletado_em": "2026-11-04T06:44+00:00",
    "itens": [
     {
      "t": "BC divulga Estatísticas Fiscais à imprensa",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-03T09:51+00:00",
+   "coletado_em": "2026-11-04T06:44+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
@@ -192,8 +192,13 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-03T09:51+00:00",
+   "coletado_em": "2026-11-04T06:44+00:00",
    "itens": [
+    {
+     "t": "Quem define o preço dos títulos que financiam o agro e o mercado imobiliário?",
+     "u": "https://www.b3.com.br/pt_br/noticias/quem-define-o-preco-dos-titulos-que-financiam-o-agro-e-o-mercado-imobiliario.htm",
+     "d": "2026-11-03"
+    },
     {
      "t": "Leilão da Aneel, realizado na B3, tem cinco vencedores e investimentos contratados de R$ 8,9 bilhões",
      "u": "https://www.b3.com.br/pt_br/noticias/leilao-da-aneel-realizado-na-b3-tem-cinco-vencedores-e-investimentos-contratados-de-r-8-9-bilhoes.htm",
@@ -233,11 +238,6 @@
      "t": "Novos limites de oscilação para contratos futuros",
      "u": "https://www.b3.com.br/pt_br/noticias/b3-informa-novos-limites-de-oscilacao-para-contratos-futuros.htm",
      "d": "2026-10-26"
-    },
-    {
-     "t": "B3 altera limites de oscilação dos contratos futuros",
-     "u": "https://www.b3.com.br/pt_br/noticias/aviso-ao-mercado-8AE490C9A177FC5301A178036E172F9F.htm",
-     "d": "2026-10-26"
     }
    ]
   },
@@ -248,8 +248,13 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-03T09:51+00:00",
+   "coletado_em": "2026-11-04T06:44+00:00",
    "itens": [
+    {
+     "t": "Tesouro publica Relatório de Riscos Fiscais da União com a exposição da União a riscos macroeconômicos e específicos",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-publica-relatorio-de-riscos-fiscais-da-uniao-com-a-exposicao-da-uniao-a-riscos-macroeconomicos-e-especificos",
+     "d": "2026-11-03T11:02-03:00"
+    },
     {
      "t": "Investimentos no Tesouro Direto somam R$ 8,77 bilhões em setembro",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-8-77-bilhoes-em-setembro",
@@ -304,11 +309,6 @@
      "t": "Investimentos no Tesouro Direto somam R$ 11,67 bilhões em julho",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-11-67-bilhoes-em-julho",
      "d": "2026-08-25T16:00-03:00"
-    },
-    {
-     "t": "Tesouro Nacional amplia orientação e capacitação sobre identificação contábil de emendas parlamentares",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-amplia-orientacao-e-capacitacao-sobre-identificacao-contabil-de-emendas-parlamentares",
-     "d": "2026-08-25T14:13-03:00"
     }
    ]
   }

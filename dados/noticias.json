@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-04T09:38+00:00",
+ "coletado_em": "2026-11-05T07:04+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-04T09:38+00:00",
+   "coletado_em": "2026-11-05T07:04+00:00",
    "itens": [
     {
-     "t": "Dólar sobe 0,74% e aproxima-se de R$ 5,50 em dia de cautela fiscal",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-074-e-aproxima-se-de-r-550-em-dia-de-cautela-fiscal",
-     "d": "2026-11-03T18:59-03:00"
+     "t": "Anatel publica novas regras para prevenir fraudes por meio de SMS",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/anatel-publica-novas-regras-para-prevenir-fraudes-por-meio-de-sms",
+     "d": "2026-11-04T20:42-03:00"
     },
     {
-     "t": "Mega da Virada: Caixa anuncia que prêmio deve superar R$ 1 bilhão",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mega-da-virada-caixa-anuncia-que-premio-deve-superar-r-1-bilhao",
-     "d": "2026-11-03T15:58-03:00"
+     "t": "Dólar cai a R$ 5,45 após eleições nos EUA e antes do Copom",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-r-545-apos-eleicoes-nos-eua-e-antes-do-copom",
+     "d": "2026-11-04T20:17-03:00"
     },
     {
-     "t": "Acessos a site e aplicativo do Banco do Brasil são normalizados",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/acessos-site-e-aplicativo-do-banco-do-brasil-sao-normalizados",
-     "d": "2026-11-03T13:07-03:00"
+     "t": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/setor-produtivo-critica-manutencao-da-selic-em-1375-ao-ano",
+     "d": "2026-11-04T19:34-03:00"
     },
     {
-     "t": "Site e aplicativo do Banco do Brasil apresentam instabilidade",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/site-e-aplicativo-do-banco-do-brasil-apresentam-instabilidade",
-     "d": "2026-11-03T11:51-03:00"
+     "t": "Fenabrave prevê aumento de 12,8% na venda de veículos novos em 2026",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/fenabrave-preve-aumento-de-128-na-venda-de-veiculos-novos-em-2026",
+     "d": "2026-11-04T19:11-03:00"
     },
     {
-     "t": "Governo quer enviar MP do Imposto Seletivo ainda hoje ao Congresso",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-quer-enviar-mp-do-imposto-seletivo-ainda-hoje-ao-congresso",
-     "d": "2026-11-03T11:42-03:00"
+     "t": "Banco Central surpreende e mantém juros básicos em 13,75% ao ano",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bc-surpreende-e-mantem-juros-basicos-em-1375-ao-ano",
+     "d": "2026-11-04T18:33-03:00"
     },
     {
-     "t": "Mercado eleva projeção para inflação, juros e dólar em 2026",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-para-inflacao-juros-e-dolar-em-2026",
-     "d": "2026-11-03T10:43-03:00"
+     "t": "Governo prevê decreto do fim da escala 6x1 para segunda-feira",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-preve-decreto-do-fim-da-escala-6x1-para-segunda-feira",
+     "d": "2026-11-04T17:21-03:00"
     },
     {
-     "t": "Economista de Plano Real acusa BC de causar rombo fiscal via juros",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/economista-de-plano-real-acusa-bc-de-causar-rombo-fiscal-juros",
-     "d": "2026-11-02T14:09-03:00"
+     "t": "Projeto destina recursos à agricultura familiar no semiárido da Bahia",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/projeto-destina-recursos-agricultura-familiar-no-semiarido-da-bahia",
+     "d": "2026-11-04T17:16-03:00"
     },
     {
-     "t": "Petrobras reajusta combustível de aviação em R$ 0,45 por litro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-reajusta-combustivel-de-aviacao-em-r-045-por-litro",
-     "d": "2026-11-01T15:41-03:00"
+     "t": "Brasil cria 121,3 mil postos de trabalho em setembro, aponta Caged",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brasil-cria-1213-mil-postos-de-trabalho-em-setembro-aponta-caged",
+     "d": "2026-11-04T16:33-03:00"
     },
     {
-     "t": "Estudo mostra necessidade de proteger soja para evitar perdas",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/estudo-mostra-necessidade-de-proteger-soja-para-evitar-perdas",
-     "d": "2026-10-31T15:47-03:00"
+     "t": "Aquicultura em águas da União bate recorde com 179,6 mil toneladas",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/aquicultura-em-aguas-da-uniao-bate-recorde-com-1796-mil-toneladas",
+     "d": "2026-11-04T16:04-03:00"
     },
     {
-     "t": "Economistas propõem taxar ricos em vez de cortar gastos sociais",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economistas-propoem-taxar-ricos-em-vez-de-cortar-gastos-sociais",
-     "d": "2026-10-31T14:02-03:00"
+     "t": "Copom decide nesta quarta-feira se corta ou mantém a Taxa Selic",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/copom-decide-nesta-quarta-feira-se-corta-ou-mantem-taxa-selic",
+     "d": "2026-11-04T07:01-03:00"
     }
    ]
   },
@@ -70,8 +70,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-04T09:38+00:00",
+   "coletado_em": "2026-11-05T07:04+00:00",
    "itens": [
+    {
+     "t": "Copom mantém a taxa Selic em 13,75% a.a.",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21309/nota",
+     "d": "2026-11-04T18:31-03:00"
+    },
     {
      "t": "BC divulga Estatísticas Fiscais à imprensa",
      "u": "https://www.bcb.gov.br/detalhenoticia/21306/nota",
@@ -116,11 +121,6 @@
      "t": "BC coloca em Consulta Pública proposta para reforçar a transparência e a priorização do interesse do cliente na distribuição de produtos de captação",
      "u": "https://www.bcb.gov.br/detalhenoticia/21296/nota",
      "d": "2026-10-23T19:32-03:00"
-    },
-    {
-     "t": "BC aprova medidas para ampliar a proteção do consumidor financeiro nas relações de crédito",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21297/nota",
-     "d": "2026-10-23T18:23-03:00"
     }
    ]
   },
@@ -131,8 +131,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-04T09:38+00:00",
+   "coletado_em": "2026-11-05T07:04+00:00",
    "itens": [
+    {
+     "t": "BC - Copom Comunicado - 282ª Reunião - Copom mantém a taxa Selic em 13,75% a.a.",
+     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21309",
+     "d": "2026-11-04T18:31-03:00"
+    },
     {
      "t": "BC - Copom Comunicado - 281ª Reunião - Copom reduz a taxa Selic para 13,75% a.a.",
      "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/21261",
@@ -177,11 +182,6 @@
      "t": "BC - Copom Comunicado - 273ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
      "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/20840",
      "d": "2025-09-17T18:32-03:00"
-    },
-    {
-     "t": "BC - Copom Comunicado - 272ª Reunião - Copom mantém a taxa Selic em 15,00% a.a.",
-     "u": "https://www.bcb.gov.br/controleinflacao/comunicadoscopom/20779",
-     "d": "2025-07-30T18:34-03:00"
     }
    ]
   },
@@ -192,8 +192,13 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-04T09:38+00:00",
+   "coletado_em": "2026-11-05T07:04+00:00",
    "itens": [
+    {
+     "t": "Trillia leva inteligência de dados da B3 à análise de risco e precificação de seguros",
+     "u": "https://www.b3.com.br/pt_br/noticias/trillia-leva-inteligencia-de-dados-da-b3-a-analise-de-risco-e-precificacao-de-seguros-no-cqcs-inovacao.htm",
+     "d": "2026-11-04"
+    },
     {
      "t": "Quem define o preço dos títulos que financiam o agro e o mercado imobiliário?",
      "u": "https://www.b3.com.br/pt_br/noticias/quem-define-o-preco-dos-titulos-que-financiam-o-agro-e-o-mercado-imobiliario.htm",
@@ -233,11 +238,6 @@
      "t": "B3 aciona circuit breaker",
      "u": "https://www.b3.com.br/pt_br/noticias/b3-informa.htm",
      "d": "2026-10-26"
-    },
-    {
-     "t": "Novos limites de oscilação para contratos futuros",
-     "u": "https://www.b3.com.br/pt_br/noticias/b3-informa-novos-limites-de-oscilacao-para-contratos-futuros.htm",
-     "d": "2026-10-26"
     }
    ]
   },
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-04T09:38+00:00",
+   "coletado_em": "2026-11-05T07:04+00:00",
    "itens": [
     {
      "t": "Tesouro publica Relatório de Riscos Fiscais da União com a exposição da União a riscos macroeconômicos e específicos",

@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-06T07:04+00:00",
+ "coletado_em": "2026-11-06T09:38+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,7 +9,7 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T07:04+00:00",
+   "coletado_em": "2026-11-06T09:38+00:00",
    "itens": [
     {
      "t": "Governo define minerais críticos prioritários para investimentos",
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T07:04+00:00",
+   "coletado_em": "2026-11-06T09:38+00:00",
    "itens": [
     {
      "t": "Copom mantém a taxa Selic em 13,75% a.a.",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T07:04+00:00",
+   "coletado_em": "2026-11-06T09:38+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 282ª Reunião - Copom mantém a taxa Selic em 13,75% a.a.",
@@ -192,7 +192,7 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T07:04+00:00",
+   "coletado_em": "2026-11-06T09:38+00:00",
    "itens": [
     {
      "t": "Trillia leva inteligência de dados da B3 à análise de risco e precificação de seguros",
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T07:04+00:00",
+   "coletado_em": "2026-11-06T09:38+00:00",
    "itens": [
     {
      "t": "Tesouro publica Relatório de Riscos Fiscais da União com a exposição da União a riscos macroeconômicos e específicos",

@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-06T09:38+00:00",
+ "coletado_em": "2026-11-07T06:17+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,33 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T09:38+00:00",
+   "coletado_em": "2026-11-07T06:17+00:00",
    "itens": [
+    {
+     "t": "Dólar sobe para R$ 5,51, com dados de emprego nos EUA",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-551-com-dados-de-emprego-nos-eua",
+     "d": "2026-11-06T19:10-03:00"
+    },
+    {
+     "t": "Brasil tem maior juro real do mundo, seguido por Turquia e Argentina",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brasil-tem-maior-juro-real-do-mundo-seguido-por-turquia-e-argentina",
+     "d": "2026-11-06T16:51-03:00"
+    },
+    {
+     "t": "Balança comercial tem maior superávit para outubro desde 1989",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/balanca-comercial-tem-maior-superavit-para-outubro-desde-1989",
+     "d": "2026-11-06T16:43-03:00"
+    },
+    {
+     "t": "CNPE cria grupo para elaborar estratégia nacional de eletromobilidade",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cnpe-cria-grupo-para-elaborar-estrategia-nacional-de-eletromobilidade",
+     "d": "2026-11-06T13:41-03:00"
+    },
+    {
+     "t": "IBGE confirma crescimento de 3,4% da economia em 2024",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-confirma-crescimento-de-34-da-economia-em-2024",
+     "d": "2026-11-06T10:59-03:00"
+    },
     {
      "t": "Governo define minerais críticos prioritários para investimentos",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-define-minerais-criticos-prioritarios-para-investimentos",
@@ -35,31 +60,6 @@
      "t": "Mais de 2,4 milhões de casas precisam renovar desconto na conta de luz",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mais-de-24-milhoes-de-casas-precisam-renovar-desconto-na-conta-de-luz",
      "d": "2026-11-05T16:58-03:00"
-    },
-    {
-     "t": "FGC alerta para vazamento de dados de investidores e risco de golpes",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/fgc-alerta-para-vazamento-de-dados-de-investidores-e-risco-de-golpes",
-     "d": "2026-11-05T16:40-03:00"
-    },
-    {
-     "t": "Durigan diz que é preciso dar condições para a queda dos juros",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/durigan-diz-que-e-preciso-dar-condicoes-para-queda-dos-juros",
-     "d": "2026-11-05T12:30-03:00"
-    },
-    {
-     "t": "IBGE abre seleção para mais de 27 mil recenseadores temporários",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-abre-selecao-para-mais-de-27-mil-recenseadores-temporarios",
-     "d": "2026-11-05T12:04-03:00"
-    },
-    {
-     "t": "Ministro diz que novos impostos não trazem aumento de carga tributária",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ministro-diz-que-novos-impostos-nao-trazem-aumento-de-carga-tributaria",
-     "d": "2026-11-05T11:17-03:00"
-    },
-    {
-     "t": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/producao-da-industria-recua-08-em-setembro-4a-queda-em-cinco-meses",
-     "d": "2026-11-05T10:45-03:00"
     }
    ]
   },
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T09:38+00:00",
+   "coletado_em": "2026-11-07T06:17+00:00",
    "itens": [
     {
      "t": "Copom mantém a taxa Selic em 13,75% a.a.",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T09:38+00:00",
+   "coletado_em": "2026-11-07T06:17+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 282ª Reunião - Copom mantém a taxa Selic em 13,75% a.a.",
@@ -192,7 +192,7 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T09:38+00:00",
+   "coletado_em": "2026-11-07T06:17+00:00",
    "itens": [
     {
      "t": "Trillia leva inteligência de dados da B3 à análise de risco e precificação de seguros",
@@ -248,8 +248,13 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-06T09:38+00:00",
+   "coletado_em": "2026-11-07T06:17+00:00",
    "itens": [
+    {
+     "t": "CTCONF reúne especialistas para debater evolução da Contabilidade Aplicada ao Setor Público no Brasil",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/ctconf-reune-especialistas-para-debater-evolucao-da-contabilidade-aplicada-ao-setor-publico-no-brasil",
+     "d": "2026-11-06T11:21-03:00"
+    },
     {
      "t": "Tesouro publica Relatório de Riscos Fiscais da União com a exposição da União a riscos macroeconômicos e específicos",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-publica-relatorio-de-riscos-fiscais-da-uniao-com-a-exposicao-da-uniao-a-riscos-macroeconomicos-e-especificos",
@@ -304,11 +309,6 @@
      "t": "Tesouro Nacional convida o público a avaliar o Relatório Mensal da Dívida Pública Federal",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-lanca-pesquisa-sobre-relatorio-mensal-da-divida-publica-federal",
      "d": "2026-08-31T16:51-03:00"
-    },
-    {
-     "t": "Investimentos no Tesouro Direto somam R$ 11,67 bilhões em julho",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-11-67-bilhoes-em-julho",
-     "d": "2026-08-25T16:00-03:00"
     }
    ]
   }

@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-07T09:02+00:00",
+ "coletado_em": "2026-11-10T07:34+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-07T09:02+00:00",
+   "coletado_em": "2026-11-10T07:34+00:00",
    "itens": [
     {
-     "t": "Dólar sobe para R$ 5,51, com dados de emprego nos EUA",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-551-com-dados-de-emprego-nos-eua",
-     "d": "2026-11-06T19:10-03:00"
+     "t": "Bolsa sobe 2,22% e registra maior alta diária desde outubro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bolsa-sobe-222-e-registra-maior-alta-diaria-desde-outubro",
+     "d": "2026-11-09T19:38-03:00"
     },
     {
-     "t": "Brasil tem maior juro real do mundo, seguido por Turquia e Argentina",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brasil-tem-maior-juro-real-do-mundo-seguido-por-turquia-e-argentina",
-     "d": "2026-11-06T16:51-03:00"
+     "t": "Aneel propõe Tarifa Hora Certa para reduzir valor em função do horário",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/aneel-propoe-tarifa-hora-certa-para-reduzir-valor-em-funcao-do-horario",
+     "d": "2026-11-09T19:23-03:00"
     },
     {
-     "t": "Balança comercial tem maior superávit para outubro desde 1989",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/balanca-comercial-tem-maior-superavit-para-outubro-desde-1989",
-     "d": "2026-11-06T16:43-03:00"
+     "t": "Caixa apresenta nova identidade visual após quase 30 anos",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/caixa-apresenta-nova-identidade-visual-apos-quase-30-anos",
+     "d": "2026-11-09T19:05-03:00"
     },
     {
-     "t": "CNPE cria grupo para elaborar estratégia nacional de eletromobilidade",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cnpe-cria-grupo-para-elaborar-estrategia-nacional-de-eletromobilidade",
-     "d": "2026-11-06T13:41-03:00"
+     "t": "BC passa a divulgar lista de empresas aptas a operar com criptoativos",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bc-passa-divulgar-lista-de-empresas-aptas-operar-com-criptoativos",
+     "d": "2026-11-09T17:42-03:00"
     },
     {
-     "t": "IBGE confirma crescimento de 3,4% da economia em 2024",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-confirma-crescimento-de-34-da-economia-em-2024",
-     "d": "2026-11-06T10:59-03:00"
+     "t": "Pix bate recorde e supera 319 milhões de transações em um dia",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/pix-bate-recorde-e-supera-319-milhoes-de-transacoes-em-um-dia",
+     "d": "2026-11-09T17:09-03:00"
     },
     {
-     "t": "Governo define minerais críticos prioritários para investimentos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-define-minerais-criticos-prioritarios-para-investimentos",
-     "d": "2026-11-05T19:55-03:00"
+     "t": "Filipinas suspendem importação de carne suína brasileira por 60 dias",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/filipinas-suspendem-importacao-de-carne-suina-brasileira-por-60-dias",
+     "d": "2026-11-09T16:39-03:00"
     },
     {
-     "t": "Dólar volta a aproximar-se de R$ 5,49 em dia de instabilidade global",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-volta-aproximar-se-de-r-549-em-dia-de-instabilidade-global",
-     "d": "2026-11-05T19:11-03:00"
+     "t": "Confira o calendário de pagamento do IPVA de 2027 em São Paulo",
+     "u": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/confira-o-calendario-de-pagamento-do-ipva-de-2027-em-sao-paulo",
+     "d": "2026-11-09T12:57-03:00"
     },
     {
-     "t": "Durigan discutirá medidas fiscais com Lula após viagem à COP31",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/durigan-discutira-medidas-fiscais-com-lula-apos-viagem-cop31",
-     "d": "2026-11-05T17:40-03:00"
+     "t": "Gás do Povo: governo prorroga vigência do auxílio até 2031",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/gas-do-povo-governo-prorroga-vigencia-do-programa-ate-2031",
+     "d": "2026-11-09T12:02-03:00"
     },
     {
-     "t": "Imposto do pecado: entenda cobrança sobre cigarros, bebidas e veículos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/imposto-do-pecado-entenda-cobranca-sobre-cigarros-bebidas-e-veiculos",
-     "d": "2026-11-05T17:10-03:00"
+     "t": "Mercado eleva projeção da Selic para 13,75% em 2026",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-da-selic-para-1375-em-2026",
+     "d": "2026-11-09T10:26-03:00"
     },
     {
-     "t": "Mais de 2,4 milhões de casas precisam renovar desconto na conta de luz",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mais-de-24-milhoes-de-casas-precisam-renovar-desconto-na-conta-de-luz",
-     "d": "2026-11-05T16:58-03:00"
+     "t": "Vales refeição e alimentação podem ser aceitos em mais maquininhas",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vr-e-va-podem-ser-aceitos-em-mais-maquininhas-partir-deste-sabado",
+     "d": "2026-11-07T09:03-03:00"
     }
    ]
   },
@@ -70,8 +70,13 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-07T09:02+00:00",
+   "coletado_em": "2026-11-10T07:34+00:00",
    "itens": [
+    {
+     "t": "BC passa a divulgar a lista de instituições que podem atuar com ativos virtuais",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21311/nota",
+     "d": "2026-11-09T15:00-03:00"
+    },
     {
      "t": "Copom mantém a taxa Selic em 13,75% a.a.",
      "u": "https://www.bcb.gov.br/detalhenoticia/21309/nota",
@@ -116,11 +121,6 @@
      "t": "BC divulga Estatísticas do Setor Externo à imprensa",
      "u": "https://www.bcb.gov.br/detalhenoticia/21295/nota",
      "d": "2026-10-26T08:32-03:00"
-    },
-    {
-     "t": "BC coloca em Consulta Pública proposta para reforçar a transparência e a priorização do interesse do cliente na distribuição de produtos de captação",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21296/nota",
-     "d": "2026-10-23T19:32-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-07T09:02+00:00",
+   "coletado_em": "2026-11-10T07:34+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 282ª Reunião - Copom mantém a taxa Selic em 13,75% a.a.",
@@ -192,8 +192,13 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-07T09:02+00:00",
+   "coletado_em": "2026-11-10T07:34+00:00",
    "itens": [
+    {
+     "t": "Entenda quem são os agentes do ecossistema e qual o papel de cada um",
+     "u": "https://www.b3.com.br/pt_br/noticias/duplicata-escritural-8AE490C9A1A0BDDC01A1C0996B20700E.htm",
+     "d": "2026-11-09"
+    },
     {
      "t": "Trillia leva inteligência de dados da B3 à análise de risco e precificação de seguros",
      "u": "https://www.b3.com.br/pt_br/noticias/trillia-leva-inteligencia-de-dados-da-b3-a-analise-de-risco-e-precificacao-de-seguros-no-cqcs-inovacao.htm",
@@ -233,11 +238,6 @@
      "t": "B3 ajusta horários de negociação de ações e derivativos acompanhando fim do horário de verão nos EUA",
      "u": "https://www.b3.com.br/pt_br/noticias/b3-ajusta-horarios-de-negociacao-de-acoes-e-derivativos-acompanhando-fim-do-horario-de-verao-nos-eua.htm",
      "d": "2026-10-28"
-    },
-    {
-     "t": "B3 aciona circuit breaker",
-     "u": "https://www.b3.com.br/pt_br/noticias/b3-informa.htm",
-     "d": "2026-10-26"
     }
    ]
   },
@@ -248,7 +248,7 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-07T09:02+00:00",
+   "coletado_em": "2026-11-10T07:34+00:00",
    "itens": [
     {
      "t": "CTCONF reúne especialistas para debater evolução da Contabilidade Aplicada ao Setor Público no Brasil",

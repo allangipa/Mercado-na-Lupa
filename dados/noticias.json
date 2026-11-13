@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-12T10:03+00:00",
+ "coletado_em": "2026-11-13T06:59+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,8 +9,48 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-12T10:03+00:00",
+   "coletado_em": "2026-11-13T06:59+00:00",
    "itens": [
+    {
+     "t": "Caixa Seguridade informa ataque cibernético e vazamento de dados",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/caixa-seguridade-informa-ataque-cibernetico-e-vazamento-de-dados",
+     "d": "2026-11-12T20:06-03:00"
+    },
+    {
+     "t": "Dólar dispara 1,58% e fecha a R$ 5,65, maior nível em 17 meses",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-dispara-158-e-fecha-r-565-maior-nivel-em-17-meses",
+     "d": "2026-11-12T19:35-03:00"
+    },
+    {
+     "t": "BB aponta recusa de parte dos produtores em renegociar dívidas do agro",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bb-aponta-recusa-de-parte-dos-produtores-em-renegociar-dividas-do-agro",
+     "d": "2026-11-12T17:33-03:00"
+    },
+    {
+     "t": "Petrobras faz acordo para deter 100% da transportadora de etanol Logum",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-faz-acordo-para-deter-100-da-transportadora-de-etanol-logum",
+     "d": "2026-11-12T13:25-03:00"
+    },
+    {
+     "t": "Governo estuda novo modelo para concurso público unificado em 2027",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-estuda-novo-modelo-para-concurso-publico-unificado-em-2027",
+     "d": "2026-11-12T12:42-03:00"
+    },
+    {
+     "t": "Reúso de computadores pelo governo brasileiro gera economia de água",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/reuso-de-computadores-pelo-governo-brasileiro-gera-economia-de-agua",
+     "d": "2026-11-12T12:24-03:00"
+    },
+    {
+     "t": "Inflação perde força e fica em 0,14% em outubro; conta de luz cai",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/inflacao-perde-forca-e-fica-em-014-em-outubro-conta-de-luz-cai",
+     "d": "2026-11-12T10:18-03:00"
+    },
+    {
+     "t": "INPC, inflação que corrige salários, acumula 4,49% em 12 meses",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/inpc-inflacao-que-corrige-salarios-acumula-449-em-12-meses",
+     "d": "2026-11-12T10:11-03:00"
+    },
     {
      "t": "Lucro do BB cai 66,5% no 3º trimestre com inadimplência do agro",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/lucro-do-bb-cai-665-no-3o-trimestre-com-inadimplencia-do-agro",
@@ -20,46 +60,6 @@
      "t": "BNDES recebe selo Diamante de transparência pública pela quarta vez",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bndes-recebe-selo-diamante-de-transparencia-publica-pela-quarta-vez",
      "d": "2026-11-11T21:06-03:00"
-    },
-    {
-     "t": "Petrobras amplia capacidade de 11 plataformas sem novos investimentos",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-amplia-capacidade-de-11-plataformas-sem-novos-investimentos",
-     "d": "2026-11-11T20:19-03:00"
-    },
-    {
-     "t": "Dólar cai 0,42% e fecha a R$ 5,56 com foco em pacote fiscal",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-042-e-fecha-r-556-com-foco-em-pacote-fiscal",
-     "d": "2026-11-11T19:51-03:00"
-    },
-    {
-     "t": "Pacote fiscal prevê 120 dias para Congresso discutir supersalários",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/pacote-fiscal-preve-120-dias-para-congresso-discutir-supersalarios",
-     "d": "2026-11-11T19:40-03:00"
-    },
-    {
-     "t": "Projeto quer retirar R$ 10,5 bi em subsídios ao diesel da meta fiscal",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/projeto-quer-retirar-r-105-bi-em-subsidios-ao-diesel-da-meta-fiscal",
-     "d": "2026-11-11T19:13-03:00"
-    },
-    {
-     "t": "Receita retém R$ 35 milhões em itens irregulares no Porto de Vitória",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/receita-retem-r-35-milhoes-em-itens-irregulares-no-porto-de-vitoria",
-     "d": "2026-11-11T19:10-03:00"
-    },
-    {
-     "t": "BB e banco alemão farão aporte de 100 milhões de euros em bioeconomia",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bb-e-banco-alemao-farao-aporte-de-100-milhoes-de-euros-em-bioeconomia",
-     "d": "2026-11-11T18:21-03:00"
-    },
-    {
-     "t": "Governo anuncia medidas de ajuste para economia de até R$ 60 bilhões",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-anuncia-medidas-de-ajuste-para-economia-de-ate-r-60-bilhoes",
-     "d": "2026-11-11T17:48-03:00"
-    },
-    {
-     "t": "Proposta que facilita transição tributária será enviada ao Congresso",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/proposta-que-facilita-transicao-tributaria-sera-enviada-ao-Congresso",
-     "d": "2026-11-11T13:32-03:00"
     }
    ]
   },
@@ -70,8 +70,18 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-12T10:03+00:00",
+   "coletado_em": "2026-11-13T06:59+00:00",
    "itens": [
+    {
+     "t": "Banco Central decreta Liquidação Extrajudicial da Cooperativa Administradora de Consórcios Roma",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21318/nota",
+     "d": "2026-11-12T08:30-03:00"
+    },
+    {
+     "t": "Banco Central decreta liquidação extrajudicial de Cooperativa de Crédito Rural do Agreste Alagoano – Cooperagre",
+     "u": "https://www.bcb.gov.br/detalhenoticia/21317/nota",
+     "d": "2026-11-12T08:25-03:00"
+    },
     {
      "t": "​BC divulga IC-Br de outubro",
      "u": "https://www.bcb.gov.br/detalhenoticia/21316/nota",
@@ -111,16 +121,6 @@
      "t": "Banco Central decreta Liquidação Extrajudicial da MW Instituição de Pagamento Ltda.",
      "u": "https://www.bcb.gov.br/detalhenoticia/21305/nota",
      "d": "2026-10-29T07:39-03:00"
-    },
-    {
-     "t": "Em caráter excepcional, a divulgação das Estatísticas Fiscais de setembro será antecipada para quinta-feira (29/10)",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21302/nota",
-     "d": "2026-10-28T09:00-03:00"
-    },
-    {
-     "t": "BC anuncia leilões de swap cambial tradicional para fins de rolagem dos contratos vincendos em 1º de dezembro de 2026",
-     "u": "https://www.bcb.gov.br/detalhenoticia/21301/nota",
-     "d": "2026-10-27T18:30-03:00"
     }
    ]
   },
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-12T10:03+00:00",
+   "coletado_em": "2026-11-13T06:59+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 282ª Reunião - Copom mantém a taxa Selic em 13,75% a.a.",
@@ -192,8 +192,18 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-12T10:03+00:00",
+   "coletado_em": "2026-11-13T06:59+00:00",
    "itens": [
+    {
+     "t": "B3 ocupa liderança global em futuros e registra alta de 11% na receita",
+     "u": "https://www.b3.com.br/pt_br/noticias/resultados-financeiros-8AE490C9A1C2A69F01A1D1DBB6DF04C5.htm",
+     "d": "2026-11-12"
+    },
+    {
+     "t": "Investidores recebem R$ 1,3 milhão em ressarcimentos pela BSM nos últimos 12 meses",
+     "u": "https://www.b3.com.br/pt_br/noticias/investidores-recebem-r-1-3-milhao-em-ressarcimentos-pela-bsm-nos-ultimos-12-meses.htm",
+     "d": "2026-11-12"
+    },
     {
      "t": "B3 investe na IDEX para ampliar atuação em dados e inteligência para o mercado",
      "u": "https://www.b3.com.br/pt_br/noticias/b3-investe-na-idex-para-ampliar-atuacao-em-dados-e-inteligencia-para-o-mercado.htm",
@@ -228,16 +238,6 @@
      "t": "Leilão da Aneel, realizado na B3, tem cinco vencedores e investimentos contratados de R$ 8,9 bilhões",
      "u": "https://www.b3.com.br/pt_br/noticias/leilao-da-aneel-realizado-na-b3-tem-cinco-vencedores-e-investimentos-contratados-de-r-8-9-bilhoes.htm",
      "d": "2026-10-30"
-    },
-    {
-     "t": "Confira o funcionamento da B3 no Dia de Finados",
-     "u": "https://www.b3.com.br/pt_br/noticias/confira-o-funcionamento-da-b3-no-feriado-de-finados.htm",
-     "d": "2026-10-30"
-    },
-    {
-     "t": "A uma semana do Copom, Opções da B3 indicam 63,1% de chance de manutenção da Selic",
-     "u": "https://www.b3.com.br/pt_br/noticias/opcoes-8AA8D0CDA188B88A01A188D561DB4E15.htm",
-     "d": "2026-10-29"
     }
    ]
   },
@@ -248,8 +248,13 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-12T10:03+00:00",
+   "coletado_em": "2026-11-13T06:59+00:00",
    "itens": [
+    {
+     "t": "SECRETARIA DO TESOURO NACIONAL",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/secretaria-do-tesouro-nacional-1",
+     "d": "2026-11-12T09:29-03:00"
+    },
     {
      "t": "PagTesouro movimenta quase R$ 6 bilhões em 2026 e amplia participação nos pagamentos à União",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/pagtesouro-movimenta-quase-r-6-bilhoes-em-2026-e-amplia-participacao-nos-pagamentos-a-uniao",
@@ -304,11 +309,6 @@
      "t": "Saldo de operações de crédito garantidas pela União atinge R$ 353,64 bilhões no 2º quadrimestre de 2026",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/saldo-de-operacoes-de-credito-garantidas-pela-uniao-atinge-r-353-64-bilhoes-no-2o-quadrimestre-de-2026",
      "d": "2026-09-30T11:16-03:00"
-    },
-    {
-     "t": "Investimentos no Tesouro Direto somam R$ 15,00 bilhões em agosto",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/investimentos-no-tesouro-direto-somam-r-15-00-bilhoes-em-agosto",
-     "d": "2026-09-25T10:00-03:00"
     }
    ]
   }

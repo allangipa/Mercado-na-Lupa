@@ -1,6 +1,6 @@
 {
  "_leia": "Gerado por _src/noticias.py. Só título, data e link; o texto fica na fonte.",
- "coletado_em": "2026-11-13T09:51+00:00",
+ "coletado_em": "2026-11-14T06:47+00:00",
  "fontes": {
   "agencia-brasil": {
    "nome": "Agência Brasil",
@@ -9,57 +9,57 @@
    "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
    "uso": "Reprodução autorizada a veículos jornalísticos com citação; uso comercial pede licença à EBC. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-13T09:51+00:00",
+   "coletado_em": "2026-11-14T06:47+00:00",
    "itens": [
+    {
+     "t": "Anac orienta passageiros a consultar aéreas sobre voos para os EUA",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/anac-orienta-passageiros-consultar-aereas-sobre-voos-para-os-eua",
+     "d": "2026-11-13T21:00-03:00"
+    },
+    {
+     "t": "Receita cancelará dívidas de MEIs vencidas até esta sexta-feira",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/receita-cancelara-dividas-de-meis-vencidas-ate-esta-sexta-feira",
+     "d": "2026-11-13T20:08-03:00"
+    },
+    {
+     "t": "Governo não renova subsídio de R$ 1,40 ao diesel importado",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-nao-renova-subsidio-de-r-140-ao-diesel-importado",
+     "d": "2026-11-13T19:54-03:00"
+    },
+    {
+     "t": "Tesouro prevê normalizar sistemas fora do ar até segunda-feira",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/tesouro-preve-normalizar-sistemas-fora-do-ar-ate-segunda-feira",
+     "d": "2026-11-13T19:27-03:00"
+    },
+    {
+     "t": "Dólar fecha estável a R$ 5,65, mas sobe 2,63% na semana",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-fecha-estavel-r-565-mas-sobe-263-na-semana",
+     "d": "2026-11-13T18:53-03:00"
+    },
+    {
+     "t": "Confiança da indústria atinge menor nível desde maio de 2020",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/confianca-da-industria-atinge-menor-nivel-desde-maio-de-2020",
+     "d": "2026-11-13T17:29-03:00"
+    },
+    {
+     "t": "Associações do agro rebatem BB sobre alta da inadimplência",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/associacoes-do-agro-rebatem-bb-sobre-alta-da-inadimplencia",
+     "d": "2026-11-13T15:25-03:00"
+    },
+    {
+     "t": "Ex-tesoureiro da Caixa é condenado por desviar quase R$ 890 mil",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ex-tesoureiro-da-caixa-e-condenado-por-desviar-quase-r-890-mil",
+     "d": "2026-11-13T11:02-03:00"
+    },
+    {
+     "t": "Vendas no comércio variam 0,2% em setembro; IBGE mostra estabilidade",
+     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vendas-no-comercio-variam-02-em-setembro-ibge-mostra-estabilidade",
+     "d": "2026-11-13T10:26-03:00"
+    },
     {
      "t": "Caixa Seguridade informa ataque cibernético e vazamento de dados",
      "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/caixa-seguridade-informa-ataque-cibernetico-e-vazamento-de-dados",
      "d": "2026-11-12T20:06-03:00"
-    },
-    {
-     "t": "Dólar dispara 1,58% e fecha a R$ 5,65, maior nível em 17 meses",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-dispara-158-e-fecha-r-565-maior-nivel-em-17-meses",
-     "d": "2026-11-12T19:35-03:00"
-    },
-    {
-     "t": "BB aponta recusa de parte dos produtores em renegociar dívidas do agro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bb-aponta-recusa-de-parte-dos-produtores-em-renegociar-dividas-do-agro",
-     "d": "2026-11-12T17:33-03:00"
-    },
-    {
-     "t": "Petrobras faz acordo para deter 100% da transportadora de etanol Logum",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-faz-acordo-para-deter-100-da-transportadora-de-etanol-logum",
-     "d": "2026-11-12T13:25-03:00"
-    },
-    {
-     "t": "Governo estuda novo modelo para concurso público unificado em 2027",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-estuda-novo-modelo-para-concurso-publico-unificado-em-2027",
-     "d": "2026-11-12T12:42-03:00"
-    },
-    {
-     "t": "Reúso de computadores pelo governo brasileiro gera economia de água",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/reuso-de-computadores-pelo-governo-brasileiro-gera-economia-de-agua",
-     "d": "2026-11-12T12:24-03:00"
-    },
-    {
-     "t": "Inflação perde força e fica em 0,14% em outubro; conta de luz cai",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/inflacao-perde-forca-e-fica-em-014-em-outubro-conta-de-luz-cai",
-     "d": "2026-11-12T10:18-03:00"
-    },
-    {
-     "t": "INPC, inflação que corrige salários, acumula 4,49% em 12 meses",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/inpc-inflacao-que-corrige-salarios-acumula-449-em-12-meses",
-     "d": "2026-11-12T10:11-03:00"
-    },
-    {
-     "t": "Lucro do BB cai 66,5% no 3º trimestre com inadimplência do agro",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/lucro-do-bb-cai-665-no-3o-trimestre-com-inadimplencia-do-agro",
-     "d": "2026-11-11T22:20-03:00"
-    },
-    {
-     "t": "BNDES recebe selo Diamante de transparência pública pela quarta vez",
-     "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bndes-recebe-selo-diamante-de-transparencia-publica-pela-quarta-vez",
-     "d": "2026-11-11T21:06-03:00"
     }
    ]
   },
@@ -70,7 +70,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/notasImprensa",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-13T09:51+00:00",
+   "coletado_em": "2026-11-14T06:47+00:00",
    "itens": [
     {
      "t": "Banco Central decreta Liquidação Extrajudicial da Cooperativa Administradora de Consórcios Roma",
@@ -131,7 +131,7 @@
    "url": "https://www.bcb.gov.br/api/feed/sitebcb/sitefeeds/comunicadoscopom",
    "uso": "Sem licença aberta declarada no site. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-13T09:51+00:00",
+   "coletado_em": "2026-11-14T06:47+00:00",
    "itens": [
     {
      "t": "BC - Copom Comunicado - 282ª Reunião - Copom mantém a taxa Selic em 13,75% a.a.",
@@ -192,11 +192,16 @@
    "url": "https://www.b3.com.br/pt_br/noticias/",
    "uso": "Conteúdo da B3 com direitos reservados. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-13T09:51+00:00",
+   "coletado_em": "2026-11-14T06:47+00:00",
    "itens": [
     {
      "t": "B3 ocupa liderança global em futuros e registra alta de 11% na receita",
      "u": "https://www.b3.com.br/pt_br/noticias/resultados-financeiros-8AE490C9A1C2A69F01A1D1DBB6DF04C5.htm",
+     "d": "2026-11-12"
+    },
+    {
+     "t": "Conasa vence leilão na B3 de concessão rodoviária com R$ 15,4 bi em investimentos no MT e PA",
+     "u": "https://www.b3.com.br/pt_br/noticias/conasa-vence-leilao-na-b3-de-concessao-rodoviaria-com-r-15-4-bilhoes-em-investimentos-em-rodovias-no-mato-grosso-e-no-para.htm",
      "d": "2026-11-12"
     },
     {
@@ -233,11 +238,6 @@
      "t": "Quem define o preço dos títulos que financiam o agro e o mercado imobiliário?",
      "u": "https://www.b3.com.br/pt_br/noticias/quem-define-o-preco-dos-titulos-que-financiam-o-agro-e-o-mercado-imobiliario.htm",
      "d": "2026-11-03"
-    },
-    {
-     "t": "Leilão da Aneel, realizado na B3, tem cinco vencedores e investimentos contratados de R$ 8,9 bilhões",
-     "u": "https://www.b3.com.br/pt_br/noticias/leilao-da-aneel-realizado-na-b3-tem-cinco-vencedores-e-investimentos-contratados-de-r-8-9-bilhoes.htm",
-     "d": "2026-10-30"
     }
    ]
   },
@@ -248,10 +248,25 @@
    "url": "https://www.gov.br/tesouronacional/++api++/pt-br/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=reverse&b_size=20&metadata_fields=effective",
    "uso": "Sem licença aberta conferida para o conteúdo. Aqui: só título e link.",
    "ok": true,
-   "coletado_em": "2026-11-13T09:51+00:00",
+   "coletado_em": "2026-11-14T06:47+00:00",
    "itens": [
     {
-     "t": "SECRETARIA DO TESOURO NACIONAL",
+     "t": "Tesouro Nacional, Banco do Brasil e Inclusi lançam programa para formar 3 mil agentes públicos em inclusão produtiva",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-banco-do-brasil-e-inclusi-lancam-programa-para-formar-3-mil-agentes-publicos-em-inclusao-produtiva",
+     "d": "2026-11-13T16:39-03:00"
+    },
+    {
+     "t": "Comunicado sobre sistemas do Tesouro Nacional",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/comunicado-sobre-sistemas-do-tesouro-nacional",
+     "d": "2026-11-13T16:11-03:00"
+    },
+    {
+     "t": "Tesouro comunica incidente de segurança no seu ambiente tecnológico",
+     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/nota-a-imprensa-2",
+     "d": "2026-11-13T09:41-03:00"
+    },
+    {
+     "t": "Indisponibilidade do serviço de API de leilões do Tesouro Nacional",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/secretaria-do-tesouro-nacional-1",
      "d": "2026-11-12T09:29-03:00"
     },
@@ -261,12 +276,12 @@
      "d": "2026-11-11T13:16-03:00"
     },
     {
-     "t": "Nota à Imprensa – Relatório de Alocação e Impacto 2026",
+     "t": "Brasil conclui alocação integral dos recursos de três emissões soberanas sustentáveis",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/nota-a-imprensa-relatorio-de-alocacao-e-impacto-2026",
      "d": "2026-11-10T10:31-03:00"
     },
     {
-     "t": "SECRETARIA DO TESOURO NACIONAL",
+     "t": "Indisponibilidade do serviço de API de leilões do Tesouro Nacional",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/secretaria-do-tesouro-nacional",
      "d": "2026-11-10T09:31-03:00"
     },
@@ -294,21 +309,6 @@
      "t": "Espírito Santo e Piauí apresentam os maiores crescimentos das receitas correntes no 4º bimestre de 2026",
      "u": "https://www.gov.br/tesouronacional/pt-br/noticias/espirito-santo-e-piaui-apresentam-os-maiores-crescimentos-das-receitas-correntes-no-4o-bimestre-de-2026",
      "d": "2026-10-26T16:05-03:00"
-    },
-    {
-     "t": "Tesouro honra em setembro R$ 244,01 milhões em dívidas garantidas pela União",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-honra-em-setembro-r-244-01-milhoes-em-dividas-garantidas-pela-uniao",
-     "d": "2026-10-15T11:00-03:00"
-    },
-    {
-     "t": "Segundo trimestre de 2026 registra necessidade líquida de financiamento do Governo Geral de 9,2% do PIB",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/segundo-trimestre-de-2026-registra-necessidade-liquida-de-financiamento-do-governo-geral-de-9-2-do-pib",
-     "d": "2026-10-01T10:09-03:00"
-    },
-    {
-     "t": "Saldo de operações de crédito garantidas pela União atinge R$ 353,64 bilhões no 2º quadrimestre de 2026",
-     "u": "https://www.gov.br/tesouronacional/pt-br/noticias/saldo-de-operacoes-de-credito-garantidas-pela-uniao-atinge-r-353-64-bilhoes-no-2o-quadrimestre-de-2026",
-     "d": "2026-09-30T11:16-03:00"
     }
    ]
   }
